@@ -1,11 +1,16 @@
+using System;
 using System.Text;
 using System.Xml;
+using System.Reflection;
+using System.Xml.Schema;
+using System.IO;
 
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.Common.ChangeControl;
 using OpenEhr.RM.Impl;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Support.Identification;
+using OpenEhr.Utilities;
 
 namespace OpenEhr.Serialisation
 {
@@ -17,8 +22,34 @@ namespace OpenEhr.Serialisation
         public const string XsdNamespace = "http://www.w3.org/2001/XMLSchema";
 
 
+        static Lazy<System.Xml.Serialization.XmlSerializer> xmlSchemaSerializer 
+            = new Lazy<System.Xml.Serialization.XmlSerializer>(() =>
+                new System.Xml.Serialization.XmlSerializer(typeof(XmlSchema)));
+
+        static System.Xml.Serialization.XmlSerializer XmlSchemaSerializer
+        {
+            get { return xmlSchemaSerializer.Value; }
+        }
+
         private static System.Xml.Schema.XmlSchema baseTypesSchema = null;
         private static object baseTypesSchemaLock = new object();
+
+        internal static XmlSchema GetOpenEhrSchema(string schemaId)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            //string[] names = assembly.GetManifestResourceNames();
+            string resourceName = "OpenEhr.Schema." + schemaId + ".xsd";
+            XmlSchema schema = null;
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                    throw new ArgumentException("schemaId", "Schema resource " + resourceName + " not found in manifest");
+
+                schema = (XmlSchema)XmlSchemaSerializer.Deserialize(new XmlTextReader(stream));
+            }
+
+            return schema;
+        }
 
         public static void LoadBaseTypesSchema(System.Xml.Schema.XmlSchemaSet xs)
         {
@@ -29,7 +60,7 @@ namespace OpenEhr.Serialisation
                     lock (baseTypesSchemaLock)
                     {
                         if (baseTypesSchema == null)
-                            baseTypesSchema = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
+                            baseTypesSchema = GetOpenEhrSchema("BaseTypes");
                     }
                 }
                 xs.Add(baseTypesSchema);
@@ -47,30 +78,16 @@ namespace OpenEhr.Serialisation
         {
             if (!xs.Contains(OpenEhrNamespace))
             {
-                //LoadBaseTypesSchema(xs);
                 if (structureSchema == null)
                 {
                     lock (structureSchemaLock)
                     {
                         if (structureSchema == null)
-                        //structureSchema = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Structure");
                         {
-                            System.Xml.Schema.XmlSchema tempSchema
-                                = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Structure");
-                            //System.Xml.Schema.XmlSchemaInclude schemaInclude;
+                            System.Xml.Schema.XmlSchema tempSchema = GetOpenEhrSchema("Structure");
                             tempSchema.Includes.RemoveAt(0);
 
-                            //schemaInclude = contentSchema.Includes[0] as System.Xml.Schema.XmlSchemaInclude;
-                            //schemaInclude.Schema = structureSchema;
-                            //schemaInclude.SchemaLocation = null;
-
-                            //contentSchema.Includes.RemoveAt(0);
-
-                            System.Xml.Schema.XmlSchema includeSchema
-                                = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
-                            //schemaInclude = structureSchema.Includes[0] as System.Xml.Schema.XmlSchemaInclude;
-                            //schemaInclude.Schema = baseTypesSchema;
-                            //schemaInclude.SchemaLocation = null;
+                            System.Xml.Schema.XmlSchema includeSchema = GetOpenEhrSchema("BaseTypes");
 
                             foreach (System.Xml.Schema.XmlSchemaObject item in includeSchema.Items)
                                 tempSchema.Items.Add(item);
@@ -87,36 +104,20 @@ namespace OpenEhr.Serialisation
         {
             if (!xs.Contains(OpenEhrNamespace))
             {
-                System.Xml.Schema.XmlSchema compositionSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Composition");
+                System.Xml.Schema.XmlSchema compositionSchema = GetOpenEhrSchema("Composition");
 
-                System.Xml.Schema.XmlSchema contentSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Content");
-                //System.Xml.Schema.XmlSchemaInclude schemaInclude; 
-                //    = compositionSchema.Includes[0] as System.Xml.Schema.XmlSchemaInclude;
-                //schemaInclude.Schema = contentSchema;
-                //schemaInclude.SchemaLocation = null;
+                System.Xml.Schema.XmlSchema contentSchema = GetOpenEhrSchema("Content");
                 compositionSchema.Includes.RemoveAt(0);
 
                 foreach (System.Xml.Schema.XmlSchemaObject item in contentSchema.Items)
                     compositionSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema structureSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Structure");
-                //schemaInclude = contentSchema.Includes[0] as System.Xml.Schema.XmlSchemaInclude;
-                //schemaInclude.Schema = structureSchema;
-                //schemaInclude.SchemaLocation = null;
-
-                //contentSchema.Includes.RemoveAt(0);
-                //compositionSchema.Includes.Add(schemaInclude);
+                System.Xml.Schema.XmlSchema structureSchema = GetOpenEhrSchema("Structure");
+ 
                 foreach (System.Xml.Schema.XmlSchemaObject item in structureSchema.Items)
                     compositionSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema baseTypesSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
-                //schemaInclude = structureSchema.Includes[0] as System.Xml.Schema.XmlSchemaInclude;
-                //schemaInclude.Schema = baseTypesSchema;
-                //schemaInclude.SchemaLocation = null;
+                System.Xml.Schema.XmlSchema baseTypesSchema = GetOpenEhrSchema("BaseTypes");
 
                 foreach (System.Xml.Schema.XmlSchemaObject item in baseTypesSchema.Items)
                     compositionSchema.Items.Add(item);
@@ -131,18 +132,15 @@ namespace OpenEhr.Serialisation
         {
            if (!xs.Contains(OpenEhrNamespace))
             {
-                System.Xml.Schema.XmlSchema ehrStatusSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("EhrStatus");
+                System.Xml.Schema.XmlSchema ehrStatusSchema = GetOpenEhrSchema("EhrStatus");
                 ehrStatusSchema.Includes.RemoveAt(0);
                 
-                System.Xml.Schema.XmlSchema structureSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Structure");
+                System.Xml.Schema.XmlSchema structureSchema = GetOpenEhrSchema("Structure");
               
                 foreach (System.Xml.Schema.XmlSchemaObject item in structureSchema.Items)
                     ehrStatusSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema baseTypesSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
+                System.Xml.Schema.XmlSchema baseTypesSchema = GetOpenEhrSchema("BaseTypes");
               
                 foreach (System.Xml.Schema.XmlSchemaObject item in baseTypesSchema.Items)
                     ehrStatusSchema.Items.Add(item);
@@ -157,7 +155,30 @@ namespace OpenEhr.Serialisation
         {
             if (!xs.Contains(OpenEhrNamespace))
             {
-                xs.Add(OpenEhr.V1.Its.Xml.XmlSerializer.VersionSchema);
+                XmlSchema versionSchema = GetOpenEhrSchema("Version");
+                versionSchema.Includes.RemoveAt(0);
+
+                XmlSchema schema = GetOpenEhrSchema("Composition");
+
+                foreach (XmlSchemaObject item in schema.Items)
+                    versionSchema.Items.Add(item);
+
+                XmlSchema contentSchema = GetOpenEhrSchema("Content");
+
+                foreach (XmlSchemaObject item in contentSchema.Items)
+                    versionSchema.Items.Add(item);
+
+                XmlSchema structureSchema = GetOpenEhrSchema("Structure");
+
+                foreach (XmlSchemaObject item in structureSchema.Items)
+                    versionSchema.Items.Add(item);
+
+                XmlSchema baseTypesSchema = GetOpenEhrSchema("BaseTypes");
+
+                foreach (XmlSchemaObject item in baseTypesSchema.Items)
+                    versionSchema.Items.Add(item);
+                
+                xs.Add(versionSchema);
             }
         }
 
@@ -165,32 +186,26 @@ namespace OpenEhr.Serialisation
         {
             if (!xs.Contains(OpenEhrNamespace))
             {
-                System.Xml.Schema.XmlSchema extractSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Extract");
+                System.Xml.Schema.XmlSchema extractSchema = GetOpenEhrSchema("Extract");
                 extractSchema.Includes.RemoveAt(0);
 
-                System.Xml.Schema.XmlSchema schema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Version");
+                System.Xml.Schema.XmlSchema schema = GetOpenEhrSchema("Version");
                 foreach (System.Xml.Schema.XmlSchemaObject item in schema.Items)
                     extractSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema compositionSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Composition");
+                System.Xml.Schema.XmlSchema compositionSchema = GetOpenEhrSchema("Composition");
                 foreach (System.Xml.Schema.XmlSchemaObject item in compositionSchema.Items)
                     extractSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema contentSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Content");
+                System.Xml.Schema.XmlSchema contentSchema = GetOpenEhrSchema("Content");
                 foreach (System.Xml.Schema.XmlSchemaObject item in contentSchema.Items)
                     extractSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema structureSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Structure");
+                System.Xml.Schema.XmlSchema structureSchema = GetOpenEhrSchema("Structure");
                 foreach (System.Xml.Schema.XmlSchemaObject item in structureSchema.Items)
                     extractSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema baseTypesSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
+                System.Xml.Schema.XmlSchema baseTypesSchema = GetOpenEhrSchema("BaseTypes");
                 foreach (System.Xml.Schema.XmlSchemaObject item in baseTypesSchema.Items)
                     extractSchema.Items.Add(item);
 

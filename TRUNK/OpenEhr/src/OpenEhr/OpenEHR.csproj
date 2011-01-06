@@ -89,10 +89,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\distrib\EnterpriseLibrary\signed\Microsoft.Practices.ObjectBuilder.dll</HintPath>
     </Reference>
-    <Reference Include="OpenEhr.V1.Its.Xml, Version=1.0.1.4, Culture=neutral, PublicKeyToken=833669349fce6364, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Assemblies\OpenEhr.V1.Its.Xml.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -457,6 +453,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CommonStrings.txt" />
+    <EmbeddedResource Include="Schema\Archetype.xsd" />
+    <EmbeddedResource Include="Schema\BaseTypes.xsd" />
+    <EmbeddedResource Include="Schema\Composition.xsd" />
+    <EmbeddedResource Include="Schema\Content.xsd" />
+    <EmbeddedResource Include="Schema\EhrStatus.xsd" />
+    <EmbeddedResource Include="Schema\Extract.xsd" />
+    <EmbeddedResource Include="Schema\OpenehrProfile.xsd" />
+    <EmbeddedResource Include="Schema\Resource.xsd" />
+    <EmbeddedResource Include="Schema\Structure.xsd" />
+    <EmbeddedResource Include="Schema\Template.xsd" />
+    <EmbeddedResource Include="Schema\Version.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

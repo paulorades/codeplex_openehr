@@ -30,27 +30,11 @@ namespace OpenEhr.Serialisation
 {
     class AmXmlSerializer: RmXmlSerializer
     {
-        //public AmXmlSerializer(XmlReader reader, Archetype.Archetype archetype):base()
-        //{
-        //    this.reader = reader;
-        //    this.archetype = archetype;
-        //}
-
-        //public AmXmlSerializer(XmlWriter writer, Archetype.Archetype archetype):base()
-        //{
-        //    this.archetype = archetype;
-        //    this.writer = writer;
-        //    this.openEhrPrefix = UseOpenEhrPrefix(writer);
-        //    this.xsiPrefix = UseXsiPrefix(writer);
-        //    this.xsdPrefix = UseXsdPrefix(writer);
-        //}
-
         private XmlReader reader;
         private XmlWriter writer;
 
         #region static members
-        //public const string OpenEhrNamespace = "http://schemas.openehr.org/v1";
-        //public const string XsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";
+
         public const string XsdNamespace = "http://www.w3.org/2001/XMLSchema";
 
         private static System.Xml.Schema.XmlSchema archetypeSchema = null;
@@ -59,11 +43,9 @@ namespace OpenEhr.Serialisation
         {
             if (!xs.Contains(OpenEhrNamespace))
             {
-                archetypeSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Archetype");
+                archetypeSchema = GetOpenEhrSchema("Archetype");
 
-                System.Xml.Schema.XmlSchema resourceSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Resource");
+                System.Xml.Schema.XmlSchema resourceSchema = GetOpenEhrSchema("Resource");
                 System.Xml.Schema.XmlSchemaInclude schemaInclude;
 
                 archetypeSchema.Includes.RemoveAt(0);
@@ -71,8 +53,7 @@ namespace OpenEhr.Serialisation
                 foreach (System.Xml.Schema.XmlSchemaObject item in resourceSchema.Items)
                     archetypeSchema.Items.Add(item);
 
-                System.Xml.Schema.XmlSchema baseTypesSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
+                System.Xml.Schema.XmlSchema baseTypesSchema = GetOpenEhrSchema("BaseTypes");
 
                 foreach (System.Xml.Schema.XmlSchemaObject item in baseTypesSchema.Items)
                     archetypeSchema.Items.Add(item);
@@ -83,29 +64,6 @@ namespace OpenEhr.Serialisation
             }
         }
 
-        //public static string UseXsdPrefix(System.Xml.XmlWriter writer)
-        //{
-        //    string xsdPrefix = writer.LookupPrefix(XsdNamespace);
-        //    if (xsdPrefix == null)
-        //    {
-        //        xsdPrefix = "xsd";
-        //        writer.WriteAttributeString("xmlns", xsdPrefix, null, XsdNamespace);
-        //    }
-
-        //    return xsdPrefix;
-        //}
-
-        //public static string UseXsiPrefix(System.Xml.XmlWriter writer)
-        //{
-        //    string xsiPrefix = writer.LookupPrefix(XsiNamespace);
-        //    if (xsiPrefix == null)
-        //    {
-        //        xsiPrefix = "xsi";
-        //        writer.WriteAttributeString("xmlns", xsiPrefix, null, XsiNamespace);
-        //    }
-
-        //    return xsiPrefix;
-        //}
         #endregion
 
         #region ReadXml

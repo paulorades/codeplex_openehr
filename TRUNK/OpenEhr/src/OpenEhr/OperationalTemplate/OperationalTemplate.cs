@@ -122,46 +122,35 @@ namespace OpenEhr.Futures.OperationalTemplate
 
         static void LoadOperationalTemplateSchemas(System.Xml.Schema.XmlSchemaSet xs)
         {
-            //System.Collections.ICollection schemas = xs.Schemas(XmlSerializer.OpenEhrNamespace);
             if (!xs.Contains(RmXmlSerializer.OpenEhrNamespace))
             {
-                System.Xml.Schema.XmlSchema baseTypesSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("BaseTypes");
-                //xs.Add(baseTypesSchema);
+                System.Xml.Schema.XmlSchema baseTypesSchema = RmXmlSerializer.GetOpenEhrSchema("BaseTypes");
 
-                System.Xml.Schema.XmlSchema resourceSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Resource");
+                System.Xml.Schema.XmlSchema resourceSchema = RmXmlSerializer.GetOpenEhrSchema("Resource");
                 resourceSchema.Includes.Clear();
                 System.Xml.Schema.XmlSchemaInclude include = new System.Xml.Schema.XmlSchemaInclude();
                 include.Schema = baseTypesSchema;
                 resourceSchema.Includes.Add(include);
-                //xs.Add(resourceSchema);
 
-                System.Xml.Schema.XmlSchema archetypeSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Archetype");
+                System.Xml.Schema.XmlSchema archetypeSchema = RmXmlSerializer.GetOpenEhrSchema("Archetype");
                 archetypeSchema.Includes.Clear();
                 include = new System.Xml.Schema.XmlSchemaInclude();
                 include.Schema = resourceSchema;
                 archetypeSchema.Includes.Add(include);
-                //xs.Add(archetypeSchema);
 
-                System.Xml.Schema.XmlSchema openEhrProfileSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("OpenehrProfile");
+                System.Xml.Schema.XmlSchema openEhrProfileSchema = RmXmlSerializer.GetOpenEhrSchema("OpenehrProfile");
                 openEhrProfileSchema.Includes.Clear();
                 include = new System.Xml.Schema.XmlSchemaInclude();
                 include.Schema = archetypeSchema;
                 openEhrProfileSchema.Includes.Add(include);
-                //xs.Add(openEhrProfileSchema);
 
-                System.Xml.Schema.XmlSchema templateSchema
-                    = OpenEhr.V1.Its.Xml.XmlSerializer.GetOpenEhrSchema("Template");
+                System.Xml.Schema.XmlSchema templateSchema = RmXmlSerializer.GetOpenEhrSchema("Template");
                 templateSchema.Includes.Clear();
                 include = new System.Xml.Schema.XmlSchemaInclude();
                 include.Schema = openEhrProfileSchema;
                 templateSchema.Includes.Add(include);
                 xs.Add(templateSchema);
 
-                //schemas = xs.Schemas(XmlSerializer.OpenEhrNamespace);
                 xs.Compile();
             }
         }
