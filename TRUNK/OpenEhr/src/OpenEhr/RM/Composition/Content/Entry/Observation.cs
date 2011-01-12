@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-//using EhrTypes = OpenEhr.V1.Its.Xml.RM;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Text;
@@ -8,7 +6,6 @@ using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.DataStructures.History;
 using OpenEhr.RM.Common.Generic;
 using OpenEhr.RM.Support.Identification;
-using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 

@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -9,7 +8,6 @@ using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.Common.Generic;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.RM.DataStructures.ItemStructure;
-using OpenEhr.DesignByContract;
 
 namespace OpenEhr.RM.Composition.Content.Entry
 {

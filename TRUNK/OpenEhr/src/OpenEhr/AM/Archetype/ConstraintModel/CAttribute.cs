@@ -3,7 +3,6 @@ using OpenEhr.DesignByContract;
 using OpenEhr.Resources;
 using OpenEhr.Validation;
 using System.Collections.Generic;
-using OpenEhr.Validation;
 
 namespace OpenEhr.AM.Archetype.ConstraintModel
 {

@@ -1,10 +1,8 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataStructures.ItemStructure.Representation;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Common.Archetyped.Impl;
-using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 

@@ -1,12 +1,9 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.Resources;
 using OpenEhr.Factories;
 using OpenEhr.Validation;
 using OpenEhr.RM.Impl;
-using OpenEhr.Validation;
 
 namespace OpenEhr.AM.Archetype.ConstraintModel
 {
