@@ -168,7 +168,6 @@
     <Compile Include="RM\Common\Archetyped\Impl\ReflectivePathable.cs" />
     <Compile Include="RM\Common\ChangeControl\Contribution.cs" />
     <Compile Include="RM\Common\ChangeControl\OriginalVersion.cs" />
-    <Compile Include="Common\ChangeControl\ItsXmlDecoratorVersion.cs" />
     <Compile Include="RM\Common\ChangeControl\VersionBase.cs" />
     <Compile Include="RM\Common\ChangeControl\VersionedObject.cs" />
     <Compile Include="RM\Common\Directory\VersionedFolder.cs" />
@@ -225,7 +224,6 @@
     <Compile Include="RM\DataTypes\Encapsulated\DvParsable.cs" />
     <Compile Include="RM\DataTypes\Quantity\DvAbsoluteQuantity.cs" />
     <Compile Include="RM\DataTypes\Quantity\DvCount.cs" />
-    <Compile Include="DataTypes\Quantity\DvCustomaryQuantity.cs" />
     <Compile Include="RM\DataTypes\Quantity\DvProportion.cs" />
     <Compile Include="RM\DataTypes\Quantity\DvQuantity.cs" />
     <Compile Include="RM\DataTypes\Quantity\DvQuantified.cs" />
@@ -238,7 +236,6 @@
     <Compile Include="RM\DataTypes\Quantity\DvOrdinal.cs" />
     <Compile Include="RM\DataTypes\Quantity\DvAmount.cs" />
     <Compile Include="RM\DataTypes\Quantity\DateTime\DvTemporal.cs" />
-    <Compile Include="DataTypes\Quantity\ProportionKind.cs" />
     <Compile Include="RM\DataTypes\Quantity\ReferenceRange.cs" />
     <Compile Include="RM\DataTypes\Text\CodePhrase.cs" />
     <Compile Include="RM\DataTypes\Text\DvCodedText.cs" />
@@ -265,7 +262,6 @@
     <Compile Include="RM\Ehr\EhrStatus.cs" />
     <Compile Include="RM\Ehr\VersionedEhrStatus.cs" />
     <Compile Include="RM\Ehr\VersionedComposition.cs" />
-    <Compile Include="Exceptions\NotDeletableItemException.cs" />
     <Compile Include="Paths\PathException.cs" />
     <Compile Include="Validation\ValidationException.cs" />
     <Compile Include="RM\Extract\Common\ExtractEntityContent.cs" />
@@ -327,7 +323,6 @@
     <Compile Include="RM\Support\Terminology\OpenEhrTerminologyIdentifiers.cs" />
     <Compile Include="RM\Support\Terminology\Impl\CodeSetAccess.cs" />
     <Compile Include="RM\Support\Terminology\Impl\CodeSetAccessProviderCustomFactory.cs" />
-    <Compile Include="Support\Terminology\Realisation\Configuration\ArchetypeEditorTerminologyAccessData.cs" />
     <Compile Include="RM\Support\Terminology\Impl\Configuration\CodeSetAccessData.cs" />
     <Compile Include="RM\Support\Terminology\Impl\Configuration\CodeSetAccessProviderData.cs" />
     <Compile Include="RM\Support\Terminology\Impl\Configuration\PropertyUnitsServiceData.cs" />
@@ -342,7 +337,6 @@
     <Compile Include="RM\Support\Terminology\Impl\ITerminologyServiceProvider.cs" />
     <Compile Include="RM\Support\Terminology\Impl\PropertyUnitsService.cs" />
     <Compile Include="RM\Support\Terminology\Impl\PropertyUnitsServiceCustomFactory.cs" />
-    <Compile Include="Support\Terminology\Realisation\ArchetypeEditorTerminologyAccess.cs" />
     <Compile Include="RM\Support\Terminology\Impl\TerminologyAccess.cs" />
     <Compile Include="RM\Support\Terminology\Impl\TerminologyAccessProviderCustomFactory.cs" />
     <Compile Include="RM\Support\Terminology\Impl\Data\ref_impl_java\CodesetData.cs" />
@@ -377,7 +371,6 @@
     <Compile Include="AssumedTypes\Iso8601Time.cs" />
     <Compile Include="AssumedTypes\Iso8601TimeZone.cs" />
     <Compile Include="AssumedTypes\List.cs" />
-    <Compile Include="Support\Assumed\LocatableBindingListView.cs" />
     <Compile Include="AssumedTypes\Impl\LocatableList.cs" />
     <Compile Include="AssumedTypes\Impl\NamedLocatableList.cs" />
     <Compile Include="AssumedTypes\TimeDefinitions.cs" />
