@@ -10,7 +10,7 @@
     <RootNamespace>OpenEhr</RootNamespace>
     <AssemblyName>OpenEHR</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>OceanEhr.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>OpenEhrNet.snk</AssemblyOriginatorKeyFile>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -403,7 +403,6 @@
   <ItemGroup>
     <None Include="Extract\XmlSerializableExtract.cd" />
     <None Include="Extract\Extract.cd" />
-    <None Include="OceanEhr.snk" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AmValidationStrings.resx">
@@ -449,6 +448,7 @@
     <None Include="Resources\AmValidationStrings.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OpenEhrNet.snk" />
     <None Include="Resources\CommonStrings.txt" />
     <EmbeddedResource Include="Schema\Archetype.xsd" />
     <EmbeddedResource Include="Schema\BaseTypes.xsd" />
