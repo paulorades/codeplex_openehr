@@ -1,8 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
-//using System.Xml.Serialization;
-
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.AM;
@@ -24,7 +20,6 @@ namespace OpenEhr.Futures.OperationalTemplate
         }
 
         //BJP: isControlled may be null
-        //bool isControlled;
         bool? isControlled = null;
         public bool? IsControlled
         {

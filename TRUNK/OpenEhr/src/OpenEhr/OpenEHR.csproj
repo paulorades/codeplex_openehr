@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0473EC35-A258-4D20-BDAB-C01A602D4587}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -154,8 +154,6 @@
     <Compile Include="AM\Archetype\DifferentialArchetype.cs" />
     <Compile Include="AM\Archetype\Ontology\ArchetypeOntology.cs" />
     <Compile Include="AM\Archetype\Ontology\ArchetypeTerm.cs" />
-    <Compile Include="AM\Archetype\Ontology\FlatArchetypeOntology.cs" />
-    <Compile Include="AM\Archetype\Ontology\DifferentialArchetypeOntology.cs" />
     <Compile Include="AM\Archetype\ValidityKind.cs" />
     <Compile Include="Factories\AmFactory.cs" />
     <Compile Include="Validation\ValidatingAgent.cs" />

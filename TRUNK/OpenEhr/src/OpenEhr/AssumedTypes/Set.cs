@@ -17,7 +17,6 @@ namespace OpenEhr.AssumedTypes
         /// <summary>
         /// Use Dictionary as the underly data type is to ensure uniqueness of the list.
         /// </summary>
-        //private System.Collections.Generic.Dictionary<T, T> innerDictionary;
 
         private System.Collections.Generic.List<T> innerList;
 
@@ -26,7 +25,6 @@ namespace OpenEhr.AssumedTypes
             this.innerList = new System.Collections.Generic.List<T>();
         }
 
-        //public Set(System.Collections.Generic.List<T> items)
         public Set (System.Collections.Generic.IEnumerable<T> items)
             : this()
         {
@@ -40,7 +38,6 @@ namespace OpenEhr.AssumedTypes
 
         public override bool Has(T item)
         {
-            //return this.innerDictionary.ContainsKey(item);
             return this.innerList.Contains(item);
 
         }
@@ -73,7 +70,6 @@ namespace OpenEhr.AssumedTypes
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-           // throw new Exception("The method or operation is not implemented.");
             return innerList.GetEnumerator();
         }
 

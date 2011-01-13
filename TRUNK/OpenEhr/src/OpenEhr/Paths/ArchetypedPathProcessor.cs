@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 using OpenEhr.DesignByContract;
@@ -23,7 +22,6 @@ namespace OpenEhr.Paths
 
         void BuildPathMap(Locatable locatable)
         {
-            //foreach (object value in locatable.AttributesDictionary.Values)
             foreach(object value in locatable.GetAllAttributeValues())
             {
                 ILocatableList locatableList 
@@ -36,6 +34,7 @@ namespace OpenEhr.Paths
                         {
                             string archetypedPath = rootLocatable.PathOfItem(locatableValue);
 
+                            // %HYYKA%
                             // CM: 16/04/09 in normal case, pathMap should not contain duplicated keys. 
                             // otherwise, the data instance is invalid. Since this is not for validation purpose, 
                             // when there are duplicated path in pathMap, not throw exception.
@@ -66,8 +65,6 @@ namespace OpenEhr.Paths
             }
         }
 
-        //static Regex anyArchetypeIdRegex = new Regex(@"^//\*\[\s*(?<qualified_rm_entity>\w+-\w+-\w+).(?<domain_concept>\w+(-\w+)*).(?<version_id>[vV]\d*)\s*\]$");
-        //static Regex anyArchetypeIdPatternRegex = new Regex(@"^//\*\[\s*{\s*/(?<archetypeId>[^/]*)/\s*}\s*\]$");
         static Regex anyArchetypeRegex = new Regex(@"^//\*\[\s*("
             + @"(?<qualified_rm_entity>\w+-\w+-\w+).(?<domain_concept>\w+(-\w+)*).(?<version_id>[vV]\d*)"
             + @"|{\s*/(?<archetypeId>[^/]*)/\s*}"
@@ -84,17 +81,6 @@ namespace OpenEhr.Paths
             List<object> matchList = new List<object>();
 
             string matchExpression = null;
-
-            //Match anyArchetypedMatch = anyArchetypeIdRegex.Match(path);
-            //if (anyArchetypedMatch.Success)
-            //    //matchExpression = anyArchetypedMatch.Result(@"\[\s*${archetypeId}[^\]]*\]$");
-            //    matchExpression = anyArchetypedMatch.Result(@"\[\s*${qualified_rm_entity}\.${domain_concept}\.${version_id}[^\]]*\]$");
-            //else
-            //{
-            //    Match anyMatchesArchetypedMatch = anyArchetypeIdPatternRegex.Match(path);
-            //    if (anyMatchesArchetypedMatch.Success)
-            //        matchExpression = anyMatchesArchetypedMatch.Result(@"\[\s*${archetypeId}[^\]]*\]$");
-            //}
 
             Match anyArchetypeMatch = anyArchetypeRegex.Match(path);
             if (anyArchetypeMatch.Success)

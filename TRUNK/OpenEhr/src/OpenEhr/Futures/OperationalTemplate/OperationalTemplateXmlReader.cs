@@ -30,18 +30,12 @@ namespace OpenEhr.Futures.OperationalTemplate
             reader.ReadStartElement();  //template
             reader.MoveToContent();
 
-            //reader.ReadStartElement("language");
             CodePhrase language = new CodePhrase();
             language.ReadXml(reader);
             template.Language = language;
 
             if (reader.LocalName == "is_controlled")
             {
-                //reader.ReadStartElement("is_controlled");
-                //reader.MoveToContent();
-                //template.IsControlled = reader.ReadContentAsBoolean();
-                //reader.MoveToContent();
-                //reader.ReadEndElement();
                 reader.ReadElementContentAsBoolean("is_controlled", RmXmlSerializer.OpenEhrNamespace);
                 reader.MoveToContent();
             }
@@ -67,20 +61,13 @@ namespace OpenEhr.Futures.OperationalTemplate
                 template.Uid = uid;
             }
 
-            //reader.ReadStartElement("template_id");
             TemplateId templateId = new TemplateId();
             templateId.ReadXml(reader);
             template.TemplateId = templateId;
 
-            //reader.ReadStartElement("concept");
-            //reader.MoveToContent();
-            //template.Concept = reader.ReadContentAsString();
             template.Concept = reader.ReadElementContentAsString("concept", RmXmlSerializer.OpenEhrNamespace);
             reader.MoveToContent();
-            //reader.ReadEndElement();
-            //reader.MoveToContent();
 
-            //reader.ReadStartElement("definition");
             CArchetypeRoot definition = new CArchetypeRoot();
             ReadCArchetypeRoot(reader, definition);
             template.Definition = definition;
@@ -99,7 +86,6 @@ namespace OpenEhr.Futures.OperationalTemplate
                 }
             }
 
-            //Check.Assert(reader.LocalName == "constraints", "Constraints is now compulsory attribute of an operational template (after definition) so expecting it.");
             if (reader.LocalName == "constraints")
             {
                 TConstraint constraints = new TConstraint();
@@ -201,7 +187,6 @@ namespace OpenEhr.Futures.OperationalTemplate
             // Read default_value
             if (reader.LocalName == "default_value")
             {
-                //string rmType = reader.GetAttribute("type", XsiNamespace);
                 string rmType = ReadXsiType(reader);
                 Check.Assert(!string.IsNullOrEmpty(rmType), "xsi:type should not be null or empty");
                 DataValue defaultValue = RmFactory.DataValue(rmType);
@@ -260,7 +245,6 @@ namespace OpenEhr.Futures.OperationalTemplate
         {
             ReadCComplexObject(reader, node);
 
-            //reader.ReadStartElement("archetype_id");
             ArchetypeId archetypeId = new ArchetypeId();
             archetypeId.ReadXml(reader);
             node.ArchetypeId = archetypeId;
@@ -380,7 +364,8 @@ namespace OpenEhr.Futures.OperationalTemplate
 
                     //Special attention being paid to media types due to erronous codes in archetypes produced by AE
 
-					// TODO: this must be reinstated when ConfigurationSource is able to be specified
+					// %HYYKA%
+                    // TODO: this must be reinstated when ConfigurationSource is able to be specified
                     //if (attri.RmAttributeName == "media_type")
                     //    ProcessMediaType(attri as CSingleAttribute);
 
@@ -407,8 +392,6 @@ namespace OpenEhr.Futures.OperationalTemplate
                 cComplexObject.Attributes = new OpenEhr.AssumedTypes.Set<CAttribute>(attrList);
             }
 
-           // DesignByContract.Check.Assert(reader.NodeType == System.Xml.XmlNodeType.EndElement,
-           //"Expected endElement of CComplextObject");
 
             if (reader.NodeType == System.Xml.XmlNodeType.EndElement)
             {
@@ -417,56 +400,12 @@ namespace OpenEhr.Futures.OperationalTemplate
                 reader.MoveToContent();
             }
 
-            //this.archetype.ConstraintRepository.Add(cComplexObject.Path, cComplexObject);
         }
 
 
         #region Mapping of openEHR media codes to IANA codeset codes Mulimedia
 
 		// TODO: this must be reinstated when ConfigurationSource is able to be specified
-        //static void ProcessMediaType(CSingleAttribute attribute)
-        //{
-        //    Check.Require(attribute != null, string.Format(AmValidationStrings.XMustNotBeNull, "attribute"));
-        //    Check.Require(attribute.RmAttributeName == "media_type", "attribute must be media_type."); //TODO internationalise
-
-        //    const string IANA = "IANA_media-types";
-
-        //    foreach(CObject child in attribute.Children)
-        //    {
-        //        CCodePhrase cCodePhrase = child as CCodePhrase;
-
-        //        if (cCodePhrase != null)
-        //        {
-        //            cCodePhrase.TerminologyId = new TerminologyId(IANA);
-  
-        //            ITerminologyAccess termAccess = TerminologyServiceFactory.CreateDefault().Terminology("openehr");
-        //            ICodeSetAccess codesetAccess = TerminologyServiceFactory.CreateDefault().CodeSet(IANA);
-
-        //            Check.Assert(termAccess != null);
-        //            Check.Assert(codesetAccess != null);
-
-        //            List<String> codeList = new List<string>();
-
-        //            if (cCodePhrase.CodeList != null)
-        //            {
-        //                foreach (string codeString in cCodePhrase.CodeList)
-        //                {
-        //                    if (codesetAccess.HasCode(new CodePhrase(codeString, IANA)))
-        //                        codeList.Add(codeString);
-        //                    else
-        //                    {
-        //                        string rubric = termAccess.RubricForCode(codeString, "en");
-        //                        if (!string.IsNullOrEmpty(rubric) && codesetAccess.HasCode(new CodePhrase(rubric, IANA)))
-        //                            codeList.Add(rubric);
-        //                    }
-
-        //                }
-        //                cCodePhrase.CodeList = codeList;
-        //            }
-        //        }
-        //    }
-        //}
-
 
         #endregion
 
@@ -531,8 +470,6 @@ namespace OpenEhr.Futures.OperationalTemplate
             reader.MoveToContent();
 
             ReadCAttribute(reader, cMultipleAttribute);
-
-            //string openEhrNamespace = XmlSerializer.OpenEhrNamespace;
 
             if (reader.LocalName != "cardinality")
                 throw new InvalidXmlException("cardinality" + reader.LocalName);

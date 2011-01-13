@@ -16,7 +16,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
     /// <summary>
     /// Constraint describing a ‘slot’ where another archetype can occur.
     /// </summary>
-    //[System.Xml.Serialization.XmlSchemaProvider("GetXmlSchema")]
     [Serializable]
     [AmType("ARCHETYPE_SLOT")]
     public class ArchetypeSlot: CReferenceObject//, System.Xml.Serialization.IXmlSerializable
@@ -76,19 +75,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
                 string.Format(AmValidationStrings.IsSubsetNotImplementedInX, "ArchetypeSlot"));
         }
 
-        //public override bool IsValid()
-        //{
-        //    if (this.Includes != null && this.Includes.IsEmpty())
-        //        return false;
-        //    if (this.Excludes != null && this.Excludes.IsEmpty())
-        //        return false;
-
-        //    if (this.AnyAllowed() && (this.Includes != null || this.Excludes != null))
-        //        return false;
-
-        //    return true;
-        //}
-
         private bool AnyAllowed()
         {
             return this.Includes == null && this.Excludes != null;
@@ -99,11 +85,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
             return null;
         }
       
-        //protected override string GetRmTypeName()
-        //{
-        //    return "ARCHETYPE_SLOT";
-        //}
-
         protected override string GetCurrentNodePath()
         {
             return null;

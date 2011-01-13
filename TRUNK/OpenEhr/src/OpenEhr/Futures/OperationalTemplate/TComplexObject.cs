@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Resources;

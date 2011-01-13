@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.DesignByContract;
 using OpenEhr.Resources;
@@ -63,8 +61,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Basic
             Check.Require(aValue != null, string.Format(CommonStrings.XMustNotBeNull, "aValue"));
 
             State aValueState = aValue as State;
-            //if (aValueState == null)
-                //return false;
 
             if (aValueState != null && this.Value.States.Has(aValueState))
                 return true;
@@ -88,11 +84,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Basic
 
             return true;
         }
-
-        //protected override string GetRmTypeName()
-        //{
-        //    throw new Exception("The method or operation is not implemented.");
-        //}
 
         #endregion
     }

@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.Resources;
 using OpenEhr.Attributes;
 using OpenEhr.Paths;

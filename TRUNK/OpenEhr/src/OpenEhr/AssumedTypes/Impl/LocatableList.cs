@@ -153,7 +153,6 @@ namespace OpenEhr.AssumedTypes.Impl
                 Check.Invariant(identifiedLocatables != null, "identifiedLocatables must not be null");
 
                 Check.Require(!String.IsNullOrEmpty(predicate), "predicate must not be null or empty");
-                //DesignByContract.Check.Require(IsValid(predicate), "predicate must be valid");
 
                 string[] parts = predicate.Split(',');
                 Check.Assert(parts.Length > 0, "parts must have at least 1 item");
@@ -168,10 +167,6 @@ namespace OpenEhr.AssumedTypes.Impl
 
                 List<T> namedLocatables = identifiedLocatables[nodeId];
 
-                // always return a list when non-unique path
-                //if (namedLocatables.Count == 1)
-                //    return namedLocatables[0];
-                //else
                     return namedLocatables;
             }
         }
@@ -207,9 +202,6 @@ namespace OpenEhr.AssumedTypes.Impl
             Check.Require(!string.IsNullOrEmpty(nodeId), "nodeId must not be null or empty.");
             Check.Require(!string.IsNullOrEmpty(codeString), "codeString must not be null or empty.");
             
-            //if (terminologyId == null)
-            //    terminologyId = "local";
-
             if (((ILocatableList)this).Contains(nodeId))
             {
                 List<T> namedLocatableList

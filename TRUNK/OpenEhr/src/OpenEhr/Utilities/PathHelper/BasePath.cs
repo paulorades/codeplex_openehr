@@ -73,6 +73,7 @@ namespace OpenEhr.Utilities.PathHelper
       //  ToString and explicit conversion to string
       //
       
+      // %HYYKA%
       /*public override string ToString() {
          // Here we put a Debug.Assert to be advised of call to ToString() generated automatically by the C# compiler when concatening path with '+'. 
          Debug.Assert(false,"A call to ToString() has been generated. please use the explicit conversion operator");
@@ -185,6 +186,7 @@ namespace OpenEhr.Utilities.PathHelper
       //
       protected static string GetPathRelative(DirectoryPathAbsolute pathFrom, BasePath pathTo) {
          Debug.Assert(pathTo.IsAbsolutePath);
+         // %HYYKA%
          /*if (pathTo.PathMode == PathMode.Relative) {
             throw new ArgumentException(@"Cannot input a relative path to GetPathRelativeTo().
 PathFrom = """ + pathFrom.Path + @"""
@@ -202,6 +204,7 @@ PathTo   = """ + pathTo.Path + @"""");
 
       protected static string GetAbsolutePathFrom(DirectoryPathAbsolute pathFrom, BasePath pathTo) {
          Debug.Assert(pathTo.IsRelativePath);
+         // %HYYKA%
          /*if (pathTo.PathMode == PathMode.Absolute) {
             throw new ArgumentException(@"Cannot call GetAbsolutePath() on a path already absolute.
 PathFrom = """ + pathFrom.Path + @"""

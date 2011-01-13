@@ -39,6 +39,7 @@ namespace OpenEhr.AssumedTypes
         // a captured name for a year|month|date duration
         private static string durationYMDCapturedName = "dymd";
 
+        // %HYYKA%
         //\b(?<p>P)(?<ydm>(?<YYYY>\d+Y)?(?<MM>\d+M)?(?<ww>\d+W)?(?<dd>\d+D)?)?(?<dt>T(?<hh>\d+H)?(?<mm>\d+M)?(?<ss>\d+S)?(?<ssss>\,\d+)?)?\b
         //^(?<p>P)(?<ydm>((?<YYYY>\d+)Y)?((?<MM>\d+)M)?((?<ww>\d+)W)?((?<dd>\d+)D)?)?(?<dt>T((?<hh>\d+)H)?((?<mm>\d+)M)?(((?<ss>\d+)S)?|((?<ss>\d+)(?<ssss>\,\d+)([S])?)))?$
         //^(?<p>P)(?<ydm>((?<YYYY>\d+)Y)?((?<MM>\d+)M)?((?<ww>\d+)W)?((?<dd>\d+)D)?)?(?<dt>T((?<hh>\d+)H)?((?<mm>\d+)M)?(((?<ss>\d+)S)|((?<ss>\d+)(?<ssss>\,\d+)([S])))?)?$
@@ -50,6 +51,7 @@ namespace OpenEhr.AssumedTypes
         //    + durationSSCapturedName + @">\d+)(?<" + durationFSecondsCapturedName + @">\,\d+)([S])?)))?$";
 
         //^(P)(((\d+)Y)?((\d+)M)?((\d+)W)?((\d+)D)?)?(T((\d+)H)?((\d+)M)?(((\d+)S)|((\d+)([.,]\d+)S))?)?$
+        
         private static string durationPattern = @"^(?<p>P)(?<" + durationYMDCapturedName + @">((?<"
             + durationYYCapturedName + @">\d+)Y)?((?<" + durationMMCapturedName + @">\d+)M)?((?<"
             + durationWWCapturedName + @">\d+)W)?((?<" + durationDDCapturedName + @">\d+)D)?)?(?<"
@@ -158,8 +160,6 @@ namespace OpenEhr.AssumedTypes
             if (string.IsNullOrEmpty(durationString))
                 return false;
 
-            //Regex rg = new Regex(durationPattern);
-            //Match thisMatch = rg.Match(durationString);
             Match thisMatch = Regex.Match(durationString, durationPattern, RegexOptions.Compiled | RegexOptions.Singleline);
 
             if (!thisMatch.Success)
@@ -299,7 +299,6 @@ namespace OpenEhr.AssumedTypes
                 string dWeekString = match.Groups[durationWWCapturedName].Value;
                 if (!string.IsNullOrEmpty(dWeekString))
                     this.weeks = int.Parse(dWeekString); //BJP 19/02/2009
-                    //this.months = int.Parse(dWeekString);
 
                 string dDayString = match.Groups[durationDDCapturedName].Value;
                 if (!string.IsNullOrEmpty(dDayString))
@@ -485,6 +484,7 @@ namespace OpenEhr.AssumedTypes
             if (this.weeks != null) totalDaysInDate += this.weeks.Value * daysInWeek;
             if (this.days != null) totalDaysInDate += this.days.Value;
 
+            // %HYYKA%
             // LMT changed again 05/05/2009 Add nullability to all units EHR-900
             //// CM changed 05/06/2007
             ////this.durationValueInSeconds = 
@@ -503,7 +503,6 @@ namespace OpenEhr.AssumedTypes
                 + (totalDaysInDate * hoursInDay * minutesInHour * secondsInMinute);
 
             Check.Ensure(this.durationValueInSeconds >= 0.0d, "Duration value should be greater than or equal to zero."); //Added by LMT 05/05/2009
-            //Check.Ensure(this.durationValueInSeconds > 0, "Duration value cannot be less than or equals to zero."); Commented by CM 15/04/2008 This assertion is not correct because it can be 0.
         }
 
         internal static Iso8601Duration Normalise(Iso8601Duration duration)

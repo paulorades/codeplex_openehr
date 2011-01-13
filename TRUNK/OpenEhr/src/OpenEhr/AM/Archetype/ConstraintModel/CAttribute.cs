@@ -107,8 +107,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
             {
                 string currentPath = "/" + this.rmAttributeName;
 
-                //if (!string.IsNullOrEmpty(item.NodeId))
-                //    currentPath += "[" + item.NodeId + "]";
                 currentPath += item.CurrentNodePath;
 
                 paths.Add(currentPath);

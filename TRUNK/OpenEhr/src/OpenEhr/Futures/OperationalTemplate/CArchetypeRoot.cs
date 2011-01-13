@@ -1,7 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
-
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Support.Identification;
@@ -35,13 +32,6 @@ namespace OpenEhr.Futures.OperationalTemplate
             get { return templateId; }
             set { templateId = value; }
         }
-
-        //List<DefaultValue> defaultValues;
-        //public List<DefaultValue> DefaultValues
-        //{
-        //    get { return defaultValues; }
-        //    set { defaultValues = value; }
-        //}
 
         AssumedTypes.Hash<AM.Archetype.Ontology.ArchetypeTerm, string> termDefinitions;
         public AssumedTypes.Hash<AM.Archetype.Ontology.ArchetypeTerm, string> TermDefinitions

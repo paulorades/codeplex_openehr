@@ -33,11 +33,6 @@ namespace OpenEhr.AssumedTypes
          * |(^(?<yyyy>\d{4})(-(?<MM>0[1-9]|1[0-2])(-(?<dd>0[1-9]|1[0-9]|2[0-9]|3[01]))?)?$)
          * */
 
-        //private const string datePattern = @"^(?<" + yearCaptureName + @">\d{4})(((?<"
-        //    + monthCaptureName + @">\d{2})?(?<" + dayCaptureName + @">\d{2})?)|((?<"
-        //    + monthExtendedCaptureName + @">-)(?<" + monthCaptureName + @">\d{2}))?((?<"
-        //    + dayExtendedCaptureName + @">-)(?<" + dayCaptureName + @">\d{2}))?)?$";
-        //(^(\d{4})((0[1-9]|1[0-2])((0[1-9]|1[0-9]|2[0-9]|3[01]))?)?$)|(^(\d{4})(-(0[1-9]|1[0-2])(-(0[1-9]|1[0-9]|2[0-9]|3[01]))?)?$)
         private const string datePattern = @"(^(?<" + yearCaptureName + @">\d{4})((?<"
             + monthCaptureName + @">0[1-9]|1[0-2])((?<"
             + dayCaptureName + @">0[1-9]|1[0-9]|2[0-9]|3[01]))?)?$)|(^(?<"
@@ -93,19 +88,14 @@ namespace OpenEhr.AssumedTypes
         /// <param name="dateString"></param>
         public Iso8601Date(string dateString)
         {
-            //if (ValidIso8601Date(dateString))
-            //{
             ParseDate(dateString);
             this.asString = dateString;
-            //}
-            //else
-            //    throw new InvalidOperationException("The date string ("
-            //        + dateString + ") is not a valid ISO8601 date.");
         }
         public Iso8601Date(System.DateTime dateTime)
         {
             Check.Require(dateTime != null, "the date time instance must not be null.");
 
+            // %HYYKA%
             // CM: 07/07/08 use DateTimeFormatInfo.InvariantInfo in order to generate string which is culture independent
             //string dateString = dateTime.ToString("yyyyMMdd");
             string dateString = dateTime.ToString("yyyyMMdd", System.Globalization.DateTimeFormatInfo.InvariantInfo);
@@ -115,7 +105,6 @@ namespace OpenEhr.AssumedTypes
 
         public Iso8601Date(int year, int month, int day)
         {
-            //Check.Require(ValidYear(year) && ValidMonth(month) && ValidDay(year, month, day));
             Check.Require(ValidYear(year), "Year must be a valid: " + year);
             Check.Require(month <= 0 || ValidMonth(month), "Invalid month: " + month);
             Check.Require(day <= 0 || ValidDay(year, month, day), "Invalid day: " + day);
@@ -135,8 +124,6 @@ namespace OpenEhr.AssumedTypes
         /// <returns></returns>
         public static bool ValidIso8601Date(string dateString)
         {
-            //Regex rg = new Regex(datePattern);
-            //Match thisMatch = rg.Match(dateString);
             Match thisMatch = Regex.Match(dateString, datePattern, RegexOptions.Compiled | RegexOptions.Singleline);
             if (!thisMatch.Success)
                 return false;
@@ -151,8 +138,6 @@ namespace OpenEhr.AssumedTypes
             int yearValue;
             if (!int.TryParse(yString, out yearValue))
                 return false;
-            //if (!ValidYear(yearValue))
-            //    return false;
 
             // get month value
             string mString = gCollection[monthCaptureName].Value;
@@ -161,14 +146,11 @@ namespace OpenEhr.AssumedTypes
             {
                 if (!int.TryParse(mString, out monthValue))
                     return false;
-                //if (!ValidMonth(monthValue))
-                //    return false;
             }
             // get day
             string dString = gCollection[dayCaptureName].Value;
             if (!string.IsNullOrEmpty(dString))
             {
-                //int dayValue = int.Parse(dString);
                 int dayValue;
                 if (!int.TryParse(dString, out dayValue))
                     return false;
@@ -192,8 +174,6 @@ namespace OpenEhr.AssumedTypes
             Check.Require(ValidIso8601Date(dateString),
                 "Date string (" + dateString + ") must be a valid ISO 8601 date.");
 
-            //Regex rg = new Regex(datePattern);
-            //Match thisMatch = rg.Match(dateString);
             Match thisMatch = Regex.Match(dateString, datePattern, RegexOptions.Compiled | RegexOptions.Singleline);
 
             GroupCollection gCollection = thisMatch.Groups;
@@ -218,7 +198,6 @@ namespace OpenEhr.AssumedTypes
             }
 
             // extended format
-            //string monthExtendedSign = gCollection[monthExtendedCaptureName].Value;
             if (dateString.IndexOf("-") >= 0)
                 this.isExtended = true;
             else
@@ -234,38 +213,9 @@ namespace OpenEhr.AssumedTypes
         public override string ToString()
         {
             return ToString(this.isExtended);
-            //string dateString = this.year.ToString();
-            //System.Text.StringBuilder sb = new System.Text.StringBuilder(dateString);
-
-            //if (!MonthUnknown)
-            //{
-            //    if (isExtended)
-            //        sb.Append("-");
-            //    sb.Append(string.Format("{0:00}", this.month));
-            //    if (!DayUnknown)
-            //    {
-            //        if (isExtended)
-            //            sb.Append("-");
-            //        sb.Append(string.Format("{0:00}", this.day));
-
-            //    }
-
-            //}
-            //Check.Ensure(ValidIso8601Date(sb.ToString()), "Date string ("
-            //    + sb.ToString() + ") is not a valid ISO 8601 date");
-
-            //return sb.ToString();
         }
         #endregion
-        //private string IntToString(int number)
-        //{
-        //    Check.Require(number >= 0);
 
-        //    if (number < 10 && number >= 0)
-        //        return "0" + number.ToString();
-        //    else
-        //        return number.ToString();
-        //}
 
         #region class properties
 
@@ -343,11 +293,6 @@ namespace OpenEhr.AssumedTypes
         #endregion
 
 
-        //public int Magnitude()
-        //{
-        //    Check.Require(this.year > 0, "The year value must be greater than zero.");
-        //    return (int)((this.year * nominalDatysInYear));
-        //}
 
         #region IComparable Members
         /// <summary>

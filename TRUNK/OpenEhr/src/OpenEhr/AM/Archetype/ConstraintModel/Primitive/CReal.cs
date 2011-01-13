@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AssumedTypes;
 using OpenEhr.Resources;
 using OpenEhr.Attributes;
@@ -99,14 +97,12 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
             DesignByContract.Check.Require(aValue != null, string.Format(CommonStrings.XMustNotBeNull, "aValue"));
             DesignByContract.Check.Require(this.List == null ^ this.Range == null, CommonStrings.CRealListAndRangeNotNull);
             
-            //float floatValue = (float)aValue;
             float floatValue = 0.0F;
 
             if (float.TryParse(aValue.ToString(), out floatValue))
             {
                 if (this.List != null && this.List.Count > 0)
                 {
-                    //return this.List.Has(floatValue);
                     if (!this.List.Has(floatValue))
                     {
                         return string.Format(AmValidationStrings.XNotInCRealList, floatValue);
@@ -115,7 +111,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
 
                 if (this.Range != null)
                 {
-                    //return this.Range.Has(floatValue);
                     if (!this.Range.Has(floatValue))
                     {
                         return string.Format(AmValidationStrings.RealXOutOfRange, floatValue);

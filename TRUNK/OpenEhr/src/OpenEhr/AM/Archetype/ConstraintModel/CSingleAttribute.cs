@@ -1,11 +1,7 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.Resources;
 using OpenEhr.Attributes;
-//using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 
 namespace OpenEhr.AM.Archetype.ConstraintModel
 {
@@ -59,19 +55,9 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
 
             return base.IsValid();
         }
-
     
-        //protected override OpenEhr.Support.Assumed.Set<string> GetPhysicalPaths()
-        //{
-        //    throw new Exception("The method or operation is not implemented.");
-        //}
-
         #endregion
 
-        //protected override string GetRmTypeName()
-        //{
-        //    return "C_SINGLE_ATTRIBUTE";
-        //}
 
         #region Validation
 

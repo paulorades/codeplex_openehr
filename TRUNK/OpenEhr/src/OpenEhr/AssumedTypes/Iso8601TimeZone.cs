@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -24,6 +23,7 @@ namespace OpenEhr.AssumedTypes
         private const string utcTimeCapturedName = "utc";
         private const string gmtCapturedName = "gmt";
 
+        // %HYYKA%
         //\b(?<utc>Z)|(?<gmt>(?<tD>\+|\-)(?<zhh>\d{2})(?<zmm>\d{2}))\b
         //^(?<utc>Z)|(?<gmt>(?<tD>[+\-])(?<zhh>0[0-9]|1[0-2]):?(?<zmm>00|30)?)$
         //private static string timeZonePattern = @"\b(?<"
@@ -41,6 +41,7 @@ namespace OpenEhr.AssumedTypes
            + gmtCapturedName + @">(?<" + tZoneDirectionCapturedName + @">[+\-])(?<"
            + tZoneHHCapturedName + @">0[0-9]|1[0-3]):?(?<" + tZoneMinCapturedMame + @">00|30)?)";
 
+        // %HYYKA%
         //// CM: EHR-951 allow timezone to be upto 15 hours
         //internal const string timeZoneRegEx = @"(?<" + utcTimeCapturedName + @">Z)|(?<"
         //  + gmtCapturedName + @">(?<" + tZoneDirectionCapturedName + @">[+\-])(?<"
@@ -79,8 +80,6 @@ namespace OpenEhr.AssumedTypes
         /// <returns></returns>
         public static bool ValidIso8601TimeZone(string timeZoneString)
         {
-            //Regex rg = new Regex(timeZonePattern);
-            //Match thisMatch = rg.Match(timeZoneString);
             Match thisMatch = Regex.Match(timeZoneString, timeZonePattern, RegexOptions.Compiled | RegexOptions.Singleline);
 
             if (!thisMatch.Success)
@@ -92,8 +91,6 @@ namespace OpenEhr.AssumedTypes
 
         private void ParseTimeZone(string timeZoneString)
         {
-            //Check.Require(ValidIso8601TimeZone(timeZoneString), "The time zone string (" +
-            //    timeZoneString + " must be in ISO 8601 time zone format.");
 
             Match match = Regex.Match(timeZoneString, timeZonePattern, RegexOptions.Compiled | RegexOptions.Singleline);
             Check.Require(match.Success, "The time zone string (" +
@@ -217,7 +214,6 @@ namespace OpenEhr.AssumedTypes
 
                 return this.isGmt;
             }
-            //set { this.isGmt = value; }
         }
         #endregion
     }

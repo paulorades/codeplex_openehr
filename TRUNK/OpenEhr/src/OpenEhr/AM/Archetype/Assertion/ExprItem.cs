@@ -39,47 +39,6 @@ namespace OpenEhr.AM.Archetype.Assertion
         }
         #endregion
 
-        #region serialization/deserialization
-        //protected virtual void ReadXmlBase(System.Xml.XmlReader reader)
-        //{
-        //    DesignByContract.Check.Require(reader.LocalName == "type", 
-        //        "reader.LocalName must be 'type', but it's :" + reader.LocalName); //TODO internationalise
-
-        //    this.Type = reader.ReadElementContentAsString("type", XmlSerializer.OpenEhrNamespace);
-        //}
-
-        //protected virtual void WriteXmlBase(System.Xml.XmlWriter writer)
-        //{
-        //    DesignByContract.Check.Require(!string.IsNullOrEmpty(this.Type), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "Type"));
-
-        //    string openEhrNamespace = XmlSerializer.OpenEhrNamespace;
-        //    string prefix = XmlSerializer.UseOpenEhrPrefix(writer);
-
-        //    writer.WriteElementString(prefix, "type", openEhrNamespace, this.Type);
-        //}
-
-        //internal void ReadXml(System.Xml.XmlReader reader)
-        //{
-        //    Check.Require(!reader.IsEmptyElement, reader.LocalName + " element must not be empty."); //TODO internationalise
-
-        //    reader.ReadStartElement();
-        //    reader.MoveToContent();
-
-        //    this.ReadXmlBase(reader);
-
-        //    DesignByContract.Check.Assert(reader.NodeType == System.Xml.XmlNodeType.EndElement,
-        //        "Expected endElement after calling ReadXml");
-        //    reader.ReadEndElement();
-        //    reader.MoveToContent();
-
-        //}
-
-        //internal void WriteXml(System.Xml.XmlWriter writer)
-        //{
-        //    this.WriteXmlBase(writer);
-        //}
-        #endregion
-
         #region class functions
         /// <summary>
         /// An abstract function evaluating the obj against the ExprItem. 
@@ -117,15 +76,5 @@ namespace OpenEhr.AM.Archetype.Assertion
         }
         #endregion
 
-        //#region IRmType Members
-
-        //string IRmType.GetRmTypeName()
-        //{
-        //    return this.GetRmTypeName();
-        //}
-
-        //protected abstract string GetRmTypeName();
-
-        //#endregion
     }
 }

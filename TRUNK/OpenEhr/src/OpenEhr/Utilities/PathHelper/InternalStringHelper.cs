@@ -89,7 +89,8 @@ namespace OpenEhr.Utilities.PathHelper
                }
             } else if (dir == PARENT_DIR_DOUBLEDOT) {
                if (bNextDoubleDotParentDirIsInnerSpecial) {
-                  // This condition can't be reached because of next conditions
+                   // %HYYKA%
+                   // This condition can't be reached because of next conditions
                   /*if (dirStack.Count == 0) {
                      failureReason = @"The path {" + path + @"} references a non-existing parent dir \..\, it cannot be resolved";
                      return false;

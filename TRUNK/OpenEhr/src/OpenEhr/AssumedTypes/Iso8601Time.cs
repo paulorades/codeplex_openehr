@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -39,6 +38,7 @@ namespace OpenEhr.AssumedTypes
         private const string utcTimeCapturedName = "utc";
         private const string gmtCapturedName = "gmt";
 
+        // %HYYKA%
         //^(?<hh>\d{2})((((?<mm>(\d{2}))?(?<ss>\d{2})?))|((?<mmExtended>\:)(?<mm>\d{2})(?<ssExtended>\:)?(?<ss>\d{2})?))(?<sss>\,\d+)?((?<tZone>(?<utc>Z)|(?<gmt>(?<tD>\+|\-)(?<zhh>\d{2})(?<zmm>\d{2}))))?$
         //^(?<hh>\d{2})(?<mmExtended>\:)?(?<mm>(\d{2}))?(?<ssExtended>\:)?(?<ss>\d{2})?
         //(?<sss>\,\d+)?((?<tZone>(?<utc>Z)|(?<gmt>(?<tD>\+|\-)(?<zhh>\d{2})(?<zmm>\d{2}))))?$
@@ -67,12 +67,12 @@ namespace OpenEhr.AssumedTypes
             +minuteCaptureName+@">[0-5][0-9])((?<"
             +secondCaptureName+@">[0-5][0-9])(?<"
             +decimalCaptureName+@">[.,]\d+)?)?)?(?<"
-            //+iso8601TZoneCapturedName+@">(Z|[+\-](0[0-9]|1[0-3])(00|30)?))?$)|(^(?<"
             + iso8601TZoneCapturedName + @">(" + Iso8601TimeZone.timeZoneRegEx + @"))?$)|(^(?<"
             +hourCaptureName+@">([01][0-9])|(2[0-3]))(:(?<"
             +minuteCaptureName+@">[0-5][0-9])(:(?<"
             +secondCaptureName+@">[0-5][0-9])(?<"
             +decimalCaptureName+@">[.,]\d+)?)?)?(?<"
+            // %HYYKA%
             // CM: 07/11/08 EHR-731 The Auckland NZ timezone including daylight saving results in a timezone of GMT+13 
             //+iso8601TZoneCapturedName+@">(Z|[+\-](0[0-9]|1[0-2])(:(00|30))?))?$)";
              //+ iso8601TZoneCapturedName + @">(Z|[+\-](0[0-9]|1[0-3])(:(00|30))?))?$)";
@@ -85,15 +85,9 @@ namespace OpenEhr.AssumedTypes
         /// <param name="timeString"></param>
         public Iso8601Time(string timeString)
         {
-            //if (ValidIso8601Time(timeString))
-            //{
             ParseTime(timeString);
-            //this.asString = timeString;
-            //}
-            //else
-            //    throw new InvalidOperationException("This time string ("
-            //        + timeString + ") is not a valid ISO8601 time.");
         }
+
         public Iso8601Time(int hour, int minute, int second, double fractionalSecond, Iso8601TimeZone timeZone)
         {
             Check.Require(ValidHour(hour, minute, second) && ValidMinute(minute) && ValidSecond(second) &&
@@ -114,8 +108,6 @@ namespace OpenEhr.AssumedTypes
         /// <returns></returns>
         public static bool ValidIso8601Time(string timeString)
         {
-            //Regex rg = new System.Text.RegularExpressions.Regex(timePattern);
-            //Match thisMatch = rg.Match(timeString);
             Match thisMatch = Regex.Match(timeString, timePattern, RegexOptions.Compiled | RegexOptions.Singleline);
 
             if (!thisMatch.Success)
@@ -127,65 +119,6 @@ namespace OpenEhr.AssumedTypes
             string hString = gCollection[hourCaptureName].Value;
             if (string.IsNullOrEmpty(hString))
                 return false;
-
-            //int hourValue;
-            //if (!int.TryParse(hString, out hourValue))
-            //    return false;
-
-            //// minutes
-            //string mString = gCollection[minuteCaptureName].Value;
-            //if (string.IsNullOrEmpty(mString))
-            //{
-            //    if (!ValidHour(hourValue, 0, 0))
-            //        return false;
-            //}
-            //else // if minute is not unknown
-            //{
-            //    int minuteValue;
-            //    if (!int.TryParse(mString, out minuteValue))
-            //        return false;
-            //    if (!ValidMinute(minuteValue))
-            //        return false;
-
-            //    // second
-            //    string sString = gCollection[secondCaptureName].Value;
-            //    if (string.IsNullOrEmpty(sString))
-            //    {
-            //        if (!ValidHour(hourValue, minuteValue, 0))
-            //            return false;
-            //    }
-            //    else // if second is not unknown
-            //    {
-            //        int secondValue;
-            //        if (!int.TryParse(sString, out secondValue))
-            //            return false;
-            //        if (!ValidSecond(secondValue))
-            //            return false;
-            //        if (!ValidHour(hourValue, minuteValue, secondValue))
-            //            return false;
-
-            //        // fractional seconds
-            //        string fsString = gCollection[decimalCaptureName].Value;
-            //        if (!string.IsNullOrEmpty(fsString))
-            //        {
-            //            double fSecondValue;
-            //            if (!double.TryParse(fsString.Replace(',', '.'), out fSecondValue))
-            //                return false;
-            //            if (!ValidFractionalSecond(fSecondValue))
-            //                return false;
-            //        }
-
-            //    }
-
-            //}
-
-            //// validate time zone [Z|(+|-)hhmm]
-            //string tZoneStringValue = gCollection[iso8601TZoneCapturedName].Value;
-            //if (!string.IsNullOrEmpty(tZoneStringValue))
-            //{
-            //    if (!Iso8601TimeZone.ValidIso8601TimeZone(tZoneStringValue))
-            //        return false;
-            //}
 
             return true;
 
@@ -376,7 +309,6 @@ namespace OpenEhr.AssumedTypes
                 else
                     return false;
             }
-            //set { this.secondUnknown = value; }
         }
         public bool IsPartial
         {
@@ -387,7 +319,6 @@ namespace OpenEhr.AssumedTypes
                 else
                     return false;
             }
-            //set { this.isPartial = value; }
         }
         public bool IsExtended
         {
@@ -400,7 +331,6 @@ namespace OpenEhr.AssumedTypes
             {
                 return this.isDecimalComma;
             }
-            //set { this.isDecimalSignComma = value; }
         }
         #endregion
 
@@ -425,57 +355,6 @@ namespace OpenEhr.AssumedTypes
                 return -1;
             else
                 return 0;
-
-            //// compare hour
-            //if (this.hour < objTime.hour)
-            //    return -1;
-            //else if (this.hour == objTime.hour)
-            //{
-            //    // compare minute
-            //    if (this.MinuteUnknown && objTime.MinuteUnknown)
-            //        return 0;
-            //    else if ((!this.MinuteUnknown && objTime.MinuteUnknown) ||
-            //        (this.MinuteUnknown && !objTime.MinuteUnknown))
-            //        throw new FormatException
-            //            ("Unknown minute value cannot be compared with a minute value.");
-            //    if (this.minute > objTime.minute)
-            //        return 1;
-            //    else if (this.minute < objTime.minute)
-            //        return -1;
-
-            //    // compare second
-            //    if (this.SecondUnknown && objTime.SecondUnknown)
-            //        return 0;
-            //    else if ((this.SecondUnknown && !objTime.SecondUnknown) ||
-            //        (!this.SecondUnknown && objTime.SecondUnknown))
-            //        throw new FormatException
-            //            ("Unknow seconds value cannot be compared with a second value.");
-
-            //    if (this.second > objTime.second)
-            //        return 1;
-            //    else if (this.second < objTime.second)
-            //        return -1;
-
-            //    // compare fractional seconds
-            //    if (!this.HasFractionalSecond && !objTime.HasFractionalSecond)
-            //        return 0;
-            //    else if ((!this.HasFractionalSecond && objTime.HasFractionalSecond) ||
-            //        (!this.HasFractionalSecond && objTime.HasFractionalSecond))
-            //        throw new FormatException
-            //            ("Unknow fractional seconds value cannot be compared with a fractional seconds.");
-            //    if (this.fractionalSecond < objTime.fractionalSecond)
-            //        return -1;
-            //    else if (this.fractionalSecond > objTime.fractionalSecond)
-            //        return 1;
-            //    return 0;
-
-            //}
-            //else if (this.hour > objTime.hour)
-            //{
-            //    return 1;
-            //}
-            //else
-            //    throw new FormatException(); // one value maybe unknown.
         }
 
         internal double GetTimeSeconds()
@@ -493,18 +372,8 @@ namespace OpenEhr.AssumedTypes
             if (this.timezone != null)
             {
                 magnitude += this.timezone.GetTimeZoneSeconds();
-                //if (!this.timezone.IsGmt)
-                //{
-                //    int timezoneMinutes = this.timezone.Hour * TimeDefinitions.minutesInHour + timezone.Minute;
-                //    if (this.timezone.Sign == 1)
-                //        magnitude += timezoneMinutes * TimeDefinitions.secondsInMinute;
-
-                //    else if (timezone.Sign == -1)
-                //        magnitude -= timezoneMinutes * TimeDefinitions.secondsInMinute;
-                //}
             }
 
-            //Check.Ensure(magnitude >= 0);
             return magnitude;
         }
         #endregion

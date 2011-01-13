@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AssumedTypes;
 using OpenEhr.Resources;
 using OpenEhr.Attributes;
@@ -55,7 +53,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Quantity
             get { return units; }
             set
             {
-                //DesignByContract.Check.Require(!string.IsNullOrEmpty(value), "units value must not be null or empty.");
                 DesignByContract.Check.Require(value != null, string.Format(
                     CommonStrings.XMustNotBeNull, "Units value"));
                 units = value;

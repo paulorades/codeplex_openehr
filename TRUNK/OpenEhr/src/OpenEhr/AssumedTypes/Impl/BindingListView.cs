@@ -23,6 +23,8 @@ namespace OpenEhr.AssumedTypes.Impl
             for (int i = 0; i < this.Count; i++)
             {
                 T item = this[i];
+
+                // %HYYKA%
                 //// CM: 27/02/07
                 //if (key.GetType() == typeof(OpenEhrV1.DataTypes.Text.DvText))
                 //{

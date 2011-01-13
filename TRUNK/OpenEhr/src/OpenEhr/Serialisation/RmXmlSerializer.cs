@@ -37,7 +37,6 @@ namespace OpenEhr.Serialisation
         internal static XmlSchema GetOpenEhrSchema(string schemaId)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            //string[] names = assembly.GetManifestResourceNames();
             string resourceName = "OpenEhr.Schema." + schemaId + ".xsd";
             XmlSchema schema = null;
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
@@ -65,9 +64,6 @@ namespace OpenEhr.Serialisation
                 }
                 xs.Add(baseTypesSchema);
 
-                // HKF: Causes problems in template data objects components 
-                // using .NET 3 DataContractAttribute
-                //xs.Compile();
             }
         }
 
@@ -321,7 +317,6 @@ namespace OpenEhr.Serialisation
             Check.Require(writer != null, "writer type must not be null");
             Check.Require(version != null, "version type must not be null");
 
-            //OpenEhr.V1.Its.Xml.XmlSerializer.Serialize(xmlWriter, version.ToItsXmlVersion());
             writer.WriteStartElement("version", OpenEhrNamespace);
             version.WriteXml(writer);
             writer.WriteEndElement();
@@ -331,11 +326,6 @@ namespace OpenEhr.Serialisation
         static public Version<T> Deserialize<T>(XmlReader reader)
             where T : class
         {
-            //ORIGINAL_VERSION versionType
-            //    = OpenEhr.V1.Its.Xml.XmlSerializer.DeserializeVersion(reader) as ORIGINAL_VERSION;
-
-            //Check.Ensure(versionType != null, "version type must not be null");
-            //return new OriginalVersion<T>(versionType);
             OriginalVersion<T> version = new OriginalVersion<T>();
             version.ReadXml(reader);
             return version;

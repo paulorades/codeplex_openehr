@@ -75,7 +75,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
             get { return this.nodeId; }
             set
             {
-                //Check.Require(!string.IsNullOrEmpty(value), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "NodeId value"));
                 this.nodeId = value;
             }
         }
@@ -136,30 +135,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
 
         internal bool IsSameRmType(IRmType rmObject)
         {
-            // use the static function which is also used by TDO project
-            //Check.Require(rmObject != null, string.Format(CommonStrings.XMustNotBeNull, "rmObject"));
-
-            //string actualTypeName = rmObject.GetRmTypeName();
-
-            //if (this.rmTypename == actualTypeName)
-            //    return true;
-
-            //Type actualRmType = rmObject.GetType();
-
-            //while (actualRmType != null && actualRmType != typeof(OpenEhrV1.RmType))
-            //{
-            //    actualTypeName = OpenEhrFactory.GetRmTypeName(actualRmType);
-
-            //    if (actualTypeName == rmTypename)
-            //        return true;
-
-            //    if (actualTypeName != null)
-            //        actualRmType = actualRmType.BaseType;
-            //    else
-            //        actualRmType = null;
-            //}
-
-            //return false;
 
             return IsSameRmType(this.rmTypename, rmObject);
         }
@@ -191,59 +166,7 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
 
             return false;
         }
-        //internal bool IsSameRmType(string actualRmTypeName)
-        //{
-        //    return actualRmTypeName == this.rmTypename;
 
-        //    //if (this.rmTypename == actualRmTypeName)
-        //    //    return true;
-
-        //    //if (this.RmTypeName == "EVENT")
-        //    //{
-        //    //    if (actualRmTypeName == "POINT_EVENT" || actualRmTypeName == "INTERVAL_EVENT")
-        //    //        return true;
-        //    //    return false;
-        //    //}
-
-        //    //else if (this.RmTypeName == "DV_TEXT")
-        //    //{
-        //    //    if (actualRmTypeName == "DV_CODED_TEXT")
-        //    //        return true;
-        //    //    return false;
-        //    //}
-
-        //    //System.Diagnostics.Debug.Assert(false, "rmType: " + this.rmTypename + ", actural rmType: " + actualRmTypeName);
-
-        //    //return false;           
-
-        //    //Type actualRmType = null;
-        //    //if (!ValidRmTypeName(actualRmTypeName, ref actualRmType))
-        //    //    throw new ApplicationException("Cannot find the RM type for " + actualRmType);
-
-        //    //Type rmType = null;
-        //    //if (!ValidRmTypeName(this.RmTypeName, ref rmType))
-        //    //    throw new ApplicationException("Cannot find the RM type for " + this.RmTypeName);
-
-        //    //Type baseType = actualRmType.BaseType;
-
-        //    //while (baseType != null)
-        //    //{
-        //    //    if (baseType.Name == rmType.Name)
-        //    //        return true;
-        //    //    baseType = baseType.BaseType;
-        //    //}
-
-        //    //return false;
-        //}
-
-        //private bool ValidRmTypeName(string stringRmTypeName, ref Type rmType)
-        //{
-        //    DesignByContract.Check.Require(!string.IsNullOrEmpty(stringRmTypeName), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "stringRmTypeName"));
-
-        //    rmType = OpenEhrFactory.GetOpenEhrV1Type(stringRmTypeName);
-
-        //    return rmType != null;
-        //}
          #endregion
 
         #region Validation

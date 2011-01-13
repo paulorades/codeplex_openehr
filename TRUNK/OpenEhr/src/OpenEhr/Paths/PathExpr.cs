@@ -1,9 +1,6 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.AM.Archetype.Assertion;
-//using OpenEhr.RM.Common.Archetyped;
 using OpenEhr.RM.Common.Archetyped.Impl;
 
 namespace OpenEhr.Paths
@@ -25,7 +22,6 @@ namespace OpenEhr.Paths
         internal System.Collections.Generic.List<PathStep> PathSteps
         {
             get { return pathSteps; }
-           // set { pathSteps = value; }
         }
 
         private string path;
@@ -33,7 +29,6 @@ namespace OpenEhr.Paths
         internal string Path
         {
             get { return path; }
-           // set { path = value; }
         }
 
         #endregion
@@ -44,16 +39,10 @@ namespace OpenEhr.Paths
             if (this.pathSteps == null || this.pathSteps.Count == 0)
                 return contextObj;
 
-            //if (lastMethodRead != null)
-            //    lastMethodRead = null;
-            //if (lastObjectRead != null)
-            //    lastObjectRead = null;
-
             AssertionContext tempContext = contextObj;
             foreach (PathStep pathStep in this.pathSteps)
             {
                 string attributeName = pathStep.Attribute;
-                //string anyAttribute = pathStep.AnyAttribute;
 
                 if (attributeName !="//*" && attributeName!="/*")
                 {
@@ -165,8 +154,6 @@ namespace OpenEhr.Paths
         private AssertionContext ProcessPathPartWithWildcardForArId(AssertionContext contextObj, PathStep pathStep)
         {
             DesignByContract.Check.Require(pathStep.Attribute == "//*", "anyAttribute value must be //*.");
-            //DesignByContract.Check.Require(pathStep.ArchetypeNodeId.StartsWith("openEHR"),
-            //    "pathStep.ArchetypeNodeId must be archetypeId value.");
 
             Locatable locatable = contextObj.Data as Locatable;
             if (locatable != null)
@@ -213,125 +200,13 @@ namespace OpenEhr.Paths
             return null;
         }
 
-        //private AssertionContext ProcessPathPartWithWildcardForArId(AssertionContext contextObj, PathStep pathStep)
-        //{
-        //    DesignByContract.Check.Require(pathStep.Attribute =="//*", "anyAttribute value must be //*.");
-        //    DesignByContract.Check.Require(pathStep.ArchetypeNodeId.StartsWith("openEHR"), 
-        //        "pathStep.ArchetypeNodeId must be archetypeId value.");
 
-        //    Locatable locatable = contextObj.Data as Locatable;
-        //    if (locatable != null)
-        //    {
-
-        //        ArchetypedPathProcessor archetypePathProcessor = new ArchetypedPathProcessor(locatable);
-        //        string archetypePathWithWildcardKey = pathStep.Attribute + "[" + pathStep.ArchetypeNodeId + "]";
-        //        object obj = null;
-        //        if (!archetypePathProcessor.PathExists(archetypePathWithWildcardKey))
-        //            return null;
-
-        //        if (archetypePathProcessor.PathUnique(archetypePathWithWildcardKey))
-        //            obj = archetypePathProcessor.ItemAtPath(archetypePathWithWildcardKey);
-        //        else
-        //            obj = archetypePathProcessor.ItemsAtPath(archetypePathWithWildcardKey);
-
-        //        if (obj == null)
-        //            throw new ApplicationException("obj must not be null.");
-
-        //        return new AssertionContext(obj, contextObj);
-        //    }
-
-        //    Support.Assumed.IList ilist = contextObj.Data as Support.Assumed.IList;
-        //    if (ilist == null)
-        //        throw new ApplicationException("only support either locatable or ilist");
-        //    Support.Assumed.List<object> results = new OceanEhr.OpenEhrV1.Support.Assumed.List<object>();
-        //    foreach (Locatable locatableItem in ilist)
-        //    {
-        //        AssertionContext assertionContext = new AssertionContext(locatableItem, contextObj);
-        //        AssertionContext result = ProcessPathPartWithWildcardForArId(assertionContext, pathStep);
-        //        if (result != null && result.Data != null)
-        //            results.Add(result.Data);
-        //    }
-
-        //    if (results.Count > 0)
-        //        return new AssertionContext(results, contextObj);
-
-        //    return null;
-        //}
         #region GetAttributeObject visitor functions
 
-        //private System.Reflection.MethodInfo lastMethodRead = null;
-        //private object lastObjectRead = null;
-        //private object CallGetAttributeObject(string attributeName, object obj)
-        //{
-        //    DesignByContract.Check.Require(!string.IsNullOrEmpty(attributeName), "attributeName must not be null or empty.");
-        //    if (obj == null)
-        //        return null;
-
-        //    const string methodName = "GetAttributeObject";           
-
-        //    try
-        //    {
-        //        System.Reflection.MethodInfo method = this.GetType().GetMethod(methodName,
-        //            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance, System.Type.DefaultBinder,
-        //                       new Type[] {attributeName.GetType(), obj.GetType() },
-        //                       new System.Reflection.ParameterModifier[1]);
-
-        //        if (method != null)
-        //        {
-        //            // Avoid StackOverflow exceptions by executing only if the method and visitable  
-        //            // are different from the last parameters used.
-        //            if (method != lastMethodRead || obj != lastObjectRead)
-        //            {
-        //                lastMethodRead = method;
-        //                lastObjectRead = obj;
-
-        //                return method.Invoke(this, new Object[] { attributeName, obj }) as object;
-
-        //            }
-        //            else
-        //            {
-        //                string message = "The method '" + methodName + "' with parameter type '"
-        //                    + obj.GetType().ToString() + "' is looping and is terminated.";
-        //                System.Diagnostics.Debug.WriteLine(message);
-        //                throw new ApplicationException(message);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            attributeName = GetOpenEhrV1AttributeName(attributeName, obj);
-        //            System.ComponentModel.PropertyDescriptorCollection propertyDescriptorCollection =
-        //            System.ComponentModel.TypeDescriptor.GetProperties(obj);
-
-        //            System.ComponentModel.PropertyDescriptor property =
-        //                propertyDescriptorCollection.Find(attributeName, true);
-
-        //            if (property == null)
-        //                return null;
-
-        //            object attributeObj = property.GetValue(obj);
-
-        //            return attributeObj;
-        //        }
-        //    }
-        //    catch (System.Reflection.TargetInvocationException ex)
-        //    {
-        //        if (ex.InnerException != null)
-        //        {
-        //            Exception innerException = ex.InnerException.InnerException;
-        //            if (innerException != null)
-        //                throw new ApplicationException(ex.InnerException.Message, innerException);
-        //            else
-        //                throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
-        //        }
-        //        else
-        //            throw new ApplicationException(ex.Message, ex);
-        //    }
-        //}
         private object CallGetAttributeObject(string attributeName, object obj)
         {
             AttributeDictionaryPathable pathable = obj as AttributeDictionaryPathable;
             if (pathable != null)
-                //return GetAttributeObject(attributeName, pathable);
                 return pathable.GetAttributeValue(attributeName);
 
             AssumedTypes.IList assumedList = obj as AssumedTypes.IList;
@@ -372,14 +247,6 @@ namespace OpenEhr.Paths
 
             return attributeName.Replace("_", "");
         }
-
-        //private object GetAttributeObject(string attributeName, AttributeDictionaryPathable pathable)
-        //{
-        //    if (pathable.AttributesDictionary.ContainsKey(attributeName))
-        //        return pathable.AttributesDictionary[attributeName];
-
-        //    return null;
-        //}
 
         private object GetAttributeObject(string attributeName, System.Collections.IList list)
         {

@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AM;
 using System.Xml;
 using OpenEhr.DesignByContract;
@@ -22,9 +20,6 @@ namespace OpenEhr.Futures.OperationalTemplate
         {
             Check.Require(writer != null, string.Format(CommonStrings.XMustNotBeNull, "writer"));
             Check.Require(operationalTemplate != null, string.Format(CommonStrings.XMustNotBeNull, "operationalTemplate"));
-
-            //writer.WriteStartDocument();
-            //writer.WriteStartElement("template", OpenEhrNamespace);
 
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);
@@ -93,8 +88,6 @@ namespace OpenEhr.Futures.OperationalTemplate
                 writer.WriteEndElement();
             }
 
-            //writer.WriteEndElement(); //end template
-            //writer.WriteEndDocument();
         }
 
         // LMT added 12 May 2010 for TMP-1252

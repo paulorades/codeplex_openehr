@@ -38,16 +38,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Basic
 
         #endregion
 
-        //#region IRmType Members
-
-        //string IRmType.GetRmTypeName()
-        //{
-        //    return this.GetRmTypeName();
-        //}
-
-        //protected abstract string GetRmTypeName();        
-        //#endregion
-
         public override bool Equals(object obj)
         {
             if (obj == null)

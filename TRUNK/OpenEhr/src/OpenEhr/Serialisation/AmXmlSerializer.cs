@@ -69,7 +69,6 @@ namespace OpenEhr.Serialisation
         #region ReadXml
         private Archetype archetype;
 
-        //internal void ReadXml()
         public void ReadArchetype(XmlReader reader, Archetype archetype)
         {
             DesignByContract.Check.Require(reader != null, string.Format(CommonStrings.XMustNotBeNull, "reader"));
@@ -203,10 +202,6 @@ namespace OpenEhr.Serialisation
             catch (System.Reflection.TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -428,8 +423,6 @@ namespace OpenEhr.Serialisation
             reader.MoveToContent();
 
             this.ReadXmlBase((CAttribute)cMultipleAttribute);
-
-            //string openEhrNamespace = XmlSerializer.OpenEhrNamespace;
 
             if (reader.LocalName != "cardinality")
                 throw new InvalidXmlException("cardinality" + reader.LocalName);
@@ -832,10 +825,6 @@ namespace OpenEhr.Serialisation
             catch (System.Reflection.TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -1295,10 +1284,6 @@ namespace OpenEhr.Serialisation
             catch (System.Reflection.TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -1634,10 +1619,6 @@ namespace OpenEhr.Serialisation
             catch (System.Reflection.TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -1855,10 +1836,6 @@ namespace OpenEhr.Serialisation
             catch (System.Reflection.TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -1975,48 +1952,6 @@ namespace OpenEhr.Serialisation
         #endregion
 
         #region ReadXmlBase
-        //private void ReadXmlBase(AuthoredResource authoredResource)
-        //{
-        //    Check.Assert(reader.LocalName == "original_language", "Expected LocalName is 'original_language' rather than " + reader.LocalName);
-        //    authoredResource.OriginalLanguage = new OpenEhr.RM.DataTypes.Text.CodePhrase();
-        //    authoredResource.OriginalLanguage.ReadXml(reader);
-
-        //    if (reader.LocalName == "is_controlled")
-        //    {
-        //        authoredResource.IsControlled = reader.ReadElementContentAsBoolean("is_controlled", XmlSerializer.OpenEhrNamespace);
-
-        //    }
-        //    if (reader.LocalName == "description")
-        //    {
-        //        authoredResource.Description = new ResourceDescription();
-        //        authoredResource.Description.ReadXml(reader);
-        //    }
-
-        //    string translationsNodeName = "translations";
-        //    if (reader.LocalName == translationsNodeName)
-        //    {
-        //        System.Collections.Generic.Dictionary<string, TranslationDetails> translationDic = new Dictionary<string, TranslationDetails>();
-        //        do
-        //        {
-        //            string language = reader.GetAttribute("id");
-
-        //            TranslationDetails transDetails = new TranslationDetails();
-        //            transDetails.ReadXml(reader);
-
-        //            translationDic.Add(language, transDetails);
-        //        } while (reader.LocalName == translationsNodeName);
-
-        //        if (translationDic.Count > 0)
-        //            authoredResource.Translations = new OpenEhr.Support.Assumed.Hash<TranslationDetails, string>(translationDic);
-        //    }
-
-        //    if (reader.LocalName == "revision_history")
-        //    {
-        //        authoredResource.RevisionHistory = new OpenEhr.Common.Generic.RevisionHistory();
-        //        authoredResource.RevisionHistory.ReadXml(reader);
-        //    }
-
-        //} 
        
         public void ReadComplexObject(XmlReader reader, CComplexObject cObject)
         {
@@ -2116,8 +2051,6 @@ namespace OpenEhr.Serialisation
 
         #region WriteXml
 
-        //internal void WriteXml(Archetype.Archetype archetype)
-        //internal void WriteXml()
         public void WriteArchetype(XmlWriter writer, Archetype archetype)
         {
             DesignByContract.Check.Require(writer != null, string.Format(CommonStrings.XMustNotBeNull, "writer"));
@@ -2128,9 +2061,6 @@ namespace OpenEhr.Serialisation
 
             this.archetype = archetype;
             this.writer = writer;
-            //this.openEhrPrefix = UseOpenEhrPrefix(writer);
-            //this.xsiPrefix = UseXsiPrefix(writer);
-            //this.xsdPrefix = UseXsdPrefix(writer);
 
             ((AuthoredResource)archetype).WriteXml(writer);
            
@@ -2276,7 +2206,6 @@ namespace OpenEhr.Serialisation
                 {
                     writer.WriteStartElement(UseOpenEhrPrefix(writer), "attributes", OpenEhrNamespace);
 
-                    //string attributeType = ((IRmType)(attr)).GetRmTypeName();
                     string attributeType = AmType.GetName(attr);
                     if (!string.IsNullOrEmpty(UseOpenEhrPrefix(writer)))
                         attributeType = UseOpenEhrPrefix(writer) + ":" + attributeType;
@@ -2295,7 +2224,6 @@ namespace OpenEhr.Serialisation
             this.WriteXmlBase((CObject)cPrimitiveObj);
 
             writer.WriteStartElement(UseOpenEhrPrefix(writer), "item", OpenEhrNamespace);
-            //string itemType = ((IRmType)(cPrimitiveObj.Item)).GetRmTypeName();
             string itemType = AmType.GetName(cPrimitiveObj.Item);
             writer.WriteAttributeString(UseXsiPrefix(writer), "type", XsiNamespace, itemType);
             if (cPrimitiveObj.Item != null)
@@ -2393,7 +2321,6 @@ namespace OpenEhr.Serialisation
                 writer.WriteElementString(UseOpenEhrPrefix(writer), "string_expression", OpenEhrNamespace, assertion.StringExpression);
 
             writer.WriteStartElement(UseOpenEhrPrefix(writer), "expression", OpenEhrNamespace);
-            //string expressionType = ((IRmType)(assertion.Expression)).GetRmTypeName();
             string expressionType = AmType.GetName(assertion.Expression);
             writer.WriteAttributeString(UseXsiPrefix(writer), "type", XsiNamespace, expressionType);
             this.WriteXml(assertion.Expression);
@@ -2515,7 +2442,6 @@ namespace OpenEhr.Serialisation
             this.WriteXml((ExprOperator)exprUnaryOperator);
 
             writer.WriteStartElement(UseOpenEhrPrefix(writer), "operand", OpenEhrNamespace);
-            //string operandType = ((IRmType)(exprUnaryOperator.Operand)).GetRmTypeName();
             string operandType = AmType.GetName(exprUnaryOperator.Operand);
             writer.WriteAttributeString(UseXsiPrefix(writer), "type", XsiNamespace, operandType);
 
@@ -2532,14 +2458,12 @@ namespace OpenEhr.Serialisation
             this.WriteXmlBase((ExprOperator)exprBinaryOperator);
 
             writer.WriteStartElement(UseOpenEhrPrefix(writer), "left_operand", OpenEhrNamespace);
-            //string leftOperandType = ((IRmType)(exprBinaryOperator.LeftOperand)).GetRmTypeName();
             string leftOperandType = AmType.GetName(exprBinaryOperator.LeftOperand);
             writer.WriteAttributeString(UseXsiPrefix(writer), "type", XsiNamespace, leftOperandType);
             this.WriteXml(exprBinaryOperator.LeftOperand);
             writer.WriteEndElement();
 
             writer.WriteStartElement(UseOpenEhrPrefix(writer), "right_operand", OpenEhrNamespace);
-            //string rightOperandType = ((IRmType)(exprBinaryOperator.RightOperand)).GetRmTypeName();
             string rightOperandType = AmType.GetName(exprBinaryOperator.RightOperand);
             writer.WriteAttributeString(UseXsiPrefix(writer), "type", XsiNamespace, rightOperandType);
             this.WriteXml(exprBinaryOperator.RightOperand);
@@ -2643,7 +2567,6 @@ namespace OpenEhr.Serialisation
             Check.Require(!string.IsNullOrEmpty(archetypTerm.Code), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "archetypTerm.Code"));
             Check.Require(archetypTerm.Items != null && archetypTerm.Items.Count > 0, string.Format(CommonStrings.XMustNotBeNullOrEmpty, "archetypTerm.Items"));
 
-            //writer.WriteAttributeString(openEhrPrefix, "code", OpenEhrNamespace, archetypTerm.Code);
             writer.WriteAttributeString("code", archetypTerm.Code);
             foreach (string eachId in archetypTerm.Items.Keys)
             {
@@ -3133,6 +3056,7 @@ namespace OpenEhr.Serialisation
         private void WriteXml(CQuantityItem cQuantityItem)
         {
             Check.Require(cQuantityItem != null, string.Format(CommonStrings.XMustNotBeNull, "cQuantityItem"));
+            // %HYYKA%
             // Commented by LMT 05/Apr/2009 EHR-900 because assumption is invalid in case of certain archetypes (eg. EVALUATION.medication in EHR/test repository which doesn't specify any units in the C_QUANTITY_ITEM).
             //Check.Require(!string.IsNullOrEmpty(cQuantityItem.Units), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "cQuantityItem.Units"));
 
@@ -3250,7 +3174,6 @@ namespace OpenEhr.Serialisation
 
             foreach (State state in stateMachine.States)
             {
-                //string stateType = ((IRmType)state).GetRmTypeName();
                 string stateType = AmType.GetName(state);
                 writer.WriteStartElement(UseOpenEhrPrefix(writer), "states", OpenEhrNamespace);
                 writer.WriteAttributeString(UseXsiPrefix(writer), "type", XsiNamespace, stateType);
@@ -3274,7 +3197,6 @@ namespace OpenEhr.Serialisation
             if (transition.NextState != null)
             {
                 writer.WriteStartElement(openEhrPrefix, "next_state", OpenEhrNamespace);
-                //string stateType = ((IRmType)(transition.NextState)).GetRmTypeName();
                 string stateType = AmType.GetName(transition.NextState);
                 writer.WriteAttributeString(UseXsiPrefix(writer), "type", OpenEhrNamespace, stateType);
                 this.WriteXml(transition.NextState);
@@ -3312,51 +3234,11 @@ namespace OpenEhr.Serialisation
             writer.WriteElementString(UseOpenEhrPrefix(writer), "precedence_overridden", OpenEhrNamespace, exprOperator.PrecedenceOverriden.ToString().ToLower());
         }
 
-        //private void WriteXmlBase(AuthoredResource authoredResource)
-        //{
-        //    Check.Require(authoredResource != null, string.Format(CommonStrings.XMustNotBeNull, "authoredResource"));
-        //    Check.Require(authoredResource.OriginalLanguage != null, string.Format(CommonStrings.XMustNotBeNull, "authoredResource.OriginalLanguage"));
-            
-        //    writer.WriteStartElement(openEhrPrefix, "original_language", XmlSerializer.OpenEhrNamespace);
-        //    authoredResource.OriginalLanguage.WriteXml(writer);
-        //    writer.WriteEndElement();
-
-        //    writer.WriteStartElement(openEhrPrefix, "is_controlled", XmlSerializer.OpenEhrNamespace);
-        //    writer.WriteString(authoredResource.IsControlled.ToString());
-        //    writer.WriteEndElement();
-
-        //    if (authoredResource.Description != null)
-        //    {
-        //        writer.WriteStartElement(openEhrPrefix, "description", XmlSerializer.OpenEhrNamespace);
-        //        authoredResource.Description.WriteXml(writer);
-        //        writer.WriteEndElement();
-        //    }
-
-        //    if (authoredResource.Translations != null)
-        //    {
-        //        foreach (string language in authoredResource.Translations.Keys)
-        //        {
-        //            writer.WriteStartElement(openEhrPrefix, "translations", OpenEhrNamespace);
-        //            writer.WriteAttributeString("id", OpenEhrNamespace, language);
-        //            authoredResource.Translations.Item(language).WriteXml(writer);
-        //            writer.WriteEndElement();
-        //        }
-        //    }
-
-        //    if (authoredResource.RevisionHistory != null)
-        //    {
-        //        writer.WriteStartElement(openEhrPrefix, "revision_history",OpenEhrNamespace);
-        //        authoredResource.RevisionHistory.WriteXml(writer);
-        //        writer.WriteEndElement();
-        //    }
-        //}
-
         private void WriteXmlBase(CObject cObject)
         {
             Check.Require(cObject != null, string.Format(CommonStrings.XMustNotBeNull, "cObject"));
             Check.Require(!string.IsNullOrEmpty(cObject.RmTypeName), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "cObject.RmTypeName"));
             Check.Require(cObject.Occurrences != null, string.Format(CommonStrings.XMustNotBeNull, "cObject.Occurrences"));
-            //Check.Require(!string.IsNullOrEmpty(cObject.NodeId), string.Format(CommonStrings.XMustNotBeNullOrEmpty, "cObject.NodeId"));
 
             string openEhrPrefix = UseOpenEhrPrefix(writer);
             writer.WriteElementString(openEhrPrefix, "rm_type_name", OpenEhrNamespace, cObject.RmTypeName);
@@ -3383,7 +3265,6 @@ namespace OpenEhr.Serialisation
             {
                 foreach (CObject cObj in cAttribute.Children)
                 {
-                    //string cObjType = ((IRmType)cObj).GetRmTypeName();
                     string cObjType = AmType.GetName(cObj);
                     if (!string.IsNullOrEmpty(openEhrPrefix))
                         cObjType = openEhrPrefix + ":" + cObjType;
@@ -3391,7 +3272,6 @@ namespace OpenEhr.Serialisation
                     writer.WriteAttributeString(UseXsiPrefix(writer), "type", RmXmlSerializer.XsiNamespace, cObjType);
 
                     this.WriteXml(cObj);
-                    //cObj.WriteXml(writer);
                     writer.WriteEndElement();
                 }
             }

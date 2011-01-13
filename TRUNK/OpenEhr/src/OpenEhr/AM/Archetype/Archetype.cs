@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.RM.DataTypes.Text;
@@ -534,7 +532,6 @@ namespace OpenEhr.AM.Archetype
                 if (cObj.NodeId != pathProcessor.CurrentNodeId)
                     return null;
 
-                //pathProcessor.NextStep();
             } while (pathProcessor.NextStep());
 
             Check.Ensure(cObj.Path == targetPath, "cObj.Path must be the same as this.TargetPath");
@@ -595,16 +592,12 @@ namespace OpenEhr.AM.Archetype
 
         void System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader reader)
         {
-            //AmXmlSerializer serializer = new AmXmlSerializer(reader, this);
-            //serializer.ReadArchetype();
             AmXmlSerializer serializer = new AmXmlSerializer();
             serializer.ReadArchetype(reader, this);
         }
 
         void System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter writer)
         {
-            //AmXmlSerializer serializer = new AmXmlSerializer(writer, this);
-            //serializer.WriteXml();
             AmXmlSerializer serializer = new AmXmlSerializer();
             serializer.WriteArchetype(writer, this);
         }

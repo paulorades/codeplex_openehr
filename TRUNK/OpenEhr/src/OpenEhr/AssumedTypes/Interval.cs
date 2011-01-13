@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.Attributes;
 
 namespace OpenEhr.AssumedTypes
@@ -11,38 +9,31 @@ namespace OpenEhr.AssumedTypes
         T Lower
         {
             get;
-            //set;
         }
 
         T Upper
         {
             get;
-            //set;
         }
 
         bool LowerUnbounded
         {
             get;
-            // CM: 22 Jan 2007
-            //set;
         }
 
         bool UpperUnbounded
         {
             get;
-            //set;
         }
 
         bool LowerIncluded
         {
             get;
-            //set;
         }
 
         bool UpperIncluded
         {
             get;
-            //set;
         }
 
         bool Has(T e);
@@ -196,79 +187,7 @@ namespace OpenEhr.AssumedTypes
 
             return true;
         }
+
         #endregion
-
-        //abstract public class Interval<T>
-        //{
-        //    public T Lower
-        //    {
-        //        get
-        //        {
-        //            throw new System.NotImplementedException();
-        //        }
-        //        set
-        //        {
-        //        }
-        //    }
-
-        //    public T Upper
-        //    {
-        //        get
-        //        {
-        //            throw new System.NotImplementedException();
-        //        }
-        //        set
-        //        {
-        //        }
-        //    }
-
-        //    public bool LowerUnbounded
-        //    {
-        //        get
-        //        {
-        //            throw new System.NotImplementedException();
-        //        }
-        //        set
-        //        {
-        //        }
-        //    }
-
-        //    public bool UpperUnbounded
-        //    {
-        //        get
-        //        {
-        //            throw new System.NotImplementedException();
-        //        }
-        //        set
-        //        {
-        //        }
-        //    }
-
-        //    public bool LowerIncluded
-        //    {
-        //        get
-        //        {
-        //            throw new System.NotImplementedException();
-        //        }
-        //        set
-        //        {
-        //        }
-        //    }
-
-        //    public bool UpperIncluded
-        //    {
-        //        get
-        //        {
-        //            throw new System.NotImplementedException();
-        //        }
-        //        set
-        //        {
-        //        }
-        //    }
-
-        //    public bool Has(T e)
-        //    {
-        //        throw new System.NotImplementedException();
-        //    }
     }
 }

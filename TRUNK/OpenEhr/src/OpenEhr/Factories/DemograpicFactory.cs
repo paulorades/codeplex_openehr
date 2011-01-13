@@ -1,5 +1,4 @@
 ﻿using System;
-//using OpenEhr.AssumedTypes;
 using OpenEhr.AssumedTypes.Impl;
 using OpenEhr.RM.Common.Archetyped;
 

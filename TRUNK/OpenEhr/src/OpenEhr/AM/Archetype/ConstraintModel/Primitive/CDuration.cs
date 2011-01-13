@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AssumedTypes;
 using System.Text.RegularExpressions;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
@@ -352,7 +350,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
 
             if (this.Range != null)
             {
-                //return this.Range.Has(isoDuration);
                 if (!this.range.Has(isoDuration))
                 {
                     return string.Format(AmValidationStrings.DurationXOutOfRange, aValue);
@@ -362,7 +359,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
             if ( this.Range == null && this.Pattern == null)
                 throw new ValidationException(CommonStrings.CDurationPatternAndRangeNull);
 
-            //return IsMatchPattern(isoDuration);
             if (this.range != null)
             {
                 if(!IsMatchPattern(isoDuration))
@@ -420,35 +416,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
         {
             throw new NotImplementedException(
                 string.Format(AmValidationStrings.IsSubsetNotImplementedInX, "CDuration"));
-
-            //DesignByContract.Check.Require(other!= null, "other must not be null.");
-
-            //CDuration cDuration = other as CDuration;
-            //if(cDuration == null)
-            //    throw new ApplicationException("cDuration must not be null.");
-
-            //// if other has range, but this doesn't have range
-            //if(this.Range == null && cDuration.Range != null)
-            //    return false;
-
-            //if (this.Range != null && cDuration.Range != null)
-            //{                
-            //    if (this.Range.LowerUnbounded && !cDuration.Range.LowerUnbounded)
-            //        return false;
-
-            //    if (this.Range.UpperUnbounded && !cDuration.Range.UpperUnbounded)
-            //        return false;
-
-            //    if (!this.Range.LowerUnbounded && cDuration.Range)
-            //    {
-            //    }
-
-            //    // if this.Range is not within cDuration.Range, return false.
-            //    if (this.Range.Lower < cDuration.Range.Lower || this.Range.Upper > cDuration.Range.Upper)
-            //        return false;
-            //}
-
-
         }
         #endregion
     }

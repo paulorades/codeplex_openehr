@@ -20,7 +20,6 @@ namespace OpenEhr.Paths
         const string regexPatternInPath = @"(\{/(?<regex_pattern>.*)/\})";
         const string predicatePath = @"(?<predicate_path>((/|//)?([a-z_]+))+)";
         const string standardOperator = @"(?<predicate_path_operator>=|!=|>|<|>=|<=)";
-        //const string stringCriteria = "\\'(?<stringCriteria>[^'\"]*)\\'";
         const string stringCriteria = "\\'(?<stringCriteria>(\\s*\\w*[.,;:|&()'\"/\\\\\\*#+\\$?%-]*)+)\\'";
         const string intCriteria = @"(?<intCriteria>\d+)";
          const string doubleCriteria = @"(?<doubleCriteria>[0-9]+[0-9.]*)";
@@ -29,12 +28,9 @@ namespace OpenEhr.Paths
             "|" + doubleCriteria + ")";
         const string space = @"\s*";       
         const string matchesExp = @"(?<matchesExpr>((" + predicatePath + @"\s+matches\s+)?" + regexPatternInPath + "))";
-        //const string shortCutNameExpr = @"\'(?<shortCutName>.+)\'";
         const string shortCutNameExpr = @"(?<shortCutName>"+stringCriteria+")";
         const string nonStandardExpr = archetypeNodeId + "|" + position + "|" + shortCutNameExpr;
         const string boolOperator = @"(?<predicate_bool_operator>and|And|AND|OR|or|Or|not|Not|NOT|,)";
-       // const string boolOperator = @"(?<predicate_bool_operator>[aA]][nN][dD]|[oO][rR]|[nN][oO][tT]|,)";
-
 
         private static string pathPattern;
         private static string PathPattern
@@ -139,7 +135,6 @@ namespace OpenEhr.Paths
             set
             {
                 DesignByContract.Check.Require(!string.IsNullOrEmpty(value), "value must not be empty or null");
-                //DesignByContract.Check.Require(IsValidPath(value), "value is not valid path " + value);
 
                 this.path = value;
                 if (pathExprCache.ContainsKey(value))
@@ -275,28 +270,18 @@ namespace OpenEhr.Paths
 
         #region internal functions to generate full PathExpr tree
 
-        //static Dictionary<string, PathExpr> pathExprCache = new Dictionary<string, PathExpr>();
         static System.Collections.Hashtable pathExprCache = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
-        //static object pathExprCacheLock = new object();
 
         private static PathExpr ToPathExpr(string pathString)
         {
-            //if (pathExprCache.ContainsKey(pathString))
-            //    return pathExprCache[pathString] as PathExpr;
-
-            //Check.Require(IsValidPath(pathString), "value is not valid path " + pathString);
-
             MatchCollection matchCollection = Regex.Matches(pathString, PathPartPattern, RegexOptions.Compiled | RegexOptions.Singleline);
 
-            //List<PathStep> pathSteps = new List<PathStep>(matchCollection.Count);
             List<PathStep> pathSteps = new List<PathStep>();
             PathStep precedingStep = null;
             foreach (Match stepMatch in matchCollection)
             {
                 List<PredicateExpr> predicateExprs = null;
-                //string predicateExprString = stepMatch.Groups["predicate"].Value;
                 CaptureCollection predicateCaptures = stepMatch.Groups["predicate"].Captures;
-                //if (!string.IsNullOrEmpty(predicateExprString))
                 foreach (Capture capture in predicateCaptures)
                 {
                     if (predicateExprs == null)
@@ -314,25 +299,9 @@ namespace OpenEhr.Paths
             }
 
             PathExpr pathExpr = new PathExpr(pathString, pathSteps);
-            //pathExprCache.Add(pathString, pathExpr);
 
             return pathExpr;
         }
-
-        //internal static ExprOperator ToExprOperator(string predicateExpr)
-        //{
-        //    DesignByContract.Check.Require(!string.IsNullOrEmpty(predicateExpr), "predicateExpr must not be null or empty.");
-
-        //    predicateExpr = "[" + predicateExpr + "]";
-
-        //    Match match = System.Text.RegularExpressions.Regex.Match(predicateExpr, predicatePattern);
-        //    string boolExprString = match.Groups["booleanExpr"].Value;
-            
-        //    if (!string.IsNullOrEmpty(boolExprString))           
-        //        return ProcessBoolExpr(match);
-           
-        //    return ProcessSimpleExpr(match);
-        //}
 
         internal static ExprOperator ToExprOperator(string predicateExpr)
         {
@@ -388,14 +357,12 @@ namespace OpenEhr.Paths
         {
             string simpleExprString = match.Groups["genericExpr"].Value;
 
-            // return ExprBinaryOperator
             if (string.IsNullOrEmpty(simpleExprString))
                 throw new ApplicationException("simpleExprString must not be null or empty.");
 
             string standardExpr = match.Groups["predicate_expre"].Value;
             if (!string.IsNullOrEmpty(standardExpr))
             {
-                //return ProcessStandardPredicateExpr(match);
                 string fullPath = match.Groups["fullPath"].Value;
                 if (!string.IsNullOrEmpty(fullPath))
                     return ProcessPredicateWithFullPath(match);
@@ -425,19 +392,11 @@ namespace OpenEhr.Paths
                         }
                         else
                         {
-                            //string fullPath = match.Groups["fullPath"].Value;
-                            //if (!string.IsNullOrEmpty(fullPath))
-                            //{
-                            //    return ProcessPredicateWithFullPath(match);
-                            //}
-                            //else
-                            //{
                             string matches = match.Groups["matchesExpr"].Value;
                             if (!string.IsNullOrEmpty(matches))
                             {
                                 return ProcessMatchesExpr(match);
                             }
-                            //}
                         }
                     }
                 }
@@ -458,8 +417,6 @@ namespace OpenEhr.Paths
             ExprLeaf lefOperand = new ExprLeaf(path, "String", "Path");
             string standardExprOperator = match.Groups["predicate_path_operator"].Value;
             OperatorKind operatorKind = new OperatorKind(OperatorKind.GetOperatorKind(standardExprOperator));
-
-            //string predicateCriteria = match.Groups["predicate_criteria"].Value;
 
             // default value
             object criteriaValue = null;
@@ -729,13 +686,13 @@ namespace OpenEhr.Paths
         {
             get
             {
-                //return stepMatch.Groups["predicate_expre"].Captures.Count == 2;
                 return !string.IsNullOrEmpty(stepMatch.Groups["predicate_bool_operator"].Value);
             }
         }
 
         public bool HasNameValue
         {
+            // %HYYKA%
             //get { return !string.IsNullOrEmpty(stepMatch.Groups["node_name"].Value); }
             // CM: 25/03/09
             //get { return !string.IsNullOrEmpty(stepMatch.Groups["name_value"].Value); }
@@ -747,6 +704,7 @@ namespace OpenEhr.Paths
 
         public bool HasNameCode
         {
+            // %HYYKA%
             // CM: 25/03/09
             //get { return !string.IsNullOrEmpty(stepMatch.Groups["name_code"].Value); }
             get
@@ -765,7 +723,6 @@ namespace OpenEhr.Paths
 
         public string Attribute
         {
-            //get { return stepMatch.Groups["attribute"].Value; }
             get { return stepMatch.Groups["pathPartAttribute"].Value; }
         }     
 
@@ -781,7 +738,6 @@ namespace OpenEhr.Paths
 
         public string NodePattern
         {
-            //get { return stepMatch.Groups["node_pattern"].Value; }
             get { return stepMatch.Groups["regex_pattern"].Value; }
         }
 
@@ -792,7 +748,6 @@ namespace OpenEhr.Paths
 
         public bool HasNodeIdPattern
         {
-            //get { return !string.IsNullOrEmpty(stepMatch.Groups["node_pattern"].Value); }
             get { return !string.IsNullOrEmpty(this.NodePattern); }
         }
 
@@ -805,9 +760,9 @@ namespace OpenEhr.Paths
         string nameValue;
         public string NameValue
         {
-            //get { return stepMatch.Groups["node_name"].Value; }
             get
             {
+                // %HYYKA%
                 //// CM: 25/03/09
                 //// the path regex pattern has been changed to a generic pattern. Predicate contains archetype id/archetype node Id,
                 //// predicate path, and a predicate criteria. When the predicate path is name/value or predicate path
@@ -948,7 +903,6 @@ namespace OpenEhr.Paths
         {
             get
             {
-                //return stepMatch.Groups["predicate_path"].Value;
                 string predicatePath = stepMatch.Groups["fullPath"].Value;
                 if (!string.IsNullOrEmpty(predicatePath) &&!predicatePath.StartsWith("/"))
                     return "/" + predicatePath;
@@ -986,10 +940,6 @@ namespace OpenEhr.Paths
         public string PredicateBoolOperator
         {
             get {
-                //DesignByContract.Check.Require(stepMatch.Groups["predicate_bool_operator"].Captures.Count == 0 ||
-                //   stepMatch.Groups["predicate_bool_operator"].Captures.Count  <=2,
-                //    "More than two boolean operators in a predicate is not supported.");              
-
                 string boolOperator= stepMatch.Groups["predicate_bool_operator"].Value;
                 if (boolOperator == ",")
                     boolOperator = defaultPredicateBoolOperator;
@@ -1039,6 +989,7 @@ namespace OpenEhr.Paths
         {
             get
             {
+                // %HYYKA%
                 // CM: 25/03/09
                 // the path regex pattern has been changed to a generic pattern. Predicate contains archetype id/archetype node Id,
                 // predicate path, and a predicate criteria. When the predicate path is name/defining_code/code_string, 
@@ -1089,37 +1040,5 @@ namespace OpenEhr.Paths
                 return !string.IsNullOrEmpty(this.BoolPredicateExpr);
             }
         }    
-
-        //public bool Matches(Pathable pathable)
-        //{
-        //    DesignByContract.Check.Require(pathable != null, "pathable must not be null.");
-
-        //    if (this.IsIdentified)
-        //    {
-        //        Locatable locatable = pathable as Locatable;
-        //        if (locatable == null)
-        //            // when this object is a pathable, but not a locatable
-        //            return false;
-
-
-        //        //if (this.ArchetypeNodeId != locatable.ArchetypeNodeId)
-        //        if (!this.HasNodeIdPattern && this.ArchetypeNodeId != locatable.ArchetypeNodeId)
-        //            return false;
-
-        //        else if (this.HasNodeIdPattern)
-        //        {
-        //            if (!Regex.Match(locatable.ArchetypeNodeId, this.NodePattern).Success)
-        //                return false;
-        //        }
-
-        //        //if (this.IsNamed && locatable.Name.Value != this.Name)
-        //        if (this.HasNameValue && locatable.Name.Value != this.NameValue)
-        //            return false;
-        //    }
-
-        //    return true;
-        //}
-
-     
     }
 }

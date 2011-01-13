@@ -72,7 +72,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
 
         protected override System.Collections.Generic.List<string> GetPhysicalPaths()
         {
-            //CComplexObject definition = GetRootObject();
             CComplexObject rootDefinition = AmFactory.GetRootDefinition(this);
 
             CObject cObjAtTargetPath = Archetype.GetCObjectAtTargetPath(rootDefinition, this.TargetPath);
@@ -83,75 +82,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
 
             return cObjAtTargetPath.PhysicalPaths;
         }
-
-        //private CObject GetCObjectAtTargetPath(CComplexObject definition)
-        //{
-        //   // CComplexObject definition = GetRootObject();
-
-        //    CComplexObject cObj = definition;
-        //    CAttribute attribute = null;
-
-        //    Path pathProcessor = new Path(this.TargetPath);
-
-        //    do
-        //    {
-        //        foreach (CAttribute cAttri in cObj.Attributes)
-        //        {
-        //            if (cAttri.RmAttributeName == pathProcessor.CurrentAttribute)
-        //            {
-        //                attribute = cAttri;
-        //                break;
-        //            }
-        //        }
-
-        //        DesignByContract.Check.Assert(attribute != null,
-        //          "attribute must not be null.");
-
-        //        if (attribute.RmAttributeName != pathProcessor.CurrentAttribute)
-        //            return null;
-
-        //        foreach (CObject obj in attribute.Children)
-        //        {
-        //            if (obj.NodeId == pathProcessor.CurrentNodeId)
-        //            {
-        //                cObj = obj as CComplexObject;
-        //                break;
-        //            }
-        //        }
-
-        //        DesignByContract.Check.Assert(cObj != null, "cObj must not be null.");
-
-        //        if (cObj.NodeId != pathProcessor.CurrentNodeId)
-        //            return null;
-
-        //        //pathProcessor.NextStep();
-        //    } while (pathProcessor.NextStep());
-
-        //    DesignByContract.Check.Ensure(cObj.Path == this.TargetPath, "cObj.Path must be the same as this.TargetPath");
-
-        //    return cObj;
-        //}
-
-        //private CComplexObject GetRootObject()
-        //{
-        //    DesignByContract.Check.Require(this.Parent != null string.Format(CommonStrings.XMustNotBeNull, "Parent"));
-
-        //    CComplexObject root = null;
-
-        //    CAttribute parent = this.Parent;
-        //    while (parent != null)
-        //    {
-        //        root = parent.parent;
-        //        parent = root.Parent;
-        //    }
-
-        //    return root;
-        //}
-       
-        //protected override string GetRmTypeName()
-        //{
-        //    return "ARCHETYPE_INTERNAL_REF";
-        //}
 
         protected override string GetPath()
         {
@@ -169,7 +99,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
             Path path = new Path(this.TargetPath);
             path.MoveLast();
 
-            //this.TargetPath.Substring(this.TargetPath.LastIndexOf('/')+1);
 
             if (path.CurrentAttribute != this.Parent.RmAttributeName)
                 throw new ApplicationException(

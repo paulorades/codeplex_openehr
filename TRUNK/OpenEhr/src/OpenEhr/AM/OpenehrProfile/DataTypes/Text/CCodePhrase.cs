@@ -1,5 +1,4 @@
 using System;
-//using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.AssumedTypes;
@@ -131,22 +130,10 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Text
 
             if (this.CodeList != null && !this.CodeList.Has(codePhrase.CodeString))
             {
-                //return false;
                 isValidValue = false;
                 this.ValidationContext.AcceptValidationError(this,
                         string.Format(AmValidationStrings.CodeStringXNotInList, codePhrase.CodeString));
             }
-            //else
-            //{
-            //    if (!ValidValueTermDef(codePhrase, this.Parent))
-            //    {
-            //        isValidValue = false;
-            //        if (acceptValidationError != null)
-            //            acceptValidationError(this,
-            //                new ValidationEventArgs(this,
-            //                string.Format("Value {0} does not match TermDefinition Text.", aValueDvOrdinal)));
-            //    }
-            //}
 
             return isValidValue;
         }

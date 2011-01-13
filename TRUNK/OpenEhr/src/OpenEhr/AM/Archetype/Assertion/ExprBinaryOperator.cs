@@ -67,14 +67,9 @@ namespace OpenEhr.AM.Archetype.Assertion
             }
         }
 
-        //protected override string GetRmTypeName()
-        //{
-        //    return "EXPR_BINARY_OPERATOR";
-        //}
         #endregion
 
         #region Class functions
-        //internal override object Evaluate(object obj)
         internal override OpenEhr.Paths.AssertionContext Evaluate(OpenEhr.Paths.AssertionContext contextObj)
         {
             DesignByContract.Check.Require(contextObj != null, string.Format(CommonStrings.XMustNotBeNull, "contextObj"));

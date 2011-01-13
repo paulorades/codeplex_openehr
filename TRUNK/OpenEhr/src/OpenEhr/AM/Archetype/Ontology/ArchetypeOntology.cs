@@ -39,12 +39,7 @@ namespace OpenEhr.AM.Archetype.Ontology
 
                 return this.terminologyesAvailable;
             }
-            //set
-            //{
-            //    Check.Require(value != null, "terminologyAvailable value must not be null.");
 
-            //    this.terminologyesAvailable = value;
-            //}
         }
 
         private bool specialisationDepthSet;
@@ -67,7 +62,6 @@ namespace OpenEhr.AM.Archetype.Ontology
             }
             set
             {
-                //if (value < 0)
                 //    throw new Exceptions.ValidationException("specialisationDepth value to be set must not less than zero.");
                 Check.Require(value >= 0, CommonStrings.SpecialisationDepthLessThanZero);
 
@@ -104,12 +98,7 @@ namespace OpenEhr.AM.Archetype.Ontology
                 Check.Ensure(this.termCodes!=null && !this.termCodes.IsEmpty());
                 return this.termCodes;
             }
-            //set
-            //{
-            //    Check.Require(value != null, "termCodes value must not be null.");
 
-            //    this.termCodes = value;
-            //}
         }
 
         private AssumedTypes.List<string> constraintCodes;
@@ -165,13 +154,7 @@ namespace OpenEhr.AM.Archetype.Ontology
                 }
                 return this.termAttributeNames;
             }
-            //set
-            //{
-            //    if (value != null)
-            //        throw new Exceptions.ValidationException("termAttributeNames value to be set must not be null.");
 
-            //    this.termAttributeNames = value;
-            //}
         }
 
         private Archetype parent;

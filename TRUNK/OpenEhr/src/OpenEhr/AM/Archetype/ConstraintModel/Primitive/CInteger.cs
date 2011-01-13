@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AssumedTypes;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.Resources;
@@ -104,13 +102,10 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
             if (aValue.GetType() == typeof(ProportionKind))
                 aValueStr = ((int)aValue).ToString();
 
-            //if (int.TryParse(aValue.ToString(), out intValue))
             if (int.TryParse(aValueStr, out intValue))
             {
-                //int intValue = (int)aValue;
                 if (this.List != null && this.List.Count > 0)
                 {
-                    //return this.List.Has(intValue);
                     if (!this.list.Has(intValue))
                     {
                         return string.Format(AmValidationStrings.XNotInCIntegerList, intValue);

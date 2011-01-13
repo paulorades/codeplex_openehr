@@ -148,10 +148,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Quantity
             return true;
         }
 
-        //protected override string GetRmTypeName()
-        //{
-        //    return "C_DV_ORDINAL";
-        //}
         #endregion
     }
 }

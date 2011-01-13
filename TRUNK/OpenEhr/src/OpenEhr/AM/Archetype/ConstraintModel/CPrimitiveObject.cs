@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.AM.Archetype.ConstraintModel.Primitive;
 using OpenEhr.Resources;
@@ -63,16 +61,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
 
             return this.Item.IsSubsetOf(otherPrimitive.Item);            
         }
-
-        //public override bool IsValid()
-        //{
-        //    if (this.Item == null)
-        //        return false;
-        //    if (this.Occurrences == null)
-        //        return false;
-
-        //    return true;
-        //}
 
         protected override System.Collections.Generic.List<string> GetPhysicalPaths()
         {

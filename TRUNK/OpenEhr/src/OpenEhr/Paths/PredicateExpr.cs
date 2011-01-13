@@ -38,7 +38,6 @@ namespace OpenEhr.Paths
                     AssertionContext evaluateResult = Evaluate(assertObj);
                     if (evaluateResult != null)
                     {
-                        //results.Add(evaluateResult.Data);
                         AssumedTypes.List<object> aList = evaluateResult.Data as AssumedTypes.List<object>;
                         if (aList == null)
                             results.Add(evaluateResult.Data);

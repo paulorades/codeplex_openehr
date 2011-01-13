@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.ComponentModel;
 using OpenEhr.RM.Common.Archetyped;
 using OpenEhr.DesignByContract;
@@ -39,19 +38,6 @@ namespace OpenEhr.AssumedTypes
                 Add(item);
         }
 
-        //public List(Pathable parent)
-        //    :base(parent)
-        //{
-        //    innerList = new BindingList<T>();
-        //}
-
-        //public List(Pathable parent, System.Collections.Generic.IEnumerable<T> items)
-        //    : this(parent)
-        //{
-        //    foreach (T item in items)
-        //        Add(item);
-        //}
-
         protected List(BindingList<T> innerList)
         {
             DesignByContract.Check.Require(innerList != null, "inerList must not be null");
@@ -63,16 +49,6 @@ namespace OpenEhr.AssumedTypes
         {
             get { return this.innerList; }
         }
-
-        //public override bool Contains(T item)
-        //{
-        //    return innerList.Contains(item);
-        //}
-
-        //bool IList.Contains(object item)
-        //{
-        //    return innerList.Contains(item as T);
-        //}
 
         public override int Count
         {

@@ -1,13 +1,10 @@
 using System;
-//using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.AssumedTypes;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Resources;
 using OpenEhr.Attributes;
-//using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 
 namespace OpenEhr.AM.OpenehrProfile.DataTypes.Quantity
 {
@@ -71,41 +68,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Quantity
                     AmValidationStrings.DefaultValueNotImplementedInX, "CDvQuantity"));
             }
         }
-        //protected override object GenerateDefaultValue()
-        //{
-        //    throw new NotImplementedException("GenerateDefaultValue is not implemented.");
-        //    //if (this.AssumedValue != null)
-        //    //    return this.AssumedValue;
-
-        //    //if (this.List != null)
-        //    //{
-        //    //    float magnitude = 0.0;
-        //    //    Interval<float> magnitudeInterval = null;
-        //    //    string units;
-        //    //    int precision;
-        //    //    Interval<int> precisionInterval;
-
-        //    //    magnitudeInterval = this.List.First.Magnitude;
-        //    //    if(magnitudeInterval != null)
-        //    //    {
-        //    //    if (!magnitudeInterval.UpperUnbounded)
-        //    //        magnitude = magnitudeInterval.Upper;
-        //    //    else if (!magnitudeInterval.LowerUnbounded)
-        //    //        magnitude = magnitudeInterval.Lower;
-        //    //    else
-        //    //        magnitude = 0.0;
-        //    //    }
-
-        //    //    precisionInterval = this.List.First.Precision;
-        //    //    if (precisionInterval != null)
-        //    //    {
-
-        //    //    }
-        //    //    DvQuantity dvQuantity = new DvQuantity(this.List[0].Magnitude, this.List[0].Units);
-        //    //}
-
-            
-        //}
 
         public override bool ValidValue(object aValue)
         {
@@ -167,10 +129,6 @@ namespace OpenEhr.AM.OpenehrProfile.DataTypes.Quantity
             return true;
         }
 
-        //protected override string GetRmTypeName()
-        //{
-        //    return "C_DV_QUANTITY";
-        //}
         #endregion
     }
 }

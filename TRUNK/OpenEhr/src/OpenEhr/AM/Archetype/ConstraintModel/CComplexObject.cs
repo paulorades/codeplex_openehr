@@ -1,7 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
-
 using OpenEhr.Attributes;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.DataTypes.Quantity;
@@ -253,21 +250,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
                 string.Format(AmValidationStrings.IsSubsetNotImplementedInX, "CComplexObject"));
         }
 
-        //public override bool IsValid()
-        //{
-        //    if (this.AnyAllowed() && this.Attributes != null && !this.Attributes.IsEmpty())
-        //        return false;
-
-        //    if (this.Attributes != null)
-        //    {
-        //        foreach (CAttribute cAttribute in this.Attributes)
-        //            if (!cAttribute.IsValid())
-        //                return false;
-        //    }
-
-        //    return true;
-        //}     
-
         protected override System.Collections.Generic.List<string> GetPhysicalPaths()
         {
             if (this.Attributes == null || this.Attributes.Count <= 0)
@@ -290,11 +272,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
             return physicalPaths;
         }
        
-        //protected override string GetRmTypeName()
-        //{
-        //    return "C_COMPLEX_OBJECT";
-        //}
-
         protected override string GetCurrentNodePath()
         {
             if (string.IsNullOrEmpty(this.NodeId) || this.NodeId == "at0000")

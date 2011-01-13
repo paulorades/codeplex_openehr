@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AssumedTypes;
 using System.Text.RegularExpressions;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
@@ -273,9 +271,5 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
         }
         #endregion
        
-        //protected override string GetRmTypeName()
-        //{
-        //    return "C_DATE";
-        //}
     }
 }

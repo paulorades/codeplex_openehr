@@ -32,29 +32,12 @@ namespace OpenEhr.AssumedTypes.Impl
                     item.Parent = value;
             }
         }
-
-        //protected override void AddItem(T item)
-        //{
-        //    if (item.Parent == null)
-        //        item.Parent = this.Parent;
-
-        //    else if (this.Parent == null)
-        //        this.Parent = item.Parent;
-
-        //    //else if (!Object.ReferenceEquals(item.Parent, this.Parent))
-        //    //    throw new ApplicationException("item parent must have same parent as other items");
-
-        //    base.AddItem(item);
-        //}
-
     }
 
     [Serializable]
     public class LocatableSet<T> : LocatableSetBase<T> 
         where T : Pathable, ILocatable
     {
-        //OpenEhr.RM.Common.Archetyped.Pathable parent;
-
         private System.Collections.Generic.Dictionary<string, LocatableBindingListView<T>> identifiedLocatables;
 
         internal LocatableSet()
@@ -102,21 +85,8 @@ namespace OpenEhr.AssumedTypes.Impl
                 }
         }
 
-        //public virtual OpenEhr.Common.Archetyped.Pathable Parent
-        //{
-        //    get { return this.parent; }
-        //    internal set
-        //    {
-        //        this.parent = value;
-        //        foreach(OpenEhr.Common.Archetyped.Pathable item in this)
-        //            item.Parent = value;
-        //    }
-        //}
-
         protected override void AddItem(T item)
         {
-            //Check.Require(this.parent != null || item.Parent != null,
-            //    "item of type Pathable must have Parent attribute set when list parent not set");
 
             Check.Invariant(identifiedLocatables != null, "identifiedLocatables must not be null");
 
@@ -130,7 +100,6 @@ namespace OpenEhr.AssumedTypes.Impl
                 this.Parent = item.Parent;
 
             else if (!Object.ReferenceEquals(item.Parent, this.Parent))
-            //if (item.Parent != null && this.Parent != null && !Object.ReferenceEquals(item.Parent, this.Parent))
                 throw new ApplicationException("item parent must have same parent as other items");
 
             LocatableBindingListView<T> namedLocatables;

@@ -1,14 +1,10 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
-
 using System.Runtime.InteropServices;
 using OpenEhr.Attributes;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.RM.Common.Generic;
 using OpenEhr.RM.Common.ChangeControl;
-//using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.AssumedTypes;
 using OpenEhr.RM.Composition.Content.Entry;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
@@ -57,7 +53,6 @@ namespace OpenEhr.Factories
             if (rmTypeAttributes == null)
                 throw new ApplicationException("rmTypeAttributes must not be null");
             if (rmTypeAttributes.Length < 1)
-                //throw new ApplicationException("rmTypeAttributes must contain one item");
                 return null;
 
             return ((RmTypeAttribute)rmTypeAttributes[0]).RmEntity;
@@ -139,10 +134,8 @@ namespace OpenEhr.Factories
                     if (observation.State != null)
                         throw new NotSupportedException("Setting OBSERVATION state origin from events not supported");
 
-                    //DvDateTime origin = observation.Data.Origin;
                     if (observation.Data.Origin == null)
                     {
-                        //origin = History<ItemStructure>.CalculateOrigin(observation.Data);
                         observation.Data.Origin = History<ItemStructure>.CalculateOrigin(observation.Data);
                     }
                     Check.Ensure(observation.Data.Origin != null, "origin must not be null");
@@ -233,9 +226,6 @@ namespace OpenEhr.Factories
             Check.Require(!string.IsNullOrEmpty(typeName), "type must not be null or empty.");
 
             OpenEhr.RM.DataTypes.Basic.DataValue dataValue = null;
-            //int index = type.IndexOf(':');
-            //if (index > 0)
-            //    type = type.Substring(index + 1);
 
             switch (typeName)
             {
@@ -265,7 +255,6 @@ namespace OpenEhr.Factories
                     break;
                 case "DV_DATE_TIME":
                     dataValue = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-                    //dataValue = DvDateTime.CreateEmpty();
                     break;
                 case "DV_DATE":
                     dataValue = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDate();
@@ -276,12 +265,6 @@ namespace OpenEhr.Factories
                 case "DV_DURATION":
                     dataValue = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDuration();
                     break;
-
-                // unable to support here as we don't know the type of T
-                //case "DV_INTERVAL":
-                //    dataValue = new OpenEhr.RM.DataTypes.Quantity.DvInterval<T>();
-                //    break;
-
                 case "DV_URI":
                     dataValue = new OpenEhr.RM.DataTypes.Uri.DvUri();
                     break;
@@ -322,11 +305,6 @@ namespace OpenEhr.Factories
         #endregion
 
         #region feeder audit
-        //public static Common.Archetyped.FeederAudit FeederAudit(
-        //    Common.Archetyped.FeederAuditDetails originatingSystemAudit)
-        //{
-        //    return new Common.Archetyped.FeederAudit(originatingSystemAudit);
-        //}
 
         public static FeederAudit FeederAudit
             (string systemId, DvEncapsulated originalContent)
@@ -387,20 +365,6 @@ namespace OpenEhr.Factories
             return new LocatableList<T>(parent, items);
         }
 
-        //public static List<T> List<T>(System.Collections.Generic.IEnumerable<T> items)
-        //    where T : class
-        //{
-        //    //if (items == null)
-        //    //    return null;
-
-        //    List<T> assumedList = new List<T>(items);
-
-        //    //foreach (T item in items)
-        //    //    assumedList.Add(item);
-
-        //    return assumedList;
-        //}
-
         #endregion
 
 
@@ -443,7 +407,6 @@ namespace OpenEhr.Factories
             return rmName;
         }
 
-        //private static System.Collections.Generic.Dictionary<string, Type> openEhrV1Types;
         static Lazy<System.Collections.Generic.Dictionary<string, Type>> openEhrV1Types =
             new Lazy<System.Collections.Generic.Dictionary<string, Type>>(delegate()
             {
@@ -467,40 +430,12 @@ namespace OpenEhr.Factories
 
         internal static Type GetOpenEhrV1Type(string rmName)
         {
-            //string openEhrV1Name = GetOpenEhrV1RmName(rmName);
 
             Type rmType;
             if (!openEhrV1Types.Value.TryGetValue(rmName, out rmType))
                 throw new ArgumentException( "The RM Type " + rmName + " is not supported.");
 
             return rmType;   
-
-
-            //return Type.GetType(openEhrV1Name);
-
-            //if (openEhrV1Types == null)
-            //{
-            //    openEhrV1Types = new System.Collections.Generic.Dictionary<string, Type>();
-
-            //    Type[] allOpenEhrV1Types = typeof(RmFactory).Assembly.GetTypes();
-            //    foreach (Type type in allOpenEhrV1Types)
-            //    {
-            //        openEhrV1Types.Add(type.Name, type);
-            //    }
-            //}
-
-            //if (openEhrV1Types.ContainsKey(openEhrV1Name))
-            //    return openEhrV1Types[openEhrV1Name];
-
-            //openEhrV1Name = openEhrV1Name + "`1";
-            //if (openEhrV1Types.ContainsKey(openEhrV1Name))
-            //    return openEhrV1Types[openEhrV1Name];
-
-            //foreach (Type type in openEhrV1Types)
-            //{
-            //    if (type.Name == openEhrV1Name || type.Name.StartsWith(openEhrV1Name + "`"))
-            //        return type;
-            //}
 
         }
 
@@ -544,6 +479,7 @@ namespace OpenEhr.Factories
             PartyIdentified committer
                 = new PartyIdentified(committerName);
 
+            // %HYYKA%
             //return new Common.Generic.AuditDetails(systemId, changeType, committer);
             // Expects system ID to be set by server
             return new AuditDetails(codedChangeType, committer);

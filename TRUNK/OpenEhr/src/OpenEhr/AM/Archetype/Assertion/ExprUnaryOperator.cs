@@ -52,12 +52,6 @@ namespace OpenEhr.AM.Archetype.Assertion
             throw new Exception("The method or operation is not implemented.");
         }
         #endregion
-
-
-        //protected override string GetRmTypeName()
-        //{
-        //    return "EXPR_UNARY_OPERATOR";
-        //}
        
     }
 }

@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.AssumedTypes;
 using System.Text.RegularExpressions;
@@ -24,7 +22,6 @@ namespace OpenEhr.AM.Archetype.ConstraintModel.Primitive
 
             this.Pattern = pattern;
             this.List = list;
-            //this.ListOpen = ListOpen;
             this.AssumedValue = assumedValue;
         }
 

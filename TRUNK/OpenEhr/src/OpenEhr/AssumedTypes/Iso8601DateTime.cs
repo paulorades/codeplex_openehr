@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -13,7 +12,6 @@ namespace OpenEhr.AssumedTypes
     [RmType("openEHR", "SUPPORT", "ISO8601_DATE_TIME")]
     public class Iso8601DateTime : TimeDefinitions, IComparable
     {
-        //private string asString;
         private int year = 0;
         private int month = 0;
         private int day = 0;
@@ -25,9 +23,6 @@ namespace OpenEhr.AssumedTypes
         private bool isDecimalSignComma = true;
         private Iso8601TimeZone timeZone;
 
-        //private Iso8601Date iso8601Date;
-        //private Iso8601DateTime iso8601Time;
-
         private const string yearCaptureName = "yyyy";
         private const string monthCaptureName = "mm";
         private const string dayCaptureName = "dd";
@@ -35,9 +30,6 @@ namespace OpenEhr.AssumedTypes
         private const string minuteCaptureName = "min";
         private const string secondCaptureName = "ss";
         private const string decimalCaptureName = "sss"; // this can be decimal number of hh, mm, or ss.
-
-        //private const string monthExtendedCaptureName = "mExtended";
-        //private const string dayExtendedCaptureName = "dExtended";
 
         private const string dateCaptureName = "date";
         private const string timeCaptureName = "time";
@@ -47,10 +39,6 @@ namespace OpenEhr.AssumedTypes
         private const string tZoneDirectionCapturedName = "tD";
         private const string utcTimeCapturedName = "utc";
         private const string gmtCapturedName = "gmt";
-
-        //private const string mmExtendedCaptureName = "mmExtended";
-        //private const string ssExtendedCaptureName = "ssExtended";
-
 
         //(^(?<date>(?<yyyy>\d{4})((?<mExtended>-)(?<mm>\d{2}))?((?<dExtended>-)(?<dd>\d{2}))?)(T(?<time>(?<hh>\d{2})((?<mmExtended>\:)(?<mm>\d{2}))?((?<ssExtended>\:)(?<ss>\d{2}))?(?<sss>\,\d+)?(?<timeZone>(?<utc>Z)|(?<gmt>(?<tD>\+|\-)(?<zhh>\d{2})(?<zmm>\d{2})))?))?$)|(^(?<date>(?<yyyy>\d{4})(?<mm>\d{2})?(?<dd>\d{2})?)(T(?<time>(?<hh>\d{2})(?<mm>(\d{2}))?(?<ss>\d{2})?(?<sss>\,\d+)?(?<timeZone>(?<utc>Z)|(?<gmt>(?<tD>\+|\-)(?<zhh>\d{2})(?<zmm>\d{2})))?))?$)
 
@@ -81,19 +69,20 @@ namespace OpenEhr.AssumedTypes
          * */       
 
         // (^(\d{4})((0[1-9]|1[0-2])((0[1-9]|1[0-9]|2[0-9]|3[01])(T?(([01][0-9])|(2[0-]))(([0-5][0-9])(([0-5][0-9])([.,]\d+)?)?)?)?)?)?(Z|[+\-](0[0-9]|1[0-2])(00|30)?)?$)|(^(\d{4})(-(0[1-9]|1[0-2])(-(0[1-9]|1[0-9]|2[0-9]|3[01])(T(([01][0-9])|(2[0-3]))(:([0-5][0-9])(:([0-5][0-9]([.,]\d+)?))?)?)?)?)?(Z|([+\-](0[0-9]|1[0-2])(:(00|30))?))?$)
+
         private const string dateTimePattern = @"(^(?<" + yearCaptureName + @">\d{4})((?<"
             + monthCaptureName + @">0[1-9]|1[0-2])((?<"
             + dayCaptureName + @">0[1-9]|1[0-9]|2[0-9]|3[01])(T?(?<"
             + hourCaptureName + @">([01][0-9])|(2[0-3]))((?<"
             + minuteCaptureName + @">[0-5][0-9])((?<"
             + secondCaptureName + @">[0-5][0-9])(?<"+decimalCaptureName+@">[.,]\d+)?)?)?)?)?)?(?<"
-            //+ iso8601TZoneCapturedName + @">Z|[+\-](0[0-9]|1[0-3])(00|30)?)?$)|(^(?<"
             + iso8601TZoneCapturedName + @">(" + Iso8601TimeZone.timeZoneRegEx + @"))?$)|(^(?<"
             + yearCaptureName + @">\d{4})(-(?<" + monthCaptureName + @">0[1-9]|1[0-2])(-(?<"
             + dayCaptureName + @">0[1-9]|1[0-9]|2[0-9]|3[01])(T(?<"
             + hourCaptureName + @">([01][0-9])|(2[0-3]))(:(?<"
             + minuteCaptureName + @">[0-5][0-9])(:((?<"
             + secondCaptureName + @">[0-5][0-9])(?<" + decimalCaptureName + @">[.,]\d+)?))?)?)?)?)?(?<"
+            // %HYYKA%
             // CM: 07/11/08 EHR-731 The Auckland NZ timezone including daylight saving results in a timezone of GMT+13 
             //+ iso8601TZoneCapturedName + @">Z|([+\-](0[0-9]|1[0-2])(:(00|30))?))?$)";
              //+ iso8601TZoneCapturedName + @">Z|([+\-](0[0-9]|1[0-3])(:(00|30))?))?$)";
@@ -107,14 +96,9 @@ namespace OpenEhr.AssumedTypes
         /// <param name="dateTime"></param>
         public Iso8601DateTime(string dateTime)
         {
-            //Check.Require(ValidIso8601DateTime(dateTime), "Date time string(" + dateTime + ") must be a valid ISO 8601 date time.");
-
             ParseDateTime(dateTime);
             // TODO: assign value to asString?
-
         }
-
-        //private static Regex regexTimeZone = new Regex(@"([-+Zz]\d\d):(\d\d)");
 
         public Iso8601DateTime(System.DateTime dateTime)
         {
@@ -127,6 +111,7 @@ namespace OpenEhr.AssumedTypes
             else
                 dateTimeString = dateTime.ToString("yyyyMMddTHHmmss,fffffffzzzz", System.Globalization.DateTimeFormatInfo.InvariantInfo);
 
+            // %HYYKA%
             // the timezone is represented as +10:30. This is extended format. Change this to basic format: +1030
             // basic format: +1030
             // CM: 17/02/09
@@ -142,6 +127,7 @@ namespace OpenEhr.AssumedTypes
             int second, double fractionalSecond, int timeZoneSign, int timeZoneHour,
             int timeZoneMinute)
         {
+            //%HYYKA%
             // CM: 16/09/08 need to allow partial dateTime
             //Check.Require(ValidYear(year) && ValidMonth(month) && ValidDay(year, month, day) &&
             //    ValidHour(hour, minute, second) && ValidMinute(minute) && ValidSecond(second) &&
@@ -211,7 +197,6 @@ namespace OpenEhr.AssumedTypes
             this.day = day;
             this.hour = hr;
             
-            //this.fractionalSecond = fractionalSecond;
             this.timeZone = null;
         }
 
@@ -227,7 +212,6 @@ namespace OpenEhr.AssumedTypes
             this.hour = hour;
             this.minute = minute;
             this.second = second;
-           
             this.timeZone = null;
         }
         public Iso8601DateTime(int year, int month, int day, int hour, int minute)
@@ -240,8 +224,6 @@ namespace OpenEhr.AssumedTypes
             this.day = day;
             this.hour = hour;
             this.minute = minute;
-            //this.second = second;
-
             this.timeZone = null;
         }
         public Iso8601DateTime(int year, int month, int day, int hour, int minute,
@@ -411,8 +393,6 @@ namespace OpenEhr.AssumedTypes
 
             // pad out partial datetime
             int timeDelimiter = timeString.IndexOf('T');
-            //if (timeDelimiter < 0 || timeString.Length <= timeDelimiter + 2)
-            //    throw new ApplicationException("Partial datetime must have hours");
 
             if (timeDelimiter < 0)
             {
@@ -471,11 +451,11 @@ namespace OpenEhr.AssumedTypes
         /// <param name="dateTime"></param>
         private void ParseDateTime(string dateTime)
         {
+            // %HYYKA%
             // The date time must be a valid ISO 8601 date time.
             //Check.Require(ValidIso8601DateTime(dateTime),
             //    "Date time string(" + dateTime + ") must be a valid ISO 8601 date time.");
 
-            //Match thisMatch = Regex.Match(dateTime, dateTimePattern, RegexOptions.Compiled | RegexOptions.Singleline);
             Match thisMatch = dateTimeRegex.Match(dateTime);
 
             Check.Require(thisMatch.Success,
@@ -615,7 +595,6 @@ namespace OpenEhr.AssumedTypes
                                 sb.Append(",");
                             else
                                 sb.Append(".");
-                            //sb.Append(this.fractionalSecond.ToString().Remove(0, fractionalSecond.ToString().IndexOf(System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator) + 1));
                             sb.Append(this.fractionalSecond.ToString(".0######").Substring(1));
                         }
                     }
@@ -803,10 +782,6 @@ namespace OpenEhr.AssumedTypes
             {
                 return this.isDecimalSignComma;
             }
-            //set
-            //{
-            //    this.isDecimalSignComma = value;
-            //}
         }
         #endregion
 
@@ -832,102 +807,6 @@ namespace OpenEhr.AssumedTypes
                 return -1;
             else
                 return 0;
-
-            //// compare yyyy
-            //if (this.year < objDateTime.year)
-            //    return -1;
-            //else if (this.year > objDateTime.year)
-            //    return 1;
-
-            ////// if yyyy is the same, compare month
-            ////if (this.MonthUnknown && objDateTime.MonthUnknown)
-            ////    return 0;
-            //else if ((!this.MonthUnknown && objDateTime.MonthUnknown)
-            //    || (this.MonthUnknown && !objDateTime.MonthUnknown))
-            //    throw new FormatException
-            //        ("An unknown month cannot be compared with a valid month value.");
-            //// if the two dates have month value
-            //else if (!this.MonthUnknown && !objDateTime.MonthUnknown)
-            //{
-            //    if (this.month > objDateTime.month)
-            //        return 1;
-            //    else if (this.month < objDateTime.month)
-            //        return -1;
-            //    else // if the month is the same, compare day
-            //    {
-            //        //if (this.DayUnknown && objDateTime.DayUnknown)
-            //        //    return 0;
-            //         if ((!this.DayUnknown && objDateTime.DayUnknown) ||
-            //            (this.DayUnknown && !objDateTime.DayUnknown))
-            //            throw new FormatException
-            //                ("An unknown day cannot be compared with a valid day value.");
-            //        else if (!this.DayUnknown && !objDateTime.DayUnknown)
-            //        {
-            //            if (this.day > objDateTime.day)
-            //                return 1;
-            //            else if (this.day < objDateTime.day)
-            //                return -1;
-
-            //        }
-            //    }
-            //}
-
-            //// compare time
-            //if (this.HourUnknown && objDateTime.HourUnknown)
-            //    return 0;
-            //else if ((!this.HourUnknown && objDateTime.HourUnknown) ||
-            //    (this.HourUnknown && !objDateTime.HourUnknown))
-            //    throw new FormatException("A time with unknow hour cannot compare with another time with known hour.");
-
-            //if (this.hour < objDateTime.hour)
-            //    return -1;
-            //else if (this.hour == objDateTime.hour)
-            //{
-            //    // compare minute
-            //    if (this.MinuteUnknown && objDateTime.MinuteUnknown)
-            //        return 0;
-            //    else if ((!this.MinuteUnknown && objDateTime.MinuteUnknown) ||
-            //        (this.MinuteUnknown && !objDateTime.MinuteUnknown))
-            //        throw new FormatException
-            //            ("Unknown minute value cannot be compared with a minute value.");
-            //    if (this.minute > objDateTime.minute)
-            //        return 1;
-            //    else if (this.minute < objDateTime.minute)
-            //        return -1;
-
-            //    // compare second
-            //    if (this.SecondUnknown && objDateTime.SecondUnknown)
-            //        return 0;
-            //    else if ((this.SecondUnknown && !objDateTime.SecondUnknown) ||
-            //        (!this.SecondUnknown && objDateTime.SecondUnknown))
-            //        throw new FormatException
-            //            ("Unknow seconds value cannot be compared with a second value.");
-
-            //    if (this.second > objDateTime.second)
-            //        return 1;
-            //    else if (this.second < objDateTime.second)
-            //        return -1;
-
-            //    // compare fractional seconds
-            //    if (!this.HasFractionalSecond && !objDateTime.HasFractionalSecond)
-            //        return 0;
-            //    else if ((!this.HasFractionalSecond && objDateTime.HasFractionalSecond) ||
-            //        (!this.HasFractionalSecond && objDateTime.HasFractionalSecond))
-            //        throw new FormatException
-            //            ("Unknow fractional seconds value cannot be compared with a fractional seconds.");
-            //    if (this.fractionalSecond < objDateTime.fractionalSecond)
-            //        return -1;
-            //    else if (this.fractionalSecond > objDateTime.fractionalSecond)
-            //        return 1;
-            //    return 0;
-
-            //}
-            //else
-            //{
-            //    return 1;
-            //}
-
-
         }
 
         #endregion
@@ -977,22 +856,15 @@ namespace OpenEhr.AssumedTypes
         internal double GetDateTimeSeconds()
         {
             double magnitude = -1.0;
-            //if (this.isoDateTime != null)
-            //{
             double daysInTotal = this.year * TimeDefinitions.nominalDaysInYear;
             if (!this.MonthUnknown)
             {
                 daysInTotal += this.Month * TimeDefinitions.nominalDaysInMonth;
-
-                //if (System.DateTime.DaysInMonth(this.year, this.month) > 30)
-                //    daysInTotal -= System.DateTime.DaysInMonth(this.year, this.month) - TimeDefinitions.nominalDatysInMonth;
-                //else if(System.DateTime.DaysInMonth(this.year, this.month) < 30)
-                //    daysInTotal -= System.DateTime.DaysInMonth(this.year, this.month) - TimeDefinitions.nominalDatysInMonth;
-
                 if (!this.DayUnknown)
                     daysInTotal += this.Day;
             }
-
+            
+            // %HYYKA%
             //// TODO: check with Heath. CM: 5/6/7
             //daysInTotal = Math.Truncate(daysInTotal);
 
@@ -1000,6 +872,7 @@ namespace OpenEhr.AssumedTypes
 
             if (!this.HourUnknown)
             {
+                // %HYYKA%
                 // CM: 5/6/07
                 //magnitude += this.Hour * TimeDefinitions.minutesInHour + TimeDefinitions.secondsInMinute;
                 magnitude += this.Hour * TimeDefinitions.minutesInHour*TimeDefinitions.secondsInMinute;
@@ -1017,20 +890,9 @@ namespace OpenEhr.AssumedTypes
                 {
                     Iso8601TimeZone timezone = this.Iso8601TimeZone;
                     magnitude += this.Iso8601TimeZone.GetTimeZoneSeconds();
-
-                    //if (!timezone.IsGmt)
-                    //{
-                    //    int timezoneMinutes = timezone.Hour * TimeDefinitions.minutesInHour + timezone.Minute;
-                    //    if (timezone.Sign == 1)
-                    //        magnitude += timezoneMinutes * TimeDefinitions.secondsInMinute;
-
-                    //    else if (timezone.Sign == -1)
-                    //        magnitude -= timezoneMinutes * TimeDefinitions.secondsInMinute;
-                    //}
                 }
             }
 
-            //}
             if (magnitude < 0)
                 throw new PostconditionException
                     ("Magnitude results in DvDateTime must not be smaller than zero.");
@@ -1039,7 +901,6 @@ namespace OpenEhr.AssumedTypes
 
         internal static string ToIsoDateTime(string dotNetDateTime)
         {
-            //return  regexTimeZone.Replace(dotNetDateTime, "$1$2");
             return Regex.Replace(dotNetDateTime, @"([-+Zz]\d\d):(\d\d)", "$1$2", RegexOptions.Compiled | RegexOptions.Singleline);
         }
 
@@ -1125,18 +986,6 @@ namespace OpenEhr.AssumedTypes
                 newDateTime.year -= normalisedDuration.Years;
             }
 
-            // CM: this code is dealing with daylight savings, but it forces to change the newdateTime
-            // to local timezone.
-            //// get the correct timezone based on the newDateTime value. Pre addition, the timezone maybe the 
-            //// daylight saving, but the timezone maybe changed after adding a duration.
-            //if (newDateTime.timeZone != null)
-            //{
-            //    System.DateTime dateTime = new DateTime(newDateTime.year, newDateTime.month, newDateTime.day);
-            //    Iso8601DateTime tempIsoDateTime = new Iso8601DateTime(dateTime);
-                
-            //    newDateTime.timeZone = tempIsoDateTime.timeZone;
-            //}
-
             return newDateTime;
         }       
 
@@ -1217,19 +1066,6 @@ namespace OpenEhr.AssumedTypes
                 newDateTime.day += normalisedDuration.Days;
                 NormaliseDay(newDateTime);
             }
-
-            // The code below is dealing with daylight saving, but it has side effects
-            // if the original date time has a different timezone from local timezone, then
-            // the newDateTime timezone will be changed to local timezone.
-            //// get the correct timezone based on the newDateTime value. Pre addition, the timezone maybe the 
-            //// daylight saving, but the timezone maybe changed after adding a duration.
-            //if (newDateTime.timeZone != null)
-            //{
-            //    System.DateTime dateTime = new DateTime(newDateTime.year, newDateTime.month, newDateTime.day);
-
-            //    Iso8601DateTime tempIsoDateTime = new Iso8601DateTime(dateTime);
-            //    newDateTime.timeZone = tempIsoDateTime.timeZone;
-            //}
            
             return newDateTime;
           
@@ -1365,8 +1201,7 @@ namespace OpenEhr.AssumedTypes
         private static void NormaliseMonth(Iso8601DateTime isoDateTime)
         {
             DesignByContract.Check.Require(!isoDateTime.MonthUnknown, "isoDateTime monthUnknown must be false.");
-            //DesignByContract.Check.Require(!isoDateTime.DayUnknown, "isoDateTime dayUnknown must be false.");
-
+            
             Date date = new Date(isoDateTime.year, isoDateTime.month);
             date.NormaliseMonth();
             isoDateTime.year = date.Year;

@@ -1,7 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
-
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.Common.Archetyped;
 using OpenEhr.Paths;
@@ -18,7 +15,6 @@ namespace OpenEhr.AssumedTypes
         object GetItem(string nodePredicate);
 
         void Add(object item);
-        //void Add(Pathable parent, Pathable item);
         void Remove(object item);
 
         void BuildPath(Path path);
@@ -31,7 +27,6 @@ namespace OpenEhr.AssumedTypes
     public abstract class Aggregate<T>
         : IAggregate
     {
-        //OpenEhrV1.Common.Archetyped.Pathable parent;
 
         public abstract bool Has(T item);
 
@@ -45,17 +40,6 @@ namespace OpenEhr.AssumedTypes
         public void Add(T item)
         {
             Check.Require(item != null, "item must not be null");
-
-            //Pathable pathableItem = item as Pathable;
-            //if (pathableItem != null)
-            //{
-            //    if (pathableItem.Parent == null)
-            //        throw new ApplicationException("item of type Pathable must have Parent attribute set");
-            //    if (this.parent == null)
-            //        this.parent = pathableItem.Parent;
-            //    else if (!Object.ReferenceEquals(pathableItem.Parent, this.parent))
-            //        throw new ApplicationException("item parent must have same parent as other items");
-            //}
 
             this.AddItem(item);
 
@@ -113,21 +97,6 @@ namespace OpenEhr.AssumedTypes
             this.Add(newItem);
         }
 
-        //void IAggregate.Add(Pathable parent, Pathable item)
-        //{
-        //    Check.Require(parent != null, "parent must not be null");
-        //    Check.Require(item != null, "item must not be null");
-
-        //    item.Parent = parent;
-
-        //    T newItem = AsT(item);
-        //    if (newItem == null)
-        //        throw new ApplicationException("Item must be of type T");
-
-        //    this.Add(newItem);
-
-        //}
-
         void IAggregate.Remove(object item)
         {
             Check.Require(item != null, "item must not be null");
@@ -172,7 +141,6 @@ namespace OpenEhr.AssumedTypes
                 if (definedObjectConstraint == null)
                     throw new ApplicationException("Constrain must be a CDefinedObject");
 
-                //value = definedObjectConstraint.DefaultValue as T;
                 value = AsT(definedObjectConstraint.DefaultValue);
                 if (value == null)
                     throw new ApplicationException("value must be of type T");
