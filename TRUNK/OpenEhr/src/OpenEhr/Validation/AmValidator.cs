@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenEhr.RM.Common.Resource;
 using OpenEhr.AM.Archetype.Assertion;
 using OpenEhr.AM.Archetype;
@@ -28,7 +26,6 @@ namespace OpenEhr.Validation
         public static void Validate(Archetype archetype, IConfigurationSource configurationSource)
         {
             AmValidator amValidator = new AmValidator(configurationSource);
-            //amValidator.archetype = archetype;
 
             amValidator.ValidateArcheytpe(archetype);
         }
@@ -70,8 +67,6 @@ namespace OpenEhr.Validation
 
             return true;
         }
-
-        //private Archetype.Archetype archetype;
 
         protected void ValidateArcheytpe(Archetype archetype)
         {
@@ -317,7 +312,6 @@ namespace OpenEhr.Validation
             {
                 Invariant(cObject.Parent.GetType() != typeof(CSingleAttribute) || cObject.Occurrences.Upper <= 1,
                    AmValidationStrings.SingleParentOccurrencesBad);
-                //Invariant(cObject.Occurrences.Upper<=1, "cObject.Parent is not null, implies it's occurrences.upper must be <=1");               
             }
         }
 

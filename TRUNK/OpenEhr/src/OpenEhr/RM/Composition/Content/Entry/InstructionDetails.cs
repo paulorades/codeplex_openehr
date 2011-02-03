@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Xml.Serialization;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -37,7 +35,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
         }
 
         public InstructionDetails()
-            : base()
         { }
         
         private string activityId;
@@ -154,8 +151,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
             reader.ReadEndElement();
             reader.MoveToContent();
 
-            //this.SetInnerData();
-
             // CM: 26/11/09 need to set attributDictionary since InstructionDetails is not type of locatable
             this.SetAttributeDictionary();
             this.CheckInvariants();
@@ -189,6 +184,7 @@ namespace OpenEhr.RM.Composition.Content.Entry
 
         private void CheckInvariants()
         {
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.InstructionId != null, "InstructionId must not be null.");
             this.CheckInvariantsDefault();
             DesignByContract.Check.Invariant(this.ActivityId != null && this.ActivityId.Length>0, 

@@ -2,7 +2,6 @@ using System;
 using OpenEhr.DesignByContract;
 using System.Text.RegularExpressions;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.AssumedTypes;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -18,10 +17,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
     public abstract class DvQuantified<T> : DvOrdered<T>
         where T: DvQuantified<T>
     {
-        protected DvQuantified()
-            :base()
-        { }
-
         private string magnitudeStatus;
         private const string magnitudeStatusPattern = "^(=|>|<|>=|<=|~)$";
 
@@ -55,7 +50,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
        
         protected override int CompareTo(object obj)
         {
-            //Check.Require(obj != null);
             DvQuantified<T> quantifiedObj = obj as DvQuantified<T>;
             Check.Require(quantifiedObj!=null && this.IsStrictlyComparableTo(quantifiedObj));
 
@@ -83,8 +77,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
             base.CheckInvariants();
             DesignByContract.Check.Invariant(this.MagnitudeStatus == null ||
                     ValidMagnitudeStatus(this.MagnitudeStatus));
-            //if (this.AccuracyIsPercent)
-            //    DesignByContract.Check.Invariant(ValidPercentage(this.Accuracy));
         }
 
         protected override void ReadXmlBase(System.Xml.XmlReader reader)
@@ -109,13 +101,5 @@ namespace OpenEhr.RM.DataTypes.Quantity
                     this.MagnitudeStatus);
             }
         }
-              
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    if (this.magnitudeStatus != null)
-        //        ((DV_QUANTIFIED)(this.DataValueType)).magnitude_status = this.magnitudeStatus;
-        //}
     }
 }

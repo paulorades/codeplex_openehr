@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.Attributes;
 using OpenEhr.RM.Impl;
 using OpenEhr.RM.DataTypes.Text.Impl;
@@ -15,7 +14,6 @@ namespace OpenEhr.RM.DataTypes.Text
     public class CodePhrase : RmType, System.Xml.Serialization.IXmlSerializable
     {
         public CodePhrase()
-            : base()
         { }
 
         public CodePhrase(string codeString, string terminologyId) 
@@ -84,31 +82,13 @@ namespace OpenEhr.RM.DataTypes.Text
             this.terminologyId = 
                 new OpenEhr.RM.Support.Identification.TerminologyId();
             this.terminologyId.ReadXml(reader);
-            //this.terminologyIdSet = true;
 
             // codeString
             reader.MoveToContent();
             this.codeString = reader.ReadElementString("code_string", openEhrNamespace);
-            //this.codeStringSet = true;
-
-            //while (!reader.IsStartElement() && reader.NodeType != System.Xml.XmlNodeType.None)
-            //{
-                reader.ReadEndElement();
-                reader.MoveToContent();
-            //}
-
-            //this.SetInnerData();
+            reader.ReadEndElement();
+            reader.MoveToContent();
         }
-
-        //private void SetInnerData()
-        //{
-        //    DesignByContract.Check.Require(this.codePhraseType != null, "Inner type must not be null");
-        //    DesignByContract.Check.Require(this.codeString != null, "Code string must not be null");
-        //    DesignByContract.Check.Require(this.terminologyId != null, "Terminology ID must not be null");
-
-        //    this.codePhraseType.code_string = this.codeString;
-        //    this.codePhraseType.terminology_id = this.terminologyId.EhrType;
-        //}
 
         internal virtual void WriteXml(System.Xml.XmlWriter writer)
         {
@@ -125,7 +105,6 @@ namespace OpenEhr.RM.DataTypes.Text
 
         public static System.Xml.XmlQualifiedName GetXmlSchema(System.Xml.Schema.XmlSchemaSet xs)
         {
-            //return Basic.DataValue.GetXmlSchema(xs, "CODE_PHRASE");
             RmXmlSerializer.LoadBaseTypesSchema(xs);
             return new System.Xml.XmlQualifiedName("CODE_PHRASE", RmXmlSerializer.OpenEhrNamespace);
 

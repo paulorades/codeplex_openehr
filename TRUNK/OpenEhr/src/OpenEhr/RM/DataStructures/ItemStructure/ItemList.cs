@@ -17,7 +17,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
     public class ItemList : ItemStructure, System.Xml.Serialization.IXmlSerializable
     {
         public ItemList()
-            : base()
         { }
 
         public ItemList(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -57,8 +56,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         public int ItemCount()
         {
             // CM: if this.Items is null, return 0.
-            //DesignByContract.Check.Require(this.Items != null, "items must not be null.");
-
             if (this.Items == null)
                 return 0;
 
@@ -74,8 +71,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         public AssumedTypes.List<DataTypes.Text.DvText> Names()
         {
             // CM: 11/08/08 when this.ItemCount() == 0, return an empty list
-            //DesignByContract.Check.Require(this.ItemCount() > 0, "Item count must be greater than zero");           
-
             if (names == null)
             {
                 names = new OpenEhr.AssumedTypes.List<OpenEhr.RM.DataTypes.Text.DvText>();
@@ -100,7 +95,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         public Element NamedItem(string aName)
         {
             // CM: 11/08/08 return null if no item with the name aName
-            //DesignByContract.Check.Require(HasNamedItem(aName), "Must have an item with the name 'aName'");
             // CM: 25/11/09 
             Check.Require(!string.IsNullOrEmpty(aName), "aName must not be null or empty.");
 
@@ -122,7 +116,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         {
             DesignByContract.Check.Require(i >= 0, "i must be >=0 ");
 
-            //DesignByContract.Check.Require(i >= 0 && i < this.ItemCount(), "i must be >=0 and < ItemCount");
             // CM: 11/08/08 if the Items is null, return null.
             if (this.ItemCount() == 0)
                 return null;
@@ -142,25 +135,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
                 return null;
 
             throw new NotImplementedException();
-            //OpenEhr.V1.Its.Xml.RM.CLUSTER clusterType = ToItsXmlCluster();
-
-            //System.Collections.Generic.List<OpenEhr.V1.Its.Xml.RM.ITEM> itemsType =
-            //    new List<OpenEhr.V1.Its.Xml.RM.ITEM>();
-
-            //foreach (Item item in this.Items)
-            //{
-            //    itemsType.Add(Convert.ToItsXmlType(item) as OpenEhr.V1.Its.Xml.RM.ELEMENT);
-            //}
-            //clusterType.items = itemsType.ToArray();
-
-            //Cluster newCluster = new Cluster(clusterType);
-
-            //DesignByContract.Check.Ensure(newCluster.Name.Value == this.Name.Value,
-            //   "returned cluster must have same name value as the ItemList.");
-            //DesignByContract.Check.Ensure(newCluster.ArchetypeNodeId == this.ArchetypeNodeId,
-            //   "returned cluster must have same archetypeNodeId as the ItemList.");
-
-            //return newCluster;
         }
 
         #region IXmlSerializable Members
@@ -202,7 +176,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
                     element.ReadXml(reader);
                     element.Parent = this;
                     items.Add(element);
-                // } while (reader.LocalName == "items");
                 // Added checking on reader.NodeType == Element is because ItemList xml instance
                 // is something like: <items> <items xsi:type='ELEMENT'>..</items></items>.
                 // After reading all element contents, the reader.LocalName is still items,
@@ -218,8 +191,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);

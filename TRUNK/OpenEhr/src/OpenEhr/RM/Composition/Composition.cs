@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 using OpenEhr.RM.Composition.Content;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.Common.Archetyped.Impl;
@@ -21,7 +20,6 @@ namespace OpenEhr.RM.Composition
         System.Xml.Serialization.IXmlSerializable
     {
         public Composition()
-            : base()
         { }
 
         public Composition(DvText name, string archetypeNodeId ,Support.Identification.UidBasedId uid ,
@@ -246,12 +244,10 @@ namespace OpenEhr.RM.Composition
                 this.context = new EventContext();
                 this.context.ReadXml(reader);
                 this.context.Parent = this;
-                //this.AddAttributeDictionaryData("context", this.content);
             }
 
             if (reader.LocalName == "content")
             {
-                //this.content = new OpenEhr.Support.Assumed.List<ContentItem>();
                 OpenEhr.AssumedTypes.Impl.LocatableList<ContentItem> contents = 
                     new OpenEhr.AssumedTypes.Impl.LocatableList<ContentItem>();
                 do
@@ -276,8 +272,6 @@ namespace OpenEhr.RM.Composition
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);
@@ -296,7 +290,6 @@ namespace OpenEhr.RM.Composition
             writer.WriteEndElement();
 
             writer.WriteStartElement(openEhrPrefix, "composer", RmXmlSerializer.OpenEhrNamespace);
-            //string composerType = this.Composer.GetPartyProxyEhrType();
             string composerType = ((IRmType)this.Composer).GetRmTypeName();
             if (!string.IsNullOrEmpty(openEhrPrefix))
                 composerType = openEhrPrefix + ":" + composerType;
@@ -331,6 +324,7 @@ namespace OpenEhr.RM.Composition
         {
             base.CheckInvariants();
 
+            // %HYYKA%
             //Check.Invariant(this.Category!=null, "category is mandatory.");
             //Check.Invariant(this.Territory != null, "Territory is mandatory.");
             //Check.Invariant(this.Language != null, "Language is mandatory.");
@@ -350,6 +344,8 @@ namespace OpenEhr.RM.Composition
             Check.Invariant(this.Category != null, "category is mandatory.");
             Check.Invariant(this.Territory != null, "Territory is mandatory.");
             Check.Invariant(this.Language != null, "Language is mandatory.");
+
+            // %HYYKA%
             //Check.Invariant(this.Composer != null, "Composer is mandatory.");
             //Check.Invariant(this.IsArchetypeRoot, "is archetype root.");
             //Check.Invariant(this.Parent == null, "no parrent");

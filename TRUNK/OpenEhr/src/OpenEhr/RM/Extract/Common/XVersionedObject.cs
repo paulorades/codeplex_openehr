@@ -124,21 +124,6 @@ namespace OpenEhr.RM.Extract.Common
             set { this.versions = value; }
         }
 
-        ///<summary>Optional revision history of the original VERSIONED_OBJECT. If included, 
-        ///it is the complete revision history.
-        ///</summary>
-        //public OpenEhr.Common.Generic.RevisionHistory RevisionHistory
-        //{
-        //    get
-        //    {
-        //        throw new System.NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //    }
-        //}
-
-
         protected void Add(OriginalVersion<T> version)
         {
             Check.Require(version != null, "version must not be null");

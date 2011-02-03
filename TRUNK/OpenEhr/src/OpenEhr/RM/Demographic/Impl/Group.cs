@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.AssumedTypes.Impl;
 using OpenEhr.RM.Support.Identification;
@@ -14,7 +13,7 @@ namespace OpenEhr.RM.Demographic.Impl
             : base(archetypeNodeId)
         { }
 
-        protected Group(): base() { }
+        protected Group() { }
         
         LocatableSet<OpenEhr.RM.Demographic.PartyIdentity> identities;
 

@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.Common.Archetyped.Impl;
@@ -18,7 +17,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public class Activity : Locatable, System.Xml.Serialization.IXmlSerializable
     {
         public Activity() 
-            : base()
         { }
 
         public Activity(DvText name, string archetypeNodeId, UidBasedId uid,
@@ -148,8 +146,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
@@ -186,8 +182,8 @@ namespace OpenEhr.RM.Composition.Content.Entry
         {
             base.CheckInvariantsDefault();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Timing != null, "Timing must not be null.");
-            
         }
 
         protected override void SetAttributeDictionary()

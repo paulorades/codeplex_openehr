@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -13,7 +12,6 @@ namespace OpenEhr.RM.Support.Identification
     public class ObjectRef : RmType, System.Xml.Serialization.IXmlSerializable 
     {
         public ObjectRef() 
-            : base()
         { }
 
         public ObjectRef(ObjectId objectId, string namespaceValue, string typeValue)
@@ -98,6 +96,7 @@ namespace OpenEhr.RM.Support.Identification
         {
             DesignByContract.Check.Invariant(this.Id !=null);
 
+            // %HYYKA%
             // TODO: uncomments this invariant checking
             //DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.Namespace));
             //DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.Type));

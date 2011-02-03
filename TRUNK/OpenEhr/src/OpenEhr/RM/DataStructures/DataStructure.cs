@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Attributes;
@@ -11,7 +10,6 @@ namespace OpenEhr.RM.DataStructures
     public abstract class DataStructure : Locatable
     {
         protected DataStructure() 
-            : base() 
         { }
 
         protected DataStructure(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,

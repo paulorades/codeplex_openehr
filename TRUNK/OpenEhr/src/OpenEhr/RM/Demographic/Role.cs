@@ -1,11 +1,8 @@
-using System;
-
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.DesignByContract;
-using OpenEhr.AssumedTypes;
 using OpenEhr.AssumedTypes.Impl;
 using OpenEhr.Attributes;
 
@@ -21,7 +18,7 @@ namespace OpenEhr.RM.Demographic
             Performer = performer;
         }
 
-        protected Role():base() { }
+        protected Role() { }
 
         protected abstract DvInterval<DvDate> TimeValidityBase
         {
@@ -40,22 +37,6 @@ namespace OpenEhr.RM.Demographic
             get;
             set;
         }
-
-        //DvInterval<DvDate> timeValidity;
-
-        //protected virtual DvInterval<DvDate> TimeValidityBase
-        //{
-        //    get { return timeValidity; }
-        //    set { timeValidity = value; }
-        //}
-
-        //PartyRef performer;
-
-        //protected virtual PartyRef PerformerBase
-        //{
-        //    get { return performer; }
-        //    set { performer = value; }
-        //}
 
         #region ROLE
 

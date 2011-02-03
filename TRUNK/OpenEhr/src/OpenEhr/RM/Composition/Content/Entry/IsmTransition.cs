@@ -17,7 +17,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     {
 
         public IsmTransition() 
-            : base()
         { }
 
         public IsmTransition(DataTypes.Text.DvCodedText currentState, DataTypes.Text.DvCodedText transition,

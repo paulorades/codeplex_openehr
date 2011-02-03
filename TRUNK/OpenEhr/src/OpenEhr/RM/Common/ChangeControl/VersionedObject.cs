@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.AssumedTypes;
 using OpenEhr.Attributes;
 using OpenEhr.RM.DataTypes.Text;
@@ -139,10 +138,6 @@ namespace OpenEhr.RM.Common.ChangeControl
             {
                 return this.versions.Count;
             }
-            //set
-            //{
-            //    this.versionCount = value;
-            //}
         }
 
         public List<ObjectVersionId> AllVersionIds()
@@ -224,15 +219,7 @@ namespace OpenEhr.RM.Common.ChangeControl
         System.Collections.Generic.List<ObjectVersionId> IVersionedObject<T>.AllVersionIds()
         {
             System.Collections.Generic.List<ObjectVersionId> allVersionIds
-            //    = new System.Collections.Generic.List<ObjectVersionId>();
                 = new System.Collections.Generic.List<ObjectVersionId>(this.AllVersionIds());
-            //foreach (Version<T> eachVersion in versions)
-            //{
-            //    allVersionIds.Add(eachVersion.Uid);
-            //}
-
-            //if (allVersionIds.Count == 0)
-            //    throw new InvalidOperationException("No versions in Versioned Object");
 
             return allVersionIds;
         }

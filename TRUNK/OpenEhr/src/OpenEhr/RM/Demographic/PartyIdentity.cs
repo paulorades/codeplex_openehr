@@ -1,5 +1,3 @@
-using System;
-
 using OpenEhr.DesignByContract;
 
 using OpenEhr.Attributes;
@@ -13,7 +11,7 @@ namespace OpenEhr.RM.Demographic
     public abstract class PartyIdentity 
         : DemographicLocatable
     {
-        protected PartyIdentity(): base()
+        protected PartyIdentity()
         { }
 
         protected PartyIdentity(string archetypeNodeId, DvText name, ItemStructure details)

@@ -21,10 +21,6 @@ namespace OpenEhr.RM.Support.Identification
 
             string[] strings = value.Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
             
-            // CM: 09/11/10 EHR-1334 this is a bug.
-            // It should not throw an exception. It should just return false instead because there should
-            // not be any expections on a string must contain ::.
-            //Check.Assert(strings.Length > 0, "strings must contain 1 or more parts");
             if (strings.Length == 0)
                 return false;
 
@@ -39,7 +35,6 @@ namespace OpenEhr.RM.Support.Identification
         }
 
         public HierObjectId()
-            : base()
         { }
 
         public HierObjectId(string value)

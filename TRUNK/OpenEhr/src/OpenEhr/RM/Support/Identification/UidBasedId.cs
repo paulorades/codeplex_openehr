@@ -8,10 +8,6 @@ namespace OpenEhr.RM.Support.Identification
     [RmType("openEHR", "COMMON", "UID_BASED_ID")]
     public abstract class UidBasedId : ObjectId
     {
-        protected UidBasedId()
-            : base()
-        { }
-
         private const string seperator = "::";
 
         string[] strings;

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.Futures.OperationalTemplate;
 using OpenEhr.RM.Support.Identification;
@@ -35,7 +32,7 @@ namespace OpenEhr.Validation
         {
             get
             {
-                return configSource != null ? configSource : ConfigurationSourceFactory.Create();
+                return configSource ?? ConfigurationSourceFactory.Create();
             }
         }
 

@@ -17,14 +17,8 @@ namespace OpenEhr.RM.DataTypes.Quantity
     public class DvQuantity : DvAmount<DvQuantity>, System.Xml.Serialization.IXmlSerializable
     {
         #region constructors
-        public DvQuantity() //: base(new EhrTypes.DV_QUANTITY()) { }
-            : base()
+        public DvQuantity()
         { }
-
-        //internal DvQuantity(EhrTypes.DV_QUANTITY dataValueType) : base(dataValueType) 
-        //{           
-        //    CheckInvariants();
-        //}
 
         public DvQuantity(double magnitude, string units, int precision, float accuracy,
             bool accuracyIsPercent, string magnitudeStatus, CodePhrase normalStatus,
@@ -36,8 +30,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
             this.precision = precision;
             this.precisionSet = true;
-
-            //SetInnerData();
         }
 
         private DvQuantity(double magnitude, string units, float accuracy,
@@ -46,12 +38,9 @@ namespace OpenEhr.RM.DataTypes.Quantity
             : this()
         {
             this.magnitude = magnitude;
-            //this.magnitudeSet = true;
             this.units = units;
 
             SetBaseData(accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges);
-
-            //SetInnerData();
         }
 
         public DvQuantity(Double magnitude, string units)
@@ -194,6 +183,7 @@ namespace OpenEhr.RM.DataTypes.Quantity
         {
             base.CheckInvariants();
             DesignByContract.Check.Invariant(this.Precision>=-1);
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.magnitudeSet, "magnitude must have been set.");
 
             //DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.Units), 
@@ -228,7 +218,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
             Check.Assert(reader.LocalName == "magnitude", "reader localName must be 'magnitude'");
             this.magnitude
                 = reader.ReadElementContentAsDouble("magnitude", RmXmlSerializer.OpenEhrNamespace);
-            //this.magnitudeSet = true;
 
             reader.MoveToContent();
 
@@ -236,10 +225,7 @@ namespace OpenEhr.RM.DataTypes.Quantity
             Check.Assert(reader.LocalName == "units", "reader localName must be 'units'");
             this.units
                 = reader.ReadElementString("units", RmXmlSerializer.OpenEhrNamespace);
-            // CM: 10/08/09 units can be empty.
-            //Check.Assert(!string.IsNullOrEmpty(this.units), "units must not be null or empty.");
             Check.Assert(this.units != null, "units must not be null.");
-            //this.unitsSet = true;
             reader.MoveToContent();
 
             if (reader.LocalName == "precision")
@@ -262,24 +248,18 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
             string prefix = RmXmlSerializer.UseOpenEhrPrefix(writer); 
 
-            // CM: 02/02/09 make it culture independent 
-            //writer.WriteElementString(prefix, "magnitude", XmlSerializer.OpenEhrNamespace, this.Magnitude.ToString());
-            //writer.WriteElementString(prefix, "magnitude", XmlSerializer.OpenEhrNamespace, this.Magnitude.ToString(System.Globalization.CultureInfo.InvariantCulture));
-            
             // CM: 29/09/09 EHR-1008
             writer.WriteElementString(prefix, "magnitude", RmXmlSerializer.OpenEhrNamespace, this.Magnitude.ToString("R", System.Globalization.CultureInfo.InvariantCulture));
             
             writer.WriteElementString(prefix, "units", RmXmlSerializer.OpenEhrNamespace, this.Units);
 
-            //if (this.Precision != -1)
             // CM: 08/05/09 precision is optional, include this value only when it is recorded. 
             // In openehr schema, it's default value is -1. In fact, -1 is equivallent to not recorded. In the
             // specifications, -1 means no limits
             if (this.Precision > -1)
                 writer.WriteElementString(prefix, "precision", RmXmlSerializer.OpenEhrNamespace, this.Precision.ToString(System.Globalization.CultureInfo.InvariantCulture));
         }
-
-     
+        
         #endregion
     }
 }

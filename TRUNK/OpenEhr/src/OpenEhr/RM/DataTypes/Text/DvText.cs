@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.ComponentModel;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -16,7 +15,6 @@ namespace OpenEhr.RM.DataTypes.Text
     public class DvText : OpenEhr.RM.DataTypes.Basic.DataValue, System.Xml.Serialization.IXmlSerializable, IFormattable
     {
         public DvText()             
-            : base()
         { }
 
         public DvText(string value) 
@@ -66,7 +64,6 @@ namespace OpenEhr.RM.DataTypes.Text
                 {
                     this.mappings.Add(mapping);
                 }
-                //this.mappings = mappings;
             }
             this.language = language;
             this.encoding = encoding;
@@ -91,18 +88,11 @@ namespace OpenEhr.RM.DataTypes.Text
         {
             get
             {
-                //if (!this.languageSet)
-                //{
-                //    this.language = WrapperFactory.CreateCodePhrase(this.DataValueType.language);
-                //    this.languageSet = true;
-                //}
                 return this.language;
             }
-            //set { }//throw new System.NotImplementedException(); }
         }
 
         private CodePhrase encoding;
-        //private bool encodingSet;
 
         [DefaultValue(null)]
         [Browsable(false)]
@@ -112,38 +102,18 @@ namespace OpenEhr.RM.DataTypes.Text
         {
             get
             {
-                //if (!this.encodingSet)
-                //{
-                //    this.encoding = WrapperFactory.CreateCodePhrase(this.DataValueType.encoding);
-                //    this.encodingSet = true;
-                //}
                 return this.encoding;
             }
-            //set { }//throw new System.NotImplementedException(); }
         }
 
         // 26/05/09 change to use Support.Assumed.List, otherwise, mappings would be
         // treated as non-openehr type. This would affect the datatype conversion in query result set.
-        //private List<TermMapping> mappings;
         private AssumedTypes.List<TermMapping> mappings;
-        //bool mappingsSet;
         [Browsable(false)]
         public AssumedTypes.List<TermMapping> Mappings
         {
             get
             {
-                //if (!this.mappingsSet && this.DataValueType.mappings != null)
-                //{
-                //    //List<TermMapping> mappings = new List<TermMapping>();
-                //    Support.Assumed.List<TermMapping> mappings = new OpenEhr.Support.Assumed.List<TermMapping>();
-                //    foreach (EhrTypes.TERM_MAPPING mapping in this.DataValueType.mappings)
-                //    {
-                //        mappings.Add(WrapperFactory.CreateTermMapping(mapping));
-                //    }
-                //    this.mappings = mappings;
-                //    this.mappingsSet = true;
-                //}
-
                 return this.mappings;
             }
         }
@@ -155,8 +125,6 @@ namespace OpenEhr.RM.DataTypes.Text
         public Uri.DvUri Hyperlink
         {
             get {
-                //if (this.hyperlink == null)
-                //    this.hyperlink = WrapperFactory.CreateDataValue(this.DataValueType.hyperlink) as Uri.DvUri;
                 return this.hyperlink;
             } 
         }
@@ -317,7 +285,6 @@ namespace OpenEhr.RM.DataTypes.Text
 
         protected override void CheckInvariants()
         {
-            //Check.Invariant(!string.IsNullOrEmpty(this.Value), "Value must not be null or empty.");
             Check.Invariant(this.Value != null, "Value must not be null.");
             Check.Invariant(this.Mappings == null || this.Mappings.Count > 0, "Mappings is not null implies mappings is not empty.");
             Check.Invariant(this.Formatting == null || this.Formatting.Length > 0, "formatting /= void implies not formatting.is_empty");

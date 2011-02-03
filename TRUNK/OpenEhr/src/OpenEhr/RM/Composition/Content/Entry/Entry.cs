@@ -16,7 +16,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public abstract class Entry : ContentItem
     {
         protected Entry()
-            : base()
         { }
 
         protected Entry(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -225,7 +224,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
             writer.WriteEndElement();
 
             writer.WriteStartElement(openEhrPrefix, "subject", RmXmlSerializer.OpenEhrNamespace);
-            //string subjectType = this.Subject.GetPartyProxyEhrType();
             string subjectType = ((IRmType)this.Subject).GetRmTypeName();
             if (!string.IsNullOrEmpty(openEhrPrefix))
                 subjectType = openEhrPrefix + ":" + subjectType;
@@ -236,7 +234,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
             if (this.Provider != null)
             {
                 writer.WriteStartElement(openEhrPrefix, "provider", RmXmlSerializer.OpenEhrNamespace);
-                //string providerType = this.Provider.GetPartyProxyEhrType();
                 string providerType = ((IRmType)this.Provider).GetRmTypeName();
                 if (!string.IsNullOrEmpty(openEhrPrefix))
                     providerType = openEhrPrefix + ":" + providerType;
@@ -272,58 +269,10 @@ namespace OpenEhr.RM.Composition.Content.Entry
 
         }
 
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-           
-        //    if (this.language != null)
-        //        this.InnerType.language = this.language.InternalType;
-        //    if (this.encoding != null)
-        //        this.InnerType.encoding = this.encoding.InternalType;
-        //    if (this.subject != null)
-        //        this.InnerType.subject = this.subject.EhrType;
-
-        //    if (this.provider != null)
-        //        this.InnerType.provider = this.provider.EhrType;
-        //    if (this.otherParticipations != null)
-        //    {
-        //        System.Collections.Generic.List<OpenEhr.V1.Its.Xml.RM.PARTICIPATION> participations =
-        //            new List<OpenEhr.V1.Its.Xml.RM.PARTICIPATION>();
-        //        foreach (Participation participation in this.otherParticipations)
-        //        {
-        //            OpenEhr.V1.Its.Xml.RM.PARTICIPATION ehrTypeParticipation =
-        //                ((IItsXmlConvertible)participation).ToItsXmlType() as OpenEhr.V1.Its.Xml.RM.PARTICIPATION;
-        //            participations.Add(ehrTypeParticipation);
-        //        }
-
-        //        if (participations.Count > 0)
-        //            this.innerType.other_participations = participations.ToArray();
-
-        //    }
-        //    if (this.workflowId != null)
-        //        this.InnerType.work_flow_id = this.workflowId.InternalType;
-        //    if (this.otherParticipations != null)
-        //    {
-        //        List<EhrTypes.PARTICIPATION> patList = new List<OpenEhr.V1.Its.Xml.RM.PARTICIPATION>();
-        //        foreach (Participation p in this.otherParticipations)
-        //        {
-        //            EhrTypes.PARTICIPATION participationType = ((IItsXmlConvertible)p).ToItsXmlType() as EhrTypes.PARTICIPATION;
-
-        //            if (participationType == null)
-        //            {
-        //                throw new NullReferenceException("participationType must not be null.");
-        //            }
-
-        //            patList.Add(participationType);
-        //        }
-        //        this.InnerType.other_participations = patList.ToArray();
-        //    }
-
-        //}
-
         protected override void CheckInvariants()
         {
             base.CheckInvariants();
+            // %HYYKA%
             //Check.Invariant(this.Language != null, "Language must not be null");
             //// TODO: Language_valid: language /= Void and then code_set(Code_set_id_languages).has_code(language)
             //Check.Invariant(this.Encoding != null, "Encoding must not be null");
@@ -351,53 +300,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
             base.attributesDictionary["other_participations"] = this.otherParticipations;
             base.attributesDictionary["workflow_id"] = this.workflowId;
         }
-
-        //protected override void InitialiseAttributeDictionary()
-        //{
-        //    base.InitialiseAttributeDictionary();
-
-        //    // add attributes to the attributeDictionary
-        //    DataTypes.Text.CodePhrase language = WrapperFactory.CreateObject(this.InnerType.language) 
-        //        as DataTypes.Text.CodePhrase;
-        //    //if (language == null)
-        //    //    language = new OpenEhr.RM.DataTypes.Text.CodePhrase();
-        //    base.attributesDictionary.Add("language", language);
-
-        //    // encoding
-        //    DataTypes.Text.CodePhrase encoding = WrapperFactory.CreateObject(this.InnerType.encoding) 
-        //        as DataTypes.Text.CodePhrase;
-        //    //if (encoding == null)
-        //    //    encoding = new OpenEhr.RM.DataTypes.Text.CodePhrase();
-        //    base.attributesDictionary.Add("encoding", encoding);
-
-        //    //subject 
-        //    Common.Generic.PartyProxy subject = WrapperFactory.CreatePartyProxy(this.InnerType.subject);
-        //    //if (subject == null)
-        //    //    subject = new Common.Generic.PartySelf();
-        //    base.attributesDictionary.Add("subject", subject);
-
-        //    //PROVIDER 
-        //    PartyProxy provider = WrapperFactory.CreatePartyProxy(this.InnerType.provider);
-        //    base.attributesDictionary.Add("provider", provider);
-
-        //    //OTHER_PARTICIPATIONS 
-        //    Support.Assumed.List<Common.Generic.Participation> participations = null;
-        //    EhrTypes.PARTICIPATION[] ehrTypeParticipations = this.InnerType.other_participations;
-        //    if (ehrTypeParticipations != null && ehrTypeParticipations.Length > 0)
-        //    {
-        //        participations = new OpenEhr.Support.Assumed.List<OpenEhr.Common.Generic.Participation>();
-        //        foreach (EhrTypes.PARTICIPATION participation in ehrTypeParticipations)
-        //        {
-        //            participations.Add(WrapperFactory.CreateParticipation(participation));
-        //        }
-        //    }
-        //    base.attributesDictionary.Add("other_participations", participations);
-
-        //    // workflowId
-        //    OpenEhr.RM.Support.Identification.ObjectRef workflowId = WrapperFactory.CreateObjectRef(this.InnerType.work_flow_id);
-        //    base.attributesDictionary.Add("workflow_id", workflowId);
-
-        //}
 
         protected void CheckInvariantsDefault()
         {

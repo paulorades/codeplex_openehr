@@ -6,15 +6,13 @@ using OpenEhr.RM.DataTypes.Encapsulated;
 namespace OpenEhr.RM.Common.Archetyped
 {
     [Serializable]
-    public abstract class FeederAudit //: OpenEhr.RmType
+    public abstract class FeederAudit
     {
-        //public abstract FeederAuditDetails OriginatingSystemAudit
         public abstract OpenEhr.RM.Common.Archetyped.FeederAuditDetails OriginatingSystemAudit
         {
             get;
         }
 
-        //public abstract FeederAuditDetails FeederSystemAudit
         public abstract OpenEhr.RM.Common.Archetyped.FeederAuditDetails FeederSystemAudit
         {
             get;

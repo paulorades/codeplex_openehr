@@ -25,24 +25,18 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
         public DvDateTime(string dateTimeString, DvDuration accuracy, string magnitudeStatus, CodePhrase normalStatus,
          DvInterval<DvDateTime> normalRange, ReferenceRange<DvDateTime>[] otherReferenceRanges)
-            //: base(new EhrTypes.DV_DATE_TIME())
-            : base()
         {
             this.isoDateTime = new Iso8601DateTime(dateTimeString);
             
             base.SetBaseData(accuracy, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges);
 
-            //SetInnerData();
             CheckInvariants();
         }
 
         public DvDateTime()
-            //: base(new EhrTypes.DV_DATE_TIME())
-            : base()
         {
             this.isoDateTime = new Iso8601DateTime(System.DateTime.Now);
 
-            //SetInnerData();
             CheckInvariants();
         }
         
@@ -55,55 +49,26 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
         { }
 
         public DvDateTime(System.DateTime dateTime)
-            //: base(new EhrTypes.DV_DATE_TIME())
-            : base()
         {
             this.isoDateTime = new Iso8601DateTime(dateTime);
 
-            //SetInnerData();
             CheckInvariants();
         }
 
         public DvDateTime(int year, int month, int day, int hour, int minute,
             int second, double fractionalSecond, int timeZoneSign, int timeZoneHour,
             int timeZoneMinute)
-            //: this()
-            : base()
         {
             this.isoDateTime
                 = new Iso8601DateTime(year, month, day, hour, minute, second,
                 fractionalSecond, timeZoneSign, timeZoneHour, timeZoneMinute);
 
-            //SetInnerData();
             CheckInvariants();
         }
 
-        //static internal DvDateTime CreateEmpty()
-        //{
-        //    return new DvDateTime(new EhrTypes.DV_DATE_TIME());
-        //}
-
-        //internal DvDateTime(EhrTypes.DV_DATE_TIME dateTime)
-        //    : base(dateTime)
-        //{
-        //    //Check.Require(dateTime!=null && !string.IsNullOrEmpty(dateTime.value));
-
-        //    if (!string.IsNullOrEmpty(dateTime.value))
-        //    {
-        //        this.isoDateTime = new Iso8601DateTime(dateTime.value);
-
-        //        SetInnerData();
-
-        //        CheckInvariants();
-        //    }
-        //}
         #endregion
 
         #region class properties
-        //protected EhrTypes.DV_DATE_TIME DateTimeType
-        //{
-        //    get { return base.DataValueType as EhrTypes.DV_DATE_TIME; }
-        //}
 
         // CM: 30/05/07
         public double Magnitude
@@ -116,56 +81,12 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
         protected override double GetMagnitude()
         {
             return this.isoDateTime.GetDateTimeSeconds();
-            //double magnitude = -1.0;
-            ////if (this.isoDateTime != null)
-            ////{
-            //    double daysInTotal = isoDateTime.Year * TimeDefinitions.nominalDatysInYear;
-            //    if (!isoDateTime.MonthUnknown)
-            //        daysInTotal += isoDateTime.Month * TimeDefinitions.nominalDatysInMonth;
-            //    if (!isoDateTime.DayUnknown)
-            //        daysInTotal += isoDateTime.Day;
-
-            //    magnitude = daysInTotal * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-
-            //    if (!isoDateTime.HourUnknown)
-            //    {
-            //        magnitude += isoDateTime.Hour * TimeDefinitions.minutesInHour + TimeDefinitions.secondsInMinute;
-            //        if (!isoDateTime.MinuteUnknown)
-            //            magnitude += isoDateTime.Minute * TimeDefinitions.secondsInMinute;
-            //        if (isoDateTime.HasFractionalSecond)
-            //            magnitude += isoDateTime.FractionalSecond;
-
-            //        // timezone
-            //        if (isoDateTime.Iso8601TimeZone != null)
-            //        {
-            //            Iso8601TimeZone timezone = isoDateTime.Iso8601TimeZone;
-            //            if (!timezone.IsGmt)
-            //            {
-            //                int timezoneMinutes = timezone.Hour * TimeDefinitions.minutesInHour + timezone.Minute;
-            //                if (timezone.Sign == 1)                                                            
-            //                    magnitude += timezoneMinutes * TimeDefinitions.secondsInMinute;                            
-
-            //                else if(timezone.Sign==-1)
-            //                    magnitude -= timezoneMinutes * TimeDefinitions.secondsInMinute;                            
-            //            }
-            //        }
-            //    }
-
-            ////}
-            //if (magnitude < 0)
-            //    throw new PostconditionException
-            //        ("Magnitude results in DvDateTime must not be smaller than zero.");
-            //return magnitude;
         }     
-
-        //private string value;
 
         public string Value
         {
             get
             {
-                //if (this.isoDateTime == null)
-                //    this.isoDateTime = new Iso8601DateTime(this.DateTimeType.value);
                 return this.isoDateTime.ToString();
             }
             set
@@ -364,132 +285,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             return new DvDuration(diff.ToString());
         }
 
-        //public override DvDuration Diff(DvTemporal b)
-        //{
-        //    DesignByContract.Check.Require(b is DvDateTime, "Expected a DvDateTime instance in Diff function.");
-
-        //    DvDateTime bObj = b as DvDateTime;
-        //    Iso8601DateTime bObjIsoDateTime = bObj.isoDateTime;
-
-        //    if (this.isoDateTime.HasFractionalSecond && bObjIsoDateTime.HasFractionalSecond)
-        //    {
-        //        System.DateTime thisDateTime = new System.DateTime(this.isoDateTime.Year, this.isoDateTime.Month,
-        //            this.isoDateTime.Day, this.isoDateTime.Hour, this.isoDateTime.Minute, this.isoDateTime.Second,
-        //              Math.Truncate(this.isoDateTime.FractionalSecond * 1000));
-
-        //        System.DateTime bObjDateTime = new System.DateTime(bObjIsoDateTime.Year, bObjIsoDateTime.Month,
-        //           bObjIsoDateTime.Day, bObjIsoDateTime.Hour, bObjIsoDateTime.Minute, bObjIsoDateTime.Second,
-        //             Math.Truncate(bObjIsoDateTime.FractionalSecond * 1000));
-        //        if (this.isoDateTime.Iso8601TimeZone != null && bObjIsoDateTime.Iso8601TimeZone!=null)
-        //        {
-        //            int timeZoneH = this.isoDateTime.Iso8601TimeZone.Hour;
-        //            int timeZoneM = this.isoDateTime.Iso8601TimeZone.Minute;
-        //            if (this.isoDateTime.Iso8601TimeZone.Sign == 1)
-        //            {
-        //                timeZoneH = -timeZoneH;
-        //                timeZoneM = -timeZoneM;
-        //            }
-
-        //            thisDateTime.AddHours(timeZoneH);
-        //            thisDateTime.AddMinutes(timeZoneM);
-        //        }
-        //    }
-            
-
-        //    DvDate thisDate = this.GetDvDate(this);
-        //    DvDate bObjDate = this.GetDvDate(bObj);
-
-        //    DvDuration dateDiff = thisDate.Diff(bObjDate) as DvDuration;
-
-        //    double thisTotalSec = this.GetTotalSeconds(this);
-        //    double bObjTotalSec = this.GetTotalSeconds(bObj);
-
-        //    double secondDiff = thisTotalSec - bObjTotalSec;
-
-        //    if (secondDiff != 0)
-        //    {
-        //        if (this < bObj)
-        //            return DvDuration.GetDurationByMagnitude(Math.Abs(-dateDiff.Magnitude + secondDiff));
-        //        else
-        //            return DvDuration.GetDurationByMagnitude(Math.Abs(dateDiff.Magnitude + secondDiff));
-        //    }
-
-        //    return dateDiff;
-        //} 
-
-
-        //public override DvDuration Diff(DvTemporal b)
-        //{
-        //    DesignByContract.Check.Require(b is DvDateTime, "Expected a DvDateTime instance in Diff function.");
-
-        //    DvDateTime bObj = b as DvDateTime;
-
-        //    DvDate thisDate = this.GetDvDate(this);
-        //    DvDate bObjDate = this.GetDvDate(bObj);
-
-        //    DvDuration dateDiff = thisDate.Diff(bObjDate) as DvDuration;
-
-        //    double thisTotalSec = this.GetTotalSeconds(this);
-        //    double bObjTotalSec = this.GetTotalSeconds(bObj);
-
-        //    double secondDiff = thisTotalSec - bObjTotalSec;
-
-        //    if (secondDiff != 0)
-        //    {
-        //        if (this < bObj)
-        //            return DvDuration.GetDurationByMagnitude(Math.Abs(-dateDiff.Magnitude + secondDiff));
-        //        else
-        //            return DvDuration.GetDurationByMagnitude(Math.Abs(dateDiff.Magnitude + secondDiff));
-        //    }
-
-        //    return dateDiff;
-        //} 
-
-        //public override DvDuration Diff(DvTemporal<DvDateTime> b)
-        //{
-        //    DesignByContract.Check.Require(b is DvDateTime, "Expected a DvDateTime instance in Diff function.");
-
-        //    DvDateTime bObj = b as DvDateTime;
-
-        //    double thisExtraSeconds = 0;
-        //    double bObjExtraSectionds = 0;
-
-        //    if (!this.isoDateTime.MonthUnknown && !bObj.isoDateTime.MonthUnknown && this.isoDateTime.Month != bObj.isoDateTime.Month)
-        //    {
-        //        int thisDaysInMonth = System.DateTime.DaysInMonth(this.isoDateTime.Year, this.isoDateTime.Month);
-        //        int bObjDaysInMonth = System.DateTime.DaysInMonth(bObj.isoDateTime.Year, bObj.isoDateTime.Month);
-        //        if (thisDaysInMonth > TimeDefinitions.nominalDaysInMonth)
-        //            thisExtraSeconds = -(thisDaysInMonth - TimeDefinitions.nominalDaysInMonth) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-        //        else if (thisDaysInMonth < 30)
-        //            thisExtraSeconds = (TimeDefinitions.nominalDaysInMonth - thisDaysInMonth) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-
-        //        if (bObjDaysInMonth > TimeDefinitions.nominalDaysInMonth)
-        //            bObjExtraSectionds = -(bObjDaysInMonth - TimeDefinitions.nominalDaysInMonth) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-        //        else if (bObjDaysInMonth < 30)
-        //            bObjExtraSectionds = (TimeDefinitions.nominalDaysInMonth - bObjDaysInMonth) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-
-        //    }
-
-
-        //    // seconds difference
-        //    double secondsDiff = Math.Abs(this.Magnitude + thisExtraSeconds - bObj.Magnitude + bObjExtraSectionds);
-
-        //    DvDuration duration = DvDuration.GetDurationByMagnitude(secondsDiff);
-
-        //    return duration;
-        //}
-
-      
-
-        //public override ReferenceRange<DvOrdered>[] OtherReferenceRanges
-        //{
-        //    get
-        //    {
-        //        return null;
-        //    }
-        //}
-
-
         /// <summary>These pattern symbols are derived directly from DateTimeFormatInfo
         /// documentation. The % and \ pattern symbols are automatically pre-parsed
         /// (along with their following character) and therefore not included in this
@@ -507,9 +302,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
         /// <returns>Formatted date-time string</returns>
         public string ToString(string format, IFormatProvider provider)
         {
-            //if(this.isoDateTime.IsPartial)
-            //   throw new NotSupportedException("Formatted ToString cannot be performed on a 'partial' date-time.");
-
             // Get the DateTimeFormatInfo object
             DateTimeFormatInfo dateFormat;
             if (provider == null)
@@ -534,8 +326,7 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             if (string.IsNullOrEmpty(format))
                 return this.ToString(false, true);
 
-            //if (format == null || format == "" || format == "d" || format == dateFormat.ShortDatePattern)
-            else if (format == "d" || format == dateFormat.ShortDatePattern)
+            if (format == "d" || format == dateFormat.ShortDatePattern)
             {
                 Check.Assert(!this.isoDateTime.MonthUnknown, "Month must be known to format according to long date pattern.");
                 Check.Assert(!this.isoDateTime.DayUnknown, "Day must be known to format according to long date pattern.");
@@ -598,13 +389,7 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
            
             // Format with the processed formatPattern and display token replacements
             // CM: 17/02/09 Converted this to regex as was failing on certain timezones
-            //return string.Format(formatPattern.ToString(), displayTokens.ToArray());
             string dateTimeString = string.Format(formatPattern.ToString(), displayTokens.ToArray());
-
-            //dateTimeString = Iso8601DateTime.ToIsoDateTime(dateTimeString);
-
-            //DesignByContract.Check.Ensure(Iso8601DateTime.ValidIso8601DateTime(dateTimeString),
-            //    "dateTimeString must be valid ISO8601 date time: " + dateTimeString);
 
             return dateTimeString;
         }
@@ -843,10 +628,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
             if (remainder!=0 && !isoDateTime.DayUnknown && isoDateTime.Day > TimeDefinitions.nominalDaysInMonth)
                 remainder += (isoDateTime.Day - TimeDefinitions.nominalDaysInMonth) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-            //else if (remainder != 0 && !isoDateTime.DayUnknown && System.DateTime.DaysInMonth(isoDateTime.Year, isoDateTime.Month) < TimeDefinitions.nominalDatysInMonth)
-            //    remainder -= (TimeDefinitions.nominalDatysInMonth - System.DateTime.DaysInMonth(isoDateTime.Year, isoDateTime.Month)) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
-            //if (remainder != 0 && !isoDateTime.DayUnknown && System.DateTime.DaysInMonth(isoDateTime.Year, isoDateTime.Month) < 30)
-            //    remainder -= (TimeDefinitions.nominalDatysInMonth - System.DateTime.DaysInMonth(isoDateTime.Year, isoDateTime.Month)) * TimeDefinitions.hoursInDay * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
 
             if (remainder < 0)
             {
@@ -869,17 +650,9 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             {
                 dvTime = DvTime.GetTimeByMagnitude(remainder);
 
-                //Iso8601Date isoDate = new Iso8601Date(dvDate.Value);
-                //Iso8601Time isoTime = new Iso8601Time(dvTime.Value);
-
                 return new DvDateTime(dvDate.Value+"T"+dvTime.Value);
-
-                //return new DvDateTime(isoDate.Year, isoDate.Month, isoDate.Day, isoTime.Hour,
-                //    isoTime.Minute, isoTime.Second, isoTime.FractionalSecond, isoTime.TimeZone.Sign,
-                //    isoTime.TimeZone.Hour, isoTime.TimeZone.Minute);
             }
-            else
-                return new DvDateTime(dvDate.Value);
+            return new DvDateTime(dvDate.Value);
         }
 
         public static System.Xml.XmlQualifiedName GetXmlSchema(System.Xml.Schema.XmlSchemaSet xs)
@@ -894,7 +667,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
             // Get value
             Check.Require(reader.LocalName == "value", "reader.LocalName must be 'value'");
-            //this.value = reader.ReadElementString("value", XmlSerializer.OpenEhrNamespace);
             this.isoDateTime = new Iso8601DateTime(reader.ReadElementString("value", RmXmlSerializer.OpenEhrNamespace));
 
             reader.MoveToContent();
@@ -910,13 +682,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
             writer.WriteElementString(prefix, "value", RmXmlSerializer.OpenEhrNamespace, this.Value);
         }
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    //((DV_DATE_TIME)(this.DataValueType)).value = this.value;
-        //    ((DV_DATE_TIME)(this.DataValueType)).value = this.isoDateTime.ToString();
-        //}
 
         protected void CheckInvariants()
         {

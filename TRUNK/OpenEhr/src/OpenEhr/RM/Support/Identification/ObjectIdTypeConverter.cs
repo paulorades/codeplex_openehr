@@ -42,7 +42,6 @@ namespace OpenEhr.RM.Support.Identification
 
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
-            //if (destinationType == typeof(Support.Identification.ObjectId))
             if (destinationType.IsAssignableFrom(typeof(Support.Identification.ObjectId)))
                 return true;
             else

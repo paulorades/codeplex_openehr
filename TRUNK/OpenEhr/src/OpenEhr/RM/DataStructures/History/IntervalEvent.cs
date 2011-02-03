@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.DesignByContract;
@@ -15,7 +14,6 @@ namespace OpenEhr.RM.DataStructures.History
     public class IntervalEvent<T> : Event<T>, System.Xml.Serialization.IXmlSerializable where T : DataStructures.ItemStructure.ItemStructure
     {
         public IntervalEvent()
-            : base()
         { }
 
         public IntervalEvent(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -70,16 +68,6 @@ namespace OpenEhr.RM.DataStructures.History
         {
             get
             {
-                //if (!sampleCountSet)
-                //{
-                //    if (this.InnerType.sample_countSpecified)
-                //    {
-                //        sampleCount = int.Parse(base.attributesDictionary["sample_count"].ToString());
-                //        this.sampleCountSet = true;
-                //    }
-                //    //else
-                //    //    throw new InvalidOperationException("sample_count is not specified");
-                //}
                 return sampleCount;
             }
             set
@@ -178,8 +166,6 @@ namespace OpenEhr.RM.DataStructures.History
 
             if (reader.LocalName == "sample_count")
             {
-                //this.sampleCount = reader.ReadElementContentAsInt("sample_count", XmlSerializer.OpenEhrNamespace);
-                //this.sampleCountSet = true;
                 this.SampleCount = reader.ReadElementContentAsInt("sample_count", RmXmlSerializer.OpenEhrNamespace);
                 reader.MoveToContent();
             }

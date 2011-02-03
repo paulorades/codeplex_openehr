@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Support.Identification;
@@ -16,7 +15,6 @@ namespace OpenEhr.RM.Common.Generic
     public class PartyRelated : PartyIdentified, System.Xml.Serialization.IXmlSerializable
     {
         public PartyRelated()
-            : base()
         { }
 
         public PartyRelated(string name, List<DvIdentifier> identifiers, DvCodedText relationship,
@@ -86,16 +84,6 @@ namespace OpenEhr.RM.Common.Generic
             this.Relationship.WriteXml(writer);
             writer.WriteEndElement();
         }
-
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-
-        //    this.EhrType.relationship = this.relationship.DataValueType as EhrTypes.DV_CODED_TEXT;
-
-        //    CheckInvariants();
-        //}
 
         public static System.Xml.XmlQualifiedName GetXmlSchema(System.Xml.Schema.XmlSchemaSet xs)
         {

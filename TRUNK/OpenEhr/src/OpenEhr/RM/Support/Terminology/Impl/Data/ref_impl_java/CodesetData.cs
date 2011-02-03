@@ -1,12 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
-using System.IO;
 using OpenEhr.DesignByContract;
-using System.Xml.Schema;
 using System.Xml.XPath;
-using System.Xml;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Utilities;
 using OpenEhr.Utilities.PathHelper;
@@ -70,8 +65,6 @@ namespace OpenEhr.RM.Support.Terminology.Impl.Data.ref_impl_java
                 {
                     string code = codeNav.SelectSingleNode("@value").Value;
                     string description = codeNav.SelectSingleNode("@Description").Value;
-
-                    //CodePhrase codePhrase = new CodePhrase(code, name);
 
                     results.Add(code, description);
                 }

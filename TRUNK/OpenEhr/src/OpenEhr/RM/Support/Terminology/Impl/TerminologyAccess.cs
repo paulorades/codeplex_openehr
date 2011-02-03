@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using OpenEhr.RM.Support.Terminology.Impl.Configuration;
 using System.Xml.XPath;
 using OpenEhr.RM.Support.Terminology.Impl.Data;
 using OpenEhr.Utilities;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.DesignByContract;
 
 namespace OpenEhr.RM.Support.Terminology.Impl
 {

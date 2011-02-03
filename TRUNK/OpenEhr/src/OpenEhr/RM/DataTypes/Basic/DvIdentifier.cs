@@ -12,7 +12,6 @@ namespace OpenEhr.RM.DataTypes.Basic
     public sealed class DvIdentifier : DataValue, System.Xml.Serialization.IXmlSerializable
     {
         public DvIdentifier()
-            : base()
         { }
 
         public DvIdentifier(string issuer, string assigner, string id, string type):

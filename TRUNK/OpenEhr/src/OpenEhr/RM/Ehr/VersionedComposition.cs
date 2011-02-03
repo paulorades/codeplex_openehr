@@ -1,5 +1,3 @@
-using System;
-
 using OpenEhr.RM.Extract.Common;
 using OpenEhr.RM.Common.ChangeControl;
 
@@ -9,7 +7,6 @@ namespace OpenEhr.RM.Ehr
         : VersionedObject<Composition.Composition>
     {
         public VersionedComposition()
-            : base()
         { }
 
         public VersionedComposition(XVersionedObject<Composition.Composition> xVersionedObject)

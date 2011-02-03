@@ -46,7 +46,6 @@ namespace OpenEhr.RM.Support.Identification
         public string Value
         {
             get { return this.value; }
-            //set { this.value = value; }
         }
 
         protected abstract bool IsValidValue(string value);
@@ -63,7 +62,6 @@ namespace OpenEhr.RM.Support.Identification
 
         public override bool Equals(object obj)
         {
-            //return this.Equals(obj as Uid);
             Uid uid = obj as Uid;
 
             if (uid != null)
@@ -71,14 +69,5 @@ namespace OpenEhr.RM.Support.Identification
             else
                 return false;
         }
-
-        //protected bool Equals(Uid uid)
-        //{
-        //    // If parameter is null return false:
-        //    if (uid == null)
-        //        return false;
-
-        //    return this.value.Equals(uid.Value);
-        //}
     }
 }

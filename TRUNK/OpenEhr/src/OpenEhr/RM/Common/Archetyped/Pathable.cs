@@ -1,5 +1,4 @@
 using System;
-using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.DesignByContract;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.AssumedTypes;
@@ -31,8 +30,6 @@ namespace OpenEhr.RM.Common.Archetyped
         public abstract object ItemAtPath(string path);
         public abstract List<object> ItemsAtPath(string path);
         public abstract string PathOfItem(Pathable item);
-
-        //internal abstract object FindItem(Path path);
 
         protected new CComplexObject Constraint
         {

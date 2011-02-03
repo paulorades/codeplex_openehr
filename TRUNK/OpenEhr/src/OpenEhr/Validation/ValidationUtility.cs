@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.Futures.OperationalTemplate;
 using OpenEhr.DesignByContract;
@@ -9,7 +7,6 @@ using OpenEhr.RM.Support.Terminology;
 using OpenEhr.RM.Support.Terminology.Impl;
 using OpenEhr.AM.Archetype.Assertion;
 using OpenEhr.AM.Archetype.ConstraintModel.Primitive;
-using OpenEhr.RM.Common.Archetyped;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 
 namespace OpenEhr.Validation
@@ -169,17 +166,6 @@ namespace OpenEhr.Validation
             Check.Require(cObject != null, "cObject must not be null");
 
             CArchetypeRoot cArchetypeRoot = GetCArchetypeRoot(cObject);
-            //CObject parentObject = cObject;
-            //CArchetypeRoot cArchetypeRoot = null;
-            //while (parentObject != null && (cArchetypeRoot = parentObject as CArchetypeRoot) == null)
-            //{
-            //    CAttribute cattribute = parentObject.Parent;
-            //    Check.Assert(cattribute != null, "cattribute must not be null");
-            //    parentObject = cattribute.parent;
-            //} 
-
-            //if (cArchetypeRoot == null)
-            //    throw new ApplicationException("Operational template must contain CArchetypeRoot");
 
             Check.Assert(cArchetypeRoot.TermDefinitions.HasKey(codeString));
 

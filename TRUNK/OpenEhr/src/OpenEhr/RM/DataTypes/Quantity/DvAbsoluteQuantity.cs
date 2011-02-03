@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.Attributes;
 
 namespace OpenEhr.RM.DataTypes.Quantity
@@ -10,10 +9,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         where T : DvAbsoluteQuantity<T, U>
         where U : DvAmount<U>
     {
-        protected DvAbsoluteQuantity()
-            : base()
-        { }
-
         public abstract DvAmount<U> Accuracy
         {
             get;

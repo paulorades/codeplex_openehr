@@ -1,6 +1,5 @@
 using System;
 using System.Xml;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -15,7 +14,6 @@ namespace OpenEhr.RM.Common.Generic
     public class Participation : RmType, System.Xml.Serialization.IXmlSerializable
     {
         public Participation()
-            : base()
         { }
 
         public Participation(DataTypes.Text.DvText function,
@@ -93,9 +91,6 @@ namespace OpenEhr.RM.Common.Generic
 
         private void CheckStrictInvariants()
         {
-            //Check.Invariant(this.Function != null, "function must not be null");
-            //Check.Invariant(this.Mode != null, "mode must not be null");
-            //Check.Invariant(this.Performer != null, "performer must not be null");
             Check.Require(this.Function != null, "function must not be null");
             Check.Require(this.Mode != null, "mode must not be null");
             Check.Require(this.Performer != null, "performer must not be null");
@@ -126,13 +121,9 @@ namespace OpenEhr.RM.Common.Generic
 
             Check.Assert(reader.LocalName == "function",
                 "Expected LocalName is 'function' not " + reader.LocalName);
-            //string functionType = reader.GetAttribute("type", XmlSerializer.XsiNamespace);
             string functionType = RmXmlSerializer.ReadXsiType(reader);
             if (!string.IsNullOrEmpty(functionType))
             {
-                //int i = functionType.IndexOf(":");
-                //if (i > 0)
-                //    functionType = functionType.Substring(i+1);
                 this.function = RmFactory.DataValue(functionType) as DataTypes.Text.DvText;
             }
             else
@@ -161,8 +152,6 @@ namespace OpenEhr.RM.Common.Generic
                 "Expected endElement of PartyIdentified.");
             reader.ReadEndElement();
             reader.MoveToContent();
-
-            //this.SetInnerData();
         }
 
         internal void WriteXml(XmlWriter writer)

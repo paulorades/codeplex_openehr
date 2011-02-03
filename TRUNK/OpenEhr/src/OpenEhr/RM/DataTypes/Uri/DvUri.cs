@@ -1,10 +1,8 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using System.Text.RegularExpressions;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 
 namespace OpenEhr.RM.DataTypes.Uri
 {
@@ -14,7 +12,6 @@ namespace OpenEhr.RM.DataTypes.Uri
     public class DvUri : Basic.DataValue, System.Xml.Serialization.IXmlSerializable
     {
         public DvUri()
-            : base()
         { }
 
         public DvUri(string value)
@@ -50,19 +47,15 @@ namespace OpenEhr.RM.DataTypes.Uri
         const string schemePattern = @"((?<scheme>[^:/\?#]+):)?";
         const string authorityPattern = @"(//(?<authority>[^/\?#]*))?";
         const string pathPattern = @"(?<path>[^\?#]*)?";
-        //const string pathPattern = @"(//(?<path>(([^/\?#]*))?([^\?#]*)?))";       
         const string queryPattern = @"(?<query>(\?[^#]*))?";
         const string fragmentPattern = @"(\#(?<fragment>.*))?";
 
-        //const string uriPattern = @"^" + schemePattern + pathPattern + queryPattern + fragmentPattern;
         const string uriPattern = @"^" + schemePattern + authorityPattern + pathPattern + queryPattern + fragmentPattern;
 
         // CM: 31/10/08 as Peter indicated that functions used in preconditions must be public so that the 
         // exception can be caught. Since it is a static function, so it still adheres the openEHR RM spec.        
-        //private static bool IsValidUri(string uriValue)
         public static bool IsValidUri(string uriValue)
         {
-            //return Regex.IsMatch(uriValue, uriPattern, RegexOptions.Compiled | RegexOptions.Singleline);
             return GetMatch(uriValue).Success;
         }
 
@@ -130,12 +123,6 @@ namespace OpenEhr.RM.DataTypes.Uri
             }
         }
 
-        //private void SetUriValue(string uriValue)
-        //    DesignByContract.Check.Require(IsValidUri(uriValue), "value must be valid uri value: " + uriValue);
-
-        //    this.value = uriValue;
-
-        //    Match thisMatch = Regex.Match(uriValue, uriPattern);
         private void SetProperties(Match thisMatch)
         {
             GroupCollection gCollection = thisMatch.Groups;
@@ -160,7 +147,6 @@ namespace OpenEhr.RM.DataTypes.Uri
 
         protected void SetBaseData(string uriValue)
         {
-            //DesignByContract.Check.Require(IsValidUri(uriValue), "value must be valid uri value: " + uriValue);
             Match thisMatch = GetMatch(uriValue);
             Check.Require(thisMatch.Success, "value must be valid uri value: " + uriValue);
 

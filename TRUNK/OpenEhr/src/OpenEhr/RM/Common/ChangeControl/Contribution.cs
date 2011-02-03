@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.AssumedTypes;
 
 using OpenEhr.RM.Support.Identification;
@@ -50,7 +49,6 @@ namespace OpenEhr.RM.Common.ChangeControl
         {
             [System.Diagnostics.DebuggerStepThrough]
             get { return uid; }
-            //set { uid = value; }
         }
 
         Set<ObjectRef> versions = new Set<ObjectRef>();
@@ -58,7 +56,6 @@ namespace OpenEhr.RM.Common.ChangeControl
         public Set<ObjectRef> Versions
         {
             get { return versions; }
-            //set { versions = value; }
         }
 
         AuditDetails audit;

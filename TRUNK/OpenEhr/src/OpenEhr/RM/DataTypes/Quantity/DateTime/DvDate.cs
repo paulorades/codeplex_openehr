@@ -1,5 +1,4 @@
 using System;
-using System.Xml;
 using System.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.AssumedTypes;
@@ -25,44 +24,29 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             Check.Require(Iso8601Date.ValidIso8601Date(dateString), "Date string(" + dateString + ") must be a valid ISO 8601 date.");
 
             this.isoDate = new Iso8601Date(dateString);
-            //this.value = this.isoDate.ToString();
 
             base.SetBaseData(accuracy, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges);
 
-            //SetInnerData();
             CheckInvariants();
         }
 
         public DvDate()
-            //: base(new EhrTypes.DV_DATE())
-            : base()
         {
             this.isoDate = new Iso8601Date(System.DateTime.Now);
-            //this.value = this.isoDate.ToString();
-            //SetInnerData();
             CheckInvariants();
         }
 
         public DvDate(System.DateTime date)
-            //: base(new EhrTypes.DV_DATE())
-            : base()
         {
             this.isoDate = new Iso8601Date(date);
-
-            //this.value = this.isoDate.ToString();
-            //SetInnerData();
             CheckInvariants();
         }
 
         public DvDate(int year, int month, int day)
-            //: base(new EhrTypes.DV_DATE())
-            : base()
         {
             Check.Require(year >= 0, "Year value must not be less than zero.");
             this.isoDate = new Iso8601Date(year, month, day);
 
-            //this.value = this.isoDate.ToString();
-            //SetInnerData();
             CheckInvariants();
         }
 
@@ -76,9 +60,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
         {
             get
             {
-                //if (this.value == null)
-                //    this.value = this.DateType.value;
-                //return this.value;
                 return this.isoDate.ToString();
             }
         }
@@ -97,7 +78,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
         protected override double GetMagnitude()
         {
-            //return System.Convert.ToDouble(this.Magnitude);
             int magnitude = -1;
             double daysInTotal = -1.0;
             daysInTotal = isoDate.Year * TimeDefinitions.nominalDaysInYear;
@@ -130,16 +110,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             DvDuration duration = b as DvDuration;
 
             Iso8601Duration isoDuration = new Iso8601Duration(duration.Value);
-            //Iso8601Date isoDate = new Iso8601Date(this.value);
-
-            //isoDate = isoDate.Subtract(isoDuration);
-
-            //string isoDateString = isoDate.ToString();
-
-            //if (!Iso8601Date.ValidIso8601Date(isoDateString))
-            //    throw new ApplicationException("isoDateString must be a valid iso8601 date string.");
-
-            //return new DvDate(isoDateString);
             Iso8601Date newIsoDate = this.isoDate.Subtract(isoDuration);
             return new DvDate(newIsoDate.ToString());
         }
@@ -151,16 +121,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             DvDuration duration = b as DvDuration;
 
             Iso8601Duration isoDuration = new Iso8601Duration(duration.Value);
-            //Iso8601Date isoDate = new Iso8601Date(this.value);
-
-            //isoDate = isoDate.Add(isoDuration);
-
-            //string isoDateString = isoDate.ToString();
-
-            //if (!Iso8601Date.ValidIso8601Date(isoDateString))
-            //    throw new ApplicationException("isoDateString must be a valid iso8601 date string.");
-
-            //return new DvDate(isoDateString);
             Iso8601Date newIsoDate = this.isoDate.Add(isoDuration);
             return new DvDate(newIsoDate.ToString());
         }
@@ -287,22 +247,12 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
                 int daysInMonth =  System.DateTime.DaysInMonth(resultYear, resultMonth);
                 if (resultDate > daysInMonth)
                 {
-                    //if (daysInMonth < TimeDefinitions.nominalDatysInMonth)
-                    //{
-                    //    totoalDates += TimeDefinitions.nominalDatysInMonth - daysInMonth;
-                    //    //return new DvDate(resultYear, month, System.DateTime.DaysInMonth(resultYear, resultMonth));
-                    //}
-                    //else
-                    //    totoalDates -= daysInMonth - TimeDefinitions.nominalDatysInMonth;
-                    ////else
-                    ////{
-                        resultMonth++;
-                        if (resultMonth > 12)
-                        {
-                            resultMonth = 1;
-                            resultYear++;
-                        }
-                    ////}
+                    resultMonth++;
+                    if (resultMonth > 12)
+                    {
+                        resultMonth = 1;
+                        resultYear++;
+                    }
                 }
 
                double remain = (totoalDates - (resultYear * TimeDefinitions.nominalDaysInYear)) - (resultMonth * TimeDefinitions.nominalDaysInMonth);
@@ -368,14 +318,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
             writer.WriteElementString(prefix, "value", RmXmlSerializer.OpenEhrNamespace, this.Value);
         }
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    ((DV_DATE)(this.DataValueType)).value = this.value;
-
-        //    //this.CheckInvariants();
-        //}
 
         protected void CheckInvariants()
         {
@@ -498,15 +440,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             return this.ToString(format, provider);
         }
 
-        //public string ToString(IFormatProvider provider)
-        //{
-        //    System.Globalization.DateTimeFormatInfo dateTimeFormatInfo = provider as System.Globalization.DateTimeFormatInfo;
-        //    if (dateTimeFormatInfo != null)
-        //        return this.ToString(dateTimeFormatInfo.LongDatePattern, provider);
-        //    else
-        //        return this.ToString("D", provider);
-        //}
-
         /// <summary>Gets formatted date particle string for this.isoDate, based on
         /// date format pattern token specified, and date format information object.
         /// 
@@ -564,75 +497,12 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
                             "' not supported for DvDateTime formatted ToString.");
                     }
 
-                //// Timezone tokens
-                //case 'z':
-                //    switch (patternToken)
-                //    {
-                //        case "zzz":
-                //            string sign = this.isoDateTime.Iso8601TimeZone.Sign > 0 ? "+" : "-";
-                //            string hour = this.isoDateTime.Iso8601TimeZone.Hour > 9 ?
-                //                this.isoDateTime.Iso8601TimeZone.Hour.ToString() : "0" + this.isoDateTime.Iso8601TimeZone.Hour;
-                //            string minute = this.isoDateTime.Iso8601TimeZone.Minute > 9 ?
-                //                this.isoDateTime.Iso8601TimeZone.Minute.ToString() : "0" + this.isoDateTime.Iso8601TimeZone.Minute;
-                //            return sign + hour + dateFormat.TimeSeparator + minute;
-                //        case "zz":
-                //            return ((this.isoDateTime.Iso8601TimeZone.Sign > 0) ? "+" : "-") +
-                //                ((this.isoDateTime.Iso8601TimeZone.Hour > 9) ? "" : "0") +
-                //                this.isoDateTime.Iso8601TimeZone.Hour;
-                //        case "z":
-                //            return (this.isoDateTime.Iso8601TimeZone.Sign > 0 ? "+" : "-") +
-                //            this.isoDateTime.Iso8601TimeZone.Hour;
-                //        default: throw new NotSupportedException("Format pattern token '" + patternToken +
-                //            "' not supported for DvDateTime formatted ToString.");
-                //    }
-
-                //// Fractional seconds tokens
-                //case 'F':
-                //case 'f':
-                //    if (patternToken.Length > 7) // the fractional seconds pattern may have up to 7 Fs
-                //        throw new NotSupportedException("Format pattern token '" + patternToken +
-                //           "' not supported for DvDateTime formatted ToString.");
-                //    if (this.isoDateTime.HasFractionalSecond)
-                //    {
-                //        string fractionAsText = string.Format("{0:F" + patternToken.Length + "}",
-                //            this.isoDateTime.FractionalSecond);
-                //        return fractionAsText.Substring(fractionAsText.Length - 2);
-                //    }
-                //    return ""; //else omit decimal points altogether -- must not indicate false precision
-
-
                 // Cover every other kind of token
                 default:
                     switch (patternToken)
                     {
-                        //// Hour tokens
-                        //case "HH": return this.isoDateTime.Hour > 9 ? this.isoDateTime.Hour.ToString() :
-                        //    "0" + this.isoDateTime.Hour;
-                        //case "H": return this.isoDateTime.Hour.ToString();
-                        //case "hh":
-                        //    int hour = (this.isoDateTime.Hour > 12 || this.isoDateTime.Hour < 1) ?
-                        //    Math.Abs(this.isoDateTime.Hour - 12) : this.isoDateTime.Hour;
-                        //    return hour > 9 ? hour.ToString() : "0" + hour;
-                        //case "h": return ((this.isoDateTime.Hour > 12 || this.isoDateTime.Hour < 1) ?
-                        //    Math.Abs(this.isoDateTime.Hour - 12) : this.isoDateTime.Hour).ToString();
-
-                        //// AM/PM tokens
-                        //case "tt": return this.isoDateTime.Hour > 12 ?
-                        //    dateFormat.PMDesignator : dateFormat.AMDesignator;
-                        //case "t": return this.isoDateTime.Hour > 12 ?
-                        //    dateFormat.PMDesignator[0].ToString() : dateFormat.AMDesignator[0].ToString();
-
-                        //// Minutes and seconds tokens
-                        //case "mm": return this.isoDateTime.Minute > 9 ? this.isoDateTime.Minute.ToString() :
-                        //    "0" + this.isoDateTime.Minute;
-                        //case "m": return this.isoDateTime.Minute.ToString();
-                        //case "ss": return this.isoDateTime.Second > 9 ? this.isoDateTime.Second.ToString() :
-                        //    "0" + this.isoDateTime.Second;
-                        //case "s": return this.isoDateTime.Second.ToString();
-
                         // Symbols tokens, misc
                         case "/": return dateFormat.DateSeparator;
-                        //case ":": return dateFormat.TimeSeparator;
 
                         case "gg": 
                             throw new NotSupportedException(

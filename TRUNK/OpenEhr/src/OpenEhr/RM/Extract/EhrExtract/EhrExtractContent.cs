@@ -13,14 +13,8 @@ namespace OpenEhr.RM.Extract.EhrExtract
     [RmType("openEHR", "EXTRACT", "EXTRACT_ENTITY_CONTENT")]
     public class EhrExtractContent : ExtractEntityContent
     {
-        //const string defaultArchetypeId = "openEHR-EXTRACT-EHR_EXTRACT_CONTENT.default.v1";
-        //const string defaultName = "EHR extract content";
-
         XVersionedObject<Ehr.EhrStatus> ehrStatus;
         List<XVersionedObject<Composition.Composition>> compositions;
-        //XVersionedObject<Ehr.EhrAccess> ehrAccess;
-        //List<XVersionedObject<Demographics.Party>> demographics;
-        //XVersionedObject<OpenEhrV1.Common.Directory.Folder> directory;
         List<XVersionedObject<Locatable>> otherItems;
 
         internal EhrExtractContent()
@@ -57,43 +51,6 @@ namespace OpenEhr.RM.Extract.EhrExtract
             get { return this.otherItems; }
             set { this.otherItems = value; }
         }
-
-        //public Common.XVersionedObject<Ehr.EhrAccess> EhrAccess
-        //{
-        //    get
-        //    {
-        //        throw new System.NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //    }
-        //}
-
-        ///<summary>Folder tree from source EHR</summary>
-        //public Common.XVersionedObject<Folder> Directory
-        //{
-        //    get
-        //    {
-        //        throw new System.NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //    }
-        //}
-
-        /// <summary> Demographic entities from source EHR.
-        /// Demographics_valid: demographics /= Void implies not demographics.is_empt
-        /// </summary>
-        //public Support.Assumed.List<Common.XVersionedObject<Party>> Demographics
-        //{
-        //    get
-        //    {
-        //        throw new System.NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //    }
-        //}
 
         /// <summary>
         /// Add versioned composition extract object to compositions collection

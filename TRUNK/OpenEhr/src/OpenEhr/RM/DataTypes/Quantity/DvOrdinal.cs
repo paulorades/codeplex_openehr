@@ -1,8 +1,6 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.AssumedTypes;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -24,13 +22,8 @@ namespace OpenEhr.RM.DataTypes.Quantity
     public class DvOrdinal : DvOrdered<DvOrdinal>, IFormattable, System.Xml.Serialization.IXmlSerializable
     {
         #region constructors
-        //internal DvOrdinal(EhrTypes.DV_ORDINAL dataValueType) : base(dataValueType) 
-        //{
-           
-        //}
 
-        public DvOrdinal() //: base(new EhrTypes.DV_ORDINAL()) { }
-            : base()
+        public DvOrdinal()
         { }
 
         public DvOrdinal(int value, Text.DvCodedText symbol, CodePhrase normalStatus,
@@ -46,7 +39,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
             SetBaseData(normalStatus, normalRange, otherReferenceRanges);
 
-            //this.SetInnerData();
             this.CheckInvariants();
         }
 
@@ -66,7 +58,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
             get {
                 return this.value;
             }
-            //set { throw new NotImplementedException(); }
         }
 
         private Text.DvCodedText symbol;
@@ -77,7 +68,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
             {
                 return this.symbol;
             }
-            //set { throw new NotImplementedException(); }
         }
 
         // TODO: Limits function
@@ -109,7 +99,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
         public override string ToString()
         {
-            //return this.value + "|" + this.Symbol.Value;
             return this.Value + "|" + this.Symbol.ToString();
         }
 

@@ -16,58 +16,9 @@ namespace OpenEhr.RM.DataStructures.History
         : Locatable 
         where T : ItemStructure.ItemStructure
     {
-        //protected override void Serialize(System.Xml.XmlTextWriter writer,
-        //    System.Xml.Serialization.XmlSerializerNamespaces xmlns)
-        //{
-        //    DesignByContract.Check.Require(writer != null, "writer must not be null");
-        //    DesignByContract.Check.Require(xmlns != null, "xmlns must not be null");
-
-        //    OpenEhr.V1.Its.Xml.XmlSerializer.EventSerializer.Serialize(writer, base.LocatableType, xmlns);
-        //}
-
         protected Event()
-            : base()
         { }
         
-        //protected Event(EhrTypes.EVENT eventType) : base(eventType) 
-        //{
-            
-        //    //// add attributes to AttributesDictionary
-        //    //// time
-        //    //time = WrapperFactory.CreateDataValue(eventType.time);
-        //    //if (this.time == null)
-        //    //    this.time = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-        //    ////base.attributesDictionary.Add("time", time);
-
-        //    //// state
-        //    ////Support.Assumed.LocatableList<Common.Archetyped.Locatable> stateLocatableList = null;
-        //    ////ItemStructure.ItemStructure state = null;
-        //    //if (eventType.state != null)
-        //    //{
-        //    //    state = WrapperFactory.CreateItemStructure(eventType.state);
-        //    //    state.SetParent(this);
-
-        //    //    //stateLocatableList = new OpenEhr.Support.Assumed.LocatableList<OpenEhr.Common.Archetyped.Locatable>();
-        //    //    //stateLocatableList.Add(this.state);
-        //    //}
-        //    ////base.attributesDictionary.Add("state", state);
-
-        //    //// data
-        //    ////Support.Assumed.LocatableList<Common.Archetyped.Locatable> dataLocatableList = new OpenEhr.Support.Assumed.LocatableList<OpenEhr.RM.Common.Archetyped.Locatable>();
-
-        //    //this.data = WrapperFactory.CreateLocatable(eventType.data) as T;
-            
-        //    //// CM: 07/02/08            
-        //    ////itemStructure.SetParent(this);
-        //    //if (this.data != null)
-        //    //    this.data.SetParent(this);
-        //    ////this.data = itemStructure as T;
-
-        //    ////dataLocatableList.Add(this.data as ItemStructure.ItemStructure);
-        //    ////base.attributesDictionary.Add("data", this.data);
-        //    //this.SetAttributeDictionary();
-        //}
-
         protected Event(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
             Link[] links, Archetyped archetypeDetails, FeederAudit feederAudit,
             DvDateTime time, T data,
@@ -76,7 +27,6 @@ namespace OpenEhr.RM.DataStructures.History
             uid, links, archetypeDetails, feederAudit)
         {
             Check.Require(time != null, "time must not be null");
-            //Check.Require(data != null, "data must not be null");
 
             this.time = time;
 
@@ -98,8 +48,6 @@ namespace OpenEhr.RM.DataStructures.History
                 if(this.time == null)
                     this.time = base.attributesDictionary["time"] as DataTypes.Quantity.DateTime.DvDateTime;
                 return this.time;
-                //return base.attributesDictionary["time"] as DataTypes.Quantity.DateTime.DvDateTime;
-                ////return WrapperFactory.CreateDataValue(((EhrTypes.EVENT)base.LocatableType).time);
             }
             set
             {
@@ -119,9 +67,6 @@ namespace OpenEhr.RM.DataStructures.History
                 if(this.state == null)
                     this.state = base.attributesDictionary["state"] as ItemStructure.ItemStructure;
                 return this.state;
-                //return base.attributesDictionary["state"] as ItemStructure.ItemStructure;
-                ////return this.state;
-                ////return WrapperFactory.CreateItemStructure(((EhrTypes.EVENT)base.LocatableType).state);
             }
             set
             {
@@ -140,11 +85,6 @@ namespace OpenEhr.RM.DataStructures.History
                 if(this.data == null)
                     this.data = base.attributesDictionary["data"] as T;
                 return this.data;
-                //return base.attributesDictionary["data"] as T;
-                ////return this.data;
-                ////EhrTypes.ITEM_STRUCTURE structureType = ((EhrTypes.EVENT)base.LocatableType).data;
-                ////T structure = WrapperFactory.CreateItemStructure(structureType) as T; 
-                ////return structure;
             }
             set
             {
@@ -191,7 +131,6 @@ namespace OpenEhr.RM.DataStructures.History
 
             Check.Assert(reader.LocalName == "time", "Expected LocalName is 'time', but it's " + reader.LocalName);
             this.time = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-            //this.time = DvDateTime.CreateEmpty();
             this.time.ReadXml(reader);
 
             Check.Assert(reader.LocalName == "data", "Expected LocalName is 'data', but it's " + reader.LocalName);
@@ -200,14 +139,11 @@ namespace OpenEhr.RM.DataStructures.History
                 as T;
             this.data.ReadXml(reader);
             this.data.Parent = this;
-            //this.AddAttributeDictionaryData("data", this.data);
 
             if (reader.LocalName == "state")
             {
                 string stateType = reader.GetAttribute("type", RmXmlSerializer.XsiNamespace);
                 // CM: 01/04/08 fixed a bug
-                //this.state = OpenEhr.RM.Common.Archetyped.Impl.Locatable.GetLocatableObjectByType(dataType)
-                //    as ItemStructure.ItemStructure;
                 this.state = OpenEhr.RM.Common.Archetyped.Impl.Locatable.GetLocatableObjectByType(stateType)
                     as ItemStructure.ItemStructure;
                 if (this.state == null)
@@ -250,22 +186,6 @@ namespace OpenEhr.RM.DataStructures.History
             }
         }     
 
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    //this.SetAttributeDictionaryData("time", this.time);
-        //    //this.SetAttributeDictionaryData("data", this.data);
-        //    //this.SetAttributeDictionaryData("state", this.state);
-
-        //    ((EhrTypes.EVENT)(this.LocatableType)).time = this.time.DataValueType as EhrTypes.DV_DATE_TIME;
-        //    ((EhrTypes.EVENT)(this.LocatableType)).data = ((ItemStructure.ItemStructure)(this.data)).LocatableType as EhrTypes.ITEM_STRUCTURE;
-
-        //    if (this.state != null)
-        //        ((EhrTypes.EVENT)(this.LocatableType)).state = this.state.LocatableType as EhrTypes.ITEM_STRUCTURE;
-
-        //    //this.CheckInvariants();
-        //}
-
         protected override void SetAttributeDictionary()
         {
             base.SetAttributeDictionary();
@@ -275,43 +195,11 @@ namespace OpenEhr.RM.DataStructures.History
             base.attributesDictionary["state"]= this.state;
         }
 
-        //protected override void InitialiseAttributeDictionary()
-        //{
-        //    base.InitialiseAttributeDictionary();
-
-        //    // add attributes to AttributesDictionary
-        //    // time
-        //    OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime time =
-        //        WrapperFactory.CreateDataValue(((EhrTypes.EVENT)(this.LocatableType)).time);
-        //    //if (this.time == null)
-        //    //    this.time = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-        //    base.attributesDictionary.Add("time", time);
-
-        //    // state
-        //    ItemStructure.ItemStructure state = null;
-        //    if (((EhrTypes.EVENT)(this.LocatableType)).state != null)
-        //    {
-        //        state = WrapperFactory.CreateItemStructure(((EhrTypes.EVENT)(this.LocatableType)).state);
-        //        state.Parent = this;
-
-        //    }
-        //    base.attributesDictionary.Add("state", state);
-
-        //    // data
-        //    OpenEhrV1.DataStructures.ItemStructure.ItemStructure data = null;
-        //    if (((EhrTypes.EVENT)(this.LocatableType)).data != null)
-        //    {
-        //        data = WrapperFactory.CreateLocatable
-        //             (((EhrTypes.EVENT)(this.LocatableType)).data) as OpenEhrV1.DataStructures.ItemStructure.ItemStructure;
-        //        DesignByContract.Check.Assert(data != null, "data must not be null.");
-        //        data.Parent = this;
-        //    }
-        //    base.attributesDictionary.Add("data", data);
-        //}
-
         protected override void CheckInvariants()
         {
             base.CheckInvariants();
+
+            // %HYYKA%
             //Check.Invariant(this.Time != null, "Time must not be null.");
             //Check.Invariant(this.Data != null, "Data must not be null.");
         }
@@ -319,6 +207,8 @@ namespace OpenEhr.RM.DataStructures.History
         protected void CheckInvariantsDefault()
         {
             base.CheckInvariantsDefault();
+
+            // %HYYKA%
             //Check.Invariant(this.Time != null, "Time must not be null.");
             //Check.Invariant(this.Data != null, "Data must not be null.");
         }

@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Common.Archetyped.Impl;
@@ -16,7 +15,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public abstract class CareEntry : Entry
     {
         protected CareEntry()
-            : base()
         { }
 
         protected CareEntry(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -43,8 +41,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
                 if(this.protocol == null)
                     this.protocol = base.attributesDictionary["protocol"] as DataStructures.ItemStructure.ItemStructure;
                 return this.protocol;
-                //return base.attributesDictionary["protocol"] as DataStructures.ItemStructure.ItemStructure;
-               
             }
             set
             {
@@ -67,7 +63,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
                 if (this.guidelineId == null)
                     this.guidelineId = base.attributesDictionary["guideline_id"] as Support.Identification.ObjectRef;
                 return this.guidelineId;
-                //return base.attributesDictionary["guideline_id"] as Support.Identification.ObjectRef;
             }
             set
             {

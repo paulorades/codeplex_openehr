@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.DataTypes.Text;
 
@@ -11,7 +10,7 @@ namespace OpenEhr.RM.Demographic.Impl
             : base(archetypeNodeId, name, details)
         { }
 
-        protected PartyIdentity(): base() { }
+        protected PartyIdentity() { }
 
         ItemStructure details;
 

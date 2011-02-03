@@ -1,7 +1,5 @@
 using OpenEhr.RM.Composition.Content.Navigation;
 using OpenEhr.RM.Composition.Content.Entry;
-using OpenEhr.RM.DataStructures.History;
-using OpenEhr.RM.DataStructures.ItemStructure.Representation;
 
 namespace OpenEhr.RM.Impl
 {
@@ -16,10 +14,5 @@ namespace OpenEhr.RM.Impl
         void VisitInstruction(Instruction instruction);
         void VisitAction(Action action);
         void VisitActivity(Activity activity);
-        //void VisitHistory<T>(History<T> history);
-        //void VisitPointEvent<T>(PointEvent<T> @event);
-        //void VisitIntervalEvant<T>(IntervalEvent<T> @event);
-        //void VisitCluster(Cluster cluster);
-        //void VisitElement(Element element);
     }
 }

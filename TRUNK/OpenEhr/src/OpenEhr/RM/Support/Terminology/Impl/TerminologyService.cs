@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
-using OpenEhr.RM.Support.Terminology;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using OpenEhr.RM.Support.Terminology.Impl.Configuration;
 using OpenEhr.DesignByContract;
@@ -49,9 +46,6 @@ namespace OpenEhr.RM.Support.Terminology.Impl
 
             //TODO: ValidCodeSetId(id) checks for a valid openEhr CodeSet identifer.
             //Need a check for a valid id that is not an openEhr identifer.
-
-            //Check.Require(ValidCodeSetId(id), string.Format("{0} is not a valid codeset id", id));
-
 
             ICodeSetAccess result = FindCodeSetId(id);
             Check.Ensure(result != null, "Result must not be null");

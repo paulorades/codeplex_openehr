@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Attributes;
 
@@ -58,13 +56,6 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
                 this.language = new OpenEhr.RM.DataTypes.Text.CodePhrase();
                 this.language.ReadXml(reader);
             }
-
-            //if (!reader.IsStartElement())
-            //    reader.ReadEndElement();
-            //reader.MoveToContent();
-
-            ////this.SetInnerData();
-
         }
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
@@ -79,6 +70,7 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
 
         protected override void CheckInvariants()
         {
+            // %HYYKA%
             //Check.Invariant(this.Size >= 0, "size must be greater or equal to zero.");
         }
     }

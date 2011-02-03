@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-//using EhrTypes = OpenEhr.V1.Its.Xml.RM;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Factories;
@@ -118,7 +116,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
                 reader.ReadEndElement();
             reader.MoveToContent();
 
-            //this.SetInnerData();
             this.CheckInvariants();
         }
 
@@ -142,14 +139,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
             this.Range.WriteXml(writer);
             writer.WriteEndElement();
         }
-
-        //private void SetInnerData()
-        //{
-        //    this.EhrType.meaning = this.meaning.DataValueType as EhrTypes.DV_TEXT;
-        //    this.EhrType.range = this.range.DataValueType as EhrTypes.DV_INTERVAL;
-
-        //    //this.CheckInvariants();
-        //}
 
         private void CheckInvariants()
         {

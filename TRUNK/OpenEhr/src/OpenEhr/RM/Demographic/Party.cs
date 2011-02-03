@@ -1,11 +1,8 @@
-using System;
-
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.DataStructures.ItemStructure;
-using OpenEhr.AssumedTypes;
 using OpenEhr.AssumedTypes.Impl;
 using OpenEhr.RM.Impl;
 
@@ -49,9 +46,6 @@ namespace OpenEhr.RM.Demographic
             set
             {
                 Check.Require(value != null, "VersionUid must not be null");
-                // TODO: this precondition may not be appropriate as we need to update when party is modified
-                //Check.Require(this.versionUid == null, "versionUid must not already be set");    
-
                 this.versionUid = value;
             }
         }
@@ -112,7 +106,6 @@ namespace OpenEhr.RM.Demographic
         public OpenEhr.AssumedTypes.Set<PartyRef> ReverseRelationships
         {
             get { return ReverseRelationshipsBase; }
-            //set { ReverseRelationshipsBase = value; }
         }
 
         public OpenEhr.AssumedTypes.Set<PartyIdentity> Identities
@@ -140,10 +133,6 @@ namespace OpenEhr.RM.Demographic
         {
             get
             {
-                //if (ContactsBase == null)
-                //    //ContactsBase = new LocatableSet<Contact>();
-                //    ContactsBase = OpenEhrFactory.Set<Contact>(this);
-
                 return ContactsBase;
             }
             set {
@@ -160,8 +149,6 @@ namespace OpenEhr.RM.Demographic
         {
             get
             {
-                //if (RelationshipsBase == null)
-                //    RelationshipsBase = OpenEhrFactory.Set<PartyRelationship>(this);
                 return RelationshipsBase;
             }
             set {

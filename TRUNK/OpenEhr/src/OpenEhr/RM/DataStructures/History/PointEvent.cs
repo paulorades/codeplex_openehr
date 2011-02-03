@@ -1,8 +1,6 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
@@ -15,7 +13,6 @@ namespace OpenEhr.RM.DataStructures.History
     public class PointEvent<T> : Event<T>, System.Xml.Serialization.IXmlSerializable where T : DataStructures.ItemStructure.ItemStructure
     {
         public PointEvent() 
-            : base()
         { }
 
         public PointEvent(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -25,7 +22,6 @@ namespace OpenEhr.RM.DataStructures.History
             : base(name, archetypeNodeId, uid, links, archetypeDetails, feederAudit, time, data, state)
         {
             SetAttributeDictionary();
-            //SetInnerData();
             CheckInvariants();
         }
 

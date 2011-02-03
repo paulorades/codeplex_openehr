@@ -1,8 +1,6 @@
-using System;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.DesignByContract;
 using OpenEhr.AssumedTypes.Impl;
 
 namespace OpenEhr.RM.Demographic.Impl
@@ -18,7 +16,7 @@ namespace OpenEhr.RM.Demographic.Impl
             : base(archetypeNodeId, name, addresses)
         { }
 
-        protected Contact(): base() { }
+        protected Contact() { }
 
         PathableList<OpenEhr.RM.Demographic.Address> addresses;
 

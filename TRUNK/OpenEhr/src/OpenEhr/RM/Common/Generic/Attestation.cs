@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Validation;
 using OpenEhr.Attributes;
@@ -14,7 +13,6 @@ namespace OpenEhr.RM.Common.Generic
     public class Attestation : AuditDetails
     {
         public Attestation() 
-            : base()
         { }
 
         public Attestation(string systemId, DataTypes.Quantity.DateTime.DvDateTime timeCommitted, 
@@ -132,13 +130,9 @@ namespace OpenEhr.RM.Common.Generic
 
             if (reader.LocalName != "reason")
                 throw new ValidationException("Excepted element name is reason, but it is: " + reader.LocalName);
-            //string reasonType = reader.GetAttribute("type", XmlSerializer.XsiNamespace);
             string reasonType = RmXmlSerializer.ReadXsiType(reader);
             if (!string.IsNullOrEmpty(reasonType))
             {
-                //int i = reasonType.IndexOf(":");
-                //if (i > 0)
-                //    reasonType = reasonType.Substring(i+1);
                 this.reason = RmFactory.DataValue(reasonType) as DataTypes.Text.DvText;
             }
             else

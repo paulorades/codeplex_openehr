@@ -21,7 +21,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public class Instruction : CareEntry, System.Xml.Serialization.IXmlSerializable
     {
         public Instruction() 
-            :base()
         { }
 
         public Instruction(DvText name, string archetypeNodeId, UidBasedId uid,
@@ -185,8 +184,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
@@ -232,6 +229,7 @@ namespace OpenEhr.RM.Composition.Content.Entry
         {
             base.CheckInvariants();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Narrative != null, "data must not be null.");
             //DesignByContract.Check.Invariant(this.Activities == null || this.Activities.Count>0,
             //    "Activities_valid: activities /= Void implies not activities.is_empty");
@@ -241,6 +239,7 @@ namespace OpenEhr.RM.Composition.Content.Entry
         {
             base.CheckInvariantsDefault();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Narrative != null, "data must not be null.");            
         }
 

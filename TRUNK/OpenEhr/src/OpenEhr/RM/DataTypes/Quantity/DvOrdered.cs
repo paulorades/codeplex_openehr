@@ -12,21 +12,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
     public abstract class DvOrdered<T>
         : Basic.DataValue, IComparable where T : DvOrdered<T>
     {
-        #region constructors
-        protected DvOrdered()
-            : base()
-        { }
-
-        //protected DvOrdered(EhrTypes.DV_ORDERED value)
-        //    : base(value)
-        //{
-
-        //    this.normalStatus = this.NormalStatus;
-        //    this.normalRange = this.NormalRange;
-        //    this.otherReferenceRanges = this.OtherReferenceRanges;
-        //}
-        #endregion
-
         #region class attributes
         DvInterval<T> normalRange;
 
@@ -42,7 +27,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
             get { return this.otherReferenceRanges; }
         }
 
-        // the following code can be uncommented.
         private Text.CodePhrase normalStatus;
 
         [RmAttribute("normal_status")]
@@ -70,17 +54,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
         public static bool operator ==(DvOrdered<T> a, DvOrdered<T> b)
         {
-            //if ((object)a == null && (object)b==null)
-            //    return true;
-            //else if ((object)a != null && (object)b != null)
-            //{
-            //    Check.Require(a.IsStrictlyComparableTo(b));
-
-            //    return a.CompareTo(b) == 0;
-            //}
-            //else
-            //    return false;
-
             if ((object)a != null)
                 return a.Equals(b);
 
@@ -127,10 +100,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         /// </summary>
         public bool IsNormal()
         {
-            //DesignByContract.Check.Require(this.NormalRange<DvOrdered>()!=null);
-
-            //return this.NormalRange<DvOrdered>().Has(this);
-
             DesignByContract.Check.Require(this.NormalRange != null);
 
             return this.NormalRange.Has(this as T);
@@ -142,7 +111,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         /// <returns></returns>
         public bool IsSimple()
         {
-            //return this.OtherReferenceRanges<DvOrdered>() == null && this.NormalRange<DvOrdered>() == null;
             return this.OtherReferenceRanges == null && this.NormalRange == null;
         }
 

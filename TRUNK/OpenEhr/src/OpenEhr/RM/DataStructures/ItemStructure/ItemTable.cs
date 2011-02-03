@@ -1,7 +1,5 @@
 using System;
 using System.Xml;
-//using System.Collections.Generic;
-
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 using OpenEhr.Factories;
@@ -18,7 +16,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
     public class ItemTable : ItemStructure, System.Xml.Serialization.IXmlSerializable
     {
         public ItemTable() 
-            : base()
         { }
 
         public ItemTable(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -205,9 +202,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         /// <returns></returns>
         public Cluster NamedRow(string aKey)
         {
-            //DesignByContract.Check.Require(this.Rows != null && this.Rows.Count > 0, "Rows must not be null or empty.");
-            //DesignByContract.Check.Require(this.Rows[0].Items != null && this.Rows[0].Items.Count > 0,
-            //    "Each row items must not be null or empty.");
             DesignByContract.Check.Require(this.HasRowWithName(aKey), "Must have a row with the name aKey");
 
             foreach (Cluster row in this.Rows)
@@ -229,34 +223,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         public bool HasRowWithKey(AssumedTypes.Set<string> keys)
         {
             throw new NotImplementedException("HasRowWithKey function has not been implemented.");
-            ////DesignByContract.Check.Require(this.Rows != null && this.Rows.Count > 0, "Rows must not be null or empty.");
-            ////DesignByContract.Check.Require(this.Rows[0].Items != null && this.Rows[0].Items.Count > 0,
-            ////   "Each row items must not be null or empty.");
-            //DesignByContract.Check.Require(keys != null && keys.Count > 0, "keys must not be null or empty.");
-
-            //if (this.RowCount() == 0)
-            //    return false;
-
-            //Support.Assumed.List<DataTypes.Text.DvText> columnNames = this.ColumnNames();
-            //DesignByContract.Check.Assert(columnNames != null && columnNames.Count > 0,
-            //    "columnNames must not be null or empty because RowCount >0");
-
-            //List<String> columnNameStrings = new List<string>();
-            //int startIndex = -1;
-            //foreach (OpenEhr.RM.DataTypes.Text.DvText columnName in columnNames)
-            //{               
-            //    columnNameStrings.Add(columnName.Value);
-            //    if (startIndex == -1 && keys.Has(columnName.Value))
-            //        startIndex = columnNameStrings.Count - 1;
-            //}
-
-            //for (int i = startIndex; i < columnNameStrings.Count; i++)
-            //{
-            //    if (!keys.Has(columnNameStrings[i]))
-            //        return false;
-            //}
-
-            //return true;
         }
 
         /// <summary>

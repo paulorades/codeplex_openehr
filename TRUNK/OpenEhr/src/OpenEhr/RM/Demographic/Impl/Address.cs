@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.DataTypes.Text;
 

@@ -1,5 +1,4 @@
 using System;
-using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.AssumedTypes;
@@ -11,7 +10,7 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
     [System.Xml.Serialization.XmlSchemaProvider("GetXmlSchema")]
     [Serializable]
     [RmType("openEHR", "DATA_TYPES", "DV_TIME")]
-    public class DvTime : DvTemporal<DvTime>, System.Xml.Serialization.IXmlSerializable// DvCustomaryQuantity // DvCustomaryQuantity
+    public class DvTime : DvTemporal<DvTime>, System.Xml.Serialization.IXmlSerializable
     {
         private AssumedTypes.Iso8601Time isoTime;
 
@@ -46,7 +45,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
         public DvTime(int hour, int minute, int second, double fractionalSecond,
             int timeZoneSign, int timeZoneHour, int timeZoneMinute)
-            : base()
         {
             AssumedTypes.Iso8601TimeZone timeZone =
                 new OpenEhr.AssumedTypes.Iso8601TimeZone
@@ -61,14 +59,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
         #endregion
         
         #region class properties
-
-        //private EhrTypes.DV_TIME TimeType
-        //{
-        //    get
-        //    {
-        //        return base.DataValueType as EhrTypes.DV_TIME;
-        //    }
-        //}
 
         /// <summary>
         /// Numeric value of the time as seconds since the start of day.

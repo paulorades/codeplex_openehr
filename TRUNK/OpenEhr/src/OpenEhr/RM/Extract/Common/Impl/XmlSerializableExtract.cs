@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Serialisation;
@@ -10,7 +9,7 @@ namespace OpenEhr.RM.Extract.Common.Impl
     [System.Xml.Serialization.XmlSchemaProvider("GetXmlSchema")]
     public sealed class XmlSerializableExtract : Extract, System.Xml.Serialization.IXmlSerializable
     {
-        public XmlSerializableExtract() : base()
+        public XmlSerializableExtract()
         { }
 
         public XmlSerializableExtract(string archetypeNodeId, DvText name, HierObjectId systemId)

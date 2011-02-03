@@ -1,5 +1,4 @@
-﻿using System;
-namespace OpenEhr.RM.Common.Directory
+﻿namespace OpenEhr.RM.Common.Directory
 {
     public interface IFolder : Common.Archetyped.ILocatable
     {

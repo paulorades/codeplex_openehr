@@ -1,7 +1,6 @@
 using System;
 using OpenEhr.Attributes;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.AssumedTypes;
 using OpenEhr.Serialisation;
 
 namespace OpenEhr.RM.DataTypes.Quantity.DateTime
@@ -11,38 +10,12 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
     public abstract class DvTemporal<T> : DvAbsoluteQuantity<T, DvDuration>
         where T: DvTemporal<T>
     {
-        #region constructor
-
-        protected DvTemporal()
-            : base()
-        { }
-
-        //protected DvTemporal(EhrTypes.DV_TEMPORAL ehrType) : base(ehrType) { }
-
-        //private EhrTypes.DV_TEMPORAL ehrType;
-        //protected new EhrTypes.DV_TEMPORAL EhrType
-        //{
-        //    get
-        //    {
-        //        if (this.ehrType == null)
-        //            this.ehrType = base.DataValueType as EhrTypes.DV_TEMPORAL;
-
-        //        DesignByContract.Check.Ensure(ehrType != null, "DataValue Type must not be null");
-        //        return ehrType;
-
-        //    }
-        //}
-        #endregion
-
         private DvDuration accuracy;
 
         public override DvAmount<DvDuration> Accuracy
         {
             get
             {
-                //if (this.accuracy == null && this.EhrType != null)
-                //    this.accuracy = WrapperFactory.CreateDataValue(this.EhrType.accuracy);
-
                 return this.accuracy;
             }
         }

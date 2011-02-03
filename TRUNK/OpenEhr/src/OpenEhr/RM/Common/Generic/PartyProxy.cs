@@ -1,5 +1,4 @@
 using System;
-using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 using OpenEhr.RM.Impl;

@@ -1,5 +1,3 @@
-using System;
-
 using OpenEhr.DesignByContract;
 
 using OpenEhr.Attributes;
@@ -21,7 +19,7 @@ namespace OpenEhr.RM.Demographic
             Credentials = credentials;
         }
 
-        protected Capability():base() { }
+        protected Capability() { }
 
         protected abstract ItemStructure CredentialsBase
         {

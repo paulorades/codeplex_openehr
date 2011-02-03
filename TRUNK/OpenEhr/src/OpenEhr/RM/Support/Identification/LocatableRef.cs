@@ -12,7 +12,6 @@ namespace OpenEhr.RM.Support.Identification
     {
 
         public LocatableRef() 
-            : base()
         { }
 
         public LocatableRef(UidBasedId objectId, string @namespace, string type, string path)

@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -16,9 +15,7 @@ namespace OpenEhr.RM.DataStructures.ItemStructure.Representation
     [RmType("openEHR", "DATA_STRUCTURES", "CLUSTER")]
     public class Cluster : Item, System.Xml.Serialization.IXmlSerializable
     {
-
-        public Cluster() //: base(new EhrTypes.CLUSTER()) {
-            : base()
+        public Cluster()
         { }
 
         public Cluster(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -80,7 +77,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure.Representation
             DesignByContract.Check.Assert(reader.LocalName == "items",
                 "Expected LocalName is 'items' rather than " + reader.LocalName);
 
-            //this.items = new OpenEhr.Support.Assumed.List<Item>();
             OpenEhr.AssumedTypes.Impl.LocatableList < Item >  items = new OpenEhr.AssumedTypes.Impl.LocatableList<Item>();
             while (reader.LocalName == "items" && reader.NodeType== System.Xml.XmlNodeType.Element)
             {
@@ -98,8 +94,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure.Representation
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);
@@ -123,19 +117,22 @@ namespace OpenEhr.RM.DataStructures.ItemStructure.Representation
         {
             base.SetAttributeDictionary();
             base.attributesDictionary["items"] = this.items;
-
         }
 
 
         protected override void CheckInvariants()
         {
             base.CheckInvariants();
+
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Items.Count>0, "Items must not be empty.");
         }
 
         protected void CheckInvariantsDefault()
         {
             base.CheckInvariantsDefault();
+
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Items != null, "Items must not be null.");
         }
     }

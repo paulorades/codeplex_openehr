@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Text;
@@ -16,7 +14,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure.Representation
     public class Element : Item, System.Xml.Serialization.IXmlSerializable
     {
         public Element()
-            : base()
         { }
 
         public Element(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,

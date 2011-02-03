@@ -17,8 +17,7 @@ namespace OpenEhr.RM.Composition.Content.Entry
     [RmType("openEHR", "EHR", "ACTION")]
     public class Action : CareEntry, System.Xml.Serialization.IXmlSerializable
     {
-        public Action() //: base(new EhrTypes.ACTION()) 
-            :base()
+        public Action()
         { }
 
         public Action(DvText name, string archetypeNodeId, UidBasedId uid,
@@ -46,73 +45,8 @@ namespace OpenEhr.RM.Composition.Content.Entry
                 this.instructionDetails.Parent = this;
 
             SetAttributeDictionary();
-            //SetInnerData();
             CheckInvariants();
         }
-
-        //internal Action(EhrTypes.ACTION entryType) : base(entryType) 
-        //{            
-        //    this.CheckInvariantsDefault();
-        //    //// add attributes to AttributesDictionary
-        //    //// TIME
-        //    ////DataTypes.Quantity.DateTime.DvDateTime time = WrapperFactory.CreateDataValue(entryType.time) as DataTypes.Quantity.DateTime.DvDateTime;
-        //    //this.time = WrapperFactory.CreateDataValue(entryType.time) as DataTypes.Quantity.DateTime.DvDateTime;
-        //    ////if (time == null)
-        //    ////    time = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime(new System.DateTime());
-
-        //    ////base.attributesDictionary.Add("time", this.time);
-           
-        //    //// description
-        //    //DesignByContract.Check.Assert(entryType.description != null, "Description must not be null in an Action instance");
-
-        //    ////DataStructures.ItemStructure.ItemStructure description = WrapperFactory.CreateLocatable(entryType.description) as DataStructures.ItemStructure.ItemStructure;
-        //    //this.description = WrapperFactory.CreateLocatable(entryType.description) as DataStructures.ItemStructure.ItemStructure;
-        //    //description.SetParent(this);
-        //    ////this.description = description;
-
-        //    ////Support.Assumed.LocatableList<Common.Archetyped.Locatable> descriptionList =
-        //    ////    new OpenEhr.Support.Assumed.LocatableList<OpenEhr.Common.Archetyped.Locatable>();                       
-
-        //    ////descriptionList.Add(description);
-            
-        //    ////base.attributesDictionary.Add("description", this.description);
-
-        //    //// add ism_transition
-        //    ////IsmTransition ismTransition = null;
-        //    //if (entryType.ism_transition != null)
-        //    //{
-        //    //    this.ismTransition = WrapperFactory.CreateIsmTransition(entryType.ism_transition);
-        //    //    this.ismTransition.SetParent(this);
-        //    //}
-        //    ////base.attributesDictionary.Add("ism_transition", this.ismTransition);
-            
-            
-        //    //// Add instruction_details
-        //    ////InstructionDetails instructionDetails = null;
-        //    //if (entryType.instruction_details != null)
-        //    //{
-        //    //    instructionDetails = WrapperFactory.CreateInstructionDetails(entryType.instruction_details);
-        //    //    instructionDetails.SetParent(this);
-        //    //}
-        //    ////this.instructionDetails = instructionDetails;
-        //    ////base.attributesDictionary.Add("instruction_details", instructionDetails);
-
-        //    //this.SetAttributeDictionary();
-        //    //this.CheckInvariants();
-        //}
-
-        //private EhrTypes.ACTION innerType;
-        //private EhrTypes.ACTION InnerType
-        //{
-        //    get
-        //    {
-        //        if (innerType == null)
-        //            innerType = base.LocatableType as EhrTypes.ACTION;
-
-        //        DesignByContract.Check.Ensure(innerType != null, "InnerType must not be null");
-        //        return innerType;
-        //    }
-        //}
 
         private DataTypes.Quantity.DateTime.DvDateTime time;
 
@@ -124,7 +58,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
                 if(this.time == null)
                     this.time = base.attributesDictionary["time"] as DataTypes.Quantity.DateTime.DvDateTime;
                 return this.time;
-                //return base.attributesDictionary["time"] as DataTypes.Quantity.DateTime.DvDateTime;
             }
             set
             {
@@ -143,7 +76,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
                 if(this.description == null)
                     this.description = base.attributesDictionary["description"] as DataStructures.ItemStructure.ItemStructure;
                 return this.description;
-                //return base.attributesDictionary["description"] as DataStructures.ItemStructure.ItemStructure;
             }
             set
             {
@@ -254,8 +186,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
@@ -290,39 +220,11 @@ namespace OpenEhr.RM.Composition.Content.Entry
             }
         }
 
-        //protected override void SetInnerData()
-        //{
-        //    if (this.innerType == null && this.LocatableType == null)
-        //        SetInnerType(new OpenEhr.V1.Its.Xml.RM.ACTION());
-
-        //    base.SetInnerData();
-
-        //    //SetAttributeDictionaryData("time", this.time);
-        //    //SetAttributeDictionaryData("description", this.description);
-        //    //SetAttributeDictionaryData("ism_transition", this.ismTransition);
-        //    //SetAttributeDictionaryData("instruction_details", this.instructionDetails);
-
-        //    this.InnerType.time = this.time.DataValueType as EhrTypes.DV_DATE_TIME;
-        //    this.InnerType.description = this.description.LocatableType as EhrTypes.ITEM_STRUCTURE;
-
-        //    if(this.ismTransition!= null)
-        //        this.InnerType.ism_transition =
-        //            //((IItsXmlConvertable)(this.ismTransition)).ToItsXmlType() as EhrTypes.ISM_TRANSITION;
-        //            ((IItsXmlConvertible)(this.ismTransition)).ToItsXmlType() as EhrTypes.ISM_TRANSITION;
-
-        //    if(this.instructionDetails != null)
-        //        this.InnerType.instruction_details = 
-        //            //((IItsXmlConvertable)(this.instructionDetails)).ToItsXmlType() as EhrTypes.INSTRUCTION_DETAILS;
-        //            ((IItsXmlConvertible)(this.instructionDetails)).ToItsXmlType() as EhrTypes.INSTRUCTION_DETAILS;
-            
-        //    //this.CheckInvariants();
-
-        //}
-
         protected override void CheckInvariants()
         {
             base.CheckInvariants();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Time != null, "Time must not be null.");
             //DesignByContract.Check.Invariant(this.Description != null, "Description must not be null.");
 
@@ -332,6 +234,8 @@ namespace OpenEhr.RM.Composition.Content.Entry
         protected void CheckInvariantsDefault()
         {
             base.CheckInvariantsDefault();
+
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Time != null, "Time must not be null.");
         }
 
@@ -339,51 +243,10 @@ namespace OpenEhr.RM.Composition.Content.Entry
         {
             base.SetAttributeDictionary();
 
-           base.attributesDictionary["time"] = this.time;
-             base.attributesDictionary["description"] = this.description;
-           base.attributesDictionary["ism_transition"] = this.ismTransition;
-           base.attributesDictionary["instruction_details"] =this.instructionDetails;
-
+            base.attributesDictionary["time"] = this.time;
+            base.attributesDictionary["description"] = this.description;
+            base.attributesDictionary["ism_transition"] = this.ismTransition;
+            base.attributesDictionary["instruction_details"] =this.instructionDetails;
         }
-
-        //protected override void InitialiseAttributeDictionary()
-        //{
-        //    base.InitialiseAttributeDictionary();
-
-        //    base.attributesDictionary.Add("time", WrapperFactory.CreateDataValue(this.InnerType.time)
-        //        as DataTypes.Quantity.DateTime.DvDateTime);
-
-        //    // description
-        //    //DesignByContract.Check.Assert(entryType.description != null, "Description must not be null in an Action instance");
-
-        //    DataStructures.ItemStructure.ItemStructure description = null;
-        //    if (this.InnerType.description != null)
-        //    {
-        //        description = WrapperFactory.CreateLocatable(this.InnerType.description) as DataStructures.ItemStructure.ItemStructure;
-        //        DesignByContract.Check.Assert(description != null, "description must not be null.");
-        //        description.Parent = this;
-        //    }
-        //    base.attributesDictionary.Add("description", description);
-
-        //    // add ism_transition
-        //    IsmTransition ismTransition = null;
-        //    if (this.InnerType.ism_transition != null)
-        //    {
-        //        ismTransition = WrapperFactory.CreateIsmTransition(this.InnerType.ism_transition);
-        //        ismTransition.Parent = this;
-        //    }
-        //    base.attributesDictionary.Add("ism_transition", ismTransition);
-
-
-        //    // Add instruction_details
-        //    InstructionDetails instructionDetails = null;
-        //    if (this.InnerType.instruction_details != null)
-        //    {
-        //        instructionDetails = WrapperFactory.CreateInstructionDetails(this.InnerType.instruction_details);
-        //        instructionDetails.Parent = this;
-        //    }
-        //    base.attributesDictionary.Add("instruction_details", instructionDetails);
-
-        //}
     }
 }

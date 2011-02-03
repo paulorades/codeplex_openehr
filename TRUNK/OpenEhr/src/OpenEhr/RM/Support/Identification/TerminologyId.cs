@@ -1,7 +1,5 @@
 using System;
-//using System.Collections.Generic;
 using System.ComponentModel;
-using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.DesignByContract;
 using System.Text.RegularExpressions;
 using OpenEhr.Attributes;
@@ -15,12 +13,10 @@ namespace OpenEhr.RM.Support.Identification
     [RmType("openEHR", "SUPPORT", "TERMINOLOGY_ID")]
     public class TerminologyId : ObjectId, System.Xml.Serialization.IXmlSerializable
     {
-        //const string pattern = @"^(?<name>[a-zA-Z][a-zA-Z0-9_\-/+]+)(\((?<version>[a-zA-Z0-9][a-zA-Z0-9_\-/.]+)\))?$";
         // 03/08/09 needs to allow a single character as terminology id value. Same for version as well.
         const string pattern = @"^(?<name>[a-zA-Z][a-zA-Z0-9_\-/+]*)(\((?<version>[a-zA-Z0-9][a-zA-Z0-9_\-/.]*)\))?$";
 
         public TerminologyId() 
-            : base()
         { }
 
         public TerminologyId(string value) 

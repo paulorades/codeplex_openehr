@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace OpenEhr.RM.Common.ChangeControl
 {
     public interface IVersion
@@ -9,19 +5,16 @@ namespace OpenEhr.RM.Common.ChangeControl
         Support.Identification.ObjectVersionId Uid
         {
             get;
-            //set;
         }
 
         Support.Identification.ObjectVersionId PrecedingVersionUid
         {
             get;
-            //set;
         }
 
         DataTypes.Text.DvCodedText LifecycleState
         {
             get;
-            //set;
         }
 
         object Data
@@ -34,18 +27,11 @@ namespace OpenEhr.RM.Common.ChangeControl
 
         Support.Identification.HierObjectId OwnerId { get; }
 
-       // EhrTypes.FEEDER_AUDIT CreateAudit();
         bool IsBranch { get; }
 
         Support.Identification.ObjectRef Contribution { get; }
 
         Generic.AuditDetails CommitAudit { get; }
-
-       // List<EhrTypes.ATTESTATION> Attestations
-       // {
-       //     get;
-       //     set;
-       // }
     }
 
     public interface IVersion<T>
@@ -53,19 +39,16 @@ namespace OpenEhr.RM.Common.ChangeControl
         Support.Identification.ObjectVersionId Uid
         {
             get;
-            //set;
         }
 
         Support.Identification.ObjectVersionId PrecedingVersionUid
         {
             get;
-            //set;
         }
 
         DataTypes.Text.DvCodedText LifecycleState
         {
             get;
-            //set;
         }
 
         T Data
@@ -78,17 +61,10 @@ namespace OpenEhr.RM.Common.ChangeControl
 
         Support.Identification.HierObjectId OwnerId { get; }
 
-        // EhrTypes.FEEDER_AUDIT CreateAudit();
         bool IsBranch { get; }
 
         Support.Identification.ObjectRef Contribution { get; }
 
         Generic.AuditDetails CommitAudit { get; }
-
-        // List<EhrTypes.ATTESTATION> Attestations
-        // {
-        //     get;
-        //     set;
-        // }
     }
 }

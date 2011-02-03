@@ -1,12 +1,9 @@
-using System;
-
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Common.Archetyped.Impl;
-using OpenEhr.AssumedTypes;
 using OpenEhr.AssumedTypes.Impl;
 
 namespace OpenEhr.RM.Demographic
@@ -16,7 +13,6 @@ namespace OpenEhr.RM.Demographic
         : DemographicLocatable
     {
         protected Contact()
-            : base()
         { }
 
         protected Contact(string archetypeNodeId, DvText name, OpenEhr.RM.Demographic.Address[] addresses)

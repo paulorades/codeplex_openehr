@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -12,14 +11,6 @@ namespace OpenEhr.RM.DataTypes.Basic
     [RmType("openEHR", "DATA_TYPES", "DATA_VALUE")]
     public abstract class DataValue : RmType
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="dataValueType"></param>
-        protected DataValue()
-        {
-        }
-
         internal void ReadXml(System.Xml.XmlReader reader)
         {
             Check.Require(!reader.IsEmptyElement, reader.LocalName + " element must not be empty.");

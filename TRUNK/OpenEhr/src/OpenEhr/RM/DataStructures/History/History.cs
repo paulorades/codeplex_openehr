@@ -19,7 +19,6 @@ namespace OpenEhr.RM.DataStructures.History
     public class History<T> : DataStructure, System.Xml.Serialization.IXmlSerializable where T : DataStructures.ItemStructure.ItemStructure
     {
         public History() 
-            : base()
         { }
 
         public History(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -28,8 +27,6 @@ namespace OpenEhr.RM.DataStructures.History
             Event<T>[] events, ItemStructure.ItemStructure summary)
             : base(name, archetypeNodeId, uid, links, archetypeDetails, feederAudit)
         {
-            //Check.Require(origin != null, "origin must not be null");
-
             this.period = period;
             this.duration = duration;
             this.summary = summary;
@@ -144,10 +141,7 @@ namespace OpenEhr.RM.DataStructures.History
         // CM: 16/04/2008
         public override Item AsHierarchy()
         {
-            //OpenEhr.V1.Its.Xml.RM.CLUSTER ehrTypeCluster = ToItsXmlCluster();
-
             throw new NotImplementedException("as_hierarchy function has not been implemented in HISTORY");
-
         }
 
         public static System.Xml.XmlQualifiedName GetXmlSchema(System.Xml.Schema.XmlSchemaSet xs)
@@ -176,7 +170,6 @@ namespace OpenEhr.RM.DataStructures.History
             else
             {
                 this.origin = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-                //this.origin = DvDateTime.CreateEmpty();
                 this.origin.ReadXml(reader);
             }
 
@@ -184,16 +177,12 @@ namespace OpenEhr.RM.DataStructures.History
             {
                 this.period = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDuration();
                 this.period.ReadXml(reader);
-
-                //this.AddAttributeDictionaryData("period", this.period);
             }
 
             if (reader.LocalName == "duration")
             {
                 this.duration = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDuration();
                 this.duration.ReadXml(reader);
-
-                //this.AddAttributeDictionaryData("duration", this.duration);
             }
 
             if (reader.LocalName == "events")
@@ -217,7 +206,6 @@ namespace OpenEhr.RM.DataStructures.History
                 } while (reader.LocalName == "events");
 
                 this.events = events as AssumedTypes.List<Event<T>>;
-                //this.AddAttributeDictionaryData("events", this.events);
             }
 
             if (reader.LocalName == "summary")
@@ -228,15 +216,11 @@ namespace OpenEhr.RM.DataStructures.History
                     throw new InvalidOperationException("History summary type must be type of ItemStructure: " + summaryType);
                 this.summary.ReadXml(reader);
                 this.summary.Parent = this;
-                //this.AddAttributeDictionaryData("summary", this.summary);
             }
-
         }
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);
 
@@ -291,38 +275,6 @@ namespace OpenEhr.RM.DataStructures.History
             }
         }
 
-        //protected override void SetInnerData()
-        //{
-        //    if (this.innerType == null && this.LocatableType == null)
-        //        SetInnerType(new OpenEhr.V1.Its.Xml.RM.HISTORY());
-
-        //    base.SetInnerData();
-
-        //    // HKF: 7 Aug 2009 - need to allow origin to be null for TDD and EhrGateDataObjects transformation prior to OperationalTemplate augmentation
-        //    if (this.origin != null)
-        //        this.InnerType.origin = this.origin.DataValueType as EhrTypes.DV_DATE_TIME;
-
-        //    if (this.period != null)
-        //        this.InnerType.period = this.period.DataValueType as EhrTypes.DV_DURATION;
-        //    if (this.duration != null)
-        //        this.InnerType.duration = this.duration.DataValueType as EhrTypes.DV_DURATION;
-        //    if (this.events != null && this.events.Count > 0)
-        //    {
-        //        System.Collections.Generic.List<EhrTypes.EVENT> eventList = new List<OpenEhr.V1.Its.Xml.RM.EVENT>();
-        //        foreach (Event<T> anEvent in this.events)
-        //        {
-        //            eventList.Add((EhrTypes.EVENT)(anEvent.LocatableType));
-        //        }
-
-        //        this.InnerType.events = eventList.ToArray();                
-        //    }
-
-        //    if (this.summary != null)
-        //        this.InnerType.summary = this.summary.LocatableType as EhrTypes.ITEM_STRUCTURE;
-
-        //    //this.CheckInvariants();
-        //}
-
         protected override void SetAttributeDictionary()
         {
             base.SetAttributeDictionary();
@@ -333,73 +285,10 @@ namespace OpenEhr.RM.DataStructures.History
             base.attributesDictionary["summary"]= this.summary;
         }
 
-        //protected override void InitialiseAttributeDictionary()
-        //{
-        //    base.InitialiseAttributeDictionary();
-
-        //    // add attributes to AttributesDictionary
-        //    // origin attribute
-        //    //DataTypes.Quantity.DateTime.DvDateTime origin = null;
-        //    if (this.InnerType.origin != null && !string.IsNullOrEmpty(this.innerType.origin.value))
-        //        origin = WrapperFactory.CreateDataValue(this.InnerType.origin)
-        //            as DataTypes.Quantity.DateTime.DvDateTime;
-        //    //if (origin == null)
-        //    //    origin = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-        //    base.attributesDictionary.Add("origin", origin);
-
-        //    // period
-        //    DataTypes.Quantity.DateTime.DvDuration period = null;
-        //    if (this.InnerType.period != null)
-        //        period = WrapperFactory.CreateDataValue(this.InnerType.period)
-        //            as DataTypes.Quantity.DateTime.DvDuration;
-        //    base.AttributesDictionary.Add("period", period);
-
-        //    // duration
-        //    DataTypes.Quantity.DateTime.DvDuration duration = WrapperFactory.CreateDataValue(this.InnerType.duration)
-        //        as DataTypes.Quantity.DateTime.DvDuration;
-        //    base.AttributesDictionary.Add("duration", duration);
-
-        //    // events
-        //    Support.Assumed.LocatableList<Event<ItemStructure.ItemStructure>> events = null;
-        //    if (this.InnerType.events != null &&
-        //        this.InnerType.events.Length > 0)
-        //    {
-        //        events = new OpenEhr.Support.Assumed.LocatableList<Event<OpenEhr.RM.DataStructures.ItemStructure.ItemStructure>>();
-
-        //        foreach (EhrTypes.EVENT eachEvent in this.InnerType.events)
-        //        {
-        //            Event<OpenEhrV1.DataStructures.ItemStructure.ItemStructure> openEhrV1Event
-        //                     = WrapperFactory.CreateEvent(eachEvent);
-        //            openEhrV1Event.Parent = this;
-        //            events.Add(openEhrV1Event);
-        //        }
-        //    }
-
-        //    base.attributesDictionary.Add("events", events);
-
-        //    // summary
-        //    ItemStructure.ItemStructure summary = null;
-        //    if (this.InnerType.summary != null)
-        //    {
-        //        summary = WrapperFactory.CreateItemStructure(this.InnerType.summary);
-        //        summary.Parent = this;
-        //    }
-
-        //    base.attributesDictionary.Add("summary", summary);
-
-        //    // CM: 10/07/09 disable this silent operation
-        //    //// when the origin is null, needs to calculate origin base on events
-        //    //if (this.origin == null)
-        //    //{
-        //    //    this.origin = CalculateOrigin(this);
-        //    //    this.innerType.origin = new OpenEhr.V1.Its.Xml.RM.DV_DATE_TIME();
-        //    //    this.innerType.origin.value = this.origin.Value;
-        //    //}
-        //}
-
         protected override void CheckInvariants()
         {
             base.CheckInvariants();
+            // %HYYKA%
             // HKF: 7 Aug 2009 - need to allow origin to be null for TDD and EhrGateDataObjects transformation prior to OperationalTemplate augmentation
             //DesignByContract.Check.Invariant(this.Origin != null, "origin must not be null.");
             //DesignByContract.Check.Invariant(this.Events == null || this.Events.Count > 0,
@@ -409,8 +298,9 @@ namespace OpenEhr.RM.DataStructures.History
         protected void CheckInvariantsDefault()
         {
             base.CheckInvariantsDefault();
+
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Origin != null, "origin must not be null.");
-           
         }
 
         protected override string RmTypeName

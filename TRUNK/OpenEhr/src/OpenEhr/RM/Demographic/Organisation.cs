@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Attributes;
 
@@ -7,7 +6,7 @@ namespace OpenEhr.RM.Demographic
     [RmType("openEHR", "Demographic", "ORGANISATION")]
     public abstract class Organisation : Actor
     {
-        protected Organisation(): base()
+        protected Organisation()
         { }
 
         protected Organisation(string archetypeNodeId)

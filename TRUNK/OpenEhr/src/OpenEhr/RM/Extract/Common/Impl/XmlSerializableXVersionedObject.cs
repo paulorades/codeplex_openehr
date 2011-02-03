@@ -1,6 +1,5 @@
 using System;
 using OpenEhr.Serialisation;
-//using System.Xml.Serialization;
 
 namespace OpenEhr.RM.Extract.Common.Impl
 {
@@ -9,17 +8,14 @@ namespace OpenEhr.RM.Extract.Common.Impl
         where T : class
     {
         public XmlSerializableXVersionedObject()
-            : base()
         { }
 
         public XmlSerializableXVersionedObject(XVersionedObject<T> versionedComposition)
-            : base()
         {
             this.Uid = versionedComposition.Uid;
             this.OwnerId = versionedComposition.OwnerId;
             this.TimeCreated = versionedComposition.TimeCreated;
             this.TotalVersionCount = versionedComposition.TotalVersionCount;
-            //this.RevisionHistory = versionedComposition.RevisionHistory;
             this.Versions = versionedComposition.Versions;
         }
 

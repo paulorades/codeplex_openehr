@@ -1,8 +1,6 @@
 using System;
-//using System.Collections.Generic;
 using System.Xml;
 using OpenEhr.DesignByContract;
-//using System.Xml.Serialization;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
 using OpenEhr.RM.DataTypes.Text;
@@ -21,7 +19,6 @@ namespace OpenEhr.RM.Composition
         : AttributeDictionaryPathable, System.Xml.Serialization.IXmlSerializable, IVisitable
     {
         public EventContext()
-            : base()
         { }
 
         public EventContext(DvDateTime startTime, DvDateTime endTime,
@@ -40,7 +37,7 @@ namespace OpenEhr.RM.Composition
             if (this.otherContext != null)
                 this.otherContext.Parent = this;
             if (participations != null)
-                this.participations = new OpenEhr.AssumedTypes.List<Participation>(participations);// OpenEhrFactory.ToList<Participation>(participations);
+                this.participations = new OpenEhr.AssumedTypes.List<Participation>(participations);
 
             SetAttributeDictionary();
             this.CheckInvariants();
@@ -175,11 +172,6 @@ namespace OpenEhr.RM.Composition
             }
         }
 
-        //object IItsXmlConvertible.ToItsXmlType()
-        //{
-        //    return this.ehrType;
-        //}
-
         #region IXmlSerializable Members
 
         System.Xml.Schema.XmlSchema System.Xml.Serialization.IXmlSerializable.GetSchema()
@@ -213,21 +205,17 @@ namespace OpenEhr.RM.Composition
             DesignByContract.Check.Assert(reader.LocalName == "start_time",
                 "Expected LocalName is 'start_time', but it is " + reader.LocalName);
             this.startTime = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-            //this.startTime = OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime.CreateEmpty();
             this.startTime.ReadXml(reader);
 
             if (reader.LocalName == "end_time")
             {
                 this.endTime = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-                //this.endTime = OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime.CreateEmpty();
                 this.endTime.ReadXml(reader);
-                //this.AddAttributeDictionaryData("end_time", this.endTime);
             }
 
             if (reader.LocalName == "location")
             {
                 this.location = reader.ReadElementString("location", RmXmlSerializer.OpenEhrNamespace);
-                //this.AddAttributeDictionaryData("location", this.location);
             }
 
             DesignByContract.Check.Assert(reader.LocalName == "setting",
@@ -270,7 +258,6 @@ namespace OpenEhr.RM.Composition
             reader.ReadEndElement();
             reader.MoveToContent();
 
-            //this.SetInnerData();
             this.SetAttributeDictionary();
         }
 
@@ -330,45 +317,6 @@ namespace OpenEhr.RM.Composition
             }
         }
 
-        //private void SetInnerData()
-        //{
-        //    Check.Require(this.startTime != null, "startTime must not be null.");
-        //    Check.Require(this.setting!= null, "setting must not be null.");
-
-        //    this.ehrType.start_time = this.startTime.DataValueType as EhrTypes.DV_DATE_TIME;
-        //    if (this.endTime != null)
-        //        this.ehrType.end_time = this.endTime.DataValueType as EhrTypes.DV_DATE_TIME;
-        //    if (this.location != null)
-        //        this.ehrType.location = this.location;
-        //    this.ehrType.setting = this.setting.DataValueType as EhrTypes.DV_CODED_TEXT;
-        //    if (this.otherContext != null)
-        //        this.ehrType.other_context = this.otherContext.LocatableType as EhrTypes.ITEM_STRUCTURE;
-        //    if (this.healthCareFacility != null)
-        //        this.ehrType.health_care_facility = this.healthCareFacility.EhrType;
-        //    if (this.participations != null)
-        //    {
-        //        List<EhrTypes.PARTICIPATION> participationList = new List<OpenEhr.V1.Its.Xml.RM.PARTICIPATION>();
-        //        foreach (OpenEhr.Common.Generic.Participation p in this.participations)
-        //        {
-        //            EhrTypes.PARTICIPATION participationType = ((IItsXmlConvertible)p).ToItsXmlType()
-        //               as EhrTypes.PARTICIPATION;
-        //            participationList.Add(participationType);
-        //        }
-
-        //        this.ehrType.participations = participationList.ToArray();
-        //    }
-
-        //    //SetAttributeDictionaryData("start_time", this.startTime);
-        //    //SetAttributeDictionaryData("end_time", this.endTime);
-        //    //SetAttributeDictionaryData("location", this.location);
-        //    //SetAttributeDictionaryData("setting", this.setting);
-        //    //SetAttributeDictionaryData("other_context", this.otherContext);
-        //    //SetAttributeDictionaryData("health_care_facility", this.healthCareFacility);
-        //    //SetAttributeDictionaryData("participations", this.participations);
-
-        //    //CheckInvariants();
-        //}
-
         protected override void SetAttributeDictionary()
         {
             Check.Require(this.attributesDictionary != null, "attributeDictionary must not be null");
@@ -382,72 +330,9 @@ namespace OpenEhr.RM.Composition
             this.attributesDictionary["participations"] = this.participations;
         }
 
-        //protected void InitialiseAttributeDictionary()
-        //{
-        //    DesignByContract.Check.Require(this.attributesDictionary == null, 
-        //        "attributeDictionary must be null before initialisation.");
-
-        //    this.attributesDictionary = new Dictionary<string, object>();           
-
-        //    // add other_context into the attributesDictionary
-        //    DataStructures.ItemStructure.ItemStructure otherContext = null;            
-        //    if (ehrType.other_context != null)
-        //    {
-        //        otherContext = WrapperFactory.CreateLocatable(ehrType.other_context) as DataStructures.ItemStructure.ItemStructure;
-
-        //        // set parent to other context
-        //        otherContext.Parent = this;
-        //    }
-        //    attributesDictionary.Add("other_context", otherContext);
-
-        //    // add start_time
-        //    DataTypes.Quantity.DateTime.DvDateTime startTime = null;
-        //    if (ehrType.start_time != null)
-        //        startTime = WrapperFactory.CreateDataValue(ehrType.start_time);
-        //    //if (startTime == null)
-        //    //    this.startTime = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-        //    this.attributesDictionary.Add("start_time", startTime);
-
-        //    // add end_time
-        //    DataTypes.Quantity.DateTime.DvDateTime endTime = null;
-        //    if (ehrType.end_time != null)
-        //        endTime = WrapperFactory.CreateDataValue(ehrType.end_time);
-        //    this.attributesDictionary.Add("end_time", endTime);
-
-        //    // add location
-        //    this.attributesDictionary.Add("location", ehrType.location);
-
-        //    // add setting
-        //    DataTypes.Text.DvCodedText setting = null;
-        //    if (ehrType.setting != null)
-        //        setting = WrapperFactory.CreateDataValue(ehrType.setting);
-        //    //if (setting == null)
-        //    //    setting = new OpenEhr.RM.DataTypes.Text.DvCodedText();
-        //    this.attributesDictionary.Add("setting", setting);
-
-        //    // add health_care_facility
-        //    Common.Generic.PartyIdentified healthCareFacility = null;
-        //    if (ehrType.health_care_facility != null)
-        //        healthCareFacility = WrapperFactory.CreatePartyProxy(ehrType.health_care_facility);
-        //    this.attributesDictionary.Add("health_care_facility", healthCareFacility);
-
-        //    // add participations
-        //    Support.Assumed.List<Common.Generic.Participation> participations = null;
-        //    if (ehrType.participations != null)
-        //    {
-        //        participations = new OpenEhr.Support.Assumed.List<OpenEhr.Common.Generic.Participation>();
-        //        foreach (EhrTypes.PARTICIPATION participation in ehrType.participations)
-        //        {
-        //            Common.Generic.Participation convertedParticipation = WrapperFactory.CreateParticipation(participation);
-        //            participations.Add(convertedParticipation);
-        //        }
-        //    }
-        //    this.attributesDictionary.Add("participations", participations);            
-          
-        //}
-
         private void CheckInvariants()
         {
+            // %HYYKA%
             //this.CheckInvariantsDefault();
             //Check.Invariant(this.StartTime != null, "start_time must not be null.");
             //Check.Invariant(this.Participations == null || this.Participations.Count>0, 
@@ -455,31 +340,20 @@ namespace OpenEhr.RM.Composition
             //Check.Invariant(this.Location== null || this.Location.Length>0, "Location is not null implies not empty.");
 
             //Check.Invariant(this.Setting != null, "setting must not be null");
+
             // TODO: terminology(terminology_id_openehr).has_code_for_group_id
-            
-            
         }
 
         private void CheckInvariantsDefault()
         {
             Check.Invariant(this.StartTime != null, "start_time must not be null.");
             Check.Invariant(this.Setting != null, "setting must not be null");
-           
         }
 
 
         #region IRmType Members
 
         const string RM_TYPE_NAME = "EVENT_CONTEXT";
-
-        //protected override string RmTypeName
-        //{
-        //    get { return RM_TYPE_NAME; }
-
-        //    //string IRmType.GetRmTypeName()
-        //    //{
-        //    //    return RmTypeName;
-        //}
 
         #endregion
 

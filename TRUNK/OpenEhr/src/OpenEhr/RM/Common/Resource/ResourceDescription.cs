@@ -1,5 +1,4 @@
 using System;
-using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -165,18 +164,6 @@ namespace OpenEhr.RM.Common.Resource
             reader.MoveToContent();
 
             Check.Assert(reader.LocalName == "original_author", "Expected local name is 'original_author', not " + reader.LocalName);
-            //System.Collections.Generic.Dictionary<string, string> authors = new Dictionary<string, string>();
-            //do
-            //{
-            //    string id = reader.GetAttribute("id", XmlSerializer.OpenEhrNamespace);
-            //    string value = reader.ReadElementString("original_author", XmlSerializer.OpenEhrNamespace);
-
-            //    authors.Add(id, value);
-
-            //} while (reader.LocalName == "original_author");
-
-            //if (authors.Count == 0)
-            //    throw new Exceptions.ValidationException("originalAuthors must not be empty.");
             this.originalAuthor = GetHashData(reader, "original_author");
             reader.MoveToContent();
 
@@ -237,8 +224,6 @@ namespace OpenEhr.RM.Common.Resource
 
                 this.parentResource.ReadXml(reader);
             }
-
-            //reader.MoveToContent();
 
             if (!reader.IsStartElement())
             {

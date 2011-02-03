@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -13,10 +12,6 @@ namespace OpenEhr.RM.Support.Identification
     [RmType("openEHR", "SUPPORT", "OBJECT_ID")]
     public abstract class ObjectId : RmType
     {
-        protected ObjectId()
-            : base()
-        { }
-
         private string value;        
         
         public string Value
@@ -47,9 +42,6 @@ namespace OpenEhr.RM.Support.Identification
         public override bool Equals(object obj)
         {
             ObjectId objectId = obj as ObjectId;
-            //if (objectId == null)
-            //    return false;
-
             return this.Equals(objectId);
         }
 

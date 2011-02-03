@@ -1,10 +1,7 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 
 namespace OpenEhr.RM.DataTypes.Basic
 {
@@ -19,17 +16,7 @@ namespace OpenEhr.RM.DataTypes.Basic
     {
         #region Constructors
          public DvState() 
-            //: base(new EhrTypes.DV_STATE()) 
-             :base()
          { }
-
-        //internal DvState(EhrTypes.DV_STATE ehrType) 
-        //    : base(ehrType) { }
-
-        //private new EhrTypes.DV_STATE DataValueType
-        //{
-        //    get { return base.DataValueType as EhrTypes.DV_STATE; }
-        //}
 
         // CM: 15/02/08
         public DvState(DvCodedText value, bool isTerminal):
@@ -38,7 +25,6 @@ namespace OpenEhr.RM.DataTypes.Basic
             this.Value = value;
             this.IsTerminal = isTerminal;
 
-            //this.SetInnerData();
             this.CheckInvariants();
         }
 
@@ -55,15 +41,12 @@ namespace OpenEhr.RM.DataTypes.Basic
         {
             get
             {
-                //if (this.value == null)
-                //    this.value = WrapperFactory.CreateDataValue(this.DataValueType.value);
                 return value;
             }
             set
             {
                 DesignByContract.Check.Require(value != null, "value must not be null.");
                 this.value = value;
-                //this.DataValueType.value = value.DataValueType as EhrTypes.DV_CODED_TEXT;
             }
         }
 
@@ -77,18 +60,12 @@ namespace OpenEhr.RM.DataTypes.Basic
         {
             get
             {
-                //if (!isTerminalSet)
-                //{
-                //    this.IsTerminal = this.DataValueType.is_terminal;
-                //}
-
                 return isTerminal;
             }
             set
             {
                 this.isTerminal = value;
                 this.isTerminalSet = true;
-                //this.DataValueType.is_terminal = value;
             }
         }
 

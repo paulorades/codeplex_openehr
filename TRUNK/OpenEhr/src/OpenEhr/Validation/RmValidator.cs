@@ -1,9 +1,5 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
-//using OpenEhr.RM.Common.Archetyped;
 using OpenEhr.DesignByContract;
-using System.Xml;
 using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.Composition.Content.Entry;
 using OpenEhr.RM.DataTypes.Basic;
@@ -40,23 +36,11 @@ namespace OpenEhr.Validation
             this.configurationSource = configurationSource;
         }
 
-        //private static RmValidator instance;
-        //public static RmValidator Instance
-        //{
-        //    get
-        //    {
-        //        if (instance == null)
-        //            instance = new RmValidator();
-        //        return instance;
-        //    }
-
-        //}
-
-        private System.Reflection.MethodInfo lastMethod = null;
+        private MethodInfo lastMethod = null;
         private object lastObjectRead = null;
 
         #region ****** Conment parckage ******
-       private System.Reflection.MethodInfo lastMethodReadValidVersion = null;
+        private MethodInfo lastMethodReadValidVersion = null;
         private IVersion lastVersionRead = null;
         private void CallValidate(IVersion version)
         {
@@ -66,9 +50,9 @@ namespace OpenEhr.Validation
 
             try
             {
-                System.Reflection.MethodInfo method = this.GetType().GetMethod(methodName,
-                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance, 
-                     Type.DefaultBinder, new Type[] {version.GetType() }, new System.Reflection.ParameterModifier[0]);
+                MethodInfo method = this.GetType().GetMethod(methodName,
+                     BindingFlags.NonPublic | BindingFlags.Instance, 
+                     Type.DefaultBinder, new Type[] {version.GetType() }, new ParameterModifier[0]);
 
                 if (method != null)
                 {
@@ -98,7 +82,7 @@ namespace OpenEhr.Validation
                     throw new ApplicationException(message);
                 }
             }
-            catch (System.Reflection.TargetInvocationException ex)
+            catch (TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
                 {
@@ -210,16 +194,6 @@ namespace OpenEhr.Validation
 
         }
 
-        //public static void Validate(OpenEhrV1.Common.ChangeControl.OriginalVersion<OpenEhrV1.Composition.Composition> version)
-        //{
-        //    RmValidator rmValidator = new RmValidator();
-        //    rmValidator.ValidateVersion(version);
-
-        //    // TODO: attestations /= Void implies not attestations.is_empty
-        //    // TODO: Is_merged_validity: other_input_version_ids = Void xor is_merged
-        //    // TODO: Other_input_version_uids_valid: other_input_version_uids /= Void implies not other_input_version_uids.is_empty
-        //}
-
         public static void Validate(IVersion version, IConfigurationSource configurationSource)
         {
             RmValidator instance = new RmValidator(configurationSource);
@@ -229,18 +203,6 @@ namespace OpenEhr.Validation
             // TODO: Is_merged_validity: other_input_version_ids = Void xor is_merged
             // TODO: Other_input_version_uids_valid: other_input_version_uids /= Void implies not other_input_version_uids.is_empty
         }
-
-        //protected void ValidateVersion(OpenEhrV1.Common.ChangeControl.OriginalVersion<Locatable> version)
-        //{
-        //    this.ValidateVersion<Locatable>(version);
-        //}
-
-        //protected void ValidateVersion(OpenEhrV1.Common.ChangeControl.Version version)
-        //{
-        //    OpenEhrV1.Common.ChangeControl.OriginalVersion<OpenEhrV1.Common.Archetyped.Locatable> originalVersion =
-        //        new OpenEhr.Common.ChangeControl.OriginalVersion<Locatable>(version);
-        //    this.ValidateVersion<Locatable>(originalVersion);
-        //}
 
         protected void ValidateVersion(OriginalVersion<Composition> version)
         {
@@ -265,11 +227,11 @@ namespace OpenEhr.Validation
 
             try
             {
-                System.Reflection.MethodInfo method = this.GetType().GetMethod(methodName,
-                    System.Reflection.BindingFlags.ExactBinding | System.Reflection.BindingFlags.NonPublic
-                    | System.Reflection.BindingFlags.Instance, Type.DefaultBinder,
+                MethodInfo method = this.GetType().GetMethod(methodName,
+                    BindingFlags.ExactBinding | BindingFlags.NonPublic
+                    | BindingFlags.Instance, Type.DefaultBinder,
                                new Type[] { partyProxy.GetType() },
-                               new System.Reflection.ParameterModifier[0]);
+                               new ParameterModifier[0]);
 
                 if (method != null)
                 {
@@ -299,7 +261,7 @@ namespace OpenEhr.Validation
                     throw new ApplicationException(message);
                 }
             }
-            catch (System.Reflection.TargetInvocationException ex)
+            catch (TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
                 {
@@ -406,8 +368,6 @@ namespace OpenEhr.Validation
             this.Invariant(locatable.Name != null, "name must not be null.");
 
             Validate(locatable.Name);
-            //this.Invariant(!string.IsNullOrEmpty(locatable.Name.Value),
-            //    "name value must not be null or empty.");
 
             this.Invariant(!string.IsNullOrEmpty(locatable.ArchetypeNodeId),
                 "archetypeNodeId must not be null or empty.");
@@ -541,9 +501,6 @@ namespace OpenEhr.Validation
             this.Validate(composition.Composer);
             this.Invariant(composition.IsArchetypeRoot, "composition must be archetype root.");
             this.Invariant(composition.Parent == null, "composition must not have parent.");
-            // CM: 17/03/09 invalid validation. only when composition is persistent, composition.context is null
-            //this.Invariant(composition.IsPersistent() ^ composition.Context != null, 
-            //    "When composition.IsPersistent is not true, the composition.Context must not be null.");
             this.Invariant(!composition.IsPersistent() || (composition.IsPersistent() && composition.Context == null),
                 "When composition is persistent, the composition.Context must be null.");
 
@@ -606,8 +563,6 @@ namespace OpenEhr.Validation
 
             // TODO: Subject_validity: subject_is_self implies subject.generating_type =
             //“PARTY_SELF”  
-            //this.Invariant(!entry.SubjectIsSelf || entry.Subject.GetType() == typeof(OpenEhr.Common.Generic.PartySelf),
-            //    "If entry.SubjectIsSelf is true, entry.Subject must be type of PartySelf");
 
             Validate(entry.Subject);
 
@@ -647,7 +602,6 @@ namespace OpenEhr.Validation
             this.Validate(((OpenEhr.RM.Composition.Content.Entry.Entry)adminEntry));
 
             this.Invariant(adminEntry.Data != null, "adminEntry.Data must not be null.");
-            //Validate(((Locatable)adminEntry.Data));
             CallValidate(adminEntry.Data);
         }
 
@@ -677,14 +631,6 @@ namespace OpenEhr.Validation
             this.Invariant(@event.Width != null, "intervalEvent.width must not be null.");
             Validate(@event.Width);
 
-            // HKF: 3 Sept 08 - IntervalStartTime computes an invalid DateTime (e.g. 31 Nov 1964)
-            ////Interval_start_time_valid: interval_start_time /= Void and interval_start_time = time - width
-            //this.Invariant(@event.IntervalStartTime() != null, "intervalEvent.IntervalStartTime must not be null");
-            //IComparable comparable = @event.IntervalStartTime() as IComparable;
-            //this.Invariant(comparable.CompareTo((DataTypes.Quantity.DateTime.DvDateTime)
-            //    (@event.Time.Subtract(@event.Width as DataTypes.Quantity.DvAmount))) == 0,
-            //    "interval_start_time must equal to time - width");
-
             this.Invariant(@event.MathFunction != null, "intervalEvent.MathFunction must not be null.");
             Validate(@event.MathFunction);
 
@@ -697,16 +643,6 @@ namespace OpenEhr.Validation
         protected void Validate(DataStructure dataStructure)
         {
             this.ValidateBase((OpenEhr.RM.Common.Archetyped.Impl.Locatable)dataStructure);
-
-            // TODO: this invariants may not be correct, e.g. the other_context shown below is also valid.
-            /**
-           <other_context xsi:type="ITEM_TREE" archetype_node_id="at0001">
-            <name>
-                <value>other context</value>
-            </name>
-           </other_context>
-             */
-            //this.Invariant(dataStructure.AsHierarchy() != null, "dataStructure.AsHierarchy must not be null.");
         }      
 
         protected void Validate(ItemList itemList)
@@ -722,7 +658,6 @@ namespace OpenEhr.Validation
                     Validate((Element)item);
                 }
             }
-            //this.Invariant(itemList.Names() != null, "itemList.Names() must not be null.");     
         }
 
         protected void Validate(ItemSingle itemSingle)
@@ -855,7 +790,7 @@ namespace OpenEhr.Validation
             this.Invariant(activity.Timing != null, "aactivity.Timing must not be null.");
             Validate(activity.Timing);
 
-            this.Invariant(activity.ActionArchetypeId != null && activity.ActionArchetypeId.Length > 0,
+            this.Invariant(!string.IsNullOrEmpty(activity.ActionArchetypeId),
                "activity.ActionArchetypeId must not be null or empty.");
         }
 
@@ -864,8 +799,6 @@ namespace OpenEhr.Validation
             this.Validate(((OpenEhr.RM.DataStructures.DataStructure)history));
 
             DvDateTime origin = history.Origin;
-            //this.Invariant(history.Origin != null, "history origin must not be null.");
-            //Validate(history.Origin);
             this.Invariant(origin!=null, "history origin must not be null.");
             Validate(origin);
 
@@ -888,14 +821,6 @@ namespace OpenEhr.Validation
                         DvDateTime intervalStartTime = intervalEvent.IntervalStartTime();
                         this.Invariant(origin <= intervalStartTime, "origin must be less than or equal to intervalStartTime.");
                     }
-
-                    //OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime eventTimeSubtractOffset = null;
-                    // OpenEhr.RM.DataTypes.Quantity.DateTime.DvDuration offset = anEvent.Offset();
-                    //this.Invariant(offset!=null, "offset value must not be null.");
-
-                    //eventTimeSubtractOffset = eventTime.Subtract(offset) as OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime;
-                    //this.Invariant(origin == eventTimeSubtractOffset, "origin must be same as eventTimeSubtractOffset.");
-                    
                 }
             }
 
@@ -977,15 +902,6 @@ namespace OpenEhr.Validation
 #endregion
 
         #region Validate data value
-
-        //private DataValue lastDataValueRead = null;
-        //public static void Validate(DataValue dataValue)
-        //{
-        //    Check.Require(dataValue != null, "dataValue must not be null.");
-
-        //    RmValidator rmValidator = new RmValidator();
-        //    rmValidator.CallValidate(dataValue);
-        //}
 
         private void Validate(DataValue dataValue)
         {
@@ -1290,7 +1206,6 @@ namespace OpenEhr.Validation
             
             //TODO: Range_is_simple: (range.lower_unbounded or else range.lower.is_simple) and
             //(range.upper_unbounded or else range.upper.is_simple)
-            
         }
 
         protected void Validate<T>(DvQuantified<T> dvQuantified)
@@ -1324,10 +1239,6 @@ namespace OpenEhr.Validation
         {
             Validate((DvQuantified<T>)dataValue);
 
-            // this assertion isn't quite right. If accuracy is 0, AccuracyIsPercent must be false. 
-            // However, if accuracy is not 0, AccuracyIsPercent can be either true or false.
-            //this.Invariant(dataValue.Accuracy == 0 ^ dataValue.AccuracyIsPercent, 
-            //    "dvAmount.Accuracy is 0 means dvAmount.AccuracyIsPercent must be false.");
             this.Invariant(dataValue.Accuracy !=0 || (dataValue.Accuracy == 0 && !dataValue.AccuracyIsPercent),
                 "dvAmount.Accuracy is 0 means dvAmount.AccuracyIsPercent must be false.");
 
@@ -1435,7 +1346,6 @@ namespace OpenEhr.Validation
         protected void Validate(DvEncapsulated encapsulated)
         {
             // TODO: DvParsable.Size has not been implemented.
-            //this.Invariant(encapsulated.Size >= 0, "encapsulated.size must be greater or equal to zero.");
 
             if (encapsulated.Language != null)
             {
@@ -1618,17 +1528,16 @@ namespace OpenEhr.Validation
 
             try
             {
-                System.Reflection.MethodInfo method = this.GetType().GetMethod(methodName,
-                    System.Reflection.BindingFlags.ExactBinding | System.Reflection.BindingFlags.NonPublic
-                    | System.Reflection.BindingFlags.Instance, Type.DefaultBinder,
+                MethodInfo method = this.GetType().GetMethod(methodName,
+                    BindingFlags.ExactBinding | BindingFlags.NonPublic
+                    | BindingFlags.Instance, Type.DefaultBinder,
                                new Type[] { objectId.GetType() },
-                               new System.Reflection.ParameterModifier[0]);
+                               new ParameterModifier[0]);
 
                 if (method != null)
                 {
                     // Avoid StackOverflow exceptions by executing only if the method and visitable  
                     // are different from the last parameters used.
-                    //if (method != lastMethodReadObjectId || objectId != lastObjectIdRead)
                     if (method != lastMethod || !ObjectId.ReferenceEquals(objectId, lastObjectRead))
                     {
                         lastMethod = method;
@@ -1653,13 +1562,9 @@ namespace OpenEhr.Validation
                     throw new ApplicationException(message);
                 }
             }
-            catch (System.Reflection.TargetInvocationException ex)
+            catch (TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -1668,7 +1573,6 @@ namespace OpenEhr.Validation
 
         protected void ValidateBase(ObjectId objectId)
         {
-            //this.Invariant(!string.IsNullOrEmpty(objectId.Value));
             // TODO: checking value must not be empty.
             this.Invariant(objectId.Value != null, "objectId.value must not be null.");
         }
@@ -1749,39 +1653,6 @@ namespace OpenEhr.Validation
 
         }
 
-        //protected void Validate(VersionTreeId objectId)
-        //{
-        //    this.Invariant(objectId.Value != null, "versionTreeId.Value must not be null.");
-        //    this.Invariant(objectId.Value.Length >0, "versionTreeId.Value must not be empty.");
-        //    this.Invariant(objectId.TrunkVersion != null, "versionTreeId.TrunkVersion must not be empty.");
-            
-        //    int trunkVersionId;
-        //    this.Invariant(int.TryParse(objectId.TrunkVersion, out trunkVersionId), 
-        //        "versionTreeId.TrunkVersion must be integer.");
-        //    this.Invariant(trunkVersionId >= 1, "versionTreeId.TrunkVersion must be >= 1.");
-
-        //    int branchVersionId;
-        //    this.Invariant(objectId.BranchVersion == null || 
-        //        (int.TryParse(objectId.BranchVersion, out branchVersionId) &&
-        //        branchVersionId >= 1),
-        //        "When versionTreeId.BranchVersion is not null, it must be integer and >= 1.");            
-
-        //    int branchNumberId;
-        //    this.Invariant(objectId.BranchNumber == null || 
-        //        (int.TryParse(objectId.BranchNumber, out branchNumberId) &&
-        //        branchNumberId >= 1),
-        //        "When versionTreeId.BranchNumber is not null, it must be integer and >=1.");
-
-        //    this.Invariant((objectId.BranchNumber == null && objectId.BranchVersion == null) ^
-        //        (objectId.BranchNumber != null && objectId.BranchVersion != null),
-        //        "(branch_number = Void and branch_version = Void ) xor (branch_number /= Void and branch_version /= Void )");
-
-        //    this.Invariant(objectId.BranchNumber == null || objectId.IsBranch(),
-        //        "when versionTreeId.BranchNumber is not null, IsBranch must be true.");
-
-        //    // TODO: Is_first_validity: not is_first xor trunk_version.is_equal(“1”)
-        //}
-
         protected void Validate(GenericId objectId)
         {
             ValidateBase((ObjectId)objectId);
@@ -1812,8 +1683,6 @@ namespace OpenEhr.Validation
                "archetypeId.RmEntity must not be null or emtpy.");
             this.Invariant(objectId.Specialisation == null || objectId.Specialisation.Length > 0,
                "when archetypeId.Specialisation is not null, it must not be emtpy.");
-            //this.Invariant(objectId.RmEntity != null && objectId.RmEntity.Length > 0,
-            //   "archetypeId.RmEntity must not be null or emtpy.");
             this.Invariant(objectId.VersionId != null && objectId.VersionId.Length > 0,
                "archetypeId.VersionId must not be null or emtpy.");
         }
@@ -1832,11 +1701,11 @@ namespace OpenEhr.Validation
 
             try
             {
-                System.Reflection.MethodInfo method = this.GetType().GetMethod(methodName,
-                    System.Reflection.BindingFlags.ExactBinding | System.Reflection.BindingFlags.NonPublic
-                    | System.Reflection.BindingFlags.Instance, Type.DefaultBinder,
+                MethodInfo method = this.GetType().GetMethod(methodName,
+                    BindingFlags.ExactBinding | BindingFlags.NonPublic
+                    | BindingFlags.Instance, Type.DefaultBinder,
                                new Type[] { objectRef.GetType() },
-                               new System.Reflection.ParameterModifier[0]);
+                               new ParameterModifier[0]);
 
                 if (method != null)
                 {
@@ -1866,13 +1735,9 @@ namespace OpenEhr.Validation
                     throw new ApplicationException(message);
                 }
             }
-            catch (System.Reflection.TargetInvocationException ex)
+            catch (TargetInvocationException ex)
             {
                 if (ex.InnerException != null)
-                    //if (ex.InnerException is ApplicationException && ex.InnerException.InnerException != null
-                    //        && ex.InnerException.Message == ex.InnerException.InnerException.Message)
-                    //    throw new ApplicationException(ex.InnerException.Message, ex.InnerException.InnerException);
-                    //else
                     throw new ApplicationException(ex.InnerException.Message, ex.InnerException);
                 else
                     throw new ApplicationException(ex.Message, ex);
@@ -1902,12 +1767,6 @@ namespace OpenEhr.Validation
         protected void Validate(PartyRef objectRef)
         {
             Validate((ObjectRef)objectRef);
-
-            //this.Invariant(objectRef.Type == "PERSON" || objectRef.Type == "ORGANISATION" ||
-            //    objectRef.Type == "GROUP" || objectRef.Type == "AGENT" || objectRef.Type == "ROLE" ||
-            //    objectRef.Type == "PARTY" || objectRef.Type == "ACTOR" || objectRef.Type=="Provider",
-            //    "partyRef.Type must be PERSON, ORGANISATION, GROUP, AGENT, ROLE, PARTY OR ACTOR");
-
         }
 
         protected void Validate(LocatableRef objectRef)
@@ -2039,11 +1898,11 @@ namespace OpenEhr.Validation
         }
       
 	
-        private System.Reflection.PropertyInfo GetProperty(Type type, string rmAttributeName)
+        private PropertyInfo GetProperty(Type type, string rmAttributeName)
         {
-            System.Reflection.PropertyInfo[] allProperties = type.GetProperties();
+            PropertyInfo[] allProperties = type.GetProperties();
 
-            foreach (System.Reflection.PropertyInfo property in allProperties)
+            foreach (PropertyInfo property in allProperties)
             {
                 RmAttributeAttribute rmAttri 
                     = Attribute.GetCustomAttribute(property, typeof(RmAttributeAttribute)) as RmAttributeAttribute;

@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -30,7 +28,6 @@ namespace OpenEhr.RM.Support.Identification
         {
             Check.Require(value != null, "value must not be null");
 
-            //return Regex.IsMatch(value, pattern, RegexOptions.Compiled | RegexOptions.Singleline);
             return uuidRegEx.IsMatch(value);
         }
     }

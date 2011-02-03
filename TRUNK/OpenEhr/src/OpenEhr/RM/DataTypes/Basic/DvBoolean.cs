@@ -11,7 +11,6 @@ namespace OpenEhr.RM.DataTypes.Basic
     public class DvBoolean : DataValue, System.Xml.Serialization.IXmlSerializable
     {
         public DvBoolean()
-            : base()
         { }
 
         public DvBoolean(bool value)
@@ -80,11 +79,6 @@ namespace OpenEhr.RM.DataTypes.Basic
         {
             Check.Invariant(this.valueSet, "value must have been set.");
         }
-
-        //protected override string GetRmTypeName()
-        //{
-        //    return "DV_BOOLEAN";
-        //}
 
         public override string ToString()
         {

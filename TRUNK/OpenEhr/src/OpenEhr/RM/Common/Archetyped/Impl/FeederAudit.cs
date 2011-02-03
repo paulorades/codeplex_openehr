@@ -190,8 +190,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             }
 
             reader.MoveToContent();
-
-            //this.SetInnerData();
         }
 
         internal void WriteXml(System.Xml.XmlWriter writer)
@@ -244,42 +242,5 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
                 writer.WriteEndElement();
             }
         }
-
-        //private void SetInnerData()
-        //{
-        //    if(this.ehrType == null)
-        //        this.ehrType = new OpenEhr.V1.Its.Xml.RM.FEEDER_AUDIT();
-
-        //    if (this.originatingSystemItemIds != null)
-        //    {
-        //        System.Collections.Generic.List<EhrTypes.DV_IDENTIFIER> ids = new List<OpenEhr.V1.Its.Xml.RM.DV_IDENTIFIER>();
-        //        foreach (DvIdentifier eachId in this.originatingSystemItemIds)
-        //        {
-        //            ids.Add(eachId.DataValueType as EhrTypes.DV_IDENTIFIER);
-        //        }
-        //        if (ids.Count > 0)
-        //            this.ehrType.originating_system_item_ids = ids.ToArray();
-        //    }
-
-        //    if (this.feederSystemItemIds != null)
-        //    {
-        //        System.Collections.Generic.List<EhrTypes.DV_IDENTIFIER> ids = new List<OpenEhr.V1.Its.Xml.RM.DV_IDENTIFIER>();
-        //        foreach (DvIdentifier eachId in this.feederSystemItemIds)
-        //        {
-        //            ids.Add(eachId.DataValueType as EhrTypes.DV_IDENTIFIER);
-        //        }
-        //        if (ids.Count > 0)
-        //            this.ehrType.feeder_system_item_ids = ids.ToArray();
-        //    }
-
-        //    if (this.originalContent != null)
-        //        this.ehrType.original_content = this.originalContent.DataValueType as EhrTypes.DV_ENCAPSULATED;
-
-        //    Check.Assert(this.originatingSystemAudit != null, "originatingSystemAudit must not be null.");
-        //    this.ehrType.originating_system_audit = this.originatingSystemAudit.ToEhrType();
-
-        //    if (this.feederSystemAudit != null)
-        //        this.ehrType.feeder_system_audit = this.feederSystemAudit.ToEhrType();
-        //}
     }
 }

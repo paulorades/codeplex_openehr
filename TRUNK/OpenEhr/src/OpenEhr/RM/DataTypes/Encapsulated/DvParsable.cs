@@ -12,7 +12,6 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
     public class DvParsable : DvEncapsulated, System.Xml.Serialization.IXmlSerializable
     {
         public DvParsable() 
-            : base()
         { }
 
         public DvParsable(string value, string formalism) 
@@ -116,7 +115,6 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
         {
             base.CheckInvariants();
             Check.Invariant(this.Value != null, "value must not be null.");
-            //Check.Invariant(!string.IsNullOrEmpty(this.Formalism), "formalism must not be null or empty.");
             Check.Invariant(this.Formalism!=null, "formalism must not be null.");
         }
     }

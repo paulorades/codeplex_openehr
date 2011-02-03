@@ -14,7 +14,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
     public class ItemSingle : ItemStructure, System.Xml.Serialization.IXmlSerializable
     {
         public ItemSingle()
-            : base()
         { }
 
         public ItemSingle(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -56,18 +55,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure
         public override Item AsHierarchy()
         {
             throw new NotImplementedException();
-            //EhrTypes.ELEMENT ele = this.Item.LocatableType as EhrTypes.ELEMENT;
-            //ele.name.value = this.Name.Value;
-            //ele.archetype_node_id = this.ArchetypeNodeId;
-
-            //Element newElement = new Element(ele);
-
-            //DesignByContract.Check.Ensure(newElement.Name.Value == this.Name.Value, 
-            //    "returned element must have same name value as the ItemSingle.");
-            //DesignByContract.Check.Ensure(newElement.ArchetypeNodeId == this.ArchetypeNodeId,
-            //    "returned element must have same archetypeNodeId as the ItemSingle.");
-
-            //return newElement;
         }
 
         #region IXmlSerializable Members

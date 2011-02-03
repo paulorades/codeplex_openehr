@@ -21,12 +21,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             CheckInvariants();
         }
 
-        //public abstract override OpenEhr.Common.Archetyped.Pathable Parent
-        //{
-        //    get;
-        //    internal set;
-        //}
-
         #region LOCATABLE
 
         public DvText Name

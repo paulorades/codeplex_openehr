@@ -18,19 +18,9 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
 
         protected readonly System.Collections.Generic.Dictionary<string, object> attributesDictionary;
 
-        ///// <summary>
-        ///// An internal property for class attributes collection
-        ///// </summary>
-        //internal protected abstract System.Collections.Generic.Dictionary<string, object> AttributesDictionary
-        //{
-        //    get;
-        //    //set;
-        //}
-
         public override bool PathExists(string path)
         {
             DesignByContract.Check.Require(!string.IsNullOrEmpty(path), "Path must not be null or empty.");
-            //DesignByContract.Check.Require(Path.IsValidPath(path), "Path must be a valid path against the path pattern: " + path);
 
             object itemInDictionary = null;
             if (this.itemAtPathDictionary != null &&
@@ -46,7 +36,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         public override bool PathUnique(string path)
         {
             DesignByContract.Check.Require(!string.IsNullOrEmpty(path), "Path must not be null or empty.");
-            //DesignByContract.Check.Require(Path.IsValidPath(path), "Path must be a valid path against the path pattern: " + path);
 
             object itemInDictionary = null;
             if (this.itemAtPathDictionary != null && this.itemAtPathDictionary.ContainsKey(path))
@@ -72,7 +61,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         public override object ItemAtPath(string path)
         {
             DesignByContract.Check.Require(!string.IsNullOrEmpty(path), "Path must not be null or empty.");
-            //DesignByContract.Check.Require(Path.IsValidPath(path), "Path must be a valid path against the path pattern: " + path);
 
             object itemInDictionary = null;
             if (this.itemAtPathDictionary != null && this.itemAtPathDictionary.ContainsKey(path))
@@ -98,7 +86,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         public override List<object> ItemsAtPath(string path)
         {
             DesignByContract.Check.Require(!string.IsNullOrEmpty(path), "Path must not be null or empty.");
-            //DesignByContract.Check.Require(Path.IsValidPath(path), "Path must be a valid path against the path pattern: " + path);
 
             object itemInDictionary = null;
             if (this.itemAtPathDictionary != null && this.itemAtPathDictionary.ContainsKey(path))
@@ -108,27 +95,12 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
 
             if (itemInDictionary == null)
                 throw new PathNotExistException(path);
-            //else if (itemInDictionary is Support.Assumed.IList)
-            //{
-            //    //return itemInDictionary as Support.Assumed.IList;
-            //    return itemInDictionary as List<object>;
-            //}
 
             //// CM: 07/07/09 the path must be unique path. Need to create a list and add the object to the list.
             //// Even though the spec shows the the precondition should be that the path must not be unique path, but this
             //// may be too restrictive. So for the moment, when the path is unique, then need to create a list instance
             //// and add the single object to the list rather than throw an exception.
-            ////throw new Exceptions.PathUniqueException("An IList instance is expected: " + path);
-
-            //Locatable locatableObj = itemInDictionary as Locatable;
-            //if (locatableObj != null)
-            //{
-            //    Support.Assumed.LocatableList<Locatable> locatableList = new Support.Assumed.LocatableList<Locatable>();
-            //    locatableList.Add(locatableObj);
-            //    return locatableList;
-            //}
-
-            //Support.Assumed.List<object> items = new OpenEhr.Support.Assumed.List<object>();
+            
             List<object> items = itemInDictionary as List<object>;
             if (items == null)
             {
@@ -230,7 +202,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             }
 
             // raise exception?
-            //return null;
             throw new InvalidOperationException("item not found in parent's items");
         }
 
@@ -252,7 +223,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
 
             // when the item is the top level (e.g. composition) or doesn't have a parent, 
             // the path is "/"
-            //if (this == item || itemParent == null)
             if (itemParent == null)
                 return "/";
 
@@ -275,7 +245,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         }
 
         protected abstract void SetAttributeDictionary();
-        //protected abstract void InitialiseAttributeDictionary();
 
         protected override void SetAttributeValue(string attributeName, object value)
         {

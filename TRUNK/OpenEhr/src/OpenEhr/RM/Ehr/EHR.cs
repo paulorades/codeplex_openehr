@@ -22,8 +22,7 @@ namespace OpenEhr.RM.Ehr
             Check.Require(!string.IsNullOrEmpty(systemId), "systemId must not be null or empty");
             Check.Require(ehrId != null, "ehrId must not be null");
             Check.Require(timeCreated != null, "timeCreated must not be null");
-            // TODO: required when EHR_ACCESS implemented
-            //Check.Require(ehrAccess != null, "ehrAccess must not be null");   
+            Check.Require(ehrAccess != null, "ehrAccess must not be null");   
             Check.Require(ehrStatus != null, "ehrStatus must not be null");
 
             this.systemId = systemId;

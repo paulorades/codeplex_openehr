@@ -11,7 +11,6 @@ using OpenEhr.RM.Impl;
 namespace OpenEhr.RM.Common.ChangeControl
 {
     public abstract class Version<T>
-        //: IVersion<T>, IVersion, IItsXmlConvertible where T : class
         : IVersion<T>, IVersion where T : class
     {
         protected Version()
@@ -79,30 +78,6 @@ namespace OpenEhr.RM.Common.ChangeControl
 
         #region IVersion Members
 
-        //public abstract string CanonicalForm
-        //{ get; }
-
-        //public abstract bool IsBranch
-        //{ get; }
-
-        //[RmAttribute("commit_audit", 1)]
-        //public abstract AuditDetails CommitAudit
-        //{
-        //    get;
-        //    protected set;
-        //}
-
-        //[RmAttribute("contribution", 1)]
-        //public abstract ObjectRef Contribution
-        //{
-        //    get;
-        //    protected set;
-        //}
-
-        //[RmAttribute("signature")]
-        //public abstract string Signature
-        //{ get; }
-
         public string CanonicalForm
         {
             get { throw new Exception("The method or operation is not implemented."); }
@@ -164,17 +139,6 @@ namespace OpenEhr.RM.Common.ChangeControl
 
         #endregion
 
-        //internal protected abstract OpenEhr.V1.Its.Xml.RM.VERSION ToItsXmlVersion(); 
-
-        //#region IItsXmlConvertible Members
-
-        //object IItsXmlConvertible.ToItsXmlType()
-        //{
-        //    return ToItsXmlVersion();
-        //}
-
-        //#endregion
-
         #region serialization
 
         internal protected void ReadXml(System.Xml.XmlReader reader)
@@ -188,7 +152,6 @@ namespace OpenEhr.RM.Common.ChangeControl
             reader.ReadEndElement();
             reader.MoveToContent();
 
-            //this.SetInnerData();
             this.CheckInvariants();
         }
 

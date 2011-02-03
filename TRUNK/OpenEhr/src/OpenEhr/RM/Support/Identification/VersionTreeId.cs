@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
 using System.Text.RegularExpressions;
 using OpenEhr.Attributes;
@@ -15,7 +13,6 @@ namespace OpenEhr.RM.Support.Identification
 
         public static bool IsValid(string value)
         {
-           // Check.Require(!string.IsNullOrEmpty(value), "value must not be null or empty");
             Check.Require(value != null, "value must not be null");
 
             return Regex.IsMatch(value, pattern, RegexOptions.Compiled | RegexOptions.Singleline);

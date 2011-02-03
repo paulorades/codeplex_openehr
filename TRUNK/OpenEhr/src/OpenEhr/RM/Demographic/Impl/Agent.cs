@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.AssumedTypes.Impl;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.RM.Support.Identification;

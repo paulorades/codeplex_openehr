@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -47,15 +46,12 @@ namespace OpenEhr.RM.Support.Identification
         }
 
         public ObjectVersionId()
-            //: base(new EhrTypes.OBJECT_VERSION_ID()) 
-            : base()
         { }
 
         public ObjectVersionId(string value)
             : this()
         {
             SetBaseData(value);
-            //SetInnerData();
         }
 
         public ObjectVersionId(Uid objectId, HierObjectId creatingSystemId, VersionTreeId versionTreeId)
@@ -65,17 +61,6 @@ namespace OpenEhr.RM.Support.Identification
         public ObjectVersionId(HierObjectId objectId, string creatingSystemId, VersionTreeId versionTreeId)
             : this(objectId.Value + "::" + creatingSystemId + "::" + versionTreeId.Value)
         { }
-
-        //private EhrTypes.OBJECT_VERSION_ID ehrType;
-        //internal EhrTypes.OBJECT_VERSION_ID EhrType
-        //{
-        //    get
-        //    {
-        //        if (this.ehrType == null)
-        //            this.ehrType = base.EhrType as EhrTypes.OBJECT_VERSION_ID;
-        //        return this.ehrType;
-        //    }
-        //}
 
         Uid objectId;
 
@@ -89,14 +74,10 @@ namespace OpenEhr.RM.Support.Identification
                     int i = value.IndexOf("::");
 
                     // CM: 16/04/2008 Uid is abstract
-                    //return new Uid(value.Substring(0, i));
                     objectId = Uid.Create(value.Substring(0, i));
                 }
                 return objectId;
             }
-            //set
-            //{
-            //}
         }
 
         public VersionTreeId VersionTreeId
@@ -108,9 +89,6 @@ namespace OpenEhr.RM.Support.Identification
 
                 return new VersionTreeId(value.Substring(i, value.Length - i));
             }
-            //set
-            //{
-            //}
         }
 
         public HierObjectId CreatingSystemId
@@ -123,9 +101,6 @@ namespace OpenEhr.RM.Support.Identification
 
                 return new HierObjectId( value.Substring(i, j-i));
             }
-            //set
-            //{
-            //}
         }
 
         public bool IsBranch()
@@ -159,17 +134,12 @@ namespace OpenEhr.RM.Support.Identification
         }
 
         const string RmTypeName = "OBJECT_VERSION_ID";
-        //protected override string GetRmTypeName()
-        //{
-        //    return RmTypeName;
-        //}
 
         public static bool IsValid(string value)
         {
             Check.Require(value != null, "value must not be null");
 
             string[] strings = value.Split(new string[] { "::" }, 3, StringSplitOptions.RemoveEmptyEntries);
-            //Check.Assert(strings.Length > 0, "strings must contain 1 or more parts");
             if (strings.Length == 0)
                 return false;
 

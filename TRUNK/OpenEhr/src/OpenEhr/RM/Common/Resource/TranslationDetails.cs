@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -131,8 +129,6 @@ namespace OpenEhr.RM.Common.Resource
                 = new System.Collections.Generic.Dictionary<string, string>();
             while (reader.LocalName == "author")
             {
-                //this.author = new OpenEhr.AssumedTypes.Hash<string, string>();
-
                 string id = reader.GetAttribute("id");
                 Check.Assert(!string.IsNullOrEmpty(id), "attribute 'id' must not be null or empty for author");
                 string value = reader.ReadElementContentAsString();
@@ -152,8 +148,6 @@ namespace OpenEhr.RM.Common.Resource
                 = new System.Collections.Generic.Dictionary<string,string>();
             while (reader.LocalName == "other_details")
             {                
-                //this.otherDetails = new System.Collections.Hashtable();
-
                 string id = reader.GetAttribute("id");
                 Check.Assert(!string.IsNullOrEmpty(id), "attribute 'id' must not be null or empty for other_details");
                 string value = reader.ReadElementString("other_details", RmXmlSerializer.OpenEhrNamespace);

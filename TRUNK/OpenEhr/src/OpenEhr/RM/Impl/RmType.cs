@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.Attributes;
 using OpenEhr.DesignByContract;
@@ -45,13 +43,10 @@ namespace OpenEhr.RM.Impl
                 {
                     Type[] genericArgs = thisType.GetGenericArguments();
                     if (genericArgs != null & genericArgs.Length > 0)
-                        //genericTypeName = GetRmTypeAttribute(genericArgs[0]).RmEntity;
                         genericTypeName = GetRmTypeName(genericArgs[0]);
                 }
 
                 name = !string.IsNullOrEmpty(genericTypeName)
-                    //? string.Format("{0}<{1}>", GetRmTypeAttribute(thisType).RmEntity, genericTypeName)
-                    //: GetRmTypeAttribute(thisType).RmEntity;
                     ? string.Format("{0}<{1}>", GetRmTypeName(thisType), genericTypeName)
                     : GetRmTypeName(thisType);             
 
@@ -60,25 +55,6 @@ namespace OpenEhr.RM.Impl
                 return name;
             }
         }
-
-        //private RmTypeAttribute GetRmTypeAttribute(Type type)
-        //{
-
-        //    Check.Require(type != null, "type must not be null.");
-
-        //    RmTypeAttribute rmTypeAttribute = null;
-        //    RmTypeAttribute[] rmTypeAttributes
-        //               //= type.GetCustomAttributes(typeof(RmTypeAttribute), false) as RmTypeAttribute[];
-        //               = type.GetCustomAttributes(typeof(RmTypeAttribute), true) as RmTypeAttribute[];
-        //    if (rmTypeAttributes != null && rmTypeAttributes.Length > 0)
-        //        rmTypeAttribute = rmTypeAttributes[0];
-        //    else
-        //        throw new ApplicationException("RM Type must have RmTypeAttribute on class");
-
-        //    Check.Ensure(rmTypeAttribute != null, "rmTypeAttribute must not be null.");
-
-        //    return rmTypeAttribute;
-        //}
 
         protected virtual void SetAttributeValue(string attributeName, object value)
         {
@@ -188,7 +164,6 @@ namespace OpenEhr.RM.Impl
 
         string IRmType.GetXmlRmTypeName()
         {
-            //return GetRmTypeAttribute(this.GetType()).RmEntity;
             return GetRmTypeName(this.GetType());
         }
 

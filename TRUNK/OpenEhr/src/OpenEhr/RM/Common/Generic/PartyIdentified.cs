@@ -1,10 +1,8 @@
 using System;
 using System.Xml;
-//using System.Collections.Generic;
 
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.AssumedTypes;
 
@@ -142,7 +140,7 @@ namespace OpenEhr.RM.Common.Generic
 
         protected override void CheckInvariants()
         {
-            /*
+            /* %HYYKA% (need this in future?)
             DesignByContract.Check.Invariant(this.Name != null || this.Identifiers != null ||
                 this.ExternalRef != null, "Basic_valid name /= Void or identifiers /= Void or external_ref /= Void");
             DesignByContract.Check.Invariant(this.Name == null || this.Name.Length > 0,

@@ -1,5 +1,3 @@
-using System;
-
 namespace OpenEhr.RM.Composition.Impl
 {
     public abstract class CompositionAdapter

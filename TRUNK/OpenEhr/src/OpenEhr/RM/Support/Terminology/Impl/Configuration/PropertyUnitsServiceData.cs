@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using System.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ObjectBuilder;
-using OpenEhr.RM.Support.Terminology.Impl;
 
 namespace OpenEhr.RM.Support.Terminology.Impl.Configuration
 {

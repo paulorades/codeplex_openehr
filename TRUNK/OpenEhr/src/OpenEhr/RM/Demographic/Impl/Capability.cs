@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataStructures.ItemStructure;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
@@ -13,7 +12,7 @@ namespace OpenEhr.RM.Demographic.Impl
             : base(archetypeNodeId, name, credentials)
         { }
 
-        protected Capability():base()
+        protected Capability()
         { }
 
         ItemStructure credentials;

@@ -1,5 +1,3 @@
-using System;
-
 using OpenEhr.DesignByContract;
 
 using OpenEhr.RM.DataTypes.Quantity;
@@ -22,7 +20,7 @@ namespace OpenEhr.RM.Demographic
             Target = target;
         }
 
-        protected PartyRelationship(): base() { }
+        protected PartyRelationship() { }
 
         protected abstract ItemStructure DetailsBase
         {
@@ -65,11 +63,6 @@ namespace OpenEhr.RM.Demographic
         public PartyRef Source
         {
             get { return SourceBase; }
-            //set
-            //{
-            //    Check.Require(value != null, "Source must not be null");
-            //    SourceBase = value;
-            //}
         }
 
         public PartyRef Target

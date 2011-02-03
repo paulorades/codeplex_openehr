@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -12,7 +11,6 @@ namespace OpenEhr.RM.Support.Identification
     public class TemplateId : ObjectId, System.Xml.Serialization.IXmlSerializable
     {
         public TemplateId()
-            : base()
         { }
         
         public TemplateId(string value)

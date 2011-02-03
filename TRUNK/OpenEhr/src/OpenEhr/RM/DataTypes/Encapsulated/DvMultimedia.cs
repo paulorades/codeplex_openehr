@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -12,7 +11,6 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
     public class DvMultimedia : DvEncapsulated, System.Xml.Serialization.IXmlSerializable
     {
         public DvMultimedia() 
-            :base()
         { }
 
         public DvMultimedia(Text.CodePhrase charset, Text.CodePhrase language,
@@ -191,12 +189,6 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
 
             if (reader.LocalName == "data")
             {
-                //if (this.data == null)
-                //    this.data = new byte[byte.MaxValue*byte.MaxValue];
-
-               //reader.ReadElementContentAsBase64(this.data, 0, this.data.Length);
-
-               //reader.ReadEndElement();
                 reader.MoveToContent();
                 reader.ReadStartElement();
                 byte[] buffer = new byte[1024];
@@ -248,14 +240,6 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
                 this.thumbnail = new DvMultimedia();
                 this.thumbnail.ReadXml(reader);
             }
-
-            //if (!reader.IsStartElement())
-            //{
-            //    reader.ReadEndElement();
-            //    reader.MoveToContent();
-            //}
-
-            //this.SetInnerData();
         }
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
@@ -329,6 +313,8 @@ namespace OpenEhr.RM.DataTypes.Encapsulated
         protected override void CheckInvariants()
         {
             base.CheckInvariants();
+
+            // %HYYKA%
             //Check.Invariant(this.IntegrityCheck == null || this.IntegrityCheckAlgorithm != null, 
             //    "Integrity_check_validity: integrity_check /= Void implies integrity_check_algorithm /= Void");
         }

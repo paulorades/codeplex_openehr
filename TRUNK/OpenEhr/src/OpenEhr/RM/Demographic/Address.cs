@@ -1,5 +1,3 @@
-using System;
-
 using OpenEhr.DesignByContract;
 
 using OpenEhr.RM.DataTypes.Text;
@@ -14,7 +12,6 @@ namespace OpenEhr.RM.Demographic
         : DemographicLocatable
     {
         protected Address() 
-            : base()
         { }
 
         protected Address(string archetypeNodeId, DvText name, ItemStructure details)

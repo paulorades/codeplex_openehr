@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Attributes;
 
@@ -12,7 +11,7 @@ namespace OpenEhr.RM.Demographic
             : base(archetypeNodeId, new DvText("PERSON"))
         { }
 
-        protected Person(): base()
+        protected Person()
         { }
     }
 }

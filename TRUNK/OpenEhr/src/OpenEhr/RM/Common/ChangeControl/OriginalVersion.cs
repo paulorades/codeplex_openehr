@@ -18,7 +18,6 @@ namespace OpenEhr.RM.Common.ChangeControl
         : Version<T>, System.Xml.Serialization.IXmlSerializable where T : class 
     {
         public OriginalVersion() 
-            :base()
         { }
 
         public OriginalVersion(Support.Identification.ObjectVersionId uid,
@@ -132,11 +131,6 @@ namespace OpenEhr.RM.Common.ChangeControl
             if (reader.LocalName == "data")
             {
                 string dataType = reader.GetAttribute("type", RmXmlSerializer.XsiNamespace);
-                //int i = dataType.IndexOf(":");
-                //if (i >= 0)
-                //    dataType = dataType.Substring(i + 1);
-                //if (dataType !="COMPOSITION")
-                //    throw new NotSupportedException("Types other than COMPOSITION for version data is not supported: "+dataType);
 
                 OpenEhr.RM.Common.Archetyped.Impl.Locatable locatableData =
                     OpenEhr.RM.Common.Archetyped.Impl.Locatable.GetLocatableObjectByType(dataType);

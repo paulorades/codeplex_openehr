@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.RM.DataTypes.Quantity;
 using OpenEhr.RM.DataTypes.Quantity.DateTime;
@@ -11,13 +10,11 @@ namespace OpenEhr.RM.Demographic.Impl
     public class PartyRelationship 
         : OpenEhr.RM.Demographic.PartyRelationship
     {
-        //public PartyRelationship(string archetypeNodeId, DvText name, PartyRef source, PartyRef target)
-        //    : base(archetypeNodeId, name, source, target)
         public PartyRelationship(string archetypeNodeId, DvText name, PartyRef target)
             : base(archetypeNodeId, name, target)
         { }
 
-        protected PartyRelationship(): base() { }
+        protected PartyRelationship() { }
 
         ItemStructure details;
 
@@ -46,19 +43,10 @@ namespace OpenEhr.RM.Demographic.Impl
                 else
                 {
                     OpenEhr.RM.Demographic.Party party
-                        //= Parent as OpenEhr.RM.Demographic.Role;
                         = Parent as OpenEhr.RM.Demographic.Party;
 
-                    //if (party != null)
-                    //    type = "ROLE";
-
-                    //else
-                    //{
-                    //    party = Parent as OpenEhr.RM.Demographic.Actor;
                     Check.Assert(party != null, "parent must be type of Actor or Role");
 
-                    //    type = party.Name.Value;
-                    //}
                     if (party.Uid != null)
                     {
                         string type = OpenEhr.RM.Demographic.Party.GetRmTypeName(party);
@@ -69,7 +57,6 @@ namespace OpenEhr.RM.Demographic.Impl
                 }
                 return source; 
             }
-            //set { source = value; }
         }
 
         PartyRef target;

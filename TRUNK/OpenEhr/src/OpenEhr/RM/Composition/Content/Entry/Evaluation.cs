@@ -17,7 +17,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public class Evaluation : CareEntry, System.Xml.Serialization.IXmlSerializable
     {
         public Evaluation() 
-            : base()
         { }
 
         public Evaluation(DvText name, string archetypeNodeId, UidBasedId uid,
@@ -100,8 +99,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
 
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckInvariants();
-
             base.WriteXmlBase(writer);
 
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
@@ -121,6 +118,7 @@ namespace OpenEhr.RM.Composition.Content.Entry
         {
             base.CheckInvariants();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Data != null, "data must not be null.");
         }
 

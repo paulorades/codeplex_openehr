@@ -1,7 +1,5 @@
 using System;
-//using System.Collections.Generic;
 using System.ComponentModel;
-using OpenEhr.RM.DataTypes.Basic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -14,32 +12,16 @@ namespace OpenEhr.RM.Support.Identification
     [RmType("openEHR", "SUPPORT", "GENERIC_ID")]
     public class GenericId : ObjectId, System.Xml.Serialization.IXmlSerializable
     {
-        public GenericId() //: base(new EhrTypes.GENERIC_ID()) { }
-            : base()
+        public GenericId()
         { }
-
-        //internal GenericId(EhrTypes.GENERIC_ID objectIdType) : base(objectIdType) { }
 
         public GenericId(string value, string scheme)
             : this() 
         {
             this.scheme = scheme;
             SetBaseData(value);
-            //SetInnerData();
             this.CheckInvariants();
         }
-
-        //private EhrTypes.GENERIC_ID ehrType;
-        //internal EhrTypes.GENERIC_ID EhrType
-        //{
-        //    get
-        //    {
-        //        if (ehrType == null)
-        //            this.ehrType = base.EhrType as EhrTypes.GENERIC_ID;
-
-        //        return this.ehrType;
-        //    }
-        //}      
 
         private string scheme;
 
@@ -47,10 +29,6 @@ namespace OpenEhr.RM.Support.Identification
         {
             get
             {
-                //if (scheme == null)
-                //{
-                //    this.scheme = ((EhrTypes.GENERIC_ID)EhrType).scheme;
-                //}
                 return this.scheme;
             }
         }
@@ -91,12 +69,6 @@ namespace OpenEhr.RM.Support.Identification
 
             writer.WriteElementString(prefix, "scheme", openEhrNamespace, this.Scheme);
         }
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    this.EhrType.scheme = this.scheme;
-        //}
 
         protected override void CheckInvariants()
         {

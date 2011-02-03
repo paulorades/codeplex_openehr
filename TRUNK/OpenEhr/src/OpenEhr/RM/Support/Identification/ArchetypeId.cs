@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -23,7 +22,6 @@ namespace OpenEhr.RM.Support.Identification
         }
 
         public ArchetypeId() 
-            : base()
         { }
         
         public ArchetypeId(string value) : this() 
@@ -53,7 +51,6 @@ namespace OpenEhr.RM.Support.Identification
         private void Initialise()
         {
             System.Text.RegularExpressions.Match match
-                //= System.Text.RegularExpressions.Regex.Match(this.EhrType.value, archetypeIdPattern, RegexOptions.Compiled | RegexOptions.Singleline);
                 = System.Text.RegularExpressions.Regex.Match(this.Value, archetypeIdPattern, RegexOptions.Compiled | RegexOptions.Singleline);
 
             if (!match.Success)

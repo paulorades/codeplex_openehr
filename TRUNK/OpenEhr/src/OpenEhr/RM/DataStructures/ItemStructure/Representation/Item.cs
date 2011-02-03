@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.DataTypes.Text;
 
@@ -9,7 +8,6 @@ namespace OpenEhr.RM.DataStructures.ItemStructure.Representation
     public abstract class Item : Locatable
     {
         protected Item()
-            : base() 
         { }
 
         protected Item(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,

@@ -1,13 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace OpenEhr.RM.Support.Terminology
 {
     public abstract class OpenEhrTerminologyIdentifiers
     {
-
-
         #region OpenehrTerminologyGroupIdentifiers
 
         public const string TerminologyIdOpenehr = "openehr";

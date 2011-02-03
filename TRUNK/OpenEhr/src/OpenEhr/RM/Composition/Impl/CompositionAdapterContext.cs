@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.DesignByContract;
 
 namespace OpenEhr.RM.Composition.Impl

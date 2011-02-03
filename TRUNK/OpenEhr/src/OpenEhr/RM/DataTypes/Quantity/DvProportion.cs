@@ -1,7 +1,6 @@
 using System;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.AssumedTypes;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -32,15 +31,8 @@ namespace OpenEhr.RM.DataTypes.Quantity
     public class DvProportion : DvAmount<DvProportion>, System.Xml.Serialization.IXmlSerializable
     {
         #region constructors
-        //internal DvProportion(EhrTypes.DV_PROPORTION dataValue)
-        //    : base(dataValue)
-        //{
-        //    this.CheckInvariants();
-        //}
 
         public DvProportion()
-            //: base(new EhrTypes.DV_PROPORTION())
-            : base()
         { }
 
         public DvProportion(float numerator, float denominator, ProportionKind type)
@@ -67,8 +59,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
             this.numeratorSet = true;
             this.denominatorSet = true;
-
-            //SetInnerData();
                
             CheckInvariants();
         }
@@ -99,25 +89,8 @@ namespace OpenEhr.RM.DataTypes.Quantity
             this.numeratorSet = true;
             this.denominatorSet = true;            
 
-            //DvInterval<DvProportion> nr = null;
-            //if (normalRange != null)
-            //    nr = new DvInterval<DvProportion>(normalRange.DataValueType as EhrTypes.DV_INTERVAL);
-
-            //List<ReferenceRange<DvProportion>> refRanges = null;
-            //if (otherReferenceRanges != null)
-            //{
-            //    refRanges = new List<ReferenceRange<DvProportion>>();
-            //    foreach (ReferenceRange<DvProportion> refRange in otherReferenceRanges)
-            //    {
-            //        ReferenceRange<DvProportion> refRangeDvOrdered = new ReferenceRange<DvProportion>(refRange.EhrType);
-            //        refRanges.Add(refRangeDvOrdered);
-            //    }
-            //}
-
-            //SetBaseData(null, nr, refRanges);
             SetBaseData(null, normalRange, otherReferenceRanges);
 
-            //SetInnerData();
             this.CheckInvariants();
         }
 
@@ -149,31 +122,11 @@ namespace OpenEhr.RM.DataTypes.Quantity
             this.numeratorSet = true;
             this.denominatorSet = true;
 
-            //if (precision != -1)
-            //{
-                this.precision = precision;
-                this.precisionSet = true;
-            //}
+            this.precision = precision;
+            this.precisionSet = true;
 
-            //    DvInterval<DvProportion> nr = null;
-            //if (normalRange != null)
-            //    nr = new DvInterval<DvProportion>(normalRange.DataValueType as EhrTypes.DV_INTERVAL);
-
-            //List<ReferenceRange<DvProportion>> refRanges = null;
-            //if (otherReferenceRanges != null)
-            //{
-            //    refRanges = new List<ReferenceRange<DvProportion>>();
-            //    foreach (ReferenceRange<DvProportion> refRange in otherReferenceRanges)
-            //    {
-            //        ReferenceRange<DvProportion> refRangeDvOrdered = new ReferenceRange<DvProportion>(refRange.EhrType);
-            //        refRanges.Add(refRangeDvOrdered);
-            //    }
-            //}
-
-            //SetBaseData(null, nr, refRanges);
             SetBaseData(null, normalRange, otherReferenceRanges);
 
-            //SetInnerData();
             this.CheckInvariants();
         }
 
@@ -205,32 +158,11 @@ namespace OpenEhr.RM.DataTypes.Quantity
             this.numeratorSet = true;
             this.denominatorSet = true;
 
-            //if (precision != -1)
-            //{
-                this.precision = precision;
-                this.precisionSet = true;
-            //}
+            this.precision = precision;
+            this.precisionSet = true;
 
-
-            //DvInterval<DvProportion> nr = null;
-            //if (normalRange != null)
-            //    nr = new DvInterval<DvProportion>(normalRange.DataValueType as EhrTypes.DV_INTERVAL);
-
-            //List<ReferenceRange<DvProportion>> refRanges = null;
-            //if (otherReferenceRanges != null)
-            //{
-            //    refRanges = new List<ReferenceRange<DvProportion>>();
-            //    foreach (ReferenceRange<DvProportion> refRange in otherReferenceRanges)
-            //    {
-            //        ReferenceRange<DvProportion> refRangeDvOrdered = new ReferenceRange<DvProportion>(refRange.EhrType);
-            //        refRanges.Add(refRangeDvOrdered);
-            //    }
-            //}
-
-            //SetBaseData(accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, nr, refRanges);
             SetBaseData(accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges);
 
-            //SetInnerData();
             this.CheckInvariants();
         }
 
@@ -264,26 +196,12 @@ namespace OpenEhr.RM.DataTypes.Quantity
                 this.precisionSet = true;
             }
 
-            //SetInnerData();
             this.CheckInvariants();
         }
 
         #endregion
 
         #region class properties
-        //private EhrTypes.DV_PROPORTION dataValueType;
-        //protected new EhrTypes.DV_PROPORTION DataValueType
-        //{
-        //    get
-        //    {
-        //        if (this.dataValueType == null)
-        //            dataValueType = base.DataValueType as EhrTypes.DV_PROPORTION;
-                
-        //        DesignByContract.Check.Ensure(dataValueType != null, "DataValue Type must not be null");
-                
-        //        return dataValueType;
-        //    }
-        //}
 
         private float numerator;
         private bool numeratorSet;
@@ -292,8 +210,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         {
             get
             {
-                //if(!numeratorSet)
-                //    this.numerator = this.DataValueType.numerator;
                 return this.numerator;
             }
         }
@@ -305,20 +221,9 @@ namespace OpenEhr.RM.DataTypes.Quantity
         {
             get
             {
-                //if(!denominatorSet)
-                //    this.denominator = this.DataValueType.denominator;
                 return this.denominator;
             }
         }
-
-        // CM: 23/05/07 IsIntegral is a function in RM v1.01.
-        //public bool IsIntegral
-        //{
-        //    get
-        //    {
-        //        return this.DataValueType.is_integral;
-        //    }
-        //}
 
         private ProportionKind type;
         private bool typeSet;
@@ -327,8 +232,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         {
             get
             {
-                //if(!typeSet)
-                //    this.type = (ProportionKind)(this.DataValueType.type);
                 return this.type;
             }
         }
@@ -340,11 +243,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         {
             get
             {
-                //if (!precisionSet)
-                //{
-                //    this.precision = this.DataValueType.precision;
-                //    this.precisionSet = true;
-                //}
                 return this.precision;
             }
         }
@@ -359,7 +257,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         /// <returns></returns>
         public bool ValidProportionKind(int n)
         {
-            //return !string.IsNullOrEmpty(Enum.GetName(typeof(ProportionKind), n));
             return Enum.IsDefined(typeof(ProportionKind), n);
         }
 
@@ -427,25 +324,21 @@ namespace OpenEhr.RM.DataTypes.Quantity
                  && (Math.Floor(this.Denominator) == this.Denominator)));
 
             // Fraction_validity
-            //if (this.Type == ProportionKind.pkFraction ||
-            //    this.Type == ProportionKind.pkIntegerFraction)
             DesignByContract.Check.Invariant((this.Type != ProportionKind.pkFraction &&
             this.Type != ProportionKind.pkIntegerFraction) || this.IsIntegral());
 
             // Unitary_validity
-            //if (this.Type == ProportionKind.pkUnitary)
             DesignByContract.Check.Invariant(this.Type != ProportionKind.pkUnitary ||
                 this.Denominator == 1);
 
             // Percent_validity
-            //if (this.Type == ProportionKind.pkPercent)
             DesignByContract.Check.Invariant(this.Type != ProportionKind.pkPercent ||
                 this.Denominator == 100);
         }
 
         public override string ToString()
         {
-            if (this.Type == ProportionKind.pkRatio)// || this.Type == ProportionKind.pkUnitary)
+            if (this.Type == ProportionKind.pkRatio)
             {
                 return this.Numerator.ToString(System.Globalization.CultureInfo.InvariantCulture)
                     + ":" + this.Denominator.ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -470,18 +363,14 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
                 int integerValue = 0;
 
-                // CM: 26/02/09 if the value is 4/4, we need to remain it to 4/4
-                //if (this.Numerator >= this.Denominator)
                 if (this.Numerator > this.Denominator)
                     integerValue = (int)(Math.Truncate(this.Numerator / this.Denominator));
 
                 if (integerValue > 0)
                 {
-                    //result += integerValue.ToString(System.Globalization.CultureInfo.InvariantCulture) + " ";
                     result += integerValue.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     // CM: 26/02/09 we don't want to change denominator, so for the situation 4/2, we need to
                     // represent it as 2 0/2 so that the original value can always be returned.
-                    //if (this.Numerator - integerValue * this.Denominator > 0)
                     if (this.Numerator - integerValue * this.Denominator >= 0)
                     {
                         result += " ";
@@ -489,11 +378,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
                         result += (this.Numerator - integerValue * this.Denominator).ToString(System.Globalization.CultureInfo.InvariantCulture);
                         result += "/" + this.Denominator.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     }
-                    // CM: 26/02/09 we don't want to change denominator
-                    //else if (this.Numerator - integerValue * this.Denominator == 0)
-                    //{
-                    //   result += "/1";
-                    //}
                     else
                         throw new ApplicationException("Should not be less than zero.");
                 }
@@ -503,7 +387,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
                     result += "/" + this.Denominator.ToString(System.Globalization.CultureInfo.InvariantCulture);
                 }
 
-                //result += "/" + this.Denominator.ToString(System.Globalization.CultureInfo.InvariantCulture);
                 return result;
 
             }
@@ -514,7 +397,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         {
             float numerator = (float) magnitude;
             float denominator = 1;
-            //ProportionKind resultType = this.Type;
             if (this.Type == ProportionKind.pkFraction || 
                 this.Type == ProportionKind.pkIntegerFraction ||
                 this.Type == ProportionKind.pkRatio)
@@ -606,16 +488,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
         }
 
         #endregion
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    this.DataValueType.numerator = this.numerator;
-        //    this.DataValueType.denominator = this.denominator;
-        //    this.DataValueType.type = (EhrTypes.PROPORTION_KIND)(this.type);
-        //    if (this.precisionSet)
-        //        this.DataValueType.precision = this.precision;
-        //}
 
         protected override void ReadXmlBase(System.Xml.XmlReader reader)
         {

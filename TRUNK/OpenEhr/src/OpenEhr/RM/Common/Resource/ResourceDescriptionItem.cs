@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -98,7 +96,6 @@ namespace OpenEhr.RM.Common.Resource
             set
             {
                 // TODO need the first precondition checking when the xml issue is fixed
-                //Check.Require(!string.IsNullOrEmpty(value), "purpose value must not be null or empty.");
                 Check.Require(value != null, "purpose value must not be null.");
                 this.purpose = value;
             }
@@ -310,19 +307,17 @@ namespace OpenEhr.RM.Common.Resource
                 this.otherDetails = new OpenEhr.AssumedTypes.Hash<string, string>(otherDetailsUriDic);
             }
 
-            //reader.MoveToContent();
             if (!reader.IsStartElement())
             {
                 reader.ReadEndElement();
                 reader.MoveToContent();
             }           
-            }
+        }
 
         internal void WriteXml(System.Xml.XmlWriter writer)
         {
             Check.Require(this.Language != null, "Language must not be null.");
             Check.Require(this.Purpose!= null, "purpose must not be null.");
-            //Check.Require(!string.IsNullOrEmpty(this.purpose), "purpose must not be null or empty.");
             Check.Require(this.Use == null || this.Use!=string.Empty, "use is not null, implies it must not be empty.");
             Check.Require(this.Copyright == null || this.Copyright != string.Empty, "Copyright is not null, implies it must not be empty.");
             Check.Require(this.Misuse == null || this.Misuse != string.Empty, "Misuse is not null, implies it must not be empty.");

@@ -1,24 +1,15 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using OpenEhr.RM.Support.Terminology.Impl.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ObjectBuilder;
 using OpenEhr.DesignByContract;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using System.Configuration;
-using OpenEhr.RM.Support.Terminology;
 using Microsoft.Practices.ObjectBuilder;
 
 namespace OpenEhr.RM.Support.Terminology.Impl
 {
-    //public class TerminologyServiceProviderCustomFactory : AssemblerBasedCustomFactory<ITerminologyServiceProvider, TerminologyServiceProviderData>
     public class TerminologyServiceProviderCustomFactory : ICustomFactory  
     {
-        //protected override TerminologyServiceProviderData GetConfiguration(string name, Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource configurationSource)
-        //{
-        //    TerminologyServiceSettings settings = TerminologyServiceSettings.GetTerminologyServiceSettings(configurationSource);
-        //    return settings.TerminologyServiceProviders.Get(name);
-        //}
         #region ICustomFactory Members
 
         public object CreateObject(Microsoft.Practices.ObjectBuilder.IBuilderContext context, string name, IConfigurationSource configurationSource, ConfigurationReflectionCache reflectionCache)

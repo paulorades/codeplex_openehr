@@ -11,12 +11,8 @@ namespace OpenEhr.RM.Extract.Common
     [RmType("openEHR", "EXTRACT", "EXTRACT_CHAPTER")]
     public class ExtractChapter: ExtractLocatable
     {
-        //const string defaultNodeId = "at0001";
-        //const string defaultName = "Extract Chapter";
-
         ExtractEntityContent content;
         ExtractEntityIdentifier entityIdentifier;
-        //ExtractFolder directory;
 
         internal ExtractChapter()
         { }
@@ -55,14 +51,5 @@ namespace OpenEhr.RM.Extract.Common
             get { return this.entityIdentifier; }
             set { this.entityIdentifier = value; }
         }
-
-        ///<summary> Optional Folder structure for this Extract.
-        /// Directory_valid: directory /= Void implies directory.is_archetype_root
-        ///</summary>
-        //public ExtractFolder Directory
-        //{
-        //    get { return this.directory; }
-        //    set { this.directory = value; }
-        //}
     }
 }

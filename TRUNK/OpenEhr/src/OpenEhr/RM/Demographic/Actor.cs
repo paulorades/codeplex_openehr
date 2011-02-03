@@ -8,28 +8,12 @@ namespace OpenEhr.RM.Demographic
     public abstract class Actor 
         : Party
     {
-        protected Actor():base()
+        protected Actor()
         { }
 
         protected Actor(string archetypeNodeId, DvText name)
             : base(archetypeNodeId, name)
         { }
-
-        //List<PartyRef> roles;
-
-        //protected virtual List<PartyRef> RolesBase
-        //{
-        //    get { return roles; }
-        //    set { roles = value; }
-        //}
-
-        //List<DvText> languages;
-
-        //protected virtual List<DvText> LanguagesBase
-        //{
-        //    get { return languages; }
-        //    set { languages = value; }
-        //}
 
         protected abstract List<PartyRef> RolesBase
         {
@@ -62,7 +46,6 @@ namespace OpenEhr.RM.Demographic
         public List<DvText> Languages
         {
             get { return LanguagesBase; }
-            //set { LanguagesBase = value; }
         }
 
         /// <summary>

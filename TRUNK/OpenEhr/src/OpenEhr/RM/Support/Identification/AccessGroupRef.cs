@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -13,21 +12,13 @@ namespace OpenEhr.RM.Support.Identification
         /// <summary>
         /// Constructor
         /// </summary>
-        public AccessGroupRef() //: base(new EhrTypes.PARTY_REF()) { }
-            : base()
+        public AccessGroupRef()
         { }
-
-        ///// <summary>
-        ///// Constructor
-        ///// </summary>
-        ///// <param name="ehrType"></param>
-        //internal AccessGroupRef(EhrTypes.ACCESS_GROUP_REF ehrType) : base(ehrType) { }
 
         public AccessGroupRef(ObjectId objectId, string namespaceValue, string typeValue)
             : this()
         {
             SetBaseData(objectId, namespaceValue, typeValue);
-            //SetInnerData();
         }
 
         #region IXmlSerializable Members

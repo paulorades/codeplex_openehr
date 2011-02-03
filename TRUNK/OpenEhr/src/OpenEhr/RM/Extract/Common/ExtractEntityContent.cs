@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenEhr.RM.Common.Archetyped.Impl;
 
 namespace OpenEhr.RM.Extract.Common
@@ -12,7 +10,6 @@ namespace OpenEhr.RM.Extract.Common
     public abstract class ExtractEntityContent : ExtractLocatable
     {
         protected ExtractEntityContent()
-            : base()
         { }
 
         protected ExtractEntityContent(string archetypeNodeId, DataTypes.Text.DvText name)

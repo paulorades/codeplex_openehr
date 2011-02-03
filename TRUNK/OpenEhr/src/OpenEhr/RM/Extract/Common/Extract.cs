@@ -1,7 +1,6 @@
 using System;
 using OpenEhr.RM.Support.Identification;
 using OpenEhr.AssumedTypes;
-using OpenEhr.RM.Extract.Common.Impl;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.Common.Generic;
 
@@ -22,13 +21,10 @@ namespace OpenEhr.RM.Extract.Common
         List<ExtractChapter> chapters;
 
         protected Extract()
-            : base()
         { }
 
         /// <summary>Extract basic constructor</summary>
         /// <param name="systemId">System ID</param>
-        //protected Extract(Support.Identification.HierObjectId systemId)
-        //    : base(defaultArchetypeId, new DataTypes.Text.DvText(defaultName))
         protected Extract(string archetypeNodeId, DataTypes.Text.DvText name, HierObjectId systemId)
             : base(archetypeNodeId, name)
         {
@@ -104,17 +100,5 @@ namespace OpenEhr.RM.Extract.Common
         }
 
         // TODO: Specification
-        //ExtractSpec specification;
-
-        ///<summary>
-        /// The specification that this Extract actually conforms to; might not be identical with the
-        /// specification of the corresponding request.
-        /// </summary>
-        ///<remarks>Specification_valid: specification /= Void --- HKF: this constraint conflicts with 0..1 cardinality</remarks>
-        //public ExtractSpec Specification
-        //{
-        //    get { return this.specification; }
-        //    set { this.specification = value; }
-        //}
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using System.Text.RegularExpressions;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -20,7 +19,6 @@ namespace OpenEhr.RM.DataTypes.Uri
 
         private static string EhrLocatorPattern = @"//(?<ehrUid>" + GuidPattern + @")(?:@(?<ehrLocation>" + DomainOrIdPattern + "))?";
         private static string VersionUidPattern = @"(?<versionedObjectUid>" + GuidPattern + @")::(?<creatingSystemId>" + DomainOrIdPattern + @")::(?<versionTreeId>" + VersionTreeIdPattern + ")";
-        //private static string VersionAtRevisionIdPattern = @"(?<versionedObjectUid>" + GuidPattern + @")@(?:(?<revisionTime>" + DateTimePattern + @")|(?<revisionName>" + RevisionNamePattern + "))";
         private static string VersionAtRevisionIdPattern = @"(?<versionedObjectUid>" + GuidPattern + @")(@(?:(?<revisionTime>" + DateTimePattern + @")|(?<revisionName>" + RevisionNamePattern + "))?)";
         private static string StructureLocatorPattern = @"/(?:(?<versionUid>" + VersionUidPattern + @")|(?<versionLocator>" + VersionAtRevisionIdPattern + "))";
         private static string EhrPathPattern = @"(?<ehrPath>/.*)";
@@ -29,7 +27,6 @@ namespace OpenEhr.RM.DataTypes.Uri
 
 
         public DvEhrUri()
-            : base()
         { }
 
         public DvEhrUri(string uriValue)

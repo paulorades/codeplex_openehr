@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using OpenEhr.RM.Support.Terminology.Impl.Configuration;
 using OpenEhr.DesignByContract;

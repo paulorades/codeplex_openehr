@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace OpenEhr.RM.Support.Terminology
 {
@@ -15,6 +13,4 @@ namespace OpenEhr.RM.Support.Terminology
         Dictionary<string, string> OpenehrCodeSets { get;}
         List<string> CodeSetIdentifiers { get;}
     }
-
-
 }

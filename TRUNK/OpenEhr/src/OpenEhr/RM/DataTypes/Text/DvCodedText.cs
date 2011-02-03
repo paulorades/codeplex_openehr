@@ -1,7 +1,5 @@
 using System;
 using System.Xml;
-//using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
@@ -10,21 +8,12 @@ using OpenEhr.AssumedTypes;
 
 namespace OpenEhr.RM.DataTypes.Text
 {
-    //[TypeConverter(typeof(TextValueTypeConverter))]
     [System.Xml.Serialization.XmlSchemaProvider("GetXmlSchema")]
     [Serializable]
     [RmType("openEHR", "DATA_TYPES", "DV_CODED_TEXT")]
     public class DvCodedText : DvText, System.Xml.Serialization.IXmlSerializable
     {
-        //internal DvCodedText(EhrTypes.DV_CODED_TEXT value)
-        //    : base(value)
-        //{
-        //    this.definingCode = this.DefiningCode;
-        //}
-
         public DvCodedText()
-            //: base(new EhrTypes.DV_CODED_TEXT()) 
-            :base()
         { }
 
         public DvCodedText(string codeString)
@@ -36,8 +25,6 @@ namespace OpenEhr.RM.DataTypes.Text
         {
             this.SetValue(value);
             this.definingCode = new CodePhrase(codeString, terminologyId);
-
-            //SetInnerData();
         }
 
         public DvCodedText(string value, OpenEhr.RM.DataTypes.Uri.DvUri hyperlink, string formatting,
@@ -48,7 +35,6 @@ namespace OpenEhr.RM.DataTypes.Text
             this.SetBaseData(value, hyperlink, formatting, mappings, language, encoding);            
             this.definingCode = new CodePhrase(codeString, terminologyId);
 
-            //SetInnerData();
             this.CheckInvariants();
         }
 

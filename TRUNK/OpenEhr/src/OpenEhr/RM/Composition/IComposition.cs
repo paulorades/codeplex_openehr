@@ -21,48 +21,33 @@
 ///                                           
 /// </licence>
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace OpenEhr.RM.Composition
 {
-    //public interface IComposition : Common.ChangeControl.IVersionable
     public interface IComposition : Common.Archetyped.ILocatable
     {
         AssumedTypes.List<Content.ContentItem> Content
         {
             get;
-            //set;
         }
-
-        //OpenEhrV1.Support.Identification.UidBasedId Uid
-        //{
-        //    get;
-        //}
 
         DataTypes.Text.DvCodedText Category
         {
             get;
-            //set;
         }
 
         DataTypes.Text.CodePhrase Territory
         {
             get;
-            //set;
         }
 
         EventContext Context
         {
             get;
-            //set;
         }
 
         Common.Generic.PartyProxy Composer
         {
             get;
-            //set;
         }
 
         bool IsPersistent();

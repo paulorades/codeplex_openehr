@@ -1,6 +1,5 @@
 using System;
 using System.Xml;
-using OpenEhr.RM.Extract.Common;
 using OpenEhr.RM.Extract.EhrExtract;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
@@ -68,8 +67,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
                 this.ReadXml(reader, chapter);
                 extract.Chapters.Add(chapter);
             }
-            //reader.ReadEndElement();
-            //reader.MoveToContent();
 
             // TODO: <xs:element name="specification" type="EXTRACT_SPEC" minOccurs="0"/>
             if (reader.Name == "specification")
@@ -133,10 +130,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
                 locatable.FeederAudit = new FeederAudit();
                 locatable.FeederAudit.ReadXml(reader);
             }
-
-            //Check.Assert(reader.NodeType == System.Xml.XmlNodeType.EndElement, "Expected endElement");
-            //reader.ReadEndElement();
-            //reader.MoveToContent();
         }
 
         void ReadXml(XmlReader reader, ExtractChapter chapter)
@@ -169,7 +162,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
 
         void ReadXml(XmlReader reader, EhrExtract.EhrExtractContent content)
         {
-            //ReadXmlBase(reader, content as ExtractEntityContent);
             reader.ReadStartElement();
             reader.MoveToContent();
 
@@ -266,11 +258,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
             reader.MoveToContent();
 
             // TODO: <xs:element name="revision_history" type="REVISION_HISTORY" minOccurs="0"/>
-            //if (reader.LocalName == "revision_history")
-            //{
-            //    versionedObject.RevisionHistory = new RevisionHistory();
-            //    this.ReadXml(reader, versionedObject.RevisionHistory);
-            //}
 
             //<xs:element name="versions" type="ORIGINAL_VERSION" minOccurs="0" maxOccurs="unbounded"/>
             if (reader.LocalName == "versions")
@@ -344,12 +331,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
             }
 
             // TODO:  <xs:element name="specification" type="EXTRACT_SPEC" minOccurs="0"/>
-            //if (extract.Specification != null)
-            //{
-            //    writer.WriteStartElement("specification", XmlSerializer.OpenEhrNamespace);
-            //    this.WriteXml(writer, extract.Specificatio);
-            //    writer.WriteEndElement();
-            //}
         }
 
         void WriteXml(XmlWriter writer, ExtractChapter chapter)
@@ -447,9 +428,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
                 typeName = oePrefix + ":" + typeName;
 
             writer.WriteAttributeString(xsiPrefix, "type", RmXmlSerializer.XsiNamespace, typeName);
-
-            // noting to write in base
-            //this.WriteXmlBase(writer, content);
         }
 
         void WriteXmlBase(XmlWriter writer, ExtractLocatable locatable)
@@ -526,12 +504,6 @@ namespace OpenEhr.RM.Extract.Common.Impl
             writer.WriteEndElement();
 
             // TODO: <xs:element name="revision_history" type="REVISION_HISTORY" minOccurs="0"/>
-            //if (versionedObject.RevisionHistory != null)
-            //{
-            //    writer.WriteStartElement("revision_history", XmlSerializer.OpenEhrNamespace);
-            //    this.WriteXml(writer, versionedObject.RevisionHistory);
-            //    writer.WriteEndElement();
-            //}
 
             //<xs:element name="versions" type="ORIGINAL_VERSION" minOccurs="0" maxOccurs="unbounded"/>
             if (versionedObject.Versions != null)

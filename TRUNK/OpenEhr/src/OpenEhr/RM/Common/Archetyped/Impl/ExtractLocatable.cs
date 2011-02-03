@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.DesignByContract;
 
 namespace OpenEhr.RM.Common.Archetyped.Impl
@@ -16,13 +14,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         private FeederAudit feederAudit;
 
         #region Attribute Dictionary ...
-
-        //private System.Collections.Generic.Dictionary<string, object> attributesDictionary;
-
-        //internal protected sealed override Dictionary<string, object> AttributesDictionary
-        //{
-        //    get { return this.attributesDictionary; }
-        //}
 
         /// <summary> Initialises AttributeDictionary using member attributes
         /// Called by Locatable base class constructor with member attribute inital value parameters
@@ -41,19 +32,9 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             this.attributesDictionary["feeder_audit"] = this.feederAudit;
         }
 
-        ///// <summary> InnerType Attribute Dictionary initialisation not supported
-        ///// Initialises AttributeDictionary using InnerType data
-        ///// Called from Locatable base class constructor with InnerType parameter
-        ///// Overridden in sub-class, which calls base
-        ///// </summary>
-        //protected override void InitialiseAttributeDictionary()
-        //{
-        //    throw new NotSupportedException("InnerType Attribute Dictionary initialisation not supported");
-        //}
         #endregion
 
         protected ExtractLocatable()
-            : base()
         { }
 
         protected ExtractLocatable(string archetypeNodeId, DataTypes.Text.DvText name)

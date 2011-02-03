@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.Attributes;
 using OpenEhr.AssumedTypes;
 using OpenEhr.Serialisation;
@@ -17,7 +16,6 @@ namespace OpenEhr.RM.Composition.Content.Navigation
     public class Section : ContentItem, System.Xml.Serialization.IXmlSerializable
     {
         public Section() 
-            : base()
         { }
 
         public Section(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -90,7 +88,6 @@ namespace OpenEhr.RM.Composition.Content.Navigation
              *      <items/>
                 </items>
              * */
-            //if (reader.LocalName == "items")
             if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.LocalName == "items")
             {
                 if (reader.IsEmptyElement)
@@ -149,6 +146,7 @@ namespace OpenEhr.RM.Composition.Content.Navigation
         {
             base.CheckInvariants();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Items == null || this.Items.Count > 0,
             //    "items /= void implies not items.is_empty");
         }

@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.Paths;
 
 namespace OpenEhr.RM.Impl

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.DesignByContract;
 using OpenEhr.Serialisation;
@@ -11,7 +10,7 @@ namespace OpenEhr.RM.Common.Resource
     /// Abstract idea of an online resource created by a human author.
     /// </summary>
     [Serializable]
-    public abstract class AuthoredResource//: IRmType
+    public abstract class AuthoredResource
     {
         protected AuthoredResource() { }
 
@@ -168,12 +167,9 @@ namespace OpenEhr.RM.Common.Resource
                 System.Collections.Generic.Dictionary<string, TranslationDetails> translationDic = new Dictionary<string, TranslationDetails>();
                 do
                 {
-                    //string language = reader.GetAttribute("id");
-
                     TranslationDetails transDetails = new TranslationDetails();
                     transDetails.ReadXml(reader);
 
-                    //translationDic.Add(language, transDetails);
                     translationDic.Add(transDetails.Language.CodeString, transDetails);
                 } while (reader.LocalName == translationsNodeName);
 
@@ -231,16 +227,5 @@ namespace OpenEhr.RM.Common.Resource
                 writer.WriteEndElement();
             }
         }
-
-        //#region IRmType Members
-
-        //string IRmType.GetRmTypeName()
-        //{
-        //    return this.GetRmTypeName();
-        //}
-
-        //protected abstract string GetRmTypeName();
-
-        //#endregion
     }
 }

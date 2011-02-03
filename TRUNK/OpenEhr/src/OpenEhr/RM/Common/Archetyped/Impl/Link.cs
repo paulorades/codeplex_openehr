@@ -21,7 +21,7 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         #region constructors
 
         public Link(DataTypes.Text.DvText meaning, DataTypes.Text.DvText type,
-            DataTypes.Uri.DvEhrUri target)//:this(new EhrTypes.LINK())
+            DataTypes.Uri.DvEhrUri target)
             : this()
         {
             Check.Require(meaning != null && type != null && target != null);
@@ -29,18 +29,10 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             this.type = type;
             this.target = target;
 
-            //this.SetInnerData();
-
             CheckInvariants();
         }
 
-        //internal Link(EhrTypes.LINK ehrTypeObj)
-        //{
-        //    this.ehrTypeObj = ehrTypeObj;
-        //}
-
-        public Link() //: this(new EhrTypes.LINK()) 
-            : base()
+        public Link()
         { }
 
         #endregion
@@ -159,7 +151,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
                 reader.MoveToContent();
             }
 
-            //this.SetInnerData();
             CheckInvariants();
         }
 

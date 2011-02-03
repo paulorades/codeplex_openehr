@@ -17,7 +17,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public class AdminEntry : Entry, System.Xml.Serialization.IXmlSerializable
     {
         public AdminEntry() 
-            : base()
         { }
 
         public AdminEntry(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,

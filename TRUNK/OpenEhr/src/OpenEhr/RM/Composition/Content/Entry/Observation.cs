@@ -17,7 +17,6 @@ namespace OpenEhr.RM.Composition.Content.Entry
     public class Observation : CareEntry, System.Xml.Serialization.IXmlSerializable
     {
         public Observation() 
-            : base()
         { }
 
         public Observation(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,
@@ -157,6 +156,7 @@ namespace OpenEhr.RM.Composition.Content.Entry
         {
             base.CheckInvariants();
 
+            // %HYYKA%
             //DesignByContract.Check.Invariant(this.Data != null, "data must not be null.");
         }
 

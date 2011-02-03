@@ -1,10 +1,6 @@
 using System;
-//using System.Collections.Generic;
-//using EhrTypes = OpenEhr.V1.Its.Xml.RM;
-using System.Text.RegularExpressions;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.AssumedTypes;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -21,21 +17,11 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
     {
         private AssumedTypes.Iso8601Duration isoDuration;
 
-        //internal DvDuration(EhrTypes.DV_DURATION duration): base(duration)
-        //{
-        //    Check.Require(duration != null && !string.IsNullOrEmpty(duration.value));
-        //    this.isoDuration = new Support.Assumed.Iso8601Duration(duration.value);
-
-        //    this.value = this.Value;           
-        //}
-
         public DvDuration() 
             : this("PT0S") 
         { }
 
         public DvDuration(string durationString, float accuracy, bool accuracyIsPercent, string magnitudeStatus,
-            //CodePhrase normalStatus, DvInterval<DvDuration> normalRange, List<ReferenceRange<DvDuration>> otherReferenceRanges)
-            //: base(new EhrTypes.DV_DURATION())
             CodePhrase normalStatus, DvInterval<DvDuration> normalRange, ReferenceRange<DvDuration>[] otherReferenceRanges)
             : base()
         {
@@ -43,11 +29,9 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
             this.isoDuration =
                 new OpenEhr.AssumedTypes.Iso8601Duration(durationString);
-            //this.value = this.isoDuration.ToString();
 
             base.SetBaseData(accuracy, accuracyIsPercent, magnitudeStatus, normalStatus, normalRange, otherReferenceRanges);
 
-            //SetInnerData();
             CheckInvariants();
         }
 
@@ -58,42 +42,21 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
         public DvDuration(int years, int months, int days, int weeks, int hours,
             int minutes, int seconds, double fractionalSeconds)
-            //: base(new EhrTypes.DV_DURATION())
-            : base()
         {
             this.isoDuration = new OpenEhr.AssumedTypes.Iso8601Duration
                 (years, months, days, weeks, hours, minutes, seconds, fractionalSeconds);
 
-            //this.value = this.isoDuration.ToString();
-            //SetInnerData();
             CheckInvariants();
         }
-
-        //private string value;
 
         [RmAttribute("value", 1)]
         public string Value
         {
             get
             {
-                //if (this.value == null)
-                //    this.value = this.DurationType.value;
-                //return this.value;
                 return this.isoDuration.ToString();
             }
-            //internal set
-            //{
-            //    this.value = value;
-            //    ((OpenEhr.V1.Its.Xml.RM.DV_DURATION)(this.DataValueType)).value = this.value;
-            //}
         }
-
-        //protected EhrTypes.DV_DURATION DurationType
-        //{
-        //    get { return base.DataValueType as EhrTypes.DV_DURATION; }
-        //}
-
-        // numeric value of duration in seconds
 
         protected override double GetMagnitude()
         {
@@ -163,7 +126,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
                 AssumedTypes.TimeDefinitions.minutesInHour *
                 AssumedTypes.TimeDefinitions.hoursInDay;
 
-            //int totalDaysInMagnitude = (int)(Math.Truncate(magnitude/secondsInDay));
             double totalDaysInMagnitude = magnitude / secondsInDay;
 
             int yearInMagnitude = 0;
@@ -184,7 +146,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
                  dateInMagnitude = (int)(Math.Truncate(remainderDays - monthInMagnitude * AssumedTypes.Iso8601Duration.nominalDaysInMonth));
             }
 
-            //double remainderSeconds = magnitude - dateInMagnitude * secondsInDay;
             double remainderSeconds = magnitude - (yearInMagnitude * AssumedTypes.Iso8601Duration.nominalDaysInYear
                  + monthInMagnitude * AssumedTypes.Iso8601Duration.nominalDaysInMonth + dateInMagnitude)
                  * secondsInDay;
@@ -204,13 +165,6 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
             remainderSeconds = remainderSeconds-minutes*AssumedTypes.Iso8601Duration.secondsInMinute;
             int secondsInMagnitude = (int)(Math.Truncate(remainderSeconds));
             double fractionalSeconds = remainderSeconds - secondsInMagnitude;
-
-            //double secondsInYear = AssumedTypes.TimeDefinitions.daysInYear*
-            //    Support.Assumed.TimeDefinitions.hoursInDay * 
-            //    Support.Assumed.TimeDefinitions.minutesInHour *
-            //    Support.Assumed.TimeDefinitions.secondsInMinute;
-
-            //int yearsInMagnitude = (int)(Math.Truncate(magnitude/secondsInYear));
 
             return new DvDuration(yearInMagnitude, monthInMagnitude, dateInMagnitude, 0, hourInMagnitude, minutes, secondsInMagnitude, fractionalSeconds);
         }
@@ -261,19 +215,10 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
             Check.Assert(!string.IsNullOrEmpty(this.Value), "value must not be null or empty.");
 
-            //writer.WriteElementString(prefix, "value", XmlSerializer.OpenEhrNamespace, this.Value);
             string durationValue = this.Value;
             durationValue = durationValue.Replace(',', '.');
             writer.WriteElementString(prefix, "value", RmXmlSerializer.OpenEhrNamespace, durationValue);
         }
-
-        //protected override void SetInnerData()
-        //{
-        //    base.SetInnerData();
-        //    ((OpenEhr.V1.Its.Xml.RM.DV_DURATION)(this.DataValueType)).value = this.value;
-
-        //    //CheckInvariants();
-        //}
 
         protected void CheckInvariants()
         {

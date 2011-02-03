@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenEhr.AM.Archetype.ConstraintModel;
 using OpenEhr.DesignByContract;
 using OpenEhr.Futures.OperationalTemplate;
@@ -19,16 +17,10 @@ namespace OpenEhr.Validation
             this.message = message;
             this.constraint = constraint;
 
-            this.path = new Lazy<string>(delegate()
-            {
-                return FullPath();
-            });
+            this.path = new Lazy<string>(FullPath);
         }
 
         private ArchetypeConstraint constraint;
-
-        //private string path = string.Empty;
-        //private object pathLock = new object();
 
         readonly Lazy<string> path ; 
 
@@ -37,16 +29,6 @@ namespace OpenEhr.Validation
             get 
             {
                 return path.Value;
-
-                //if (string.IsNullOrEmpty(path))
-                //{
-                //    lock(pathLock)
-                //    {
-                //        if(string.IsNullOrEmpty(path))
-                //            path = this.GetFullPath();
-                //    }
-                //}
-                //return path;
             }
         }
 

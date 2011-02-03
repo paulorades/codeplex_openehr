@@ -1,5 +1,3 @@
-using System;
-
 namespace OpenEhr.RM.Demographic.Impl
 {
     public class VersionedParty 

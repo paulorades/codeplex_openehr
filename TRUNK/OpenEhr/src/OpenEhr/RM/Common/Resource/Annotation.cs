@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using OpenEhr.DesignByContract;
 
 namespace OpenEhr.RM.Common.Resource

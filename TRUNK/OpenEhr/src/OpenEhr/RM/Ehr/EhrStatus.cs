@@ -1,6 +1,4 @@
 using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.RM.Common.Archetyped.Impl;
 using OpenEhr.RM.Common.Generic;
 using OpenEhr.RM.DataStructures.ItemStructure;

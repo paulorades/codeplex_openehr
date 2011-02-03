@@ -7,8 +7,6 @@ namespace OpenEhr.RM.DataTypes.Text.Impl
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
-            //throw new NotImplementedException("CanConvertFrom not implemented");
-
             if (sourceType == typeof(string))
                 return true;
 
@@ -72,7 +70,6 @@ namespace OpenEhr.RM.DataTypes.Text.Impl
             DataTypes.Text.DvText textValue = value as DataTypes.Text.DvText;
             if (textValue != null)
             {
-                //if (destinationType == typeof(string) && textValue != null)
                 if (destinationType == typeof(string))
                 {
                     DataTypes.Text.DvCodedText codedValue = textValue as DataTypes.Text.DvCodedText;
@@ -85,8 +82,6 @@ namespace OpenEhr.RM.DataTypes.Text.Impl
                         string s = codedValue.DefiningCode.TerminologyId.Value + "::" + codedValue.DefiningCode.CodeString
                             + "::" + codedValue.Value;
 
-                        //if (s == "::::")
-                        //    return "";
                         s = s.TrimEnd(':');
 
                         return s;
@@ -99,18 +94,8 @@ namespace OpenEhr.RM.DataTypes.Text.Impl
                 }
 
                 if (destinationType == textValue.GetType())
-                //else if (textValue.GetType().IsAssignableFrom(destinationType))
                 {
                     return textValue;
-                    //DataTypes.Text.DvCodedText codedValue = textValue as DataTypes.Text.DvCodedText;
-                    //if (codedValue == null)
-                    //    return new DataTypes.Text.DvText(textValue.Value);
-
-                    //else
-                    //{
-                    //    return new DataTypes.Text.DvCodedText(codedValue.Value, 
-                    //        codedValue.DefiningCode.CodeString, codedValue.DefiningCode.TerminologyId.Value);
-                    //}
                 }
             }
 

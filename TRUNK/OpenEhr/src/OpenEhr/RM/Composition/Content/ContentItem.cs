@@ -10,19 +10,7 @@ namespace OpenEhr.RM.Composition.Content
     [RmType("openEHR", "EHR", "CONTENT_ITEM")]
     public abstract class ContentItem : Locatable, IVisitable
     {
-        //protected override void Serialize(System.Xml.XmlTextWriter writer, 
-        //    System.Xml.Serialization.XmlSerializerNamespaces xmlns)
-        //{
-        //    DesignByContract.Check.Require(writer != null, "writer must not be null");
-        //    DesignByContract.Check.Require(xmlns != null, "xmlns must not be null");
-
-        //    OpenEhr.V1.Its.Xml.XmlSerializer.ContentSerializer.Serialize(writer, base.LocatableType, xmlns);
-        //}
-
-        //protected ContentItem(EhrTypes.LOCATABLE tLocatable)
-        //    : base(tLocatable)
         protected ContentItem()
-            : base()
         { }
 
         protected ContentItem(DvText name, string archetypeNodeId, Support.Identification.UidBasedId uid,

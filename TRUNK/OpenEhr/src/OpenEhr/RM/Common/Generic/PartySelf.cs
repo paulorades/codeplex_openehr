@@ -1,9 +1,6 @@
 using System;
-//using System.Collections.Generic;
-
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
-//using OpenEhr.RM.Impl;
 
 namespace OpenEhr.RM.Common.Generic
 {

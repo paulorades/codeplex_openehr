@@ -50,18 +50,15 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         protected void SetBaseData(string archetypeNodeId, DvText name)
         {
             Check.Invariant(attributesDictionary != null, "Attributes diction must not be null");
-            //Check.Invariant(locatableType != null, "locatableType must not be null");
-
+            
             Check.Require(!string.IsNullOrEmpty(archetypeNodeId), "archetype node id must not be null or empty");
             Check.Require(name != null, "name must not be null");
             Check.Require(!string.IsNullOrEmpty(name.Value), "name value must not be null or empty");
 
-            //Check.Assert(locatableType.archetype_node_id == null, "inner archetype node id must be null");
             Check.Assert(this.archetypeNodeId == null, "archetype node id attribute must be null");
             Check.Assert(base.attributesDictionary["name"] == null, "archetype node id attributes item must be null");
             this.archetypeNodeId = archetypeNodeId;
 
-            //Check.Assert(locatableType.name == null, "inner name must be null or empty");
             Check.Assert(this.name == null, "name attribute must be null");
             Check.Assert(attributesDictionary["name"] == null, "name attributes item must be null");
 
@@ -210,14 +207,9 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
         {
             Check.Invariant(this.Name != null, "name must not be null.");
             // HKF: 7 Aug 2009 - need to allow name value to be empty for EhrGateDataObjects transformation prior to OperationalTemplate augmentation
-            //DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.Name.Value),
-            //    "name value must not be null or empty.");
             Check.Invariant(this.Name.Value != null, "name value must not be null");
 
             // HKF: 7 Aug 2009 - need to allow archetypeNodeId to be empty for EhrGateDataObjects transformation prior to OperationalTemplate augmentation
-            //DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.ArchetypeNodeId), "archetypeNodeId must not be null or empty.");
-            // CM: 10/08/09 
-            //Check.Invariant(this.archetypeNodeId != null, "archetype node id must not be null");
             Check.Invariant(this.ArchetypeNodeId != null, "archetype node id must not be null");
 
             DesignByContract.Check.Invariant(this.Links == null || this.Links.Count > 0,
@@ -229,9 +221,7 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             DesignByContract.Check.Invariant(this.Name != null, "name must not be null for " + this.GetType().Name + "(" + this.ArchetypeNodeId + ").");
             DesignByContract.Check.Invariant(this.Name.Value != null,
                 "name value must not be null");
-            //DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.Name.Value),
-            //    "name value must not be null or empty.");
-
+            
             DesignByContract.Check.Invariant(!string.IsNullOrEmpty(this.ArchetypeNodeId), 
                 "archetypeNodeId must not be null or empty.");
             DesignByContract.Check.Invariant(this.Links == null || this.Links.Count > 0,
@@ -281,13 +271,9 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
 
         protected virtual void ReadXmlBase(System.Xml.XmlReader reader)
         {
-            //this.archetypeNodeId = reader.GetAttribute("archetype_node_id");
-
-            //reader.ReadStartElement();
-            //reader.MoveToContent();
-
             Check.Assert(reader.LocalName == "name", "Expected LocalName is 'name' rather than " + reader.LocalName);
-            
+
+            // %HYYKA%
             // CM: 12/11/09 need to take into account prefix
             //string nameType = reader.GetAttribute("type", XmlSerializer.XsiNamespace);
             string nameType = RmXmlSerializer.ReadXsiType(reader);
@@ -340,6 +326,7 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);
 
+            // %HYYKA%
             // HKF: Not valid against schema when attribute has prefix and namespace
             //writer.WriteAttributeString(openEhrPrefix, "archetype_node_id", 
             //    XmlSerializer.OpenEhrNamespace, this.ArchetypeNodeId);

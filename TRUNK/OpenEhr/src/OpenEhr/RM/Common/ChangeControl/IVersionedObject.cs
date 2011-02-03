@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace OpenEhr.RM.Common.ChangeControl
 {
@@ -14,6 +12,7 @@ namespace OpenEhr.RM.Common.ChangeControl
 
         int VersionCount { get; }
 
+        // %HYYKA%
         // CM: 22/10/07 
         //List<Support.Identification.ObjectId> AllVersionIds();
         List<Support.Identification.ObjectVersionId> AllVersionIds();
@@ -26,17 +25,10 @@ namespace OpenEhr.RM.Common.ChangeControl
         IVersion VersionWithId(Support.Identification.ObjectVersionId Id);
         IVersion VersionAtTime(DataTypes.Quantity.DateTime.DvDateTime time);
 
-        //RevisionHistory RevisionHistory();
-
         IVersion LatestVersion();
         IVersion LatestTrunkVersion();
 
         DataTypes.Text.DvCodedText TrunkLifecycleState { get; }
-
-        //void CommitOriginalVersion(...);
-        //void CommitOriginalMergedVersion(...);
-        //void CommitImportedVersion(...);
-        //void CommitAttestation(...);
     }
 
     public interface IVersionedObject<T>
@@ -49,6 +41,7 @@ namespace OpenEhr.RM.Common.ChangeControl
 
         int VersionCount { get; }
 
+        // %HYYKA%
         // CM: 22/10/07 
         //List<Support.Identification.ObjectId> AllVersionIds();
         List<Support.Identification.ObjectVersionId> AllVersionIds();
@@ -61,16 +54,9 @@ namespace OpenEhr.RM.Common.ChangeControl
         IVersion<T> VersionWithId(Support.Identification.ObjectVersionId Id);
         IVersion<T> VersionAtTime(DataTypes.Quantity.DateTime.DvDateTime time);
 
-        //RevisionHistory RevisionHistory();
-
         IVersion<T> LatestVersion();
         IVersion<T> LatestTrunkVersion();
 
         DataTypes.Text.DvCodedText TrunkLifecycleState { get; }
-
-        //void CommitOriginalVersion(...);
-        //void CommitOriginalMergedVersion(...);
-        //void CommitImportedVersion(...);
-        //void CommitAttestation(...);
     }
 }

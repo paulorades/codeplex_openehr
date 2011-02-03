@@ -15,11 +15,9 @@ namespace OpenEhr.RM.Common.Directory
     [System.Xml.Serialization.XmlSchemaProvider("GetXmlSchema")]
     [Serializable]
     [RmType("openEHR", "COMMON", "FOLDER")]
-    public class Folder : Locatable, //IItsXmlConvertible,
-        System.Xml.Serialization.IXmlSerializable
+    public class Folder : Locatable, System.Xml.Serialization.IXmlSerializable
     {
         Folder()
-            : base()
         {
             SetAttributeDictionary();
         }
@@ -76,7 +74,6 @@ namespace OpenEhr.RM.Common.Directory
                 this.folders = locatableList;
 
                 SetAttributeValue("folders", locatableList);
-                //base.attributesDictionary["folders"] = locatableList;
             }
         }
 
@@ -92,7 +89,6 @@ namespace OpenEhr.RM.Common.Directory
                 Check.Require(items == null || value.Count == 0, "value must be empty");
 
                 items = value;
-                //base.attributesDictionary["items"] = value;
                 SetAttributeValue("items", value);
             }
         }

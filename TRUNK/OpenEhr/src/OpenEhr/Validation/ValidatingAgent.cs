@@ -1,9 +1,4 @@
-using System;
-//using System.Collections.Generic;
-//using System.Text;
 using OpenEhr.DesignByContract;
-using OpenEhr.AM.Archetype.ConstraintModel;
-using OpenEhr.AM.Archetype.ConstraintModel.Primitive;
 using OpenEhr.Futures.OperationalTemplate;
 using OpenEhr.RM.Composition;
 

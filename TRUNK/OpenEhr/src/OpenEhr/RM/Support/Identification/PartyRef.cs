@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -11,7 +10,6 @@ namespace OpenEhr.RM.Support.Identification
     public sealed class PartyRef : ObjectRef, System.Xml.Serialization.IXmlSerializable
     {
         public PartyRef() 
-            : base()
         { }
 
         public PartyRef(ObjectId objectId, string namespaceValue, string typeValue)

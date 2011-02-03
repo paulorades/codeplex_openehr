@@ -1,4 +1,3 @@
-using System;
 using OpenEhr.RM.DataTypes.Text;
 using OpenEhr.Attributes;
 

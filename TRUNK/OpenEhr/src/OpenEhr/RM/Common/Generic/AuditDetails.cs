@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using OpenEhr.Attributes;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.Impl;
@@ -170,9 +169,6 @@ namespace OpenEhr.RM.Common.Generic
 
         protected virtual void ReadXmlBase(System.Xml.XmlReader reader)
         {
-            //reader.ReadStartElement();
-            //reader.MoveToContent();
-
             Check.Assert(reader.LocalName == "system_id",
                 "Expected LocalName is 'system_id' not " + reader.LocalName);
             this.systemId = reader.ReadElementString("system_id", RmXmlSerializer.OpenEhrNamespace);
@@ -188,7 +184,6 @@ namespace OpenEhr.RM.Common.Generic
             Check.Assert(reader.LocalName == "time_committed",
                 "Expected LocalName is 'time_committed' not " + reader.LocalName);
             this.timeCommitted = new OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime();
-            //this.timeCommitted = OpenEhr.RM.DataTypes.Quantity.DateTime.DvDateTime.CreateEmpty();
             this.timeCommitted.ReadXml(reader);
 
             Check.Assert(reader.LocalName == "change_type",
@@ -206,27 +201,16 @@ namespace OpenEhr.RM.Common.Generic
 
                 this.description.ReadXml(reader);
             }
-
-
-            //DesignByContract.Check.Assert(reader.NodeType == System.Xml.XmlNodeType.EndElement,
-            //    "Expected endElement of PartyIdentified.");
-            //reader.ReadEndElement();
-            //reader.MoveToContent();
-
-            //this.SetInnerData();
         }
 
         protected virtual void WriteXmlBase(System.Xml.XmlWriter writer)
         {
-            //this.CheckStrictInvariants();
-
             string openEhrPrefix = RmXmlSerializer.UseOpenEhrPrefix(writer);
             string xsiPrefix = RmXmlSerializer.UseXsiPrefix(writer);
 
             writer.WriteElementString(openEhrPrefix, "system_id", RmXmlSerializer.OpenEhrNamespace, this.SystemId);
 
             writer.WriteStartElement(openEhrPrefix, "committer", RmXmlSerializer.OpenEhrNamespace);
-            //string committerType = this.Committer.GetPartyProxyEhrType();
             string committerType = ((IRmType)this.Committer).GetRmTypeName();
             if (!string.IsNullOrEmpty(openEhrPrefix))
                 committerType = openEhrPrefix + ":" + committerType;
@@ -237,8 +221,6 @@ namespace OpenEhr.RM.Common.Generic
             writer.WriteStartElement(openEhrPrefix, "time_committed", RmXmlSerializer.OpenEhrNamespace);
             if (this.TimeCommitted != null)
                 this.TimeCommitted.WriteXml(writer);
-            //else
-            //    throw new ApplicationException("AUDIT_DETAILS.time_committed must not be null");
             writer.WriteEndElement();
 
             writer.WriteStartElement(openEhrPrefix, "change_type", RmXmlSerializer.OpenEhrNamespace);
@@ -279,7 +261,6 @@ namespace OpenEhr.RM.Common.Generic
 
         protected virtual void CheckDefaultInvariants()
         {
-            //Check.Invariant(this.Committer != null, "committer must not be null");
             Check.Invariant(this.ChangeType != null, "ChangeType must not be null");
         }
     }

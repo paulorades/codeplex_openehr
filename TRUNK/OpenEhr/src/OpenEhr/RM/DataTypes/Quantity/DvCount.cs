@@ -1,8 +1,6 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.RM.DataTypes.Text;
-using OpenEhr.AssumedTypes;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
 
@@ -14,7 +12,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
     public class DvCount : DvAmount<DvCount>, System.Xml.Serialization.IXmlSerializable
     {
         public DvCount()
-            : base()
         { }
 
         public DvCount(long magnitude, float accuracy, bool accuracyIsPercent, string magnitudeStatus,
@@ -115,7 +112,6 @@ namespace OpenEhr.RM.DataTypes.Quantity
 
         public static System.Xml.XmlQualifiedName GetXmlSchema(System.Xml.Schema.XmlSchemaSet xs)
         {
-            //return Basic.DataValue.GetXmlSchema(xs, "DV_COUNT");
             RmXmlSerializer.LoadBaseTypesSchema(xs);
             return new System.Xml.XmlQualifiedName("DV_COUNT", RmXmlSerializer.OpenEhrNamespace);
         }
@@ -129,22 +125,12 @@ namespace OpenEhr.RM.DataTypes.Quantity
             this.magnitudeSet = true;
 
             reader.MoveToContent();
-
-            ////if (!reader.IsStartElement())
-            ////{
-            //    reader.ReadEndElement();
-            //    reader.MoveToContent();
-            ////}
-
-            //this.SetInnerData();
         }
         protected override void WriteXmlBase(System.Xml.XmlWriter writer)
         {
             this.CheckInvariants();
             base.WriteXmlBase(writer);
             string prefix = RmXmlSerializer.UseOpenEhrPrefix(writer); 
-
-            //Check.Assert(this.magnitudeSet, "magnitude must have been set.");
 
             writer.WriteElementString(prefix, "magnitude", RmXmlSerializer.OpenEhrNamespace, this.Magnitude.ToString());
 

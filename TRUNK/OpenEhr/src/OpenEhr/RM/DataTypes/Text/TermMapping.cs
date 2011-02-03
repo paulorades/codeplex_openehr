@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.RM.Impl;
@@ -13,7 +12,6 @@ namespace OpenEhr.RM.DataTypes.Text
     public class TermMapping : RmType, System.Xml.Serialization.IXmlSerializable
     {
         public TermMapping()
-            : base()
         { }
 
         public TermMapping(char match, DvCodedText purpose, CodePhrase target)
@@ -31,7 +29,6 @@ namespace OpenEhr.RM.DataTypes.Text
         public char Match
         {
             get { return this.match; }
-            //set { termMappingType.match = value.ToString(); }
         }
 
         private DvCodedText purpose;
@@ -41,10 +38,6 @@ namespace OpenEhr.RM.DataTypes.Text
         public DvCodedText Purpose
         {
             get { return this.purpose; }
-            //set
-            //{
-            //    throw new System.NotImplementedException("TermMapping.Purpose");
-            //}
         }
 
         private CodePhrase target;
@@ -52,10 +45,6 @@ namespace OpenEhr.RM.DataTypes.Text
         public CodePhrase Target
         {
             get { return this.target; }
-            //set
-            //{
-            //    throw new System.NotImplementedException("TermMapping.Target");
-            //}
         }
 
           #region IXmlSerializable Members

@@ -17,20 +17,10 @@ namespace OpenEhr.RM.Common.Archetyped
     [Serializable]
     public class FeederAuditDetails : System.Xml.Serialization.IXmlSerializable
     {
-        ///// <summary>
-        ///// constructor
-        ///// </summary>
-        ///// <param name="ehrType"></param>
-        //internal FeederAuditDetails(EhrTypes.FEEDER_AUDIT_DETAILS ehrType)
-        //{
-        //    this.ehrType = ehrType;
-        //}
-
         /// <summary>
         /// constructor
         /// </summary>
         public FeederAuditDetails()
-            //: this(new EhrTypes.FEEDER_AUDIT_DETAILS())
         { }
 
         /// <summary>
@@ -41,8 +31,6 @@ namespace OpenEhr.RM.Common.Archetyped
             : this()
         {
             this.systemId = systemId;
-
-            //this.SetInnerData();
         }
 
         /// <summary>
@@ -65,15 +53,7 @@ namespace OpenEhr.RM.Common.Archetyped
             this.subject = subject;
             this.time = time;
             this.versionId = versionId;
-
-            //this.SetInnerData();
         }
-
-        //private EhrTypes.FEEDER_AUDIT_DETAILS ehrType;
-        //public EhrTypes.FEEDER_AUDIT_DETAILS ToEhrType()
-        //{
-        //    return this.ehrType;
-        //}
 
         private string systemId;
 
@@ -81,8 +61,6 @@ namespace OpenEhr.RM.Common.Archetyped
         {
             get
             {
-                //if(this.systemId == null)
-                //    this.systemId = this.ehrType.system_id;
                 return this.systemId;
             }
         }
@@ -93,8 +71,6 @@ namespace OpenEhr.RM.Common.Archetyped
         {
             get
             {
-                //if(this.versionId == null)
-                //    this.versionId = this.ehrType.version_id;
                 return this.versionId;
             }
         }
@@ -105,9 +81,6 @@ namespace OpenEhr.RM.Common.Archetyped
         {
             get
             {
-                //if (this.location == null)
-                //    this.location = WrapperFactory.CreatePartyProxy(this.ehrType.location) as
-                //        Common.Generic.PartyIdentified;
                 return this.location;
             }
         }
@@ -118,9 +91,6 @@ namespace OpenEhr.RM.Common.Archetyped
         {
             get
             {
-                //if (this.provider == null)
-                //    this.provider = WrapperFactory.CreatePartyProxy(this.ehrType.provider) as
-                //        Common.Generic.PartyIdentified;
                 return this.provider;
             }
         }
@@ -131,8 +101,6 @@ namespace OpenEhr.RM.Common.Archetyped
         {
             get
             {
-                //if (this.subject == null)
-                //    this.subject = WrapperFactory.CreatePartyProxy(this.ehrType.subject);
                 return this.subject;
             }
         }
@@ -143,9 +111,6 @@ namespace OpenEhr.RM.Common.Archetyped
         {
             get
             {
-                //if (this.time == null)
-                //    this.time = WrapperFactory.CreateDataValue(this.ehrType.time)
-                //        as DataTypes.Quantity.DateTime.DvDateTime;
                 return this.time;
             }
         }
@@ -221,8 +186,6 @@ namespace OpenEhr.RM.Common.Archetyped
             }
 
             reader.MoveToContent();
-
-            //this.SetInnerData();
         }
 
         internal void WriteXml(System.Xml.XmlWriter writer)
@@ -248,7 +211,6 @@ namespace OpenEhr.RM.Common.Archetyped
             if (this.subject != null)
             {
                 writer.WriteStartElement(openEhrPrefix, "subject", RmXmlSerializer.OpenEhrNamespace);
-                //string subjectType = this.Subject.GetPartyProxyEhrType();
                 string subjectType = ((IRmType)this.Subject).GetRmTypeName();
                 if (!string.IsNullOrEmpty(openEhrPrefix))
                     subjectType = openEhrPrefix + ":" + subjectType;
@@ -267,24 +229,5 @@ namespace OpenEhr.RM.Common.Archetyped
             if (this.VersionId != null)
                 writer.WriteElementString(openEhrPrefix, "version_id", RmXmlSerializer.OpenEhrNamespace, this.VersionId);
         }
-
-        //private void SetInnerData()
-        //{
-        //    if (this.ehrType == null)
-        //        this.ehrType = new OpenEhr.V1.Its.Xml.RM.FEEDER_AUDIT_DETAILS();
-        //    this.ehrType.system_id = this.systemId;
-        //    if (this.location != null)
-        //        this.ehrType.location = this.location.EhrType;
-        //    if (this.provider != null)
-        //        this.ehrType.provider = this.provider.EhrType;
-        //    if (this.subject != null)
-        //        this.ehrType.subject = this.subject.EhrType;
-        //    if (this.time != null)
-        //        this.ehrType.time = this.time.DataValueType as EhrTypes.DV_DATE_TIME;
-        //    if (this.versionId != null)
-        //        this.ehrType.version_id = this.versionId;
-
-        //    Check.Ensure(!string.IsNullOrEmpty(this.SystemId), "systemId must not be null or empty");
-        //}
     }
 }

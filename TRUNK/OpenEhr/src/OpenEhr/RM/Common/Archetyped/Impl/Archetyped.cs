@@ -1,5 +1,4 @@
 using System;
-//using System.Collections.Generic;
 using OpenEhr.DesignByContract;
 using OpenEhr.Attributes;
 using OpenEhr.Serialisation;
@@ -113,8 +112,6 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
                 reader.ReadEndElement();
                 reader.MoveToContent();
             }
-
-            //this.SetInnerData();
         }
 
         internal void WriteXml(System.Xml.XmlWriter writer)
