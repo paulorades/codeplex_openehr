@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ResultSet"
+                  targetNamespace="http://oceanehr.com/EhrGate"
+                  elementFormDefault="qualified"
+                  xmlns="http://oceanehr.com/EhrGate"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:complexType name="ResultSet">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="name" type="xs:string" />
+			<xs:element minOccurs="0" name="totalResults" type="xs:int" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="columns" nillable="true">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name" type="xs:string" />
+						<xs:element minOccurs="0" name="path" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="rows">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" maxOccurs="unbounded" name="row">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element minOccurs="0" maxOccurs="unbounded" name="items" nillable="true" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
