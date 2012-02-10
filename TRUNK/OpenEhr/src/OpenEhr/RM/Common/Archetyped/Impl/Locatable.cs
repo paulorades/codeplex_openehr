@@ -56,11 +56,11 @@ namespace OpenEhr.RM.Common.Archetyped.Impl
             Check.Require(!string.IsNullOrEmpty(name.Value), "name value must not be null or empty");
 
             Check.Assert(this.archetypeNodeId == null, "archetype node id attribute must be null");
-            Check.Assert(base.attributesDictionary["name"] == null, "archetype node id attributes item must be null");
+            //Check.Assert(base.attributesDictionary["name"] == null, "archetype node id attributes item must be null");
             this.archetypeNodeId = archetypeNodeId;
 
             Check.Assert(this.name == null, "name attribute must be null");
-            Check.Assert(attributesDictionary["name"] == null, "name attributes item must be null");
+            //Check.Assert(attributesDictionary["name"] == null, "name attributes item must be null");
 
             this.name = name;
 
