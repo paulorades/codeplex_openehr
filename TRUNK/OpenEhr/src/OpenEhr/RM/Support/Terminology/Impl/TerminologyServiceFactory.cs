@@ -24,7 +24,13 @@ namespace OpenEhr.RM.Support.Terminology.Impl
         private static TerminologyServiceFactory GetFactory(IConfigurationSource configurationSource)
         {
             if (!factories.Contains(configurationSource))
-                factories.Add(configurationSource, new TerminologyServiceFactory(configurationSource));
+            {
+                lock (factories)
+                {
+                    if (!factories.Contains(configurationSource))
+                        factories.Add(configurationSource, new TerminologyServiceFactory(configurationSource));
+                }
+            }
 
             return (TerminologyServiceFactory)factories[configurationSource];
         }

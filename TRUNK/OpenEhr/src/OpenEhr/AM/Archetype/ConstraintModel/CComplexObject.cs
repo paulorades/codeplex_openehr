@@ -139,79 +139,86 @@ namespace OpenEhr.AM.Archetype.ConstraintModel
             if (constraintAtPath.Contains(path))
                 return constraintAtPath[path] as CObject;
 
-            CObject constraintFound = null;
-            ConstraintPath constraintPath = new ConstraintPath(path);
-
-            if (path.StartsWith("/") && this.Parent != null)
+            lock (constraintAtPath)
             {
-                ArchetypeConstraint rootConstraint = this.ConstraintParent;
-                while (rootConstraint.ConstraintParent != null)
-                    rootConstraint = rootConstraint.ConstraintParent;
+                // test again now that I have a lock
+                if (constraintAtPath.Contains(path))
+                    return constraintAtPath[path] as CObject;
 
-                CComplexObject cComplexObject = rootConstraint as CComplexObject;
-                if (cComplexObject == null)
-                    throw new ArgumentException(AmValidationStrings.RootConstraintInvalid);
+                CObject constraintFound = null;
+                ConstraintPath constraintPath = new ConstraintPath(path);
 
-                constraintFound = cComplexObject.ConstraintAtPath(path);
-
-            }
-            else
-            {
-                foreach (CAttribute attribute in this.attributes)
+                if (path.StartsWith("/") && this.Parent != null)
                 {
-                    if (attribute.RmAttributeName == constraintPath.FirstStepAttributeName)
+                    ArchetypeConstraint rootConstraint = this.ConstraintParent;
+                    while (rootConstraint.ConstraintParent != null)
+                        rootConstraint = rootConstraint.ConstraintParent;
+
+                    CComplexObject cComplexObject = rootConstraint as CComplexObject;
+                    if (cComplexObject == null)
+                        throw new ArgumentException(AmValidationStrings.RootConstraintInvalid);
+
+                    constraintFound = cComplexObject.ConstraintAtPath(path);
+
+                }
+                else
+                {
+                    foreach (CAttribute attribute in this.attributes)
                     {
-                        System.Collections.Generic.IList<CObject> matchedChildren 
-                            = new System.Collections.Generic.List<CObject>();
-                        foreach (CObject cObject in attribute.Children)
+                        if (attribute.RmAttributeName == constraintPath.FirstStepAttributeName)
                         {
-                            if (cObject.NodeId == constraintPath.FirstStepNodeId)
-                                matchedChildren.Add(cObject);
-                            else if (cObject is CArchetypeRoot && cObject.ArchetypeNodeId == constraintPath.FirstStepNodeId)
-                                matchedChildren.Add(cObject);
-                        }
-                        if (matchedChildren.Count <= 0)
-                            throw new ArgumentException(string.Format(AmValidationStrings.
-                                MissingChildrenWithNodeIdX, constraintPath.FirstStepNodeId));
-                        else if (matchedChildren.Count == 1)
-                            constraintFound = matchedChildren[0];
-
-                        else if (!constraintPath.HasNameConstraint())
-                            throw new ArgumentException(string.Format(AmValidationStrings.PathYNotUniqueAtX,
-                                constraintPath.ToString(), constraintPath.FirstStepNodeId));
-                        else
-                        {
-                            DvText name = (!string.IsNullOrEmpty(constraintPath.FirstStepNameValue) ?
-                                new DvText(constraintPath.FirstStepNameValue) :
-                                new DvCodedText(constraintPath.FirstStepName));
-
-                            foreach (CObject cObject in matchedChildren)
+                            System.Collections.Generic.IList<CObject> matchedChildren
+                                = new System.Collections.Generic.List<CObject>();
+                            foreach (CObject cObject in attribute.Children)
                             {
-                                if (CMultipleAttribute.HasNameAttributeConstraint(cObject, name))
+                                if (cObject.NodeId == constraintPath.FirstStepNodeId)
+                                    matchedChildren.Add(cObject);
+                                else if (cObject is CArchetypeRoot && cObject.ArchetypeNodeId == constraintPath.FirstStepNodeId)
+                                    matchedChildren.Add(cObject);
+                            }
+                            if (matchedChildren.Count <= 0)
+                                throw new ArgumentException(string.Format(AmValidationStrings.
+                                    MissingChildrenWithNodeIdX, constraintPath.FirstStepNodeId));
+                            else if (matchedChildren.Count == 1)
+                                constraintFound = matchedChildren[0];
+
+                            else if (!constraintPath.HasNameConstraint())
+                                throw new ArgumentException(string.Format(AmValidationStrings.PathYNotUniqueAtX,
+                                    constraintPath.ToString(), constraintPath.FirstStepNodeId));
+                            else
+                            {
+                                DvText name = (!string.IsNullOrEmpty(constraintPath.FirstStepNameValue) ?
+                                    new DvText(constraintPath.FirstStepNameValue) :
+                                    new DvCodedText(constraintPath.FirstStepName));
+
+                                foreach (CObject cObject in matchedChildren)
                                 {
-                                    constraintFound = cObject;
-                                    break;
+                                    if (CMultipleAttribute.HasNameAttributeConstraint(cObject, name))
+                                    {
+                                        constraintFound = cObject;
+                                        break;
+                                    }
                                 }
                             }
+                            break;
                         }
-                        break;
                     }
                 }
+
+                if (constraintFound == null)
+                    throw new ArgumentException(string.Format(AmValidationStrings.NoConstraintForPathX, path));
+
+                CComplexObject complexObject = constraintFound as CComplexObject;
+
+                if (complexObject != null)
+                    constraintFound = complexObject.ConstraintAtPath(constraintPath.NextSteps);
+
+                this.constraintAtPath.Add(path, constraintFound);
+
+                Check.Ensure(constraintFound != null);
+
+                return constraintFound;
             }
-
-            if (constraintFound == null)
-                throw new ArgumentException(string.Format(AmValidationStrings.NoConstraintForPathX, path));
-
-            CComplexObject complexObject = constraintFound as CComplexObject;
-            
-            if (complexObject != null)
-                constraintFound = complexObject.ConstraintAtPath(constraintPath.NextSteps);
-
-            this.constraintAtPath.Add(path, constraintFound);
-
-            Check.Ensure(constraintFound != null);
-
-            return constraintFound;
         }
 
 

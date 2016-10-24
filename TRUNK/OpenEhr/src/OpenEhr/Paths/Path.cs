@@ -137,13 +137,13 @@ namespace OpenEhr.Paths
                 DesignByContract.Check.Require(!string.IsNullOrEmpty(value), "value must not be empty or null");
 
                 this.path = value;
-                if (pathExprCache.ContainsKey(value))
-                    this.pathExpr = pathExprCache[value] as PathExpr;
+                if (PathExprCache.ContainsKey(value))
+                    this.pathExpr = PathExprCache[value] as PathExpr;
                 else
                 {
                     Check.Require(IsValidPath(value), "value is not valid path " + value);
                     this.pathExpr = ToPathExpr(value);
-                    pathExprCache.Add(value, this.pathExpr);
+                    PathExprCache.Add(value, this.pathExpr);
                 }
                 this.pathSteps = pathExpr.PathSteps;
             }
@@ -270,7 +270,23 @@ namespace OpenEhr.Paths
 
         #region internal functions to generate full PathExpr tree
 
-        static System.Collections.Hashtable pathExprCache = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
+        /// <remarks>
+        /// Do not specify initial values for fields marked with ThreadStaticAttribute, because such initialization occurs only once, 
+        /// when the class constructor executes, and therefore affects only one thread. If you do not specify an initial value, 
+        /// you can rely on the field being initialized to its default value if it is a value type, or to null if it is a reference type.
+        /// </remarks>
+        [ThreadStatic]
+        static System.Collections.Hashtable _pathExprCache;// = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
+
+        static System.Collections.Hashtable PathExprCache
+        {
+            get
+            {
+                if (_pathExprCache == null)
+                    _pathExprCache = System.Collections.Hashtable.Synchronized(new System.Collections.Hashtable());
+                return _pathExprCache;
+            }
+        }
 
         private static PathExpr ToPathExpr(string pathString)
         {
