@@ -509,6 +509,20 @@ namespace OpenEhr.AssumedTypes
         }
      
         #endregion
+
+        internal double GetDays()
+        {
+            double daysInTotal = GetTotalDaysOfYear(this.Year - 1);
+            if (!this.MonthUnknown)
+            {
+                daysInTotal += GetTotalDaysOfMonthInAYear(this.Year, this.Month);
+
+                if (!this.DayUnknown)
+                    daysInTotal += this.Day;
+            }
+
+            return daysInTotal;
+        }
     }
 
     internal class Date

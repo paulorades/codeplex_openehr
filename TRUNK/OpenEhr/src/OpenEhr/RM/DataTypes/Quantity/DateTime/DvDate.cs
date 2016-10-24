@@ -78,15 +78,16 @@ namespace OpenEhr.RM.DataTypes.Quantity.DateTime
 
         protected override double GetMagnitude()
         {
-            int magnitude = -1;
-            double daysInTotal = -1.0;
-            daysInTotal = isoDate.Year * TimeDefinitions.nominalDaysInYear;
-            if (!isoDate.MonthUnknown)
-                daysInTotal += isoDate.Month * TimeDefinitions.nominalDaysInMonth;
-            if (!isoDate.DayUnknown)
-                daysInTotal += isoDate.Day;
+            //int magnitude = -1;
+            //double daysInTotal = -1.0;
+            //daysInTotal = isoDate.Year * TimeDefinitions.nominalDaysInYear;
+            //if (!isoDate.MonthUnknown)
+            //    daysInTotal += isoDate.Month * TimeDefinitions.nominalDaysInMonth;
+            //if (!isoDate.DayUnknown)
+            //    daysInTotal += isoDate.Day;
 
-            return daysInTotal;
+            //return daysInTotal;
+            return this.isoDate.GetDays();
         }
 
         private const string units = "d";

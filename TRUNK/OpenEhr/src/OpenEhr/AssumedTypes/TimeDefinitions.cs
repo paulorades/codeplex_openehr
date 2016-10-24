@@ -99,6 +99,32 @@ namespace OpenEhr.AssumedTypes
             return fs >= 0.0 && fs < 1.0;
         }
 
+        protected int GetTotalDaysOfYear(int year)
+        {
+            DesignByContract.Check.Require(year > 0, "year must be greater than 0");
+
+            int numberOf400s = year / 400;
+            int numberOf100s = year / 100;
+            int numberOf4s = year / 4;
+
+            int numberOfleapYears = numberOf4s - (numberOf100s - numberOf400s);
+
+            return year * 365 + numberOfleapYears;
+        }
+
+        protected int GetTotalDaysOfMonthInAYear(int year, int month)
+        {
+            DesignByContract.Check.Require(month > 0, "month must be greater than 0");
+            int totalDays = 0;
+            int index = 1;
+            while (index < month)
+            {
+                totalDays += DateTime.DaysInMonth(year, index);
+                index++;
+            }
+
+            return totalDays;
+        }
 
     }
 }

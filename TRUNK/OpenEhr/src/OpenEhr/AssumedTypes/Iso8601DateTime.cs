@@ -856,10 +856,11 @@ namespace OpenEhr.AssumedTypes
         internal double GetDateTimeSeconds()
         {
             double magnitude = -1.0;
-            double daysInTotal = this.year * TimeDefinitions.nominalDaysInYear;
+            double daysInTotal = GetTotalDaysOfYear(this.year - 1);
             if (!this.MonthUnknown)
             {
-                daysInTotal += this.Month * TimeDefinitions.nominalDaysInMonth;
+                daysInTotal += GetTotalDaysOfMonthInAYear(this.year, this.month);
+
                 if (!this.DayUnknown)
                     daysInTotal += this.Day;
             }
@@ -875,13 +876,13 @@ namespace OpenEhr.AssumedTypes
                 // %HYYKA%
                 // CM: 5/6/07
                 //magnitude += this.Hour * TimeDefinitions.minutesInHour + TimeDefinitions.secondsInMinute;
-                magnitude += this.Hour * TimeDefinitions.minutesInHour*TimeDefinitions.secondsInMinute;
+                magnitude += this.Hour * TimeDefinitions.minutesInHour * TimeDefinitions.secondsInMinute;
                 /////////////////////////
                 if (!this.MinuteUnknown)
                     magnitude += this.Minute * TimeDefinitions.secondsInMinute;
                 // CM: 5/6/7
                 if (!this.SecondUnknown)
-                    magnitude += this.second;
+                    magnitude += this.Second;
                 if (this.HasFractionalSecond)
                     magnitude += this.FractionalSecond;
 
