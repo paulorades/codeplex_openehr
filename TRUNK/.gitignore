@@ -1,0 +1,1862 @@
+
+#Visual Studio files
+*.[Oo]bj
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+*.opensdf
+*.unsuccessfulbuild
+ipch/
+obj/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+ve-*.tmp
+
+# /
+/BuildAll.log
+
+# /AppFx/
+/AppFx/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/_ReSharper.OceanEhr.SampleApplication
+/AppFx/OceanEhr.SampleApplication.4.5.resharper.user
+/AppFx/OceanEhr.SampleApplication.suo
+/AppFx/_UpgradeReport_Files
+/AppFx/OceanEhr.SampleApplication.5.0.ReSharper.user
+/AppFx/OceanEhr.SampleApplication.5.1.ReSharper.user
+
+# /AppFx/Src/
+/AppFx/Src/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/EhrApplication.Demographic/
+/AppFx/Src/EhrApplication.Demographic/bin
+/AppFx/Src/EhrApplication.Demographic/obj
+
+# /AppFx/Src/Modules/
+/AppFx/Src/Modules/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/Modules/AdminAccessRules/
+/AppFx/Src/Modules/AdminAccessRules/bin
+/AppFx/Src/Modules/AdminAccessRules/obj
+
+# /AppFx/Src/Modules/AuditLogModule/
+/AppFx/Src/Modules/AuditLogModule/bin
+/AppFx/Src/Modules/AuditLogModule/obj
+
+# /AppFx/Src/Modules/BusinessRule/
+/AppFx/Src/Modules/BusinessRule/bin
+/AppFx/Src/Modules/BusinessRule/obj
+/AppFx/Src/Modules/BusinessRule/BusinessRuleModule.csproj.user
+
+# /AppFx/Src/Modules/ClientModule/
+/AppFx/Src/Modules/ClientModule/bin
+/AppFx/Src/Modules/ClientModule/obj
+/AppFx/Src/Modules/ClientModule/Bin
+
+# /AppFx/Src/Modules/EhrAdmin/
+/AppFx/Src/Modules/EhrAdmin/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Src/Modules/EhrAdmin/obj
+/AppFx/Src/Modules/EhrAdmin/bin
+/AppFx/Src/Modules/EhrAdmin/EhrAdmin.csproj.user
+/AppFx/Src/Modules/EhrAdmin/Bin
+
+# /AppFx/Src/Modules/EhrAdmin/Properties/
+/AppFx/Src/Modules/EhrAdmin/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/Modules/EhrLogin/
+/AppFx/Src/Modules/EhrLogin/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Src/Modules/EhrLogin/obj
+/AppFx/Src/Modules/EhrLogin/bin
+/AppFx/Src/Modules/EhrLogin/Bin
+
+# /AppFx/Src/Modules/EhrLogin/Properties/
+/AppFx/Src/Modules/EhrLogin/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/Modules/EhrView/
+/AppFx/Src/Modules/EhrView/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Src/Modules/EhrView/obj
+/AppFx/Src/Modules/EhrView/Bin
+
+# /AppFx/Src/Modules/EhrView/Properties/
+/AppFx/Src/Modules/EhrView/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/Modules/FakeModule/
+/AppFx/Src/Modules/FakeModule/bin
+/AppFx/Src/Modules/FakeModule/obj
+/AppFx/Src/Modules/FakeModule/FakeModule.csproj.user
+/AppFx/Src/Modules/FakeModule/Bin
+
+# /AppFx/Src/Modules/KnowledgeAdmin/
+/AppFx/Src/Modules/KnowledgeAdmin/bin
+/AppFx/Src/Modules/KnowledgeAdmin/obj
+
+# /AppFx/Src/Modules/PopulationView/
+/AppFx/Src/Modules/PopulationView/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Src/Modules/PopulationView/obj
+/AppFx/Src/Modules/PopulationView/Bin
+
+# /AppFx/Src/Modules/PopulationView/Properties/
+/AppFx/Src/Modules/PopulationView/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/Modules/ProviderModule/
+/AppFx/Src/Modules/ProviderModule/bin
+/AppFx/Src/Modules/ProviderModule/obj
+/AppFx/Src/Modules/ProviderModule/Bin
+
+# /AppFx/Src/OceanEhr.EhrApplication.Framework/
+/AppFx/Src/OceanEhr.EhrApplication.Framework/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Src/OceanEhr.EhrApplication.Framework/bin
+/AppFx/Src/OceanEhr.EhrApplication.Framework/obj
+/AppFx/Src/OceanEhr.EhrApplication.Framework/OceanEhr.EhrApplication.Framework.csproj.user
+
+# /AppFx/Src/OceanEhr.EhrApplication.Framework/Properties/
+/AppFx/Src/OceanEhr.EhrApplication.Framework/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/
+/AppFx/Src/OceanEhr.SampleApplication/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Src/OceanEhr.SampleApplication/bin
+/AppFx/Src/OceanEhr.SampleApplication/obj
+/AppFx/Src/OceanEhr.SampleApplication/Bin
+/AppFx/Src/OceanEhr.SampleApplication/Modules
+/AppFx/Src/OceanEhr.SampleApplication/OceanEhr.SampleApplication.csproj.user
+/AppFx/Src/OceanEhr.SampleApplication/OceanEhr.SampleApplication.Publish.xml
+/AppFx/Src/OceanEhr.SampleApplication/SampleApplication.log
+
+# /AppFx/Src/OceanEhr.SampleApplication/App_Data/
+/AppFx/Src/OceanEhr.SampleApplication/App_Data/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Content/
+/AppFx/Src/OceanEhr.SampleApplication/Content/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Controllers/
+/AppFx/Src/OceanEhr.SampleApplication/Controllers/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Models/
+/AppFx/Src/OceanEhr.SampleApplication/Models/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Properties/
+/AppFx/Src/OceanEhr.SampleApplication/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Scripts/
+/AppFx/Src/OceanEhr.SampleApplication/Scripts/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Views/
+/AppFx/Src/OceanEhr.SampleApplication/Views/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Src/OceanEhr.SampleApplication/Views/Shared/
+/AppFx/Src/OceanEhr.SampleApplication/Views/Shared/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Test/
+/AppFx/Test/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Test/AppFx.IntegrationTests/
+/AppFx/Test/AppFx.IntegrationTests/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Test/AppFx.IntegrationTests/bin
+/AppFx/Test/AppFx.IntegrationTests/obj
+
+# /AppFx/Test/AppFx.IntegrationTests/KnowledgeAdmin/CodeSystemData/
+/AppFx/Test/AppFx.IntegrationTests/KnowledgeAdmin/CodeSystemData/other
+
+# /AppFx/Test/AppFx.IntegrationTests/Properties/
+/AppFx/Test/AppFx.IntegrationTests/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Test/AppFx.Tests.Fakes/
+/AppFx/Test/AppFx.Tests.Fakes/bin
+/AppFx/Test/AppFx.Tests.Fakes/obj
+
+# /AppFx/Test/AppFx.UITests/
+/AppFx/Test/AppFx.UITests/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Test/AppFx.UITests/bin
+/AppFx/Test/AppFx.UITests/obj
+
+# /AppFx/Test/AppFx.UITests/Properties/
+/AppFx/Test/AppFx.UITests/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /AppFx/Test/AppFx.UnitTests/
+/AppFx/Test/AppFx.UnitTests/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+/AppFx/Test/AppFx.UnitTests/bin
+/AppFx/Test/AppFx.UnitTests/obj
+
+# /AppFx/Test/AppFx.UnitTests/Properties/
+/AppFx/Test/AppFx.UnitTests/Properties/*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db Thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs CVS .CVS .cvs release Release debug Debug ignore Ignore bin Bin obj Obj *.csproj.user *.user
+
+# /ArtefactBuilders/src/Adl2XsdConverter/
+/ArtefactBuilders/src/Adl2XsdConverter/bin
+/ArtefactBuilders/src/Adl2XsdConverter/obj
+
+# /ArtefactBuilders/src/ArchetypeBuilder/
+/ArtefactBuilders/src/ArchetypeBuilder/bin
+/ArtefactBuilders/src/ArchetypeBuilder/obj
+
+# /ArtefactBuilders/src/ArtefactBuilders/
+/ArtefactBuilders/src/ArtefactBuilders/bin
+/ArtefactBuilders/src/ArtefactBuilders/obj
+
+# /ArtefactBuilders/src/ArtefactBuilders/Transforms/
+/ArtefactBuilders/src/ArtefactBuilders/Transforms/test.cs
+
+# /ArtefactBuilders/src/OperationalTemplateBuilderWs/
+/ArtefactBuilders/src/OperationalTemplateBuilderWs/bin
+
+# /ArtefactBuilders/src/OperationalTemplateBuilderWs/obj/
+/ArtefactBuilders/src/OperationalTemplateBuilderWs/obj/Debug
+/ArtefactBuilders/src/OperationalTemplateBuilderWs/obj/OperationalTemplateBuilderWs.csproj.FileListAbsolute.txt
+/ArtefactBuilders/src/OperationalTemplateBuilderWs/obj/Release
+
+# /ArtefactBuilders/src/OptWsSetup/
+/ArtefactBuilders/src/OptWsSetup/Debug
+/ArtefactBuilders/src/OptWsSetup/Release
+
+# /ArtefactBuilders/src/SchemaValidator/
+/ArtefactBuilders/src/SchemaValidator/bin
+/ArtefactBuilders/src/SchemaValidator/obj
+
+# /ArtefactBuilders/src/XsdValidator/
+/ArtefactBuilders/src/XsdValidator/bin
+/ArtefactBuilders/src/XsdValidator/obj
+
+# /ArtefactBuilders/test/
+/ArtefactBuilders/test/*.suo
+/ArtefactBuilders/test/TdoBuildTest
+/ArtefactBuilders/test/TdoBuildTest.sln
+
+# /ArtefactBuilders/test/ArtefactBuilderTest/
+/ArtefactBuilders/test/ArtefactBuilderTest/bin
+/ArtefactBuilders/test/ArtefactBuilderTest/obj
+/ArtefactBuilders/test/ArtefactBuilderTest/*.user
+
+# /ArtefactBuilders/test/ArtefactBuilderTest/ExpectedTdo/
+/ArtefactBuilders/test/ArtefactBuilderTest/ExpectedTdo/metabolic_report_test.cs
+
+# /ArtefactBuilders/test/ArtefactBuilderTest/OptWsTest/
+/ArtefactBuilders/test/ArtefactBuilderTest/OptWsTest/HeatherBpOptSoapRequest_lisav1.xml
+/ArtefactBuilders/test/ArtefactBuilderTest/OptWsTest/HeatherBpOptSoapRequest_sebv1.xml
+
+# /ArtefactBuilders/test/ArtefactBuilderTest/templates/
+/ArtefactBuilders/test/ArtefactBuilderTest/templates/TDO_metabolic_report_test.cs
+/ArtefactBuilders/test/ArtefactBuilderTest/templates/TDO_SerefTestTemplate_test.java
+
+# /ArtefactBuilders/test/TdoBuilder/
+/ArtefactBuilders/test/TdoBuilder/obj
+/ArtefactBuilders/test/TdoBuilder/*.user
+
+# /ArtefactBuilders/test/TdoBuilder/bin/
+/ArtefactBuilders/test/TdoBuilder/bin/Debug
+
+# /Common/
+/Common/OceanEhr.TerminologyService
+
+# /Common/CcvCommon/
+/Common/CcvCommon/bin
+/Common/CcvCommon/obj
+
+# /Common/Common.Caching/
+/Common/Common.Caching/bin
+/Common/Common.Caching/obj
+
+# /Common/Common.Caching.Database/
+/Common/Common.Caching.Database/bin
+/Common/Common.Caching.Database/obj
+
+# /Common/KnowledgeTools.Common/src/CommandLineParser/
+/Common/KnowledgeTools.Common/src/CommandLineParser/bin
+/Common/KnowledgeTools.Common/src/CommandLineParser/obj
+
+# /Common/KnowledgeTools.Common/src/ProductActivation/
+/Common/KnowledgeTools.Common/src/ProductActivation/bin
+/Common/KnowledgeTools.Common/src/ProductActivation/obj
+
+# /Common/KnowledgeTools.Common/src/Utils/
+/Common/KnowledgeTools.Common/src/Utils/bin
+/Common/KnowledgeTools.Common/src/Utils/obj
+
+# /Common/OceanEhr.Common/
+/Common/OceanEhr.Common/bin
+/Common/OceanEhr.Common/obj
+/Common/OceanEhr.Common/*.user
+
+# /Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/OceanEhr.snk
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/bin
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/obj
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/[Bb]in
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/[Dd]ebug
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/[Rr]elease
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/*.user
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/*.aps
+/Common/OceanEhr.Common.Extensions/Src/OpenEhr.Common.Extensions/*.eto
+
+# /Common/OceanEhr.Common.Mapping/
+/Common/OceanEhr.Common.Mapping/bin
+/Common/OceanEhr.Common.Mapping/obj
+
+# /Common/OceanEhr.Common.Repository/
+/Common/OceanEhr.Common.Repository/bin
+/Common/OceanEhr.Common.Repository/obj
+
+# /ComposEhr/lib/
+/ComposEhr/lib/*.dll
+
+# /ComposEhr/src/
+/ComposEhr/src/*.suo
+/ComposEhr/src/OtsDataCaching
+
+# /ComposEhr/src/FormDefinitionModel/
+/ComposEhr/src/FormDefinitionModel/bin
+/ComposEhr/src/FormDefinitionModel/obj
+
+# /ComposEhr/src/OfmMetaDataBuilder/
+/ComposEhr/src/OfmMetaDataBuilder/bin
+/ComposEhr/src/OfmMetaDataBuilder/obj
+
+# /ComposEhr/src/WebControls/
+/ComposEhr/src/WebControls/bin
+/ComposEhr/src/WebControls/obj
+/ComposEhr/src/WebControls/newctrls
+/ComposEhr/src/WebControls/oldctrls
+
+# /ComposEhr/src/WebControls/TerminologySupport/
+/ComposEhr/src/WebControls/TerminologySupport/*.csold
+
+# /ComposEhr/src/WinControls/
+/ComposEhr/src/WinControls/bin
+/ComposEhr/src/WinControls/obj
+
+# /ComposEhr/src/WinControls/Resources/
+/ComposEhr/src/WinControls/Resources/*.db
+
+# /ComposEhr/test/ComposEhrDemo/
+/ComposEhr/test/ComposEhrDemo/bin
+/ComposEhr/test/ComposEhrDemo/obj
+/ComposEhr/test/ComposEhrDemo/ComposEhrDemo.suo
+
+# /ComposEhr/test/ComposeEhrTestForms/
+/ComposEhr/test/ComposeEhrTestForms/obj
+/ComposEhr/test/ComposeEhrTestForms/bin
+
+# /ComposEhr/test/EhrEntryTest/
+/ComposEhr/test/EhrEntryTest/Bin
+/ComposEhr/test/EhrEntryTest/*.suo
+/ComposEhr/test/EhrEntryTest/App_Data
+
+# /Demographics/
+/Demographics/lib
+/Demographics/*.suo
+/Demographics/_UpgradeReport_Files
+
+# /Demographics/src/
+/Demographics/src/*.suo
+
+# /Demographics/src/DemAdaptor/
+/Demographics/src/DemAdaptor/bin
+/Demographics/src/DemAdaptor/obj
+
+# /Demographics/src/DemographicDbSetup/
+/Demographics/src/DemographicDbSetup/bin
+/Demographics/src/DemographicDbSetup/obj
+
+# /Demographics/src/DemographicService/DemographicService.Directory/
+/Demographics/src/DemographicService/DemographicService.Directory/bin
+/Demographics/src/DemographicService/DemographicService.Directory/obj
+/Demographics/src/DemographicService/DemographicService.Directory/OceanEhr.snk
+/Demographics/src/DemographicService/DemographicService.Directory/[Bb]in
+/Demographics/src/DemographicService/DemographicService.Directory/[Dd]ebug
+/Demographics/src/DemographicService/DemographicService.Directory/[Rr]elease
+/Demographics/src/DemographicService/DemographicService.Directory/*.user
+/Demographics/src/DemographicService/DemographicService.Directory/*.aps
+/Demographics/src/DemographicService/DemographicService.Directory/*.eto
+
+# /Demographics/src/DemographicService/DemographicService.Model/
+/Demographics/src/DemographicService/DemographicService.Model/bin
+/Demographics/src/DemographicService/DemographicService.Model/obj
+/Demographics/src/DemographicService/DemographicService.Model/OceanEhr.snk
+/Demographics/src/DemographicService/DemographicService.Model/New Folder
+/Demographics/src/DemographicService/DemographicService.Model/[Bb]in
+/Demographics/src/DemographicService/DemographicService.Model/[Dd]ebug
+/Demographics/src/DemographicService/DemographicService.Model/[Rr]elease
+/Demographics/src/DemographicService/DemographicService.Model/*.user
+/Demographics/src/DemographicService/DemographicService.Model/*.aps
+/Demographics/src/DemographicService/DemographicService.Model/*.eto
+
+# /Demographics/src/DemographicService/DemographicService.Repository/
+/Demographics/src/DemographicService/DemographicService.Repository/bin
+/Demographics/src/DemographicService/DemographicService.Repository/Model
+/Demographics/src/DemographicService/DemographicService.Repository/obj
+/Demographics/src/DemographicService/DemographicService.Repository/OceanEhr.snk
+/Demographics/src/DemographicService/DemographicService.Repository/[Bb]in
+/Demographics/src/DemographicService/DemographicService.Repository/[Dd]ebug
+/Demographics/src/DemographicService/DemographicService.Repository/[Rr]elease
+/Demographics/src/DemographicService/DemographicService.Repository/*.user
+/Demographics/src/DemographicService/DemographicService.Repository/*.aps
+/Demographics/src/DemographicService/DemographicService.Repository/*.eto
+
+# /Demographics/src/DemographicService/DemographicService.Repository/Mappers/
+/Demographics/src/DemographicService/DemographicService.Repository/Mappers/MsSql
+
+# /Demographics/src/DemographicService/DemographicService.Service/
+/Demographics/src/DemographicService/DemographicService.Service/bin
+/Demographics/src/DemographicService/DemographicService.Service/obj
+/Demographics/src/DemographicService/DemographicService.Service/[Bb]in
+/Demographics/src/DemographicService/DemographicService.Service/[Dd]ebug
+/Demographics/src/DemographicService/DemographicService.Service/[Rr]elease
+/Demographics/src/DemographicService/DemographicService.Service/*.user
+/Demographics/src/DemographicService/DemographicService.Service/*.aps
+/Demographics/src/DemographicService/DemographicService.Service/*.eto
+
+# /Demographics/src/DemographicsCommon/
+/Demographics/src/DemographicsCommon/bin
+/Demographics/src/DemographicsCommon/obj
+
+# /Demographics/src/DemographicsWs/
+/Demographics/src/DemographicsWs/Bin
+
+# /Demographics/src/DemographicsWsClient/
+/Demographics/src/DemographicsWsClient/bin
+/Demographics/src/DemographicsWsClient/obj
+
+# /Demographics/src/DemographicsWsSetup/
+/Demographics/src/DemographicsWsSetup/Debug
+/Demographics/src/DemographicsWsSetup/Release
+
+# /Demographics/src/IHE.Infrastructure/
+/Demographics/src/IHE.Infrastructure/bin
+/Demographics/src/IHE.Infrastructure/obj
+
+# /Demographics/src/OceanEhr.PartyBank/
+/Demographics/src/OceanEhr.PartyBank/bin
+/Demographics/src/OceanEhr.PartyBank/obj
+/Demographics/src/OceanEhr.PartyBank/*.user
+/Demographics/src/OceanEhr.PartyBank/OceanEhr.snk
+/Demographics/src/OceanEhr.PartyBank/New Folder
+/Demographics/src/OceanEhr.PartyBank/[Bb]in
+/Demographics/src/OceanEhr.PartyBank/[Dd]ebug
+/Demographics/src/OceanEhr.PartyBank/[Rr]elease
+/Demographics/src/OceanEhr.PartyBank/*.aps
+/Demographics/src/OceanEhr.PartyBank/*.eto
+/Demographics/src/OceanEhr.PartyBank/Repositories
+
+# /Demographics/test/DemographicsIntegrationTests/
+/Demographics/test/DemographicsIntegrationTests/bin
+/Demographics/test/DemographicsIntegrationTests/obj
+/Demographics/test/DemographicsIntegrationTests/[Bb]in
+/Demographics/test/DemographicsIntegrationTests/[Dd]ebug
+/Demographics/test/DemographicsIntegrationTests/[Rr]elease
+/Demographics/test/DemographicsIntegrationTests/*.user
+/Demographics/test/DemographicsIntegrationTests/*.aps
+/Demographics/test/DemographicsIntegrationTests/*.eto
+
+# /Demographics/test/DemographicsServiceTests/
+/Demographics/test/DemographicsServiceTests/bin
+/Demographics/test/DemographicsServiceTests/obj
+/Demographics/test/DemographicsServiceTests/*.user
+/Demographics/test/DemographicsServiceTests/[Bb]in
+/Demographics/test/DemographicsServiceTests/[Dd]ebug
+/Demographics/test/DemographicsServiceTests/[Rr]elease
+/Demographics/test/DemographicsServiceTests/*.aps
+/Demographics/test/DemographicsServiceTests/*.eto
+
+# /Demographics/test/IHE.Infrastructure.Test/
+/Demographics/test/IHE.Infrastructure.Test/bin
+/Demographics/test/IHE.Infrastructure.Test/obj
+
+# /DesignByContract/
+/DesignByContract/bin
+
+# /DesignByContract/src/
+/DesignByContract/src/bin
+/DesignByContract/src/obj
+
+# /EhrAdapter/
+/EhrAdapter/assembly.old
+/EhrAdapter/design.old
+
+# /EhrAdapter/src/
+/EhrAdapter/src/EhrAdapter.suo
+
+# /EhrAdapter/src/BizTalk/
+/EhrAdapter/src/BizTalk/*.suo
+/EhrAdapter/src/BizTalk/TestResults
+/EhrAdapter/src/BizTalk/Solutions.old
+
+# /EhrAdapter/src/BizTalk/BaseAdapter/
+/EhrAdapter/src/BizTalk/BaseAdapter/bin
+/EhrAdapter/src/BizTalk/BaseAdapter/obj
+
+# /EhrAdapter/src/BizTalk/EIS/
+/EhrAdapter/src/BizTalk/EIS/bin
+/EhrAdapter/src/BizTalk/EIS/obj
+/EhrAdapter/src/BizTalk/EIS/*.user
+
+# /EhrAdapter/src/BizTalk/EhrAdapter/
+/EhrAdapter/src/BizTalk/EhrAdapter/*.suo
+
+# /EhrAdapter/src/BizTalk/EhrAdapter/Common/
+/EhrAdapter/src/BizTalk/EhrAdapter/Common/bin
+/EhrAdapter/src/BizTalk/EhrAdapter/Common/obj
+
+# /EhrAdapter/src/BizTalk/EhrAdapter/EhrAdapter.Pipelines/
+/EhrAdapter/src/BizTalk/EhrAdapter/EhrAdapter.Pipelines/bin
+/EhrAdapter/src/BizTalk/EhrAdapter/EhrAdapter.Pipelines/obj
+
+# /EhrAdapter/src/BizTalk/EhrAdapter/Management/
+/EhrAdapter/src/BizTalk/EhrAdapter/Management/bin
+/EhrAdapter/src/BizTalk/EhrAdapter/Management/obj
+/EhrAdapter/src/BizTalk/EhrAdapter/Management/Release
+
+# /EhrAdapter/src/BizTalk/EhrAdapter/Runtime/
+/EhrAdapter/src/BizTalk/EhrAdapter/Runtime/bin
+/EhrAdapter/src/BizTalk/EhrAdapter/Runtime/obj
+/EhrAdapter/src/BizTalk/EhrAdapter/Runtime/*.user
+/EhrAdapter/src/BizTalk/EhrAdapter/Runtime/*.suo
+/EhrAdapter/src/BizTalk/EhrAdapter/Runtime/Copy of EhrAdapter.sln
+
+# /EhrAdapter/src/BizTalk/EhrAdapter/Schemas/
+/EhrAdapter/src/BizTalk/EhrAdapter/Schemas/bin
+/EhrAdapter/src/BizTalk/EhrAdapter/Schemas/obj
+/EhrAdapter/src/BizTalk/EhrAdapter/Schemas/*.user
+
+# /EhrAdapter/src/BizTalk/HL7/
+/EhrAdapter/src/BizTalk/HL7/*.suo
+
+# /EhrAdapter/src/BizTalk/HL7/BTAHL7Orchestrations/
+/EhrAdapter/src/BizTalk/HL7/BTAHL7Orchestrations/bin
+/EhrAdapter/src/BizTalk/HL7/BTAHL7Orchestrations/obj
+/EhrAdapter/src/BizTalk/HL7/BTAHL7Orchestrations/*.user
+/EhrAdapter/src/BizTalk/HL7/BTAHL7Orchestrations/old
+
+# /EhrAdapter/src/BizTalk/HL7/BTAHL7V231Body/
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Body/bin
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Body/obj
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Body/*.user
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Body/old
+
+# /EhrAdapter/src/BizTalk/HL7/BTAHL7V231Common/
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Common/bin
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Common/obj
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V231Common/*.user
+
+# /EhrAdapter/src/BizTalk/HL7/BTAHL7V24Body/
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V24Body/bin
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V24Body/obj
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V24Body/*.user
+
+# /EhrAdapter/src/BizTalk/HL7/BTAHL7V24Common/
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V24Common/bin
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V24Common/obj
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V24Common/*.user
+
+# /EhrAdapter/src/BizTalk/HL7/BTAHL7V2XCommon/
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V2XCommon/bin
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V2XCommon/obj
+/EhrAdapter/src/BizTalk/HL7/BTAHL7V2XCommon/*.user
+
+# /EhrAdapter/src/BizTalk/HL7/BizTalk.HL7.V3/
+/EhrAdapter/src/BizTalk/HL7/BizTalk.HL7.V3/bin
+/EhrAdapter/src/BizTalk/HL7/BizTalk.HL7.V3/obj
+
+# /EhrAdapter/src/BizTalk/IHE/Infrastructure/IHE.Infrastructure.XDS.Piplines/
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/IHE.Infrastructure.XDS.Piplines/bin
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/IHE.Infrastructure.XDS.Piplines/obj
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/IHE.Infrastructure.XDS.Piplines/*.user
+
+# /EhrAdapter/src/BizTalk/IHE/Infrastructure/IdentityWS/
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/IdentityWS/*.suo
+
+# /EhrAdapter/src/BizTalk/IHE/Infrastructure/XDS/
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/XDS/bin
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/XDS/obj
+/EhrAdapter/src/BizTalk/IHE/Infrastructure/XDS/*.user
+
+# /EhrAdapter/src/BizTalk/PDQ/
+/EhrAdapter/src/BizTalk/PDQ/bin
+/EhrAdapter/src/BizTalk/PDQ/obj
+/EhrAdapter/src/BizTalk/PDQ/*.user
+/EhrAdapter/src/BizTalk/PDQ/old
+
+# /EhrAdapter/src/BizTalk/SSOConfiguration/
+/EhrAdapter/src/BizTalk/SSOConfiguration/*.suo
+
+# /EhrAdapter/src/BizTalk/SSOConfiguration/SSOConfigurationEditor/
+/EhrAdapter/src/BizTalk/SSOConfiguration/SSOConfigurationEditor/bin
+/EhrAdapter/src/BizTalk/SSOConfiguration/SSOConfigurationEditor/obj
+
+# /EhrAdapter/src/BizTalk/SSOConfiguration/SsoConfiguration.Design/
+/EhrAdapter/src/BizTalk/SSOConfiguration/SsoConfiguration.Design/bin
+/EhrAdapter/src/BizTalk/SSOConfiguration/SsoConfiguration.Design/obj
+
+# /EhrAdapter/src/BizTalk/SSOConfiguration/SsoConfigurationSource/
+/EhrAdapter/src/BizTalk/SSOConfiguration/SsoConfigurationSource/bin
+/EhrAdapter/src/BizTalk/SSOConfiguration/SsoConfigurationSource/obj
+
+# /EhrAdapter/src/BizTalk/Solutions/
+/EhrAdapter/src/BizTalk/Solutions/*.suo
+
+# /EhrAdapter/src/BizTalk/Solutions/Interop09/
+/EhrAdapter/src/BizTalk/Solutions/Interop09/*.suo
+
+# /EhrAdapter/src/BizTalk/Solutions/Interop09/Interop09.Orchestrations/
+/EhrAdapter/src/BizTalk/Solutions/Interop09/Interop09.Orchestrations/bin
+/EhrAdapter/src/BizTalk/Solutions/Interop09/Interop09.Orchestrations/obj
+/EhrAdapter/src/BizTalk/Solutions/Interop09/Interop09.Orchestrations/*.user
+
+# /EhrAdapter/src/BizTalk/Solutions/Interoperability07/CdaExtractWS/
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/CdaExtractWS/bin
+
+# /EhrAdapter/src/BizTalk/Solutions/Interoperability07/Orchestrations/
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/Orchestrations/bin
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/Orchestrations/*.user
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/Orchestrations/obj
+
+# /EhrAdapter/src/BizTalk/Solutions/Interoperability07/Templates/
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/Templates/bin
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/Templates/*.user
+/EhrAdapter/src/BizTalk/Solutions/Interoperability07/Templates/obj
+
+# /EhrAdapter/src/BizTalk/openEHR/BTAEHRSchemas/
+/EhrAdapter/src/BizTalk/openEHR/BTAEHRSchemas/bin
+/EhrAdapter/src/BizTalk/openEHR/BTAEHRSchemas/obj
+/EhrAdapter/src/BizTalk/openEHR/BTAEHRSchemas/*.user
+/EhrAdapter/src/BizTalk/openEHR/BTAEHRSchemas/CreateEhr.xsd
+
+# /EhrAdapter/src/BizTalk/openEHR/openEHR Schemas/
+/EhrAdapter/src/BizTalk/openEHR/openEHR Schemas/bin
+/EhrAdapter/src/BizTalk/openEHR/openEHR Schemas/obj
+/EhrAdapter/src/BizTalk/openEHR/openEHR Schemas/*.user
+
+# /EhrAdapter/src/EhrAdapterCore/
+/EhrAdapter/src/EhrAdapterCore/Copy of LaboratoryCompositionMapping.xml
+/EhrAdapter/src/EhrAdapterCore/Copy of ORUmapping.xml
+/EhrAdapter/src/EhrAdapterCore/bin
+/EhrAdapter/src/EhrAdapterCore/obj
+
+# /EhrAdapter/src/EhrAdapterMonitor/
+/EhrAdapter/src/EhrAdapterMonitor/bin
+/EhrAdapter/src/EhrAdapterMonitor/obj
+
+# /EhrAdapter/src/EhrAdapterRemote/
+/EhrAdapter/src/EhrAdapterRemote/bin
+/EhrAdapter/src/EhrAdapterRemote/obj
+
+# /EhrAdapter/src/EhrAdapterSetup/
+/EhrAdapter/src/EhrAdapterSetup/Debug
+/EhrAdapter/src/EhrAdapterSetup/Release
+
+# /EhrAdapter/src/EhrAdapterSvc/
+/EhrAdapter/src/EhrAdapterSvc/_UpgradeReport_Files
+/EhrAdapter/src/EhrAdapterSvc/UpgradeLog.XML
+/EhrAdapter/src/EhrAdapterSvc/UpgradeLog2.XML
+/EhrAdapter/src/EhrAdapterSvc/UpgradeLog3.XML
+/EhrAdapter/src/EhrAdapterSvc/bin
+/EhrAdapter/src/EhrAdapterSvc/obj
+
+# /EhrAdapter/src/HL7Reader/
+/EhrAdapter/src/HL7Reader/bin
+/EhrAdapter/src/HL7Reader/obj
+
+# /EhrAdapter/src/SvcCommand/
+/EhrAdapter/src/SvcCommand/bin
+/EhrAdapter/src/SvcCommand/obj
+
+# /EhrAdapter/src/TemplateMapConverter/
+/EhrAdapter/src/TemplateMapConverter/bin
+/EhrAdapter/src/TemplateMapConverter/obj
+
+# /EhrAdapter/test/
+/EhrAdapter/test/SubjectMappingTest
+
+# /EhrAdapter/test/BizTalk/EhrAdapter.BizTalk.Test/
+/EhrAdapter/test/BizTalk/EhrAdapter.BizTalk.Test/bin
+/EhrAdapter/test/BizTalk/EhrAdapter.BizTalk.Test/obj
+
+# /EhrAdapter/test/BizTalk/EhrAdapterTest/
+/EhrAdapter/test/BizTalk/EhrAdapterTest/bin
+/EhrAdapter/test/BizTalk/EhrAdapterTest/obj
+/EhrAdapter/test/BizTalk/EhrAdapterTest/Composition.xsd
+/EhrAdapter/test/BizTalk/EhrAdapterTest/*.user
+
+# /EhrAdapter/test/BizTalk/SsoConfiguration.Test/
+/EhrAdapter/test/BizTalk/SsoConfiguration.Test/bin
+/EhrAdapter/test/BizTalk/SsoConfiguration.Test/obj
+/EhrAdapter/test/BizTalk/SsoConfiguration.Test/TestResults
+
+# /EhrAdapter/test/EhrAdapterTest/
+/EhrAdapter/test/EhrAdapterTest/Copy of ServiceForm.cs
+/EhrAdapter/test/EhrAdapterTest/bin
+/EhrAdapter/test/EhrAdapterTest/obj
+
+# /EhrAdapter/test/Kestral/
+/EhrAdapter/test/Kestral/failed
+/EhrAdapter/test/Kestral/processed
+/EhrAdapter/test/Kestral/cancelled
+
+# /EhrAdapter/test/McCauley/
+/EhrAdapter/test/McCauley/processed
+/EhrAdapter/test/McCauley/cancelled
+/EhrAdapter/test/McCauley/failed
+
+# /EhrAdapter/test/Obstetrix/
+/EhrAdapter/test/Obstetrix/failed
+/EhrAdapter/test/Obstetrix/processed
+/EhrAdapter/test/Obstetrix/cancelled
+
+# /EhrAdapter/test/TemplateMapConverterConsole/
+/EhrAdapter/test/TemplateMapConverterConsole/obj
+/EhrAdapter/test/TemplateMapConverterConsole/bin
+
+# /EhrAdapterWS/src/
+/EhrAdapterWS/src/*.suo
+
+# /EhrAdapterWS/src/EhrAdapterWS/
+/EhrAdapterWS/src/EhrAdapterWS/Bin
+
+# /EhrAdapterWS/src/TemplateDataDocument/
+/EhrAdapterWS/src/TemplateDataDocument/bin
+/EhrAdapterWS/src/TemplateDataDocument/obj
+
+# /EhrAdapterWS/src/TemplateMessageReceiver/
+/EhrAdapterWS/src/TemplateMessageReceiver/bin
+/EhrAdapterWS/src/TemplateMessageReceiver/obj
+
+# /EhrAdapterWS/test/
+/EhrAdapterWS/test/*.suo
+
+# /EhrAdapterWS/test/EhrAdapterWsClient/
+/EhrAdapterWS/test/EhrAdapterWsClient/bin
+/EhrAdapterWS/test/EhrAdapterWsClient/obj
+
+# /EhrAuditLog/
+/EhrAuditLog/GetTestEventsQuery.sql
+/EhrAuditLog/GetTestTop20EventTypeCodes.sql
+/EhrAuditLog/testaudit.xml
+/EhrAuditLog/_ReSharper.EhrAuditLogSimulation
+/EhrAuditLog/_ReSharper.EhrAuditLogTest
+/EhrAuditLog/EhrAuditLogSimulation.5.0.ReSharper.user
+/EhrAuditLog/EhrAuditLogSimulation.suo
+/EhrAuditLog/EhrAuditLogTest.5.0.ReSharper.user
+/EhrAuditLog/EhrAuditLogTest.5.1.ReSharper.user
+/EhrAuditLog/EhrAuditLogTest.suo
+
+# /EhrAuditLog/src/AuditEventInterceptor/
+/EhrAuditLog/src/AuditEventInterceptor/bin
+/EhrAuditLog/src/AuditEventInterceptor/obj
+
+# /EhrAuditLog/src/AuditLogRCService/
+/EhrAuditLog/src/AuditLogRCService/bin
+/EhrAuditLog/src/AuditLogRCService/obj
+
+# /EhrAuditLog/src/EhrAuditDatabase/
+/EhrAuditLog/src/EhrAuditDatabase/bin
+/EhrAuditLog/src/EhrAuditDatabase/obj
+/EhrAuditLog/src/EhrAuditDatabase/New Folder
+
+# /EhrAuditLog/src/EhrAuditLog/
+/EhrAuditLog/src/EhrAuditLog/bin
+/EhrAuditLog/src/EhrAuditLog/obj
+
+# /EhrAuditLog/src/EhrAuditLogCommon/
+/EhrAuditLog/src/EhrAuditLogCommon/bin
+/EhrAuditLog/src/EhrAuditLogCommon/obj
+/EhrAuditLog/src/EhrAuditLogCommon/EhrAuditLogCommon.csproj.user
+
+# /EhrAuditLog/src/EhrAuditLogConsumer/
+/EhrAuditLog/src/EhrAuditLogConsumer/bin
+/EhrAuditLog/src/EhrAuditLogConsumer/obj
+/EhrAuditLog/src/EhrAuditLogConsumer/EhrAuditLogConsumer.csproj.user
+
+# /EhrAuditLog/test/EhrAuditApp/
+/EhrAuditLog/test/EhrAuditApp/obj
+/EhrAuditLog/test/EhrAuditApp/bin
+
+# /EhrAuditLog/test/EhrAuditLog.IntegrationTests/
+/EhrAuditLog/test/EhrAuditLog.IntegrationTests/bin
+/EhrAuditLog/test/EhrAuditLog.IntegrationTests/obj
+
+# /EhrAuditLog/test/EhrAuditLog.Unit/
+/EhrAuditLog/test/EhrAuditLog.Unit/bin
+/EhrAuditLog/test/EhrAuditLog.Unit/obj
+
+# /EhrAuditLog/test/SimpleService/
+/EhrAuditLog/test/SimpleService/obj
+/EhrAuditLog/test/SimpleService/bin
+
+# /EhrAuthentication/
+/EhrAuthentication/*.suo
+/EhrAuthentication/EhrAuthenticateClient
+/EhrAuthentication/EhrAuthenticateCommon
+/EhrAuthentication/EhrAuthentication
+/EhrAuthentication/EhrAuthenticationWebService
+/EhrAuthentication/lib
+
+# /EhrAuthentication/src/
+/EhrAuthentication/src/*.suo
+
+# /EhrAuthentication/src/EhrAuthenticateClient/
+/EhrAuthentication/src/EhrAuthenticateClient/bin
+/EhrAuthentication/src/EhrAuthenticateClient/obj
+/EhrAuthentication/src/EhrAuthenticateClient/EhrAuthenticateClient1.cs
+/EhrAuthentication/src/EhrAuthenticateClient/Web References
+
+# /EhrAuthentication/src/EhrAuthenticateCommon/
+/EhrAuthentication/src/EhrAuthenticateCommon/bin
+/EhrAuthentication/src/EhrAuthenticateCommon/*.suo
+/EhrAuthentication/src/EhrAuthenticateCommon/obj
+
+# /EhrAuthentication/src/EhrAuthentication/
+/EhrAuthentication/src/EhrAuthentication/bin
+/EhrAuthentication/src/EhrAuthentication/obj
+
+# /EhrAuthentication/src/EhrAuthenticationTest/
+/EhrAuthentication/src/EhrAuthenticationTest/*.suo
+/EhrAuthentication/src/EhrAuthenticationTest/bin
+/EhrAuthentication/src/EhrAuthenticationTest/obj
+
+# /EhrAuthentication/src/EhrAuthenticationWebService/
+/EhrAuthentication/src/EhrAuthenticationWebService/Bin
+
+# /EhrAuthentication/src/EhrAuthenticationWsSetup/
+/EhrAuthentication/src/EhrAuthenticationWsSetup/Debug
+/EhrAuthentication/src/EhrAuthenticationWsSetup/Release
+
+# /EhrAuthorisation/src/EhrAuthorisation/Authorisation/
+/EhrAuthorisation/src/EhrAuthorisation/Authorisation/bin
+/EhrAuthorisation/src/EhrAuthorisation/Authorisation/obj
+
+# /EhrBankClient/
+/EhrBankClient/lib
+/EhrBankClient/TestResults
+/EhrBankClient/Reporter.suo
+/EhrBankClient/EhrGateNUnitTest.suo
+/EhrBankClient/Bin
+/EhrBankClient/*.suo
+/EhrBankClient/extracts
+/EhrBankClient/_ReSharper.EhrGateApiTest
+/EhrBankClient/EhrGateApiTest.5.1.ReSharper.user
+/EhrBankClient/OceanEhrCommonTest.sln
+
+# /EhrBankClient/doc/
+/EhrBankClient/doc/temp
+
+# /EhrBankClient/doc/images/
+/EhrBankClient/doc/images/Thumbs.db
+
+# /EhrBankClient/doc/images/EhrBank/
+/EhrBankClient/doc/images/EhrBank/Thumbs.db
+
+# /EhrBankClient/lib/
+/EhrBankClient/lib/*.dll
+/EhrBankClient/lib/DesignByContract.xml
+/EhrBankClient/lib/Microsoft.Practices.EnterpriseLibrary.Caching.xml
+/EhrBankClient/lib/Microsoft.Practices.EnterpriseLibrary.Common.xml
+/EhrBankClient/lib/Microsoft.Practices.EnterpriseLibrary.Logging.xml
+/EhrBankClient/lib/Microsoft.Practices.ObjectBuilder.xml
+/EhrBankClient/lib/OceanEhr.Authentication.pdb
+/EhrBankClient/lib/OceanEhr.Authentication.WsClient.dll.config
+/EhrBankClient/lib/OceanEhr.Authentication.WsClient.pdb
+/EhrBankClient/lib/OceanEhr.ComposEhr.WebControls.pdb
+/EhrBankClient/lib/OceanEhr.EhrBank.pdb
+/EhrBankClient/lib/OceanEhr.EhrBank.WsClient.pdb
+/EhrBankClient/lib/OceanEhr.EhrGateApi.EhrGate.lic
+/EhrBankClient/lib/OceanEhr.EhrGateApi.pdb
+/EhrBankClient/lib/OceanEhr.EhrGateApi.xml
+/EhrBankClient/lib/OceanEhr.OpenEhrV1.pdb
+/EhrBankClient/lib/OceanEhr.OpenEhrV1.xml
+/EhrBankClient/lib/OpenEhr.V1.Its.Xml.pdb
+/EhrBankClient/lib/wse3policyCache.config
+/EhrBankClient/lib/*.pdb
+/EhrBankClient/lib/*.xml
+/EhrBankClient/lib/EhrBankServerActivation.exe
+/EhrBankClient/lib/OceanEhr.ComposEhr.WebControls.dll.config
+
+# /EhrBankClient/src/
+/EhrBankClient/src/*.suo
+/EhrBankClient/src/EhrSecurity
+/EhrBankClient/src/PrecompiledWeb
+/EhrBankClient/src/Help
+/EhrBankClient/src/_ReSharper.EhrGate
+/EhrBankClient/src/EhrGate.5.1.ReSharper.user
+
+# /EhrBankClient/src/Composer/
+/EhrBankClient/src/Composer/bin
+/EhrBankClient/src/Composer/obj
+/EhrBankClient/src/Composer/_UpgradeReport_Files
+/EhrBankClient/src/Composer/UpgradeLog.XML
+/EhrBankClient/src/Composer/UpgradeLog2.XML
+/EhrBankClient/src/Composer/UpgradeLog3.XML
+/EhrBankClient/src/Composer/*.suo
+/EhrBankClient/src/Composer/Terminology
+
+# /EhrBankClient/src/Composer/XML/
+/EhrBankClient/src/Composer/XML/Release 1
+/EhrBankClient/src/Composer/XML/BaseTypes.xsd.html
+/EhrBankClient/src/Composer/XML/schema_basetypes.zip
+/EhrBankClient/src/Composer/XML/schemaDiagrams
+
+# /EhrBankClient/src/EhrClasses/
+/EhrBankClient/src/EhrClasses/bin
+/EhrBankClient/src/EhrClasses/obj
+/EhrBankClient/src/EhrClasses/EhrClasses.cd
+/EhrBankClient/src/EhrClasses/EhrClasses.suo
+
+# /EhrBankClient/src/EhrClasses/openEHR/Data_types/Constraints/
+/EhrBankClient/src/EhrClasses/openEHR/Data_types/Constraints/Generic
+
+# /EhrBankClient/src/EhrConnection/
+/EhrBankClient/src/EhrConnection/bin
+/EhrBankClient/src/EhrConnection/obj
+
+# /EhrBankClient/src/EhrGate/
+/EhrBankClient/src/EhrGate/obj
+/EhrBankClient/src/EhrGate/bin
+/EhrBankClient/src/EhrGate/app.config
+
+# /EhrBankClient/src/EhrGate.ArchetypedBuilder/
+/EhrBankClient/src/EhrGate.ArchetypedBuilder/bin
+/EhrBankClient/src/EhrGate.ArchetypedBuilder/obj
+
+# /EhrBankClient/src/EhrGate.Common/
+/EhrBankClient/src/EhrGate.Common/bin
+/EhrBankClient/src/EhrGate.Common/obj
+
+# /EhrBankClient/src/EhrGate.DataObjects.Constraints/
+/EhrBankClient/src/EhrGate.DataObjects.Constraints/bin
+/EhrBankClient/src/EhrGate.DataObjects.Constraints/obj
+
+# /EhrBankClient/src/EhrGate.EhrGateDO/
+/EhrBankClient/src/EhrGate.EhrGateDO/bin
+/EhrBankClient/src/EhrGate.EhrGateDO/obj
+
+# /EhrBankClient/src/EhrGate.EhrGateDO/Xslt/
+/EhrBankClient/src/EhrGate.EhrGateDO/Xslt/Opt2EhrGateDo-with-path-helper.xsl
+/EhrBankClient/src/EhrGate.EhrGateDO/Xslt/path-helper.xsl
+
+# /EhrBankClient/src/EhrGate.EhrProvider/
+/EhrBankClient/src/EhrGate.EhrProvider/bin
+/EhrBankClient/src/EhrGate.EhrProvider/obj
+
+# /EhrBankClient/src/EhrGate.TemplateObjects/
+/EhrBankClient/src/EhrGate.TemplateObjects/bin
+/EhrBankClient/src/EhrGate.TemplateObjects/obj
+
+# /EhrBankClient/src/EhrGate.TemplateObjects.Adapter/
+/EhrBankClient/src/EhrGate.TemplateObjects.Adapter/bin
+/EhrBankClient/src/EhrGate.TemplateObjects.Adapter/obj
+
+# /EhrBankClient/src/EhrGate.TemplateObjects.ExtractSender/
+/EhrBankClient/src/EhrGate.TemplateObjects.ExtractSender/bin
+/EhrBankClient/src/EhrGate.TemplateObjects.ExtractSender/obj
+
+# /EhrBankClient/src/EhrGateSetup/
+/EhrBankClient/src/EhrGateSetup/Debug
+/EhrBankClient/src/EhrGateSetup/Release
+
+# /EhrBankClient/src/EhrGateWs/
+/EhrBankClient/src/EhrGateWs/Bin
+/EhrBankClient/src/EhrGateWs/*.log
+/EhrBankClient/src/EhrGateWs/Web.Config
+
+# /EhrBankClient/src/EhrGateWsClient/
+/EhrBankClient/src/EhrGateWsClient/bin
+/EhrBankClient/src/EhrGateWsClient/obj
+
+# /EhrBankClient/src/EhrGateWsSetup/
+/EhrBankClient/src/EhrGateWsSetup/Debug
+/EhrBankClient/src/EhrGateWsSetup/Release
+/EhrBankClient/src/EhrGateWsSetup/NSIS
+
+# /EhrBankClient/src/EhrReaders/
+/EhrBankClient/src/EhrReaders/bin
+/EhrBankClient/src/EhrReaders/obj
+/EhrBankClient/src/EhrReaders/_UpgradeReport_Files
+/EhrBankClient/src/EhrReaders/UpgradeLog.XML
+
+# /EhrBankClient/src/Kernel/OceanKernel/
+/EhrBankClient/src/Kernel/OceanKernel/obj
+
+# /EhrBankClient/src/KnowledgeRepositoryClient/
+/EhrBankClient/src/KnowledgeRepositoryClient/Bin
+/EhrBankClient/src/KnowledgeRepositoryClient/obj
+/EhrBankClient/src/KnowledgeRepositoryClient/bin
+/EhrBankClient/src/KnowledgeRepositoryClient/_ReSharper.Ocean.KnowledgeRepositoryClient
+/EhrBankClient/src/KnowledgeRepositoryClient/Ocean.KnowledgeRepositoryClient.5.1.ReSharper.user
+/EhrBankClient/src/KnowledgeRepositoryClient/Ocean.KnowledgeRepositoryClient.csproj.user
+/EhrBankClient/src/KnowledgeRepositoryClient/Ocean.KnowledgeRepositoryClient.suo
+
+# /EhrBankClient/src/KnowledgeRepositoryClient.Operational/
+/EhrBankClient/src/KnowledgeRepositoryClient.Operational/bin
+/EhrBankClient/src/KnowledgeRepositoryClient.Operational/obj
+
+# /EhrBankClient/src/VirtualEhr/
+/EhrBankClient/src/VirtualEhr/bin
+/EhrBankClient/src/VirtualEhr/obj
+
+# /EhrBankClient/src/XMLParser/
+/EhrBankClient/src/XMLParser/*.suo
+/EhrBankClient/src/XMLParser/obj
+/EhrBankClient/src/XMLParser/bin
+/EhrBankClient/src/XMLParser/XMLParser.zip
+
+# /EhrBankClient/test/
+/EhrBankClient/test/ConsoleApplication1
+/EhrBankClient/test/lib
+/EhrBankClient/test/EhrGateDOTest.suo
+/EhrBankClient/test/ProfileUnitTests
+/EhrBankClient/test/*.suo
+/EhrBankClient/test/OceanEhrCommonTest
+
+# /EhrBankClient/test/ComposerUnitTest/
+/EhrBankClient/test/ComposerUnitTest/obj
+/EhrBankClient/test/ComposerUnitTest/bin
+
+# /EhrBankClient/test/Dashboard/
+/EhrBankClient/test/Dashboard/bin
+/EhrBankClient/test/Dashboard/obj
+/EhrBankClient/test/Dashboard/Dashboard.sln
+/EhrBankClient/test/Dashboard/Dashboard.suo
+
+# /EhrBankClient/test/EhrGate.EhrProvider.IntegrationTests/
+/EhrBankClient/test/EhrGate.EhrProvider.IntegrationTests/bin
+/EhrBankClient/test/EhrGate.EhrProvider.IntegrationTests/obj
+
+# /EhrBankClient/test/EhrGate.EhrProvider.UnitTests/
+/EhrBankClient/test/EhrGate.EhrProvider.UnitTests/obj
+/EhrBankClient/test/EhrGate.EhrProvider.UnitTests/bin
+/EhrBankClient/test/EhrGate.EhrProvider.UnitTests/*.user
+
+# /EhrBankClient/test/EhrGate.TemplateObjects.Test/
+/EhrBankClient/test/EhrGate.TemplateObjects.Test/bin
+/EhrBankClient/test/EhrGate.TemplateObjects.Test/obj
+/EhrBankClient/test/EhrGate.TemplateObjects.Test/*.user
+
+# /EhrBankClient/test/EhrGateDOTest/EhrGateDOTest/
+/EhrBankClient/test/EhrGateDOTest/EhrGateDOTest/bin
+/EhrBankClient/test/EhrGateDOTest/EhrGateDOTest/obj
+
+# /EhrBankClient/test/EhrGateDataObjectsTest/
+/EhrBankClient/test/EhrGateDataObjectsTest/bin
+/EhrBankClient/test/EhrGateDataObjectsTest/obj
+/EhrBankClient/test/EhrGateDataObjectsTest/*.user
+
+# /EhrBankClient/test/EhrGateLoadTest/
+/EhrBankClient/test/EhrGateLoadTest/obj
+/EhrBankClient/test/EhrGateLoadTest/bin
+
+# /EhrBankClient/test/EhrGateTest/
+/EhrBankClient/test/EhrGateTest/TestResults
+/EhrBankClient/test/EhrGateTest/bin
+/EhrBankClient/test/EhrGateTest/obj
+/EhrBankClient/test/EhrGateTest/app_bk.config
+/EhrBankClient/test/EhrGateTest/*.suo
+/EhrBankClient/test/EhrGateTest/*.user
+/EhrBankClient/test/EhrGateTest/[Bb]in
+/EhrBankClient/test/EhrGateTest/[Dd]ebug
+/EhrBankClient/test/EhrGateTest/[Rr]elease
+/EhrBankClient/test/EhrGateTest/*.aps
+/EhrBankClient/test/EhrGateTest/*.eto
+/EhrBankClient/test/EhrGateTest/EhrGateApiTest.csproj.ReSharper
+
+# /EhrBankClient/test/EhrGateTest/extracts/
+/EhrBankClient/test/EhrGateTest/extracts/*.xml
+
+# /EhrBankClient/test/EhrGateTest/src/
+/EhrBankClient/test/EhrGateTest/src/*.db
+
+# /EhrBankClient/test/EhrGateWs.TdsDemo/
+/EhrBankClient/test/EhrGateWs.TdsDemo/bin
+/EhrBankClient/test/EhrGateWs.TdsDemo/obj
+
+# /EhrBankClient/test/EhrGateWs.UAT/
+/EhrBankClient/test/EhrGateWs.UAT/bin
+/EhrBankClient/test/EhrGateWs.UAT/obj
+/EhrBankClient/test/EhrGateWs.UAT/*.user
+
+# /EhrBankClient/test/EhrGateWs.UAT.Debug/
+/EhrBankClient/test/EhrGateWs.UAT.Debug/bin
+/EhrBankClient/test/EhrGateWs.UAT.Debug/obj
+
+# /EhrBankClient/test/EhrGateWsDemo/
+/EhrBankClient/test/EhrGateWsDemo/*.suo
+/EhrBankClient/test/EhrGateWsDemo/bin
+/EhrBankClient/test/EhrGateWsDemo/obj
+
+# /EhrBankClient/test/EhrGateWsTest/
+/EhrBankClient/test/EhrGateWsTest/bin
+/EhrBankClient/test/EhrGateWsTest/obj
+/EhrBankClient/test/EhrGateWsTest/*.user
+
+# /EhrBankClient/test/HistologyReport/
+/EhrBankClient/test/HistologyReport/bin
+/EhrBankClient/test/HistologyReport/obj
+/EhrBankClient/test/HistologyReport/*.suo
+/EhrBankClient/test/HistologyReport/_UpgradeReport_Files
+/EhrBankClient/test/HistologyReport/Backup
+/EhrBankClient/test/HistologyReport/*.user
+/EhrBankClient/test/HistologyReport/UpgradeLog.XML
+/EhrBankClient/test/HistologyReport/My Project1
+
+# /EhrBankClient/test/HistologyReportSetup/
+/EhrBankClient/test/HistologyReportSetup/Debug
+/EhrBankClient/test/HistologyReportSetup/Release
+
+# /EhrBankClient/test/HistologyReportTno/
+/EhrBankClient/test/HistologyReportTno/bin
+/EhrBankClient/test/HistologyReportTno/*.suo
+/EhrBankClient/test/HistologyReportTno/obj
+
+# /EhrBankClient/test/KnowledgeRepositoryClientTest/
+/EhrBankClient/test/KnowledgeRepositoryClientTest/_ReSharper.FileSystemRepositoryTest
+/EhrBankClient/test/KnowledgeRepositoryClientTest/bin
+/EhrBankClient/test/KnowledgeRepositoryClientTest/FileSystemRepositoryTest.5.1.ReSharper.user
+/EhrBankClient/test/KnowledgeRepositoryClientTest/FileSystemRepositoryTest.csproj.user
+/EhrBankClient/test/KnowledgeRepositoryClientTest/FileSystemRepositoryTest.suo
+/EhrBankClient/test/KnowledgeRepositoryClientTest/obj
+
+# /EhrBankClient/test/LoadTestSetup/
+/EhrBankClient/test/LoadTestSetup/Debug
+/EhrBankClient/test/LoadTestSetup/Release
+
+# /EhrBankClient/test/OceanTransformViewer/
+/EhrBankClient/test/OceanTransformViewer/bin
+/EhrBankClient/test/OceanTransformViewer/obj
+/EhrBankClient/test/OceanTransformViewer/*.suo
+
+# /EhrBankClient/test/OkrProviderTest/
+/EhrBankClient/test/OkrProviderTest/bin
+/EhrBankClient/test/OkrProviderTest/obj
+
+# /EhrBankClient/test/Reporter/
+/EhrBankClient/test/Reporter/bin
+/EhrBankClient/test/Reporter/obj
+
+# /EhrBankClient/test/VirtualEhrQueryTest/
+/EhrBankClient/test/VirtualEhrQueryTest/bin
+/EhrBankClient/test/VirtualEhrQueryTest/obj
+
+# /EhrBankServer/
+/EhrBankServer/lib
+/EhrBankServer/*.suo
+/EhrBankServer/_ReSharper.EhrBankServer.Test
+/EhrBankServer/EhrBankServer.Test.5.1.ReSharper.user
+
+# /EhrBankServer/dbScript/
+/EhrBankServer/dbScript/v1.4-CreateContentArchetype.sql
+
+# /EhrBankServer/doc/
+/EhrBankServer/doc/*.db
+
+# /EhrBankServer/src/
+/EhrBankServer/src/EhrBank.EhrBankWS
+/EhrBankServer/src/EhrBank.EhrBankWsClient
+/EhrBankServer/src/EhrBankWSSecure
+/EhrBankServer/src/lib
+/EhrBankServer/src/*.suo
+/EhrBankServer/src/release
+/EhrBankServer/src/PrecompiledWeb
+
+# /EhrBankServer/src/EhrBank.EhrNotification/
+/EhrBankServer/src/EhrBank.EhrNotification/bin
+/EhrBankServer/src/EhrBank.EhrNotification/obj
+
+# /EhrBankServer/src/EhrBank.EhrServer/
+/EhrBankServer/src/EhrBank.EhrServer/bin
+/EhrBankServer/src/EhrBank.EhrServer/obj
+
+# /EhrBankServer/src/EhrBank.Index/
+/EhrBankServer/src/EhrBank.Index/bin
+/EhrBankServer/src/EhrBank.Index/obj
+
+# /EhrBankServer/src/EhrBank.ehrBankServerActivation/
+/EhrBankServer/src/EhrBank.ehrBankServerActivation/bin
+/EhrBankServer/src/EhrBank.ehrBankServerActivation/obj
+/EhrBankServer/src/EhrBank.ehrBankServerActivation/OceanEhr.EhrBank.EhrServer.DNA.dll
+/EhrBankServer/src/EhrBank.ehrBankServerActivation/*.suo
+
+# /EhrBankServer/src/EhrBankDbSetup/
+/EhrBankServer/src/EhrBankDbSetup/bin
+/EhrBankServer/src/EhrBankDbSetup/obj
+
+# /EhrBankServer/src/EhrBankPersistence/
+/EhrBankServer/src/EhrBankPersistence/bin
+/EhrBankServer/src/EhrBankPersistence/obj
+/EhrBankServer/src/EhrBankPersistence/[Bb]in
+/EhrBankServer/src/EhrBankPersistence/[Dd]ebug
+/EhrBankServer/src/EhrBankPersistence/[Rr]elease
+/EhrBankServer/src/EhrBankPersistence/*.user
+/EhrBankServer/src/EhrBankPersistence/*.aps
+/EhrBankServer/src/EhrBankPersistence/*.eto
+
+# /EhrBankServer/src/EhrBankServer/
+/EhrBankServer/src/EhrBankServer/bin
+/EhrBankServer/src/EhrBankServer/obj
+/EhrBankServer/src/EhrBankServer/[Bb]in
+/EhrBankServer/src/EhrBankServer/[Dd]ebug
+/EhrBankServer/src/EhrBankServer/[Rr]elease
+/EhrBankServer/src/EhrBankServer/*.user
+/EhrBankServer/src/EhrBankServer/*.aps
+/EhrBankServer/src/EhrBankServer/*.eto
+
+# /EhrBankServer/src/EhrBankWS/
+/EhrBankServer/src/EhrBankWS/Bin
+/EhrBankServer/src/EhrBankWS/*.log
+/EhrBankServer/src/EhrBankWS/Logs
+/EhrBankServer/src/EhrBankWS/bin
+/EhrBankServer/src/EhrBankWS/Web.Config
+
+# /EhrBankServer/src/EhrBankWsClient/
+/EhrBankServer/src/EhrBankWsClient/bin
+/EhrBankServer/src/EhrBankWsClient/obj
+/EhrBankServer/src/EhrBankWsClient/wse3policyCache1.config
+/EhrBankServer/src/EhrBankWsClient/EhrService.cs
+
+# /EhrBankServer/src/EhrBankWsSetup/
+/EhrBankServer/src/EhrBankWsSetup/Debug
+/EhrBankServer/src/EhrBankWsSetup/Release
+/EhrBankServer/src/EhrBankWsSetup/NoActivation
+
+# /EhrBankServer/src/FastInfosetSqlPersistence/
+/EhrBankServer/src/FastInfosetSqlPersistence/bin
+/EhrBankServer/src/FastInfosetSqlPersistence/obj
+
+# /EhrBankServer/src/OTSWsClient/
+/EhrBankServer/src/OTSWsClient/bin
+/EhrBankServer/src/OTSWsClient/obj
+
+# /EhrBankServer/src/OceanEhr.EhrBank/
+/EhrBankServer/src/OceanEhr.EhrBank/obj
+/EhrBankServer/src/OceanEhr.EhrBank/bin
+
+# /EhrBankServer/src/PerformanceCounter/
+/EhrBankServer/src/PerformanceCounter/bin
+/EhrBankServer/src/PerformanceCounter/obj
+
+# /EhrBankServer/src/PersistFx/
+/EhrBankServer/src/PersistFx/bin
+/EhrBankServer/src/PersistFx/obj
+
+# /EhrBankServer/src/Persistance/EhrBankPersist/
+/EhrBankServer/src/Persistance/EhrBankPersist/bin
+/EhrBankServer/src/Persistance/EhrBankPersist/obj
+
+# /EhrBankServer/src/Persistance/PersistanceFW/
+/EhrBankServer/src/Persistance/PersistanceFW/bin
+/EhrBankServer/src/Persistance/PersistanceFW/obj
+
+# /EhrBankServer/src/Persistance/Sql2000Persist/
+/EhrBankServer/src/Persistance/Sql2000Persist/bin
+/EhrBankServer/src/Persistance/Sql2000Persist/obj
+
+# /EhrBankServer/src/QueryEngine/EhrBankQueryEngine/
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/bin
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/obj
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/[Bb]in
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/[Dd]ebug
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/[Rr]elease
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/*.user
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/*.aps
+/EhrBankServer/src/QueryEngine/EhrBankQueryEngine/*.eto
+
+# /EhrBankServer/src/Sql2kPersist/
+/EhrBankServer/src/Sql2kPersist/bin
+/EhrBankServer/src/Sql2kPersist/obj
+/EhrBankServer/src/Sql2kPersist/old
+/EhrBankServer/src/Sql2kPersist/[Bb]in
+/EhrBankServer/src/Sql2kPersist/[Dd]ebug
+/EhrBankServer/src/Sql2kPersist/[Rr]elease
+/EhrBankServer/src/Sql2kPersist/*.user
+/EhrBankServer/src/Sql2kPersist/*.aps
+/EhrBankServer/src/Sql2kPersist/*.eto
+
+# /EhrBankServer/test/EhrBank.EhrServer.Nunit/
+/EhrBankServer/test/EhrBank.EhrServer.Nunit/bin
+/EhrBankServer/test/EhrBank.EhrServer.Nunit/obj
+
+# /EhrBankServer/test/EhrBankEx/
+/EhrBankServer/test/EhrBankEx/bin
+/EhrBankServer/test/EhrBankEx/obj
+
+# /EhrBankServer/test/EhrNotificationTest/
+/EhrBankServer/test/EhrNotificationTest/bin
+/EhrBankServer/test/EhrNotificationTest/obj
+
+# /EhrBankServer/test/Sql2kPersist.Test/
+/EhrBankServer/test/Sql2kPersist.Test/obj
+/EhrBankServer/test/Sql2kPersist.Test/bin
+
+# /EhrBankServer/test/TestQueryEngine/
+/EhrBankServer/test/TestQueryEngine/bin
+/EhrBankServer/test/TestQueryEngine/obj
+
+# /EhrCommonTest/
+/EhrCommonTest/bin
+/EhrCommonTest/obj
+
+# /EhrExtract/src/BiztalkProxy/
+/EhrExtract/src/BiztalkProxy/bin
+/EhrExtract/src/BiztalkProxy/obj
+
+# /EhrExtract/src/EhrExtract/
+/EhrExtract/src/EhrExtract/bin
+/EhrExtract/src/EhrExtract/obj
+
+# /EhrExtract/src/EhrExtract.BiztalkProxy/
+/EhrExtract/src/EhrExtract.BiztalkProxy/bin
+/EhrExtract/src/EhrExtract.BiztalkProxy/obj
+
+# /EhrGate.Samples/EhrGate.TemplateObjects.Demo/
+/EhrGate.Samples/EhrGate.TemplateObjects.Demo/bin
+/EhrGate.Samples/EhrGate.TemplateObjects.Demo/obj
+/EhrGate.Samples/EhrGate.TemplateObjects.Demo/*.zip
+/EhrGate.Samples/EhrGate.TemplateObjects.Demo/*.suo
+
+# /EhrGate.Samples/EhrGate.TemplateObjects.Demo/lib/
+/EhrGate.Samples/EhrGate.TemplateObjects.Demo/lib/*.dll
+/EhrGate.Samples/EhrGate.TemplateObjects.Demo/lib/*.xml
+
+# /EhrGate.Samples/EhrGateEx/
+/EhrGate.Samples/EhrGateEx/bin
+/EhrGate.Samples/EhrGateEx/obj
+
+# /EhrGate.Samples/EhrGateExerciser/
+/EhrGate.Samples/EhrGateExerciser/obj
+/EhrGate.Samples/EhrGateExerciser/bin
+/EhrGate.Samples/EhrGateExerciser/_UpgradeReport_Files
+/EhrGate.Samples/EhrGateExerciser/EhrGateExerciser.suo
+
+# /EhrGate.Samples/TemplateDataAdapterDemo/
+/EhrGate.Samples/TemplateDataAdapterDemo/bin
+/EhrGate.Samples/TemplateDataAdapterDemo/obj
+/EhrGate.Samples/TemplateDataAdapterDemo/*.suo
+
+# /EhrGate.Samples/TemplateObjectsWinFormsDemo/
+/EhrGate.Samples/TemplateObjectsWinFormsDemo/bin
+/EhrGate.Samples/TemplateObjectsWinFormsDemo/obj
+/EhrGate.Samples/TemplateObjectsWinFormsDemo/*.suo
+/EhrGate.Samples/TemplateObjectsWinFormsDemo/*.sln
+
+# /EhrIndex/src/EhrIndex/
+/EhrIndex/src/EhrIndex/bin
+/EhrIndex/src/EhrIndex/obj
+
+# /EhrIndex/test/EhrIndexIntegrationTests/
+/EhrIndex/test/EhrIndexIntegrationTests/bin
+/EhrIndex/test/EhrIndexIntegrationTests/obj
+
+# /EhrIndex/test/UnitTests/
+/EhrIndex/test/UnitTests/bin
+/EhrIndex/test/UnitTests/obj
+
+# /EhrPersistConvert/src/EhrPersistConvert/
+/EhrPersistConvert/src/EhrPersistConvert/bin
+/EhrPersistConvert/src/EhrPersistConvert/obj
+/EhrPersistConvert/src/EhrPersistConvert/EhrPersistConvert.suo
+
+# /EhrPersistConvert/src/sourceFile/
+/EhrPersistConvert/src/sourceFile/BaseTypes1.xsd
+/EhrPersistConvert/src/sourceFile/BaseTypes01.xsd
+/EhrPersistConvert/src/sourceFile/EhrPersistConvert.log
+
+# /EhrRules/
+/EhrRules/*.exe
+/EhrRules/EhrRules.5.0.ReSharper.user
+/EhrRules/EhrRules.5.1.ReSharper.user
+/EhrRules/EhrRules.suo
+/EhrRules/_ReSharper.EhrRules
+
+# /EhrRules/EhrNotificationService/
+
+# /EhrRules/src/
+
+# /EhrRules/src/EhrRules/
+/EhrRules/src/EhrRules/bin
+/EhrRules/src/EhrRules/obj
+/EhrRules/src/EhrRules/_ReSharper.EhrRules
+/EhrRules/src/EhrRules/EhrRules.csproj.user
+
+# /EhrRules/src/EhrRules.ConsoleHost/
+/EhrRules/src/EhrRules.ConsoleHost/bin
+/EhrRules/src/EhrRules.ConsoleHost/EhrRules.ConsoleHost.csproj.user
+/EhrRules/src/EhrRules.ConsoleHost/obj
+
+# /EhrRules/src/EhrRules.KnowledgeItems/
+/EhrRules/src/EhrRules.KnowledgeItems/bin
+/EhrRules/src/EhrRules.KnowledgeItems/obj
+
+# /EhrRules/src/EhrRules.Service/
+/EhrRules/src/EhrRules.Service/bin
+/EhrRules/src/EhrRules.Service/EhrRules.Service.csproj.user
+/EhrRules/src/EhrRules.Service/obj
+
+# /EhrRules/src/EhrRules.WinService/
+/EhrRules/src/EhrRules.WinService/bin
+/EhrRules/src/EhrRules.WinService/obj
+/EhrRules/src/EhrRules.WinService/EhrRules.WinService.csproj.user
+
+# /EhrRules/test/EhrRules.EhrNotificationSimulator/
+/EhrRules/test/EhrRules.EhrNotificationSimulator/bin
+/EhrRules/test/EhrRules.EhrNotificationSimulator/EhrRules.EhrNotificationSimulator.csproj.user
+/EhrRules/test/EhrRules.EhrNotificationSimulator/obj
+
+# /EhrRules/test/EhrRules.IntegrationTests/
+/EhrRules/test/EhrRules.IntegrationTests/bin
+/EhrRules/test/EhrRules.IntegrationTests/EhrRules.IntegrationTests.csproj.user
+/EhrRules/test/EhrRules.IntegrationTests/obj
+
+# /EhrRules/test/EhrRules.Tests/
+/EhrRules/test/EhrRules.Tests/bin
+/EhrRules/test/EhrRules.Tests/obj
+/EhrRules/test/EhrRules.Tests/EhrRules.UnitTests.csproj.user
+
+# /EhrView/
+/EhrView/EhrView2.suo
+/EhrView/PrecompiledWeb
+/EhrView/*.suo
+/EhrView/_ReSharper.EhrView2
+/EhrView/EhrView2.4.0.resharper.user
+/EhrView/*.resharper
+/EhrView/*.bat
+
+# /EhrView/src/AspView/
+/EhrView/src/AspView/*.log
+/EhrView/src/AspView/logs
+/EhrView/src/AspView/App_Data
+/EhrView/src/AspView/bin
+/EhrView/src/AspView/Web.Config
+/EhrView/src/AspView/ofm-to-aspnet-fixtest1.xslt
+/EhrView/src/AspView/ofm-to-aspnet-fixtest2.xslt
+/EhrView/src/AspView/ofm-to-aspnet-fixtest3.xslt
+/EhrView/src/AspView/ofm-to-aspnet-fixtest4.xslt
+/EhrView/src/AspView/ofm-to-aspnet-fixtext5.xslt
+/EhrView/src/AspView/Archetypes
+/EhrView/src/AspView/forms_new
+/EhrView/src/AspView/Schemas
+/EhrView/src/AspView/Templates
+/EhrView/src/AspView/Terminology
+/EhrView/src/AspView/*.bak
+
+# /EhrView/src/AspView/App_GlobalResources/
+/EhrView/src/AspView/App_GlobalResources/Thumbs.db
+
+# /EhrView/src/AspView/App_Themes/
+/EhrView/src/AspView/App_Themes/Thumbs.db
+
+# /EhrView/src/AspView/App_Themes/icons/
+/EhrView/src/AspView/App_Themes/icons/Thumbs.db
+
+# /EhrView/src/AspView/Bin/
+/EhrView/src/AspView/Bin/*.dll
+/EhrView/src/AspView/Bin/*.xml
+/EhrView/src/AspView/Bin/*.pdb
+/EhrView/src/AspView/Bin/*.XML
+
+# /EhrView/src/AspView/xslts/
+/EhrView/src/AspView/xslts/hoverable
+/EhrView/src/AspView/xslts/xml
+
+# /EhrView/src/EhrAdmin/
+/EhrView/src/EhrAdmin/TestResults
+/EhrView/src/EhrAdmin/*.suo
+/EhrView/src/EhrAdmin/_ReSharper.EhrAdmin.MvcApplication
+/EhrView/src/EhrAdmin/EhrAdmin.MvcApplication.4.5.resharper.user
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Core/
+/EhrView/src/EhrAdmin/EhrAdmin.Core/bin
+/EhrView/src/EhrAdmin/EhrAdmin.Core/obj
+/EhrView/src/EhrAdmin/EhrAdmin.Core/EhrAdmin.Models.csproj.user
+/EhrView/src/EhrAdmin/EhrAdmin.Core/*.user
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Data/
+/EhrView/src/EhrAdmin/EhrAdmin.Data/bin
+/EhrView/src/EhrAdmin/EhrAdmin.Data/obj
+/EhrView/src/EhrAdmin/EhrAdmin.Data/EhrAdmin.Services.csproj.user
+/EhrView/src/EhrAdmin/EhrAdmin.Data/*.user
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Data.MSSQL/
+/EhrView/src/EhrAdmin/EhrAdmin.Data.MSSQL/bin
+/EhrView/src/EhrAdmin/EhrAdmin.Data.MSSQL/obj
+/EhrView/src/EhrAdmin/EhrAdmin.Data.MSSQL/*.user
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Services/
+/EhrView/src/EhrAdmin/EhrAdmin.Services/bin
+/EhrView/src/EhrAdmin/EhrAdmin.Services/obj
+/EhrView/src/EhrAdmin/EhrAdmin.Services/*.user
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Tests/
+/EhrView/src/EhrAdmin/EhrAdmin.Tests/bin
+/EhrView/src/EhrAdmin/EhrAdmin.Tests/obj
+/EhrView/src/EhrAdmin/EhrAdmin.Tests/EhrAdmin.Tests.csproj.user
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Web/
+/EhrView/src/EhrAdmin/EhrAdmin.Web/bin
+/EhrView/src/EhrAdmin/EhrAdmin.Web/obj
+/EhrView/src/EhrAdmin/EhrAdmin.Web/EhrAdmin.Web.csproj.user
+/EhrView/src/EhrAdmin/EhrAdmin.Web/Bin
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/AccountController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/T4MVC.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/ActionRuleController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/ActionStatementController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/BusinessRule1Controller.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/BusinessRuleController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/CompositionCommittedController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/ConditionExpressionController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/HomeController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/MembershipController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/MRSAController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/PatientController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/RuleController.generated.cs
+/EhrView/src/EhrAdmin/EhrAdmin.Web/T4MVC/SharedController.generated.cs
+
+# /EhrView/src/EhrAdmin/EhrAdmin.Web/logs/
+/EhrView/src/EhrAdmin/EhrAdmin.Web/logs/Multiprac_event.log
+
+# /EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Core/
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Core/bin
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Core/obj
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Core/*.user
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Core/_ReSharper.OceanMVC.Core
+
+# /EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Data.MSSQL/
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Data.MSSQL/bin
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Data.MSSQL/obj
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Data.MSSQL/*.user
+
+# /EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Tests/
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Tests/bin
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Tests/obj
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Tests/*.user
+
+# /EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Web/
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Web/bin
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Web/obj
+/EhrView/src/EhrAdmin/OceanMVC/OceanMVC.Web/*.user
+
+# /EhrView/src/EhrDisplayCommon/
+/EhrView/src/EhrDisplayCommon/obj
+/EhrView/src/EhrDisplayCommon/bin
+
+# /EhrView/src/EhrViewSetup/
+/EhrView/src/EhrViewSetup/EhrView.msi
+/EhrView/src/EhrViewSetup/setup.exe
+
+# /EhrView/src/EhrViewSetup/NSIS/InstallExe/
+/EhrView/src/EhrViewSetup/NSIS/InstallExe/*.exe
+
+# /EhrView/src/View/
+/EhrView/src/View/bin
+/EhrView/src/View/obj
+
+# /EhrView/src/WebControls/
+/EhrView/src/WebControls/bin
+/EhrView/src/WebControls/obj
+
+# /EhrView/test/
+/EhrView/test/*.suo
+
+# /EhrView/test/AjaxControlToolkit/
+/EhrView/test/AjaxControlToolkit/SampleWebSite
+/EhrView/test/AjaxControlToolkit/ToolkitTests
+
+# /EhrView/test/AjaxControlToolkit/AjaxControlToolkit/
+/EhrView/test/AjaxControlToolkit/AjaxControlToolkit/bin
+
+# /EhrView/test/AjaxControlToolkit/AjaxControlToolkit/obj/
+/EhrView/test/AjaxControlToolkit/AjaxControlToolkit/obj/Debug
+/EhrView/test/AjaxControlToolkit/AjaxControlToolkit/obj/Release
+
+# /EhrView/test/EhrDisplayTest/
+/EhrView/test/EhrDisplayTest/bin
+/EhrView/test/EhrDisplayTest/obj
+/EhrView/test/EhrDisplayTest/*.user
+
+# /EhrView/test/EhrEntryTest/Bin/
+/EhrView/test/EhrEntryTest/Bin/AjaxControlToolkit.dll
+/EhrView/test/EhrEntryTest/Bin/AjaxControlToolkit.pdb
+
+# /EhrView/test/EhrViewControlsDemo/Bin/
+/EhrView/test/EhrViewControlsDemo/Bin/*.dll
+/EhrView/test/EhrViewControlsDemo/Bin/*.pdb
+/EhrView/test/EhrViewControlsDemo/Bin/*.xml
+
+# /EqlParser/src/EhrBankQueryObjectModel/
+/EqlParser/src/EhrBankQueryObjectModel/bin
+/EqlParser/src/EhrBankQueryObjectModel/obj
+
+# /EqlParser/src/EqlParser/
+/EqlParser/src/EqlParser/bin
+/EqlParser/src/EqlParser/obj
+
+# /EqlParser/src/moore-modified-klimstra-engine/
+/EqlParser/src/moore-modified-klimstra-engine/bin
+/EqlParser/src/moore-modified-klimstra-engine/obj
+
+# /EqlParser/test/EqlParserTest/
+/EqlParser/test/EqlParserTest/bin
+/EqlParser/test/EqlParserTest/obj
+
+# /Logging/src/
+/Logging/src/*.suo
+
+# /Logging/src/LogAnalyser/
+/Logging/src/LogAnalyser/bin
+/Logging/src/LogAnalyser/obj
+
+# /Logging/src/LogMessenger/
+/Logging/src/LogMessenger/*.sln
+/Logging/src/LogMessenger/_UpgradeReport_Files
+/Logging/src/LogMessenger/Backup
+/Logging/src/LogMessenger/UpgradeLog.XML
+/Logging/src/LogMessenger/bin
+/Logging/src/LogMessenger/obj
+/Logging/src/LogMessenger/LogMessenger.suo
+
+# /Logging/src/LogMessengerSetup/
+/Logging/src/LogMessengerSetup/Debug
+/Logging/src/LogMessengerSetup/Release
+
+# /Logging/src/Logging/
+/Logging/src/Logging/bin
+/Logging/src/Logging/obj
+
+# /OKR/
+/OKR/*.suo
+/OKR/_ReSharper.OperationalKnowledgeService
+/OKR/OperationalKnowledgeService.5.1.ReSharper.user
+
+# /OKR/src/
+/OKR/src/KnowledgeService.Repository
+
+# /OKR/src/KnowledgeRepositoryDbSetup/
+/OKR/src/KnowledgeRepositoryDbSetup/bin
+/OKR/src/KnowledgeRepositoryDbSetup/obj
+
+# /OKR/src/OperationalKnowledgeService/
+/OKR/src/OperationalKnowledgeService/bin
+/OKR/src/OperationalKnowledgeService/copy of IKnowledgeRepositoryService.cs
+/OKR/src/OperationalKnowledgeService/obj
+/OKR/src/OperationalKnowledgeService/*.user
+
+# /OKR/test/KnowledgeService.IntegrationTest/
+/OKR/test/KnowledgeService.IntegrationTest/bin
+/OKR/test/KnowledgeService.IntegrationTest/KnowledgeService.IntegrationTest.csproj.user
+/OKR/test/KnowledgeService.IntegrationTest/obj
+/OKR/test/KnowledgeService.IntegrationTest/*.ReSharper
+
+# /OKR/test/KnowledgeService.UnitTest/
+/OKR/test/KnowledgeService.UnitTest/bin
+/OKR/test/KnowledgeService.UnitTest/KnowledgeService.UnitTest.csproj.user
+/OKR/test/KnowledgeService.UnitTest/obj
+
+# /OpenEhr/
+/OpenEhr/lib
+
+# /OpenEhr/src/
+/OpenEhr/src/EhrBankCommon
+
+# /OpenEhr/src/OpenEhr.V1.ITS.XML/
+/OpenEhr/src/OpenEhr.V1.ITS.XML/bin
+/OpenEhr/src/OpenEhr.V1.ITS.XML/obj
+
+# /OpenEhr/src/openEhrV1/
+/OpenEhr/src/openEhrV1/bin
+/OpenEhr/src/openEhrV1/obj
+/OpenEhr/src/openEhrV1/*.user
+
+# /OpenEhr/src/openEhrV1/Composition/Content/
+/OpenEhr/src/openEhrV1/Composition/Content/HistologyReportSetup
+
+# /OpenEhr/src/openEhrV1/DataTypes/Quantity/DateTime/
+/OpenEhr/src/openEhrV1/DataTypes/Quantity/DateTime/DvDateTime1.cs
+/OpenEhr/src/openEhrV1/DataTypes/Quantity/DateTime/DvDuration1.cs
+
+# /OpenEhr/test/
+/OpenEhr/test/lib
+/OpenEhr/test/New Folder
+
+# /OpenEhr/test/ExpectedOptUpdater/
+/OpenEhr/test/ExpectedOptUpdater/bin
+/OpenEhr/test/ExpectedOptUpdater/obj
+
+# /OpenEhr/test/OpenEhrV1Test/
+/OpenEhr/test/OpenEhrV1Test/bin
+/OpenEhr/test/OpenEhrV1Test/obj
+/OpenEhr/test/OpenEhrV1Test/*.user
+/OpenEhr/test/OpenEhrV1Test/*.suo
+/OpenEhr/test/OpenEhrV1Test/_UpgradeReport_Files
+
+# /OpenEhr/test/TerminologyServiceRealisationTest/
+/OpenEhr/test/TerminologyServiceRealisationTest/obj
+/OpenEhr/test/TerminologyServiceRealisationTest/bin
+/OpenEhr/test/TerminologyServiceRealisationTest/*.user
+
+# /ReportExtract/
+/ReportExtract/RptExtSolution.suo
+
+# /WinService/
+/WinService/EhrService.suo
+/WinService/_ReSharper.WinService
+/WinService/WinService.5.0.ReSharper.user
+/WinService/WinService.5.1.ReSharper.user
+/WinService/WinService.suo
+
+# /WinService/src/WinService/
+/WinService/src/WinService/bin
+/WinService/src/WinService/obj
+/WinService/src/WinService/WinService.csproj.user
+
+# /WinService/src/WinService.AppModuleClient/
+/WinService/src/WinService.AppModuleClient/Bin
+/WinService/src/WinService.AppModuleClient/EhrService.AppModuleClient.csproj.user
+/WinService/src/WinService.AppModuleClient/obj
+/WinService/src/WinService.AppModuleClient/bin
+/WinService/src/WinService.AppModuleClient/WinService.AppModuleClient.csproj.user
+
+# /WinService/src/WinService.ConsoleHost/
+/WinService/src/WinService.ConsoleHost/bin
+/WinService/src/WinService.ConsoleHost/obj
+
+# /WinService/src/WinService.ServiceHost/
+/WinService/src/WinService.ServiceHost/bin
+/WinService/src/WinService.ServiceHost/obj
+
+# /WinService/src/WinService.Setup/
+/WinService/src/WinService.Setup/Debug
+/WinService/src/WinService.Setup/Release
+
+# /WinService/src/WinService.WinFormClient/
+/WinService/src/WinService.WinFormClient/bin
+/WinService/src/WinService.WinFormClient/obj
+
+# /WinService/test/WinService.Tests/
+/WinService/test/WinService.Tests/bin
+/WinService/test/WinService.Tests/obj
+
+# /distrib/Business Objects/bin_12/
+
+# /distrib/CastleWindsor/
+/distrib/CastleWindsor/castleproject-Castle.Facilities.NHibernateIntegration-aef2d2e
+
+# /distrib/Microsoft CUI/src/
+/distrib/Microsoft CUI/src/Main.suo
+
+# /distrib/Microsoft CUI/src/NhsCui.Toolkit/
+/distrib/Microsoft CUI/src/NhsCui.Toolkit/bin
+/distrib/Microsoft CUI/src/NhsCui.Toolkit/obj
+
+# /distrib/Microsoft CUI/src/NhsCui.Toolkit.Web/
+/distrib/Microsoft CUI/src/NhsCui.Toolkit.Web/bin
+/distrib/Microsoft CUI/src/NhsCui.Toolkit.Web/obj
+
+# /distrib/Microsoft CUI/src/NhsCui.Toolkit.WinForms/
+/distrib/Microsoft CUI/src/NhsCui.Toolkit.WinForms/bin
+/distrib/Microsoft CUI/src/NhsCui.Toolkit.WinForms/obj
+
+# /doc/
+/doc/Thumbs.db
+
+# /doc/images/
+/doc/images/Thumbs.db
+
+# /knowledge/
+
+# /knowledge/DemographicService/
+/knowledge/DemographicService/*.adls
+
+# /knowledge/deploy/
+/knowledge/deploy/Forms
+
+# /knowledge/test/
+/knowledge/test/Forms
+
+# /knowledge/test/Archetypes/
+/knowledge/test/Archetypes/evaluation
+/knowledge/test/Archetypes/observation
+/knowledge/test/Archetypes/WinControls
+
+# /knowledge/test/Archetypes/composition/
+/knowledge/test/Archetypes/composition/*.adlx
+/knowledge/test/Archetypes/composition/*.html
+/knowledge/test/Archetypes/composition/openEHR-EHR-COMPOSITION.fxgh.v1.adl
+/knowledge/test/Archetypes/composition/openEHR-EHR-COMPOSITION.gfd.v1.adl
+
+# /knowledge/test/Archetypes/entry/evaluation/
+/knowledge/test/Archetypes/entry/evaluation/openEHR-EHR-EVALUATION.goal.v1.adlx
+/knowledge/test/Archetypes/entry/evaluation/openEHR-EHR-EVALUATION.goal.v1.html
+/knowledge/test/Archetypes/entry/evaluation/openEHR-EHR-EVALUATION.injury.v1.html
+/knowledge/test/Archetypes/entry/evaluation/*.html
+/knowledge/test/Archetypes/entry/evaluation/*.adlx
+
+# /knowledge/test/Archetypes/entry/instruction/
+/knowledge/test/Archetypes/entry/instruction/*.adlx
+
+# /knowledge/test/Archetypes/entry/observation/
+/knowledge/test/Archetypes/entry/observation/exception_trace.log
+/knowledge/test/Archetypes/entry/observation/*.html
+/knowledge/test/Archetypes/entry/observation/*.adlx
+
+# /knowledge/test/Archetypes/section/
+/knowledge/test/Archetypes/section/*.html
+
+# /knowledge/test/Templates/
+/knowledge/test/Templates/demo_dv_interval_test.cs
+/knowledge/test/Templates/tmp_1090_test.cs
+
+/Assemblies
+*.lnk
+*.cache
+*.suo
+/Common/OceanEhr.Common.DatabaseSetup/obj
+/Common/Test/CachingTests/bin
+/Common/Test/CachingTests/obj
+/EhrAuditLog/src/EhrAuditLogDbSetup/obj
+EhrBankClient/test/EhrGateTest/*.tmp
+/EhrBankServer/src/EhrBankWcfClient/bin
+EhrBankServer/src/EhrBankWcfClient/*.tmp
+/EhrBankServer/src/EhrBankWcfService/bin
+/EhrBankServer/src/EhrBankWcfClient/obj
+/EhrBankServer/src/EhrBankWcfService/obj
+EhrBankServer/src/EhrBankWcfService/*.tmp
+/EhrBankServer/src/EhrBankWcfService/Logs
+EhrBankServer/src/EhrBankWcfService/XmlSerializable/*.tmp
+EhrBankServer/src/OceanEhr.EhrBank/*.tmp
+/EhrBankServer/test/EhrBankWcfTests/bin
+/EhrBankServer/test/EhrBankWcfTests/obj
+/EhrRules/src/EpadtAccessor/bin
+/EhrRules/src/EpadtAccessor/obj
+/Licensing/Ocean.Licensing/bin
+/Licensing/Ocean.Licensing/obj
+/Licensing/OceanEhr.Licensing.Generator/obj
+/Licensing/OceanEhr.Licensing.Generator/bin
+/MutableOpenEhr/src/openEhrV1/bin
+/MutableOpenEhr/src/openEhrV1/obj
+EhrBankClient/src/EhrGate.EhrProvider/*.tmp
+EhrBankClient/test/EhrGate.EhrProvider.IntegrationTests/EhrGate.EhrProvider.IntegrationTests_debug.csproj.user
+EhrBankClient/test/EhrGate.EhrProvider.IntegrationTests/*.tmp
+EhrIndex/src/EhrIndex/EhrIndex.debug.csproj.user
+EhrBankServer/src/EhrBankDbSetup/EhrBankDbSetup.csproj.user
+EhrBankServer/src/EhrBankDbSetup/*.tmp
+EhrBankServer/src/EhrBank.StaticEhrNotification/obj
+Common/OceanEhr.Common.DatabaseSetup/bin
+EhrAuditLog/src/EhrAuditLogDbSetup/bin
+EhrBankServer/src/EhrBank.StaticEhrNotification/bin
+AppFx/Src/Modules/EhrView/*.user
+EhrBankServer/src/Sql2kPersist/*.tmp
+EhrAuditLog/src/EhrAuditLogDbSetup/*.user
+EhrBankServer/src/EhrBankWcfService/*.user
+EhrBankServer/test/EhrBankWcfTests/*.user
+Demographics/src/DemographicService/DemographicService.Repository.MPIC/bin
+Demographics/src/DemographicService/DemographicService.Repository.MPIC/obj
