@@ -53,10 +53,14 @@ namespace OpenEhr.RM.DataTypes.Quantity
             DvQuantified<T> quantifiedObj = obj as DvQuantified<T>;
             Check.Require(quantifiedObj!=null && this.IsStrictlyComparableTo(quantifiedObj));
 
+            double thisMagnitude = this.GetMagnitude();
+            double objMagnitude = quantifiedObj.GetMagnitude();
 
-            if (this.GetMagnitude() > quantifiedObj.GetMagnitude())
+            //if (this.GetMagnitude() > quantifiedObj.GetMagnitude())
+            if(thisMagnitude >objMagnitude)
                 return 1;
-            else if (this.GetMagnitude() < quantifiedObj.GetMagnitude())
+            //else if (this.GetMagnitude() < quantifiedObj.GetMagnitude())
+            else if(thisMagnitude <objMagnitude)
                 return -1;
             else
                 return 0;
